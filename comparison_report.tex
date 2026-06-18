@@ -1,0 +1,51 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{amsmath,amssymb,booktabs,graphicx,geometry,xcolor,subcaption,multirow}
+\usepackage[colorlinks=true, allcolors=ieee]{hyperref}
+\geometry{margin=0.75in}
+\definecolor{ieee}{RGB}{0,83,159}
+
+\title{\textbf{Comparative Analysis of BFT Consensus Frameworks\\for Secured Smart Grid Energy Trading}\\[6pt]
+\large A Four-Group Evaluation Using the Static-Temporal Security Framework\\[4pt]}
+\author{%
+VJTI Mumbai --- Final Project Report\\
+Department of Electrical Engineering
+}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper presents a rigorous comparative analysis of Byzantine Fault Tolerant (BFT) consensus algorithms for securing Electric Vehicle (EV) energy trading on IEEE 33-bus distribution systems. We evaluate eight consensus protocols across four evolutionary groups---Baselines (OM($m$), Classic PBFT), Enterprise Consortium (IBFT~2.0, QBFT), Node-Clustered Energy PBFT (CE-PBFT, G-PBFT, SV-PBFT), and Next-Generation Sub-Second frameworks (Tower~BFT, RVR Consensus)---through the lens of Sheikh et al.'s probabilistic attack model (Eq.~14--21) extended with the Static-Temporal Security Framework (STSF). Our analysis demonstrates that \emph{consensus latency} is the decisive security parameter: Group~1 baselines suffer $P_{temporal} \approx 0.987$ (effectively guaranteed compromise), while Group~4 protocols achieve $P_{secure} \geq 0.98$ by collapsing the temporal attack window to $N \leq 4$ independent at
+<truncated 7978 bytes>
+ PBFT}
+
+\textbf{Algorithms:} CE-PBFT \cite{ding2024}, G-PBFT \cite{xu2025}, SV-PBFT \cite{suo2025}.
+
+\textbf{Algorithmic Parameters:} These models partition the massive sensor grid into small, isolated committees ($c$) using spectral clustering, geohashing, or vehicle-to-vehicle reputation. Cluster sizes typically range from $c = 20$ to $c = 30$, with latency $L \approx 400$--$800$ ms.
+
+\textbf{Key Modification to STSF:} The communication channel count changes from global to localized:
+\begin{equation}
+k_1^{cluster} = \frac{c(c-1)}{2} \quad \text{vs} \quad k_1^{global} = \frac{n_{sen}(n_{sen}-1)}{2}
+\end{equation}
+
+For CE-PBFT with $c = 25$: $k_1^{cluster} = 300$ vs $k_1^{global} = 7{,}426{,}681$. This dramatically reduces $P_{CAb}$, protecting against communication path exploits.
+
+\textbf{Temporal Results:}
+\begin{align}
+N_{CE} &= 16, \quad P_{temporal}^{CE} \approx 0.077 \\
+N_{G} &= 13, \quad P_{temporal}^{G} \approx 0.063 \\
+N_{SV} &= 10, \quad P_{temporal}^{SV} \approx 0.049
+\end{align}
+
+\textbf{Result:} $P_{secure}$ ranges from $0.923$ to $0.951$, approaching but not reaching the $0.98$ target threshold.
+
+\subsection{Group 4: Next-Gen Sub-Second --- Tower BFT \& RVR}
+
+\textbf{Algorithmic Parameters:} Tower~BFT \cite{yakovenko2018} replaces step-by-step consensus messaging with a Proof of History (PoH) Verifiable Delay Function (VDF) clock, achieving $\mathcal{O}(n)$ message complexity. RVR Consensus \cite{wang2025} uses Verifiable Random Functions (VRF) for cryptographically hidden leader election.
+
+\textbf{Latency Model:}
+\begin{align}
+L_{TBFT} &= L_{base} + L_{attack} + f(\alpha\tau) + \frac{f}{n}L_{vc} \leq 242.9\text{ ms} \\
+L_{RVR} &\approx 200\text{ ms (VRF + weighted random)}
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

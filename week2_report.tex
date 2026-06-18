@@ -1,0 +1,71 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{amsmath,amssymb,booktabs,graphicx,geometry,xcolor,subcaption}
+\usepackage[colorlinks=true, allcolors=ieee]{hyperref}
+\geometry{margin=0.75in}
+\definecolor{ieee}{RGB}{0,83,159}
+
+\title{\textbf{Week 2: Applying and Comparing BFT Models}\\[6pt]
+\large OM(m) vs.\ Tower BFT in EV Energy Trading\\[4pt]
+\normalsize Based on: Sheikh et al., IEEE Access, 2020}
+\author{Week 2 Report}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+% ══════════════════════════════════════════════════════════════════
+\section{Introduction}
+% ══════════════════════════════════════════════════════════════════
+
+In Week~1, we identified six literature gaps and four vulnerabilities in
+Sheikh et al.'s OM($m$)-based consensus framework for EV energy trading.
+In this report, we address Gap~G6 by implementing and comparing two
+consensus models:
+
+\begin{enumerate}
+\item \textbf{OM($m$)} --- Paper's baseline (Lamport et al., 1982)
+\item \textbf{Tower BFT} --- Our proposed extension
+\end{enumerate}
+
+The primary focus is on a direct performance and security comparison between \textbf{OM($m$) and Tower BFT}.
+
+\subsection{Our Methodology}
+
+Sheikh et al
+<truncated 17105 bytes>
+reviewers in tracing our novel enhancements to Sheikh et al.'s original probabilistic model, we provide a direct mapping of our contributions in Table \ref{tab:mapping}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Enhancement} & \textbf{Affected Equation} \\
+\midrule
+Tower BFT Pipeline & $L_{OM} \rightarrow L_{TBFT}$ \\
+STSF Formulation & New Unified Metric: $P_{secure}$ \\
+Shamir Secret Sharing & $P_R \rightarrow P_{R,shamir}$ \\
+MPC Thresholds & $P_R \rightarrow P_{R,MPC}$ \\
+Multisig Architectures & $P_R \rightarrow P_{R,multi}$ \\
+\bottomrule
+\end{tabular}
+\caption{Mapping novel contributions to the baseline framework.}
+\label{tab:mapping}
+\end{table}
+
+% ══════════════════════════════════════════════════════════════════
+\section{Conclusion}
+% ══════════════════════════════════════════════════════════════════
+
+Using the \emph{exact same} IEEE 33-bus EV energy trading parameters from
+Sheikh et al.\ ($n{=}51$, $f{\leq}16$, $n_{sen}{=}3854$), Tower BFT achieves:
+\begin{itemize}
+\item Latency bounds of $100.2$\,ms to $242.9$\,ms dynamically adapting to Byzantine attacks.
+\item Near-zero vulnerability under the Static-Temporal Security Framework ($P_{secure} \approx 1.0$).
+\item Complete immunity to the recursive latency explosions that paralyze OM($m$).
+\end{itemize}
+
+All performance and security metrics have been derived purely through closed-form probabilistic models, eliminating simulation variance and directly mapping algorithm properties to the paper's parameters.
+
+\end{document}
+
+The above content shows the entire, complete file contents of the requested file.

@@ -1,0 +1,43 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{amsmath,amssymb,booktabs,graphicx,geometry,xcolor,subcaption,multirow}
+\usepackage[colorlinks=true, allcolors=ieee]{hyperref}
+\geometry{margin=0.75in}
+\definecolor{ieee}{RGB}{0,83,159}
+
+\title{\textbf{Week 3: Comprehensive Four-Group BFT Comparison and Temporal Critique}\\[6pt]
+\large Resolving the Temporal Vulnerability Window in Secured Smart Grid Energy Trading\\[4pt]
+\normalsize Based on: Sheikh et al., ``Secured Energy Trading Using Byzantine-Based Blockchain Consensus,'' IEEE Access, 2020}
+\author{%
+VJTI Mumbai --- Week 3 Research Report\\
+Department of Electrical Engineering
+}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This report details the Week 3 progress on evaluating and enhancing the Byzantine Fault Tolerant (BFT) consensus frameworks used in smart grid energy trading. We extend our analysis to eight consensus protocols categorized into four distinct groups: Classical Full-Mesh Byzantine Agreement (CFM-BA), Committee-Delegated Consortium Consensus (CDC-C), Hierarchical Topologically-Clustered PBFT (HTC-PBFT), and Sub-Second Pipelined \& Randomized BFT (SS-PR-BFT) frameworks. We formulate the Static-Temporal Security Framework (STSF) to critique the baseline model of Sheikh et al. (2020). We mathematically prove that while the baseline OM($m$) algorithm guarantees static security, its $\mathcal{O}(n^m)$ message complexity leads to an exponential latency of 43.35 seconds, creating an enormo
+<truncated 14074 bytes>
+ive analysis demonstrates that consensus latency is the critical parameter governing grid security. While Sheikh's static security threshold is highly secure in theory, its practical implementation via OM($m$) collapses under temporal exposure. 
+
+We propose a deployment roadmap based on network maturity:
+\begin{enumerate}
+\item \textbf{Legacy Microgrids}: Deploy Group 3 (CE-PBFT/SV-PBFT) to achieve $P_{secure} > 0.92$ without requiring sub-millisecond network synchronization.
+\item \textbf{5G-Enabled Smart Grids}: Deploy Group 4 (Tower BFT/RVR) to enforce $P_{secure} \geq 0.98$ and support real-time market trading at 250 TPS.
+\end{enumerate}
+
+\begin{thebibliography}{99}
+\bibitem{sheikh2020} A. Sheikh et al., ``Secured Energy Trading Using Byzantine-Based Blockchain Consensus,'' \emph{IEEE Access}, vol. 8, 2020.
+\bibitem{lamport1982} L. Lamport et al., ``The Byzantine Generals Problem,'' \emph{ACM TOPLAS}, vol. 4, no. 3, 1982.
+\bibitem{castro1999} M. Castro and B. Liskov, ``Practical Byzantine Fault Tolerance,'' in \emph{Proc. OSDI}, 1999.
+\bibitem{ding2024} X. Ding et al., ``CE-PBFT: An Optimized PBFT Consensus Algorithm for Microgrid Power Trading,'' \emph{IEEE Trans. Smart Grid}, 2024.
+\bibitem{xu2025} Z. Xu et al., ``G-PBFT Algorithm and its Application in Distributed Energy Trading,'' \emph{Applied Energy}, 2025.
+\bibitem{suo2025} Y. Suo et al., ``SV-PBFT: An Efficient and Stable Blockchain PBFT Improved Consensus Algorithm for Vehicle-to-Vehicle Energy Transactions,'' \emph{IEEE IoT Journal}, 2025.
+\bibitem{yakovenko2018} A. Yakovenko, ``Solana: A new architecture for a high performance blockchain,'' 2018.
+\bibitem{wang2025} H. Wang et al., ``RVR Blockchain Consensus: A Verifiable, Weighted-Random, Byzantine-Tolerant Framework for Smart Grid Energy Trading,'' \emph{IEEE TPDS}, 2025.
+\end{thebibliography}
+
+\end{document}
+
+The above content shows the entire, complete file contents of the requested file.

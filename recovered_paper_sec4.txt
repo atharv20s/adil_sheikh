@@ -1,0 +1,57 @@
+ ====== PAGE 7 ======
+ A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+ FIGURE5. TherepresentationoftheBlockchainbasedcommunicationwithDNandEVparkinglotasaP2Pnetwork.
+ The nodes in the P2P network are the number of EVs
+ participatinginsatisfyingthedemandoftheDN.Theenergy
+ demandisassumedtobeevenlydistributedamongthenum-
+ berofparticipatingEVsandnotextractedfromasingleEV
+ as it may result into battery degradation if the same EV is
+ askedtodischargeandmeettherequirementseveryday.Let
+ theenergydemandfromDNbeD ,theamountofenergy
+ dem
+ neededfromeachEV,Ei,isgivenby,
+ FIGURE6. Energyandtransactionsflowduringlowandpeakdemand.
+ utilized during peak load hours to support the grid from Ei = D dem (6)
+ partiallyoverloading. EV
+ p
+ A. MATHEMATICALFORMULATIONOFENERGY AlltheparticipatingEV p maynothavethedesiredSOCto
+ TRADINGBETWEENDNANDEV deliveri.e.C r i em ΓëñE n i andifthisisthecasethentheminimum
+ The EVs with a minimum initial state of charge (SOC) i.e. C r i em amongtheEVswillbetheaggregatevaluewhichwill
+ SOCi greater than or equal to 75% of EVs full charge, becontributedbyallofthem.
+ denot in e i d t asCi,willonlyparticipateintheprocess. TheC r r em =min{C r i em }whereC r r em istheminimumcharge
+ F
+ amongallparticipatingEVs.Thiswillleadtothedischarge
+ SOC i i nit ΓëÑ0.75C F , i=1,2,...,EV p ,...,EV n (3) ofoneoftheEVswithonlySOCi leftforutilizationand
+ reach
+ whereEV n isthenumberofEVsintheparkinglotandEV p (EV p ΓêÆ1)numberofEVstosuff
+<truncated 14830 bytes>
+ aspect
+ scenarioII. ofblockchainassuressystemsecurity.
+ energyavailableis130kWhwhichcaneasilysatisfytheD B. CASE2:SECURINGDIFFERENTNODES
+ atk
+ i.e.50kWh.EVsstartstofeedtherequiredpowerandsatisfy OFTHEPROPOSEDMODEL
+ the false requirements of DN. However, it can be seen that Considering the N-node system and possible attacks at four
+ duetomanipulateddemandtherequirementofDNremains different points in the proposed network system. As shown
+ unsatisfied as shown in Fig 12. This may give rise to the inFig.14theattackcanoccurasfollows,
+ adversarialeffectonthesystemwhichresultsinperformance i) Attackonsensordata/sendernode
+ deterioration of the system and may consequently lead to a ii) AttackonCommunicationlinks
+ blackout. iii) ManipulationintheSCADAinformation
+ iv) Attackonactuators/receiverend
+ 3) SCENARIOIII-COMMUNICATIONBETWEENEVsAND The IEEE 33 bus system consists of 33-nodes and
+ DNWITHFALSEDATA(WHEN (cid:80) Ci <D ) 32 branches. It is assumed that the parking lot has 50 EVs
+ rem atk
+ Considering the operating scenario with D from DN as parked at the time of energy trading. The total number of
+ dem
+ 100 kWh and the false data communicated (D ) to EVs sensorsinthisnetworkedsystemiscalculatedbyconsidering
+ atk
+ indicating DN requirement as 250 kWh. As the total power the total number of sensors required for DN (nDN) as well
+ sen
+ available by EVs is 130 kWh it would be obviously utilized asconsideringthetotalnumberofsensorsrequiredforEVs
+ tofulfill(false)gridrequirement.ItcanbeseenfromFig.13 parking lot (nEV). While calculating (nDN) the following
+ sen sen
+ that the DN requirement of 100 kWh is satisfied, however, featuresareconsidered[44]:Forreadingparameterssuchas
+ surpluspowerfedbyEVsleadstoover-compensationofDN voltage, current, power etc. a sensor is placed at each node
+ 8564 VOLUME8,2020
+ 
+ 
+The above content shows the entire, complete file contents of the requested file.

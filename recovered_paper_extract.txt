@@ -1,0 +1,54 @@
+ ====== PAGE 7 ======
+ A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+ FIGURE5. TherepresentationoftheBlockchainbasedcommunicationwithDNandEVparkinglotasaP2Pnetwork.
+ The nodes in the P2P network are the number of EVs
+ participatinginsatisfyingthedemandoftheDN.Theenergy
+ demandisassumedtobeevenlydistributedamongthenum-
+ berofparticipatingEVsandnotextractedfromasingleEV
+ as it may result into battery degradation if the same EV is
+ askedtodischargeandmeettherequirementseveryday.Let
+ theenergydemandfromDNbeD ,theamountofenergy
+ dem
+ neededfromeachEV,Ei,isgivenby,
+ FIGURE6. Energyandtransactionsflowduringlowandpeakdemand.
+ utilized during peak load hours to support the grid from Ei = D dem (6)
+ partiallyoverloading. EV
+ p
+ A. MATHEMATICALFORMULATIONOFENERGY AlltheparticipatingEV p maynothavethedesiredSOCto
+ TRADINGBETWEENDNANDEV deliveri.e.C r i em ΓëñE n i andifthisisthecasethentheminimum
+ The EVs with a minimum initial state of charge (SOC) i.e. C r i em amongtheEVswillbetheaggregatevaluewhichwill
+ SOCi greater than or equal to 75% of EVs full charge, becontributedbyallofthem.
+ denot in e i d t asCi,willonlyparticipateintheprocess. TheC r r em =min{C r i em }whereC r r em istheminimumcharge
+ F
+ amongallparticipatingEVs.Thiswillleadtothedischarge
+ SOC i i nit ΓëÑ0.75C F , i=1,2,...,EV p ,...,EV n (3) ofoneoftheEVswithonlySOCi leftforutilizationand
+ reach
+ whereEV n isthenumberofEVsintheparkinglotandEV p (EV p ΓêÆ1)numberofEVstos
+<truncated 34282 bytes>
+tabilizingthegridtosupportinglarge-scalerenewableenergy,ΓÇÖΓÇÖJ.Power
+ loosesynchronyisneeded.Onanotherhand,intheBFTthe Sour.,vol.144,no.1,pp.280ΓÇô294,Jun.2005.
+ physicalclockforconsensusisobsolete.Inthis,theconsen- [12] C.GuilleandG.Gross,ΓÇÿΓÇÿAconceptualframeworkforthevehicle-to-grid
+ (V2G)implementation,ΓÇÖΓÇÖEnergyPolicy,vol.37,no.11,pp.4379ΓÇô4390,
+ susisdifficulttoachieveinthepresenceofafaultynodein
+ Nov.2009.
+ anasynchronoussystem.
+ [13] E.SortommeandM.A.El-Sharkawi,ΓÇÿΓÇÿOptimalschedulingofvehicle-to-
+ TheadvantagesofBFTconsensusoverPoWaresumma- gridenergyandancillaryservices,ΓÇÖΓÇÖIEEETrans.SmartGrid,vol.3,no.1,
+ rizedinTable7. pp.351ΓÇô359,Mar.2012.
+ [14] E.KeaneandD.Flynn,ΓÇÿΓÇÿPotentialforelectricvehiclestoprovidepower
+ systemreserve,ΓÇÖΓÇÖinProc.IEEEPESInnov.SmartGridTechnol.(ISGT),
+ VII. CONCLUSION Jan.2012,pp.1ΓÇô7.
+ Inthispaper,aByzantinebasedblockchainconsensusframe- [15] A.K.Srivastava,B.Annabathina,andS.Kamalasadan,ΓÇÿΓÇÿThechallenges
+ andpolicyoptionsforintegratingplug-inhybridelectricvehicleintothe
+ work for the enhancement of data security of the energy
+ electricgrid,ΓÇÖΓÇÖElectr.J.,vol.23,no.3,pp.83ΓÇô91,Apr.2010.
+ tradingprocessbetweenEVsandDNisproposed.Thesys- [16] K.Clement-Nyns,E.Haesen,andJ.Driesen,ΓÇÿΓÇÿTheimpactofcharging
+ tem first formulates the energy trading process in terms of plugΓÇôinhybridelectricvehiclesonaresidentialdistributiongrid,ΓÇÖΓÇÖIEEE
+ Trans.PowerSyst.,vol.25,no.1,pp.371ΓÇô380,Feb.2010.
+ BGPandthenblockchainisappliedtothesystemforsecur-
+ [17] C.Wu,H.Mohsenian-Rad,andJ.Huang,ΓÇÿΓÇÿVehicle-to-aggregatorinterac-
+ ing the trading process. The effectiveness of blockchain is tiongame,ΓÇÖΓÇÖIEEETrans.SmartGrid,vol.3,no.1,pp.434ΓÇô442,Mar.2012.
+ VOLUME8,2020 8569
+ 
+ 
+The above content shows the entire, complete file contents of the requested file.

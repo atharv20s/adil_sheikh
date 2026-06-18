@@ -1,0 +1,676 @@
+﻿====== PAGE 7 ======
+A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+FIGURE5. TherepresentationoftheBlockchainbasedcommunicationwithDNandEVparkinglotasaP2Pnetwork.
+The nodes in the P2P network are the number of EVs
+participatinginsatisfyingthedemandoftheDN.Theenergy
+demandisassumedtobeevenlydistributedamongthenum-
+berofparticipatingEVsandnotextractedfromasingleEV
+as it may result into battery degradation if the same EV is
+askedtodischargeandmeettherequirementseveryday.Let
+theenergydemandfromDNbeD ,theamountofenergy
+dem
+neededfromeachEV,Ei,isgivenby,
+FIGURE6. Energyandtransactionsflowduringlowandpeakdemand.
+utilized during peak load hours to support the grid from Ei = D dem (6)
+partiallyoverloading. EV
+p
+A. MATHEMATICALFORMULATIONOFENERGY AlltheparticipatingEV p maynothavethedesiredSOCto
+TRADINGBETWEENDNANDEV deliveri.e.C r i em ΓëñE n i andifthisisthecasethentheminimum
+The EVs with a minimum initial state of charge (SOC) i.e. C r i em amongtheEVswillbetheaggregatevaluewhichwill
+SOCi greater than or equal to 75% of EVs full charge, becontributedbyallofthem.
+denot in e i d t asCi,willonlyparticipateintheprocess. TheC r r em =min{C r i em }whereC r r em istheminimumcharge
+F
+amongallparticipatingEVs.Thiswillleadtothedischarge
+SOC i i nit ΓëÑ0.75C F , i=1,2,...,EV p ,...,EV n (3) ofoneoftheEVswithonlySOCi leftforutilizationand
+reach
+whereEV n isthenumberofEVsintheparkinglotandEV p (EV p ΓêÆ1)numberofEVstosufficetheremainingdemand.
+is the total number of participating EVs in energy trading The energy left to be supplied will again be equally dis-
+process. Let the distance from the parking lot to the next tributedamongthe(EV p ΓêÆ1)vehicles.
+charging point destination for an EV be di and state of The E sup is energy supplied by the participating EVs
+EV
+chargerequiredperkmbeSOCi .TheSOCrequiredtotravel representedby,
+km
+fromtheparkinglottothedestinationisdenotedas,
+E =Cr ├ùEV (7)
+SOCi =di ├ùSOCi (4) sup rem p
+reach EV km
+The charge left Ci after excluding the SOCi and a Theenergylefttobesuppliedisgivenas,
+rem reach
+tolerance of ┬▒10% of full charge, Ci is represented in (5)
+F D =D ΓêÆE (8)
+whichistheenergythatanEVcontributestotheDN, left dem sup
+C r i em =SOC i i nit ΓêÆSOC r i each ΓêÆ0.1C F i (5) ThiswillcontinueuntiltheDNrequirementsaremet.
+8560 VOLUME8,2020
+
+====== PAGE 8 ======
+A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+B. ROLEOFBLOCKCHAININSECURINGENERGY
+TRADINGBETWEENEVsANDDN
+TheenergytradingbetweenEVsandDNcanbeconsidered
+equivalenttotraditionaltradingbetweenconsumersandmer-
+chant.Incontrasttothetraditionaltradingofanycommodity,
+electricity market needs to produce the energy at the same
+instancewhenitisrequiredandstoringhaslimitedoptions.
+Similarly,inthetraditionalmarket,foranyfinancialtransac-
+tions, the secure payment system will protect any financial
+loss for a person or organization. Contrary to this, in the
+energy market, not only transactional details are important
+butalsoenergyflowinformationisimportant,asanyattack
+ondata,mayleadtoparalyzedgridaffectinglargerpopulation FIGURE7. SecuringenergytradingbetweenEVandDNusingByzantine
+withnoelectricity,inturncausinghugelossequivalenttoa basedconsensus.
+blackout.
+The major difference between the traditional trading and
+EV-DN trading is that here the role of merchant-consumers
+keeps on interchanging depending on the load condition of
+thegrid.TheEVsactasamerchantandDNactasconsumers
+during peak demand on the grid whereas EVs act as a con-
+sumerandDNactasamerchantduringlowdemandonthe
+grid as shown in Fig. 6. The scenario of energy trading is
+initiatedbetweenEVandDNwhendemandongridincreases
+whichresultsinabidirectionalflowofinformationbetween
+EVsandDN.Thisbidirectionaltradingtakesplaceaccording
+to the load demand on both sides. At the time of peak load
+demandonDN,theenergyisgiventoDNfromEVssurplus
+chargeasindicatedinFig.6.Accordingly,atlowloaddemand
+on DN, the EV is charged by DN as shown in Fig. 6. This
+two-waycommunicationrequirestheexchangeofenergyand FIGURE8. FalsedataattackonDNresultinginDNbeingtraitor.
+transactionaldataresultinginanincreaseofprobabilitiesof
+maliciousattack.Toavoidthemaliciousattackonthesystem, secured through blockchain, where the data content of each
+blockchainplaysanimportantroleinbothsidetradingpro- nodeisstoredinimmutableblocks.Thedatacontentsuchas
+cessbecauseofitsinherentpropertiesofsecurity.Inenergy theloadprofileofDNwithrespecttotime,weaknodesofthe
+tradingprocessanymisleadinenergydemandorsupplymay system,loaddemandatweaknodeD dem ,thenumberofEVs
+severely affect the grid, which can be protected by using participating in energy trading EV p , initial charge SOC init ,
+the blockchain, where each energy and transactional details EVs required SOC to reach a next destination SOC reach ,
+are stored in blocks. The blockchain store all the data with theamountofSOCthateachEVcanprovidetoaweaknode
+it and link every stored data details cryptographically using of distribution system Ci . These data contents are cryp-
+rem
+SHA-256 algorithm, which makes the system immutable. tographically encrypted using a hash function (SHA-256),
+The stored data in local blocks of blockchain is verified by as conveyed in Section II-B and its validation using BFT
+differentconsensusprotocols,outofwhichByzantinebased basedconsensusmechanismisdiscussedasfollows. Acopy
+consensus is considered in this paper. As shown in Fig. 7 of each node data is stored with all the other nodes for its
+DNandEVformthenodesoftheP2Pnetwork.Theenergy validationamongthepeersofthenetworkasshowninFig.8
+tradingbetweenEVandDNissecuredusingByzantinebased and Fig. 9. As discussed in Section II-A and Section III,
+consensus.Oncetheconsensusisreachedbetweenthenodes theDNandEVsactasageneralandlieutenantrespectively.
+ofthenetwork,theblockisappendedtotheblockchainindi- Fig. 8 explains the BGP with DN as a traitor. According to
+catingnofalsedata.Thedetaildescriptionoftheachievement theByzantinealgorithmatfirst,theDNactasacommander
+ofconsensusbetweennodesisexplainedinthenextsection. and sends its value to each EV. However, considering DN
+being a traitor the message passed to EVs may vary from
+oneanother.LettheoriginaldemandfromDNtoEVsbeΓÇÿ1ΓÇÖ,
+V. BYZANTINEFAULTTOLERANCE(BFT)BASED the message ΓÇÿ1ΓÇÖ is sent to some of the EVs whereas some
+CONSENSUSWITHINBLOCKCHAIN of the EVs receive the message ΓÇÿ0ΓÇÖ from DN due to cyber-
+All nodes of the distribution system and participating EVs attack. All the EVs participating in energy trading act as a
+in the parking lot will together make the nodes of the P2P lieutenantcommunicatingwitheachotherforverificationof
+network.ThesenodesoftheP2Pnetworkareconnectedand themessagereceived.ItcanbeseenfromFig.8thatEV after
+1
+VOLUME8,2020 8561
+
+====== PAGE 9 ======
+A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+FIGURE9. FalsedataattackonEVresultinginEVbeingtraitor.
+communicating with EV confirms that message received
+2
+fromDNisΓÇÿ1ΓÇÖrepresentedbythegreenline.However,ifEV
+n
+communicateswithEV 1 ,EV 2 ,andEV nΓêÆ1 itcaneasilypredict
+thatDNcommunicatedwronginformationrepresentedbya
+red dotted line. In this way, all the participating EVs in the
+energy trading process can identify any manipulated infor-
+mation communicated by the attacker instead of the correct
+informationfromDN.
+Similarly,itisconsideredthatoutofallparticipatingEVs
+oneoftheEVisatraitorwhichwillmisleadtheinformation
+in energy trading process as shown in Fig. 9. The message
+communicatedbyDNtoalltheEVsisΓÇÿ1ΓÇÖ.AsseeninFig.9
+that EV being traitor communicates message ΓÇÿ0ΓÇÖ to EV ,
+1 2
+EV nΓêÆ1 ,andEV n representedbythereddottedline.However,
+other EVs in energy trading process i.e. EV 2 , EV nΓêÆ1 , and
+EV aftercommunicatingwitheachothercaneasilypredict
+n
+thatmessagegivenbyDNisΓÇÿ1ΓÇÖasrepresentedbythegreen
+line. EVs after communicating with each other can finally
+FIGURE10. Flowchartforsecuredenergytradingprocessbetween
+conclude that EV is communicating manipulated informa- DNandEV.
+1
+tion.ThismanipulatedinformationbyDNbeingtraitororEV
+beingtraitorcanbeverifiedwithAlgorithmOM(m),m > 0 iscorrupted,thisconsensusalgorithmbetweennodeshelpsto
+asdescribedinSectionII-A.Afterthecollectionofallvalues, recoverfromplausibleattacks.Animportantroleofthechain
+theEVusesthevalueofmajorityforenergytradingprocess. ofblocksistomakethedatasecure,safeandimmutable,thus
+Thus,withthehelpofBFTbasedconsensusbetweentheEVs making the attack difficult. For the attacker to get into the
+andDNtheerroneousdatacanbeverifiedandthevalidblock systemdata,morethan33%ofdatashouldbehacked,which
+isappended. isrelativelyverydifficultforintrusionandtime-consuming.
+IntheprocessofByzantinebasedconsensus,thepeerwith Fig.10representstheflowoftheproposedframework.Atthe
+the least block execution time becomes the leader node and start, the DN initialize its demand and communicate with
+the rest of the peer nodes will receive the request of the EVs in the parking lot. The EVs with SOC more than 75%
+transaction i.e. the local block, for its corresponding verifi- areallowedtoparticipateinthetradingprocesselsetheEVs
+cation.Fromherethevalidatedtransactionsarebroadcasted are declined to participate. The DN nodes and participating
+tootherpeersincludingtheleadernode[47].Thislocalblock EVs forms the peers of the network. For the participating
+is now a Genesis Block of the chain. However, there can EV vehicles,eachEVSOCi ,Ci ,Crem,SOCinit,and
+p reach rem r i
+be a number of transactional rounds to be appended to the Ei arecalculated.Thiscalculateddatacopyisgiventoeach
+block.Theninordertomakesurethatthereceivedblockis nodeofthenetwork.Usingthisdatacontent,theblocksare
+valid, the leftover nodes double-check the same procedure minedandeachnodeformstheirownlocalblock.Theoverall
+and re-execute the block. If the proposed block is the same messageSishashedusingSHA256asF .Thetargetvalue
+#
+as the 2/3rd of calculated blocks, the consensus is reached is set by defining the mining difficulty. After that the F
+#
+betweenthenodes.Thustheblockgetsappendedtothechain. and target value T is compared with the condition F Γëñ T.
+#
+However,inthepresenceofanattackscenario,wherethedata Iftheconditionissatisfiedthelocalblockisformedelsethe
+8562 VOLUME8,2020
+
+====== PAGE 10 ======
+A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+nonce value is incremented by 1. This local block is sent to
+each node and verified using Byzantine based oral message
+algorithm.Iftheconsensusismatchedtheblockisappended
+totheblockchain.Thus,energytradingprocessissecuredand
+protectedfromcyber-attacks.
+VI. REPRESENTATIVECASE-STUDYFOR
+IEEE33NODETESTFEEDER
+Inthefieldofthecontrolsystem,thesecurity-relatedissues
+havesignificantlyincreasedinthepastfewyearsthatinclude
+varioustypesofattacks,whichmayreplacethedatapackage
+orinjectmaliciousinformationintothenetwork.Thediffer-
+ent possible attack scenarios are visualized in the form of
+false data for which BGP framework could be used which
+statesthatforsuccessfulattack2/3rd ofinformationistobe FIGURE11. EnergydemandrequirementsbyDNwithoutanyfalsedata.
+manipulated.Thevariouscasestudieswereconductedonthe
+A. CASE1:SECURINGENERGYANDINFORMATION
+differentIEEEbussystemandtheresultsobtainedfromIEEE
+EXCHANGEPROCESSBETWEENEVsANDDN.
+33bussystemispresented.IEEE33bussystemconsistsof
+The energy trading between EVs and DN is illustrated in
+onefeederwithfourdifferentlaterals,32branches,andapeak
+Section IV. However, if the demand for DN increases the
+loadof3715kW and2300kVAr[48].Therepresentativecase
+SCADA communicates with EVs for additional demand
+studyforhighlightingtheimpactofblockchainiscarriedout
+required. EVs depending on their battery capacity will start
+intwoparts;
+the trading process by discharging their batteries. In case
+ΓÇó Case1:Securingenergyandinformationdataexchange
+if demand on DN is more than the available power from
+duringenergytradingbetweenEVsandDN.
+EVsbatteries,SCADAwillcommunicatewithotherenergy
+ΓÇó Case2:Securingdifferentnodesofthesystem.
+supplysources.Theroleofblockchaininsecuringthisenergy
+Thedetailsofdifferentcasesandscenariosaresummarized and information exchange process between EVs and DN
+inTable2. is described considering three scenarios. One in which the
+communication between EVs and DN is described without
+any false data and others in which communication between
+TABLE2. Summaryofdifferentcasesandscenariosconsideredfor
+representativecasestudy. EVsandDNisconsideredwithfalsedata.
+1) SCENARIOI-COMMUNICATIONBETWEENEVs
+ANDDNWITHOUTFALSEDATA
+Considering an operating scenario as described in Table 3
+the actual demand by DN is 150 kWh whereas the total
+energy available from EV ( (cid:80) Ci ) is 130 kWh. As seen
+p rem
+from Fig. 11 EVs supply the available 130 kWh and the
+remaining 20 kWh is arranged by SCADA. Thus it can be
+seenthateventhoughEVsarenotabletocompletelysatisfy
+therequirementsofDNthenalsopartialrequirementsofDN
+are met in the absence of false data. This process of energy
+andinformationexchangeispronetomaliciousattackwhich
+mayleadtomanipulateddata.Iftotalenergyavailablefrom
+EV ( (cid:80) Ci )isconsidered150kWhthenitcancompletely
+p rem
+satisfytheDNrequirementof150kWh.Insuchacase,there
+is no need for the arrangement of additional power through
+SCADA.
+2) SCENARIOII-COMMUNICATIONBETWEENEVsAND
+DNWITHFALSEDATA(WHEN (cid:80) Ci >D )
+rem atk
+InthisscenarioitisconsideredthattheactualdemandonDN
+is same i.e. 150 kWh, however, if there is an attack on the
+systemthefalsedatacommunicated(D )toEVsshowsDN
+atk
+requirementas50kWh.AsmentionedinScenarioI,EVstotal
+VOLUME8,2020 8563
+
+====== PAGE 11 ======
+A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+TABLE3. Energydemandrequirementswithandwithoutfalsedata
+presentinthesystemmodel.
+FIGURE13. EnergydemandrequirementsbyDNwithfalsedatafor
+scenarioIII.
+whichisresponsibleforfrequencydeviationandmayresult
+insynchronizationissues.
+Withtheintroductionoftheblockchain,thisenergy-related
+informationexchangebetweenDNandEVsissecured.How-
+ever, thecomplexity of energytrading process willincrease
+with the number of EVs. As each node data is stored with
+all the other nodes of the network, the peer with the least
+blockexecutiontimewillbecometheleadernode.Thedata
+exchanged between the two parties i.e the DN and EVs
+undergoes the process of encryption so as to form a block
+i.e. leader block. For this local block to be a part of chain
+validation, all the nodes of the network are queried and are
+double-checked through Byzantine based consensus as dis-
+cussedinSectionV.Intheblockchain,thedataisexchanged
+in encrypted form and each block is cryptographically con-
+nectedtoitspreviousblock.Itmakessystemcomputationally
+more strong. The attack in the presence of blockchain is
+difficult because the hacker needs to manipulate more than
+FIGURE12. EnergydemandrequirementsbyDNwithfalsedatafor 33% of data which is a challenging calculation. This aspect
+scenarioII. ofblockchainassuressystemsecurity.
+energyavailableis130kWhwhichcaneasilysatisfytheD B. CASE2:SECURINGDIFFERENTNODES
+atk
+i.e.50kWh.EVsstartstofeedtherequiredpowerandsatisfy OFTHEPROPOSEDMODEL
+the false requirements of DN. However, it can be seen that Considering the N-node system and possible attacks at four
+duetomanipulateddemandtherequirementofDNremains different points in the proposed network system. As shown
+unsatisfied as shown in Fig 12. This may give rise to the inFig.14theattackcanoccurasfollows,
+adversarialeffectonthesystemwhichresultsinperformance i) Attackonsensordata/sendernode
+deterioration of the system and may consequently lead to a ii) AttackonCommunicationlinks
+blackout. iii) ManipulationintheSCADAinformation
+iv) Attackonactuators/receiverend
+3) SCENARIOIII-COMMUNICATIONBETWEENEVsAND The IEEE 33 bus system consists of 33-nodes and
+DNWITHFALSEDATA(WHEN (cid:80) Ci <D ) 32 branches. It is assumed that the parking lot has 50 EVs
+rem atk
+Considering the operating scenario with D from DN as parked at the time of energy trading. The total number of
+dem
+100 kWh and the false data communicated (D ) to EVs sensorsinthisnetworkedsystemiscalculatedbyconsidering
+atk
+indicating DN requirement as 250 kWh. As the total power the total number of sensors required for DN (nDN) as well
+sen
+available by EVs is 130 kWh it would be obviously utilized asconsideringthetotalnumberofsensorsrequiredforEVs
+tofulfill(false)gridrequirement.ItcanbeseenfromFig.13 parking lot (nEV). While calculating (nDN) the following
+sen sen
+that the DN requirement of 100 kWh is satisfied, however, featuresareconsidered[44]:Forreadingparameterssuchas
+surpluspowerfedbyEVsleadstoover-compensationofDN voltage, current, power etc. a sensor is placed at each node
+8564 VOLUME8,2020
+
+====== PAGE 12 ======
+A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+FIGURE14. AttackondifferentnodesofP2Pnetwork.
+(Nread);forcheckinglinestatus(open/close)eachbranchhas (ii) Attack on communication links, considering n
+DN sen
+asensor(Bstatus);andforreadingparameterssuchasvoltage, sensors to be linked with communication channels,
+DN
+current, power etc. two sensors are placed at both ends of theprobabilityofattacktoreplacethedatapackageson
+line(Bread). communicationlinksgivenby╬▓ anddenotedbyP ,
+DN i CA
+wherein(0Γëñ╬▓ Γëñ1),i=(1,2,...,n ,..N).
+nDN = Nread +Bstatus+Bread (9) i sen
+sen DN DN DN
+nDN = 33+32+(32├ù2) (10) 1(cid:89)
+nsen
+sen P = ╬▓ (15)
+CA i
+S
+Similarly,whilecalculating(nEV)thefollowingfeaturesare i=1
+sen
+considered [44]: For reading parameters such as voltage,
+(iii) TheinformationdisclosureattackontheSCADAsys-
+current, power etc. a sensor is placed at each node (Nread);
+EV tem,wherethenetworkprovidesmanyredundantdata
+for checking communication links status (open/close) each
+since during certain period of time all registered sen-
+links has asensor (Lstatus); and forreading parameters such
+EV sors in the network have a collection of all mea-
+asvoltage,current,poweretc.twosensorsareplacedatboth
+sured nodes data. Let the probability of an attack on
+endsofcommunicationchannels(Lread).
+EV SCADAsysteminformationbeP SCADA ,withtherange
+nEV = Nread +Lstatus+Lread (11) [0.01,0.05][44].
+sen EV EV EV (iv) The attack at the receiver end where idle EVs are
+nEV = 50+1225+(1225├ù2) (12)
+sen parked in the parking lot. The attacker may manipu-
+late the action of actuators. Let the probability of an
+Finally,thetotalnumberofsensorsisgivenby,
+attackonreceivingenddenotedbyP ,withtherange
+R
+n sen =nD se N n +nE se V n =3854 (13) [0.01,0.05][44].
+Let the overall probability for an attacker to attack the
+Thedetaildescriptionofattackscenarioforthesystemwith
+system be P , which is the sum of all possibilities of
+andwithoutsecurityisexplainedintheprecedingsection. TA
+attack at four different points of the system. It is assumed
+that for an attacker to manipulate any information (con-
+1) SCENARIOI-ATTACKSCENARIOFORTHESYSTEM
+trol center information excluded) the attacking probability
+WITHNOSECURITY
+is equal and selected to be x i.e. ╬▒ = ╬▓ = x. The
+Thepossibleattacksonsystemmodelwithoutanyprotection i i
+value of x lies in the range of 0.9 to 0.999, which indicates
+systemisillustratedinthisscenario.Inthiscase,hackinginto
+the proposed system to be exposed to the highest vulner-
+afewdatamayleadtoasuccessfulattack.Theprobabilities
+abilities. Then, the overall success probability P of this
+ofattackateachpointareasfollows, TA
+attack launch without the inclusion of blockchain can be
+(i) Tampering on sensors data information or physically
+calculatedas:
+manipulating the sensor nodes. The probability of
+attacker to hack into n sen sensors is denoted by P SA , 1 (cid:89) nsen (cid:89) nsen
+wherein ╬▒ i is the probability of attack each sensor P TA = 4 ( ╬▒ i + ╬▓ i +P SCADA +P R ) (16)
+(0Γëñ╬▒ Γëñ1),i=(1,2,...,n ,..N). i=1 i=1
+i sen
+1
+1(cid:89) nsen = (2xnsen +0.01+0.01)
+P = ╬▒ (14) 4
+SA i
+S
+i=1 Thesuccessprobabilityofattackswithoutanysecurityappli-
+whereS isthenumberofsamplesize cationisrepresentedinFig.15.
+VOLUME8,2020 8565
+
+====== PAGE 13 ======
+A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+FIGURE15. Thesuccessprobabilityofattackwithoutinclusion
+ofblockchain. FIGURE16. Thesuccessprobabilityofattackwiththeinclusion
+ofblockchain.
+2) SCENARIOII-ATTACKSCENARIOFORTHESYSTEM
+data to manipulate. Thus, the attack probability on
+WITHTHEINCLUSIONOFBLOCKCHAIN
+SCADAisgivenas,
+Theattackpossibilitiesinpresenceofblockchainareformu-
+latedinordertomitigate theattacksonthenetwork.Inthis
+1 (cid:89)
+nsen
+scenario, the attacker needs to steal n sen corresponding key P SCADAb = S (P SCADA ├ù ╬│ i ) (19)
+informationsoastohashthedatausedindatatransmission i=1
+anddataverification.Thus,leadingtoanincreaseinthenum- (iv) Theprobabilityofattackatthereceiverend,thatisafter
+berofinformationtobemanipulatedforanattackertointrude completion of data verification process, the attacker
+intothesystem.Stealingthisn sen keyinformationisdifficult needs to hack into majority of the nodes, that is
+becauseittakeslargecomputationaltimeandtheByzantine k = n ├ù33%,toreachonfalseconsensus.There-
+2 sen
+condition of hacking more than 33% data is proven to be fore,theattackprobabilityisgivenas,
+challenging to accomplish. Considering the same possible
+attack points as in Section VI-B1 with n sen key data to be P = 1 ( (cid:89)
+k2
+P ├ù (cid:89)
+nsen
+╬│) (20)
+hackedineachpointofattack. Rb S Ri i
+i=1 i=1
+(i) Whenthereisanattackonsensorstheattackerhasto
+Theoverallsuccessprobabilityofanattackisrepresented
+hackinton sensorsdataaswellashastostealn
+sen sen
+as, P . It is assumed that for an attacker to manipu-
+keyinformationsuchashashvalues,publickeyorpri- TAb
+late any information (control center information excluded)
+vatekeysoastohashthedata.Theprobabilityofsteal-
+ing n key information is ╬│, wherein (0Γëñ╬│ Γëñ1). the attacking probability is equal and selected to be x i.e.
+sen i i ╬▒ = ╬▓ = ╬│ = P = x. The value of x lies in the range
+Lettheprobabilityoflaunchingthisattackbe, i i i Ri
+of 0.9 to 0.999, which indicates the proposed system to be
+1 (cid:89)
+nsen
+(cid:89)
+nsen
+exposed to highest vulnerabilities. Therefore for launching
+P = ( ╬▒ ├ù ╬│) (17)
+SAb S i i theattackinscenarioBiscalculatedas,
+i=1 i=1
+(ii) Thesecondsituationwheretheprobabilityofanattack P = 1(cid:2) ( (cid:89)
+nsen
+╬▒ ├ù (cid:89)
+nsen
+╬│)+( (cid:89)
+k1
+╬▓ ├ù (cid:89)
+nsen
+╬│)
+toreplacethedatawhendataistransmittingfromone
+TAb
+4
+i i i i
+i=1 i=1 i=1 i=1
+nodetoothernodes.Letthenumberofcommunication (cid:124) (cid:123)(cid:122) (cid:125) (cid:124) (cid:123)(cid:122) (cid:125)
+channelsbek =n
+sen
+(n
+sen
+ΓêÆ1)/2,theattackprobability PSAb PCAb
+P
+of
+C
+h
+Ab
+a
+.
+ck
+A
+in
+s
+g
+k
+i
+n
+n
+o
+t
+w
+o
+n
+k
+,
+c
+f
+o
+o
+m
+r
+m
+an
+u
+y
+ni
+a
+c
+t
+a
+ta
+ti
+c
+o
+k
+n
+er
+ch
+t
+a
+o
+n
+i
+n
+n
+e
+t
+l
+r
+s
+ud
+d
+e
+en
+i
+o
+n
+t
+t
+e
+o
+d
+t
+b
+h
+y
+e + ( (cid:89)
+k2
+P Ri ├ù (cid:89)
+nsen
+╬│ i )+(P SCADAb ├ù (cid:89)
+nsen
+╬│ i ) (cid:3) (21)
+systemwhichissecuredbyblockchain,ithastohack i=1 i=1 i=1
+(cid:124) (cid:123)(cid:122) (cid:125) (cid:124) (cid:123)(cid:122) (cid:125)
+atleast33%information.Therefore,k =k├ù33%has
+1 PRb PSCADAb
+tobeattackedforsuccessandalson sen keyinformation 1
+tobeattacked. P TAb =
+4
+xnsen[xnsen +x3786613+x1966+P SCADAb ] (22)
+1 (cid:89) ki (cid:89) nsen InFig.16thesuccessprobabilityofattackwiththeinclu-
+P = ( ╬▓ ├ù ╬│) (18)
+CAb
+S
+i i sionofblockchainisdemonstrated,wherethesuccessrateof
+i=1 i=1 attacksisconsiderablyreduced.
+(iii) The attack on SCADA leads to manipulated infor- In Fig. 15 the success probability of attack is high as
+mation as explained in Section VI-B1. The proba- comparedtoFig.16.Itisknownthat,thelesserthenumber
+bility of attack is given as P , with the range ofsensors,moreistheprobabilityofattack.Similarly,asthe
+SCADAb
+[0.01,0.05][44]andalsowithn correspondingkey numberofsensorsincreasesthesuccessprobabilityofattack
+sen
+8566 VOLUME8,2020
+
+====== PAGE 14 ======
+A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+TABLE4. Possiblesystemattacksandtheirsuccessprobabilities. TABLE5. Comparativeanalysisofproposedschemewithexisting
+approaches.
+isrelativelydecreased.However,incaseofattackscenariofor
+TABLE6. Comparisonofhashalgorithm.
+thesystemwithnosecurity,eventhoughwithhighnumberof
+sensorsthechanceofdatamanipulationishighintherange
+oflowuncertainty.AsseenfromFig.16withtheinclusionof
+blockchainthesuccessprobabilityofattackiscomparatively
+low and it is more reliable with an increased number of
+sensors or nodes in the network. The success probability of
+an attack with and without the inclusion of blockchain is
+summarized in Table 4. It may be claimed that the success
+probabilityofattackisapproximatelyhalfwiththeinclusion
+of blockchain as shown in Fig. 16 as compared to Fig. 15.
+The range of x is selected between 0.9 and 0.999 in the
+representativecasestudyisveryhighwhichimpliesthatthe
+energytradingprocessiscompletelypronetoattacks.
+C. OBSERVATIONS/COMPARISONWITH
+EXISTINGMETHODS
+Acomparativeanalysisoftheproposedschemewithexisting
+approaches is given in Table 5. It can be seen from the atrustedparty.Thisresultsinanoverallimprovementinthe
+Table 5 that authors of [31] and [32] employs SHA 1 algo- safetyofByzantineconsensusasonlyΓÇÿΓÇÿpermissionedΓÇÖΓÇÖnodes
+rithm for a hash process whereas the authors of [30] and areallowedtoparticipateintheconsensusprocess.
+the proposed scheme utilized SHA 256 algorithm for the
+hashprocess.TheadvantageofusingtheSHA256algorithm 2) CONSENSUSFINALITY
+over SHA 1 algorithm is given in Table 6. As seen from The consensus finality has a property that once the block
+Table 6 SHA 256 algorithm is more secure as compared is appended to the blockchain at some time instant, by a
+to SHA 1 algorithm when there is an attack on the system valid block, will never be removed from the chain. In PoW
+alsothepowerconsumedforSHA256algorithmis14.8Wh the block frequency is regulated to avoid the block colli-
+whereasforSHA1itis17.5Wh.ThuswiththehelpofTable6 sions known as a randomized concurrency control mecha-
+it can be concluded that the SHA 256 algorithm employed nism. With concurrency control, the block generation takes
+in the proposed scheme is more efficient as compared some time and collisions do happen, eventually leading to
+toSHA1. temporary splits (forks) on the blockchain. The presence
+Thenextimportantfeatureoftheproposedschemeisthatit of these temporary splits results into no consensus final-
+employsByzantineconsensusforenergytradingapplication ity, the absence of consensus finality introduces the latency
+ascomparedtoliterature[30]ΓÇô[32].TheadvantagesofBFT in the transaction process. Thus the PoW does not sat-
+consensusoverPoWareasfollows: isfy the consensus finality. In contrast, the consensus final-
+ity is satisfied by BFT where the protocols are built upon
+1) IDENTITYMANAGEMENTOFNODES consensus.
+ThekeyfeatureofPoWisthatthenodeidentitymanagement
+is entirely decentralized, where any nodes can participate 3) SCALABILITY
+without permission. In contrast, the Byzantine consensus is The scalability of both PoW and BFT based blockchain in
+entirelycentralizedwhereeachparticipatingnodeisissueda termsofnumberofclientsisscalewellandprovidesupport
+cryptographicaswellasidentitycertificatewiththehelpof tothousandsofclients.
+VOLUME8,2020 8567
+
+====== PAGE 15 ======
+A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+TABLE7. ComparisonofPoWandByzantinebasedconsensus. TABLE8. Symbolsandabbreviationsdescription.
+4) PERFORMANCE
+Theblockfrequencyandblocksizearethetwomostimpor-
+tant parameters for analyzing the performance of a PoW
+blockchain. The increase in block size for boosting the
+throughput results in an increase of latency because larger
+blocks lead to propagation delay across the Internet. These
+longerdelaysmayleadtosecurityissuesbecausewithlonger
+delays there is an increase in the number of forks and also
+the possibility of attacks increases. Even with the increase 50%ofhashpoweriscontrolledbyadversarythanitremains
+ofblockfrequencyforreducingthelatencyresultsinsimilar invulnerable.However,yearslateritwasclaimedby[53]that
+security challenges. However, in case of BFT protocols as Bitcoinisvulnerableevenif25%ofhashpoweriscontrolled
+prototypes and also practical systems can support transac- by an adversary. In contradictory BFT can tolerate at the
+tions in range of tens of thousands with latencies equal to most corrupted nodes whose value is equal to 1/3 nodes.
+network-speed[49]ΓÇô[52]. Forthisconditiontoremaintruethenetworkshouldbefully
+asynchronousonatimelybasis.
+5) ADVERSARY
+TheimportantfeaturesofPoWblockchainishowmuchcom- 6) NETWORKSYNCHRONY
+putational (hash) power can be controlled by an adversary. A timestamp plays an important role in Bitcoin, where the
+IntheinitialphaseofBitcoin,itwasassumedthatiflessthan blockisacceptableonlyifitΓÇÖstimestampisgreaterthanthe
+8568 VOLUME8,2020
+
+====== PAGE 16 ======
+A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+TABLE8. (Continued)Symbolsandabbreviationsdescription. investigated in two cases with different operating scenarios.
+Inthefirstone,theenergyandinformationexchangeprocess
+between EVs and DN is secured and in the other different
+nodes of the system are secured. The representative case
+studyconductedonIEEE33bussystemconfirmsthesystem
+security;asforsuccessfulattack,33%ofinformationistobe
+manipulatedinBGP.Itisclaimedfromresultsthatthesuccess
+probabilityofanattackonthesystemreduceswiththeappli-
+cationofByzantinebasedblockchainconsensusframework.
+Infutureresearch,refinementinconsensusalgorithmwillbe
+considered and assessment of performance with additional
+physicalconstraintsofDNandEVswillbeevaluated.
+APPENDIX
+SeeTable8.
+REFERENCES
+[1] T.Baumeister,ΓÇÿΓÇÿLiteraturereviewonsmartgridcybersecurity,ΓÇÖΓÇÖCollabora-
+tiveSoftw.Develop.Lab.atUniv.Hawaii,Honolulu,HI,USA,Tech.Rep.,
+2010.
+[2] S.Sridhar,A.Hahn,andM.Govindarasu,ΓÇÿΓÇÿCyber-physicalsystemsecurity
+fortheelectricpowergrid,ΓÇÖΓÇÖProc.IEEE,vol.100,no.1,pp.210ΓÇô224,
+Jan.2012.
+[3] O.Kosut,L.Jia,R.J.Thomas,andL.Tong,ΓÇÿΓÇÿMaliciousdataattacksonthe
+smartgrid,ΓÇÖΓÇÖIEEETrans.SmartGrid,vol.2,no.4,pp.645ΓÇô658,Dec.2011.
+[4] R. Deng, Z. Yang, M.-Y. Chow, and J. Chen, ΓÇÿΓÇÿA survey on demand
+response in smart grids: Mathematical models and approaches,ΓÇÖΓÇÖ IEEE
+Trans.Ind.Informat.,vol.11,no.3,pp.570ΓÇô582,Jun.2015.
+[5] R. Deng, G. Xiao, and R. Lu, ΓÇÿΓÇÿDefending against false data injection
+attacksonpowersystemstateestimation,ΓÇÖΓÇÖIEEETrans.Ind.Informat.,
+vol.13,no.1,pp.198ΓÇô207,Feb.2017.
+[6] W. Wang and Z. Lu, ΓÇÿΓÇÿCyber security in the smart grid: Survey and
+challenges,ΓÇÖΓÇÖComput.Netw.,vol.57,no.5,pp.1344ΓÇô1371,Apr.2013.
+[7] R.Jiang,R.Lu,Y.Wang,J.Luo,C.Shen,andX.Shen,ΓÇÿΓÇÿEnergy-theft
+detectionissuesforadvancedmeteringinfrastructureinsmartgrid,ΓÇÖΓÇÖTin-
+shhuaSci.Technol.,vol.19,no.2,pp.105ΓÇô120,Apr.2014.
+[8] Y.Yan,Y.Qian,H.Sharif,andD.Tipper,ΓÇÿΓÇÿAsurveyoncybersecurityfor
+smartgridcommunications,ΓÇÖΓÇÖIEEECommun.SurveysTuts.,vol.14,no.4,
+pp.998ΓÇô1010,4thQuart.,2012.
+[9] W. Bower, S. Kuszmaul, S. Gonzalez, and A. Akhil, ΓÇÿΓÇÿSolar energy
+gridintegrationsystems(SEGIS)proactiveintelligentadvancesforpho-
+tovotaicsystems,ΓÇÖΓÇÖinProc.35thIEEEPhotovoltaicSpec.Conf.,Jun.2010,
+pp.523ΓÇô528.
+[10] J.D.Dogger,B.Roossien,andF.D.J.Nieuwenhout,ΓÇÿΓÇÿCharacterizationof
+liΓÇôionbatteriesforintelligentmanagementofdistributedgridΓÇôconnected
+median of the last 11 blocks. However, timestamp involves storage,ΓÇÖΓÇÖ IEEE Trans. Energy Convers., vol. 26, no. 1, pp. 256ΓÇô263,
+the major role to calculate mining difficulty and for main- Mar.2011.
+[11] W.KemptonandJ.Tomi─ç,ΓÇÿΓÇÿVehicle-to-gridpowerimplementation:From
+taining block frequency. Therefore, to maintain the liveness
+stabilizingthegridtosupportinglarge-scalerenewableenergy,ΓÇÖΓÇÖJ.Power
+loosesynchronyisneeded.Onanotherhand,intheBFTthe Sour.,vol.144,no.1,pp.280ΓÇô294,Jun.2005.
+physicalclockforconsensusisobsolete.Inthis,theconsen- [12] C.GuilleandG.Gross,ΓÇÿΓÇÿAconceptualframeworkforthevehicle-to-grid
+(V2G)implementation,ΓÇÖΓÇÖEnergyPolicy,vol.37,no.11,pp.4379ΓÇô4390,
+susisdifficulttoachieveinthepresenceofafaultynodein
+Nov.2009.
+anasynchronoussystem.
+[13] E.SortommeandM.A.El-Sharkawi,ΓÇÿΓÇÿOptimalschedulingofvehicle-to-
+TheadvantagesofBFTconsensusoverPoWaresumma- gridenergyandancillaryservices,ΓÇÖΓÇÖIEEETrans.SmartGrid,vol.3,no.1,
+rizedinTable7. pp.351ΓÇô359,Mar.2012.
+[14] E.KeaneandD.Flynn,ΓÇÿΓÇÿPotentialforelectricvehiclestoprovidepower
+systemreserve,ΓÇÖΓÇÖinProc.IEEEPESInnov.SmartGridTechnol.(ISGT),
+VII. CONCLUSION Jan.2012,pp.1ΓÇô7.
+Inthispaper,aByzantinebasedblockchainconsensusframe- [15] A.K.Srivastava,B.Annabathina,andS.Kamalasadan,ΓÇÿΓÇÿThechallenges
+andpolicyoptionsforintegratingplug-inhybridelectricvehicleintothe
+work for the enhancement of data security of the energy
+electricgrid,ΓÇÖΓÇÖElectr.J.,vol.23,no.3,pp.83ΓÇô91,Apr.2010.
+tradingprocessbetweenEVsandDNisproposed.Thesys- [16] K.Clement-Nyns,E.Haesen,andJ.Driesen,ΓÇÿΓÇÿTheimpactofcharging
+tem first formulates the energy trading process in terms of plugΓÇôinhybridelectricvehiclesonaresidentialdistributiongrid,ΓÇÖΓÇÖIEEE
+Trans.PowerSyst.,vol.25,no.1,pp.371ΓÇô380,Feb.2010.
+BGPandthenblockchainisappliedtothesystemforsecur-
+[17] C.Wu,H.Mohsenian-Rad,andJ.Huang,ΓÇÿΓÇÿVehicle-to-aggregatorinterac-
+ing the trading process. The effectiveness of blockchain is tiongame,ΓÇÖΓÇÖIEEETrans.SmartGrid,vol.3,no.1,pp.434ΓÇô442,Mar.2012.
+VOLUME8,2020 8569
+

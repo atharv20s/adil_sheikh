@@ -1,0 +1,24 @@
+ \begin{table*}[htbp]
+ \caption{Comprehensive Four-Group BFT Comparison at $f=16$, $x=0.95$, $n_{sen}=3854$}
+ \centering
+ \scriptsize
+ \begin{tabular}{@{}llrrrrrrr@{}}
+ \toprule
+ \textbf{Algorithm} & \textbf{Group} & \textbf{Latency} & \textbf{TPS} & \textbf{$N_{att}$} & \textbf{$P_{temporal}$} & \textbf{$P_{secure}$} & \textbf{Messages} & \textbf{Speedup} \\
+ \midrule
+ Lamport OM(m) & G1 & 43,350\,ms & 1.2 & 867 & 0.9870 & 0.0130 & $1.00e+18$ & 1$\times$ \\
+ Classic PBFT & G1 & 15,300\,ms & 3.3 & 306 & 0.7843 & 0.2157 & $7,803$ & 3$\times$ \\
+ \midrule
+ IBFT 2.0 & G2 & 2,500\,ms & 20.0 & 50 & 0.2217 & 0.7783 & $1,323$ & 17$\times$ \\
+ QBFT & G2 & 1,500\,ms & 33.3 & 30 & 0.1396 & 0.8604 & $675$ & 29$\times$ \\
+ \midrule
+ CE-PBFT & G3 & 800.0\,ms & 62.5 & 16 & 0.0771 & 0.9229 & $1,875$ & 54$\times$ \\
+ G-PBFT & G3 & 650.0\,ms & 76.9 & 13 & 0.0631 & 0.9369 & $2,700$ & 67$\times$ \\
+ SV-PBFT & G3 & 500.0\,ms & 100.0 & 10 & 0.0489 & 0.9511 & $1,200$ & 87$\times$ \\
+ \midrule
+ Tower BFT & G4 & 242.9\,ms & 205.8 & 4 & 0.0199 & 0.9801 & $1,275$ & 178$\times$ \\
+ RVR Consensus & G4 & 200.0\,ms & 250.0 & 4 & 0.0101 & 0.9899 & $1,020$ & 217$\times$ \\
+ \bottomrule
+ \end{tabular}
+ \end{table*}
+The above content shows the entire, complete file contents of the requested file.

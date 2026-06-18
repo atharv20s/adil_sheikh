@@ -1,0 +1,72 @@
+ \documentclass[conference]{IEEEtran}
+ \usepackage{amsmath,amssymb,booktabs,multirow,graphicx}
+ 
+ \title{Comparative Analysis of OM(m) and Tower BFT Consensus\\for Secured EV Energy Trading on IEEE 33-Bus Systems}
+ \author{%
+ \IEEEauthorblockN{[Your Name]}
+ \IEEEauthorblockA{Veermata Jijabai Technological Institute, Mumbai, India}
+ }
+ 
+ \begin{document}
+ \maketitle
+ 
+ \begin{abstract}
+ We extend the Byzantine-based blockchain consensus framework of Sheikh et al.\ (IEEE Access, 2020)
+ by replacing the classical Oral Message OM($m$) algorithm with Tower BFT---a Proof-of-History (PoH)
+ backed consensus derived from Solana's architecture (Yakovenko, 2018) and formally analyzed by
+ Shoup (2023). Using the \emph{exact same} IEEE 33-bus EV energy trading parameters ($n=51$,
+ $f\leq16$, $n_{sen}=3854$), we demonstrate that Tower BFT achieves identical fault tolerance
+ and attack probability guarantees while delivering 864$\times$ lower latency, 916 TPS (vs.\ 1.1),
+ and $O(n)$ message complexity (vs.\ $O(n^m)$).
+ \end{abstract}
+ 
+ % ══════════════════════════════════════════════════════════════════
+ \section{System Model (Sheikh et al.\ \cite{sheikh2020})}
+ % ══════════════════════════════════════════════════════════════════
+ 
+ \subse
+<truncated 22876 bytes>
+═════════════════
+ \section{Conclusion}
+ % ══════════════════════════════════════════════════════════════════
+ 
+ On the exact same IEEE 33-bus EV energy trading network ($n{=}51$, $f{\leq}16$),
+ Tower BFT achieves:
+ \begin{itemize}
+ \item \textbf{864$\times$ lower latency} (50.5\,ms vs.\ 43.35\,s)
+ \item \textbf{916 TPS} vs.\ 1.1 TPS ($864\times$ improvement)
+ \item \textbf{$10^{15}\times$ fewer messages} ($O(n)$ vs.\ $O(n^{16})$)
+ \item \textbf{Identical static security}: same $f{\leq}16$ threshold, same $P_{TAb}$
+ \item \textbf{864$\times$ smaller attack window}: consensus completes in
+       50.5\,ms vs.\ 43.35\,s, reducing the window for DoS, false-data
+       injection, and network-partition exploits (Eq.~\ref{eq:evuln})
+ \item \textbf{Robust under degraded networks}: latency stays flat as
+       $\bar{\tau}$ increases and consensus survives 20\% packet loss
+       (\S\ref{sec:sensitivity})
+ \end{itemize}
+ 
+ \begin{thebibliography}{9}
+ \bibitem{sheikh2020}
+ A.~Sheikh, V.~Kamuni, A.~Urooj, S.~Wagh, N.~Singh, and D.~Patel,
+ ``Secured Energy Trading Using Byzantine-Based Blockchain Consensus,''
+ \emph{IEEE Access}, vol.~8, pp.~8554--8571, 2020.
+ 
+ \bibitem{yakovenko2018}
+ A.~Yakovenko,
+ ``Solana: A new architecture for a high performance blockchain,''
+ Solana Whitepaper, 2018.
+ 
+ \bibitem{shoup2023}
+ V.~Shoup,
+ ``Proof of history: what is it good for?''
+ Cryptology ePrint Archive, 2023.
+ 
+ \bibitem{lamport1982}
+ L.~Lamport, R.~Shostak, and M.~Pease,
+ ``The Byzantine Generals Problem,''
+ \emph{ACM Trans.\ Prog.\ Lang.\ Syst.}, vol.~4, no.~3, pp.~382--401, 1982.
+ \end{thebibliography}
+ 
+ \end{document}
+ 
+The above content shows the entire, complete file contents of the requested file.

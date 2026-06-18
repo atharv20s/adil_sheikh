@@ -1,0 +1,58 @@
+ ====== PAGE 7 ======
+ A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+ FIGURE5. TherepresentationoftheBlockchainbasedcommunicationwithDNandEVparkinglotasaP2Pnetwork.
+ The nodes in the P2P network are the number of EVs
+ participatinginsatisfyingthedemandoftheDN.Theenergy
+ demandisassumedtobeevenlydistributedamongthenum-
+ berofparticipatingEVsandnotextractedfromasingleEV
+ as it may result into battery degradation if the same EV is
+ askedtodischargeandmeettherequirementseveryday.Let
+ theenergydemandfromDNbeD ,theamountofenergy
+ dem
+ neededfromeachEV,Ei,isgivenby,
+ FIGURE6. Energyandtransactionsflowduringlowandpeakdemand.
+ utilized during peak load hours to support the grid from Ei = D dem (6)
+ partiallyoverloading. EV
+ p
+ A. MATHEMATICALFORMULATIONOFENERGY AlltheparticipatingEV p maynothavethedesiredSOCto
+ TRADINGBETWEENDNANDEV deliveri.e.C r i em ΓëñE n i andifthisisthecasethentheminimum
+ The EVs with a minimum initial state of charge (SOC) i.e. C r i em amongtheEVswillbetheaggregatevaluewhichwill
+ SOCi greater than or equal to 75% of EVs full charge, becontributedbyallofthem.
+ denot in e i d t asCi,willonlyparticipateintheprocess. TheC r r em =min{C r i em }whereC r r em istheminimumcharge
+ F
+ amongallparticipatingEVs.Thiswillleadtothedischarge
+ SOC i i nit ΓëÑ0.75C F , i=1,2,...,EV p ,...,EV n (3) ofoneoftheEVswithonlySOCi leftforutilizationand
+ reach
+ whereEV n isthenumberofEVsintheparkinglotandEV p (EV p ΓêÆ1)numberofEVstosuf
+<truncated 28570 bytes>
+39711,2019. Hercurrentresearchinterestsincludeblockchain,
+ [38] M.A.FerragandL.Maglaras,ΓÇÿΓÇÿDeepcoin:Anoveldeeplearningand electricvehicles,andcyberphysicalsystems.
+ blockchain-based energy exchange framework for smart grids,ΓÇÖΓÇÖ IEEE
+ Trans.Eng.Manag.,tobepublished.
+ 8570 VOLUME8,2020
+ 
+ ====== PAGE 18 ======
+ A.Sheikhetal.:SecuredEnergyTradingUsingByzantine-BasedBlockchainConsensus
+ A. UROOJ received the B.E. degree in instru- N. SINGH received the Ph.D. degree in electri-
+ mentation engineering from Mumbai University, calengineeringfromIITBombay,Mumbai,India,
+ India, in 2016. She is currently pursuing the in 1990. He is currently an Adjunct Professor
+ M.Tech.degreeinelectricalengineering(special- withtheVeermataJijabaiTechnologicalInstitute,
+ ization in control systems) with the Veermata Mumbai. His current research interests include
+ Jijabai Technological Institute, Mumbai, India. geometriccontroltheory,complexnetworks,and
+ Hercurrentresearchinterestsincludeblockchain, stochasticcontrol.
+ electric vehicles, cyber physical systems, and
+ security.
+ S. WAGH (Senior Member, IEEE) received DHIREN PATEL currently heads the Veermata
+ the Ph.D. degree in electrical engineering from Jijabai Technological Institute, Mumbai, India.
+ TheUniversityofWesternAustralia,Perth,WA, HeisaProfessorofcomputerengineering,where
+ Australia,in2012.From2015to2016,shewasa he is involving in cyber security, blockchain,
+ VisitingScholarwithTuftsUniversity,Medford, the IoT, and AI for Global Good. He leads
+ MA,USA.SheiscurrentlyanAssistantProfes- theBlockchainResearchGroup,VeermataJijabai
+ sorwiththeVeermataJijabaiTechnologicalInsti- TechnologicalInstitute,Mumbai.
+ tute,Mumbai,India.Hercurrentresearchinterests
+ include power system dynamics, stability and
+ control,andsmartgrid.
+ VOLUME8,2020 8571
+ 
+ 
+The above content shows the entire, complete file contents of the requested file.

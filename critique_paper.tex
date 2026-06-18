@@ -1,0 +1,36 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{amsmath,amssymb,booktabs,graphicx,geometry,xcolor,subcaption}
+\usepackage[colorlinks=true, allcolors=ieee]{hyperref}
+\geometry{margin=0.75in}
+\definecolor{ieee}{RGB}{0,83,159}
+
+\title{\textbf{A Critical Review and Enhancement of BFT Frameworks in Smart Grids}\\[6pt]
+\large Resolving the Temporal Vulnerability in Sheikh's Consensus Model\\[4pt]}
+\author{Final Project Critique}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper presents a formal critique and enhancement of the blockchain consensus framework proposed by Sheikh et al. (2020) for Electric Vehicle (EV) energy trading. While the original work successfully derives a static security threshold against False Data Injection (FDI) attacks, it crucially omits the temporal exposure introduced by the latency of the chosen OM($m$) consensus algorithm. We mathematically prove that OM($m$)'s $\mathcal{O}(n^m)$ message complexity creates an astronomical latency delay, subjecting the network to severe, repeated temporal attack windows. To resolve this, we introduce the Static-Temporal Security Framework (STSF) alongside Tower BFT, an $\mathcal{O}(n)$ pipeline that definitively seals the vulnerability window while retaining the original cryptographic integrity.
+\end{abstract}
+
+% ═════════════════════════════════════════════════════
+<truncated 14277 bytes>
+fficiency and cryptographic custody:
+\begin{itemize}
+\item \textbf{Tower BFT Message Reduction:} By abandoning OM($m$)'s recursive $\approx 1.00 \times 10^{18}$ messages in favor of Tower BFT's $O(n)$ slot-based voting ($1,275$ messages), we achieve a staggering magnitude reduction in network overhead, eliminating the catastrophic latency that previously exposed the grid to temporal attacks.
+\item \textbf{Reducing Receiver Compromise ($P_R$) via Key Management:} The original framework assumes a static receiver vulnerability of $P_R = 0.01$. The foundational scope for future improvement lies in deploying advanced threshold signature schemes (such as a $(3,5)$ Shamir Secret Sharing setup) across EV nodes to mathematically crush $P_R$ down to $9.85 \times 10^{-6}$. This proves that distributed private key management is the ultimate method to reinforce the blockchain's defensive boundary.
+\end{itemize}
+This critical optimization establishes a realistic pathway from theoretical modeling to physical smart-grid deployment.
+
+% ══════════════════════════════════════════════════════════════════
+\section{Conclusion}
+% ══════════════════════════════════════════════════════════════════
+
+While Sheikh et al. provided a powerful static security formulation, their reliance on OM($m$) introduced a fatal $\mathcal{O}(n^m)$ temporal vulnerability window. By identifying this gap and introducing Tower BFT within our novel STSF formulation, we have formalized a complete, mathematically rigorous probability model capable of defending EV energy grids in both the static and temporal domains.
+
+\end{document}
+
+The above content shows the entire, complete file contents of the requested file.

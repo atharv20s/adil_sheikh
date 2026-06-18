@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,booktabs,graphicx,geometry,hyperref,xcolor}
+\geometry{margin=1in}
+\definecolor{ieee}{RGB}{0,83,159}
+
+\title{\textbf{Week 1: Identifying Literature Gaps \& Vulnerability Discovery}\\[6pt]
+\large Based on: Sheikh et al., ``Secured Energy Trading Using Byzantine-Based Blockchain Consensus,'' IEEE Access, 2020}
+\author{VJTI Research Report}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+% ══════════════════════════════════════════════════════════════════
+\section{Paper Summary}
+% ══════════════════════════════════════════════════════════════════
+
+Sheikh et al.\ propose a Byzantine-based blockchain consensus mechanism for
+securing energy trading between Electric Vehicles (EVs) and a Distribution
+Network (DN) on an IEEE 33-bus system. The key contributions are:
+
+\begin{itemize}
+\item \textbf{System Model}: 50 EVs + 1 DN = 51 nodes, with $n_{sen} = 3854$ sensors.
+\item \textbf{Energy Model} (\S IV): SOC-based participation (Eq.~3), remaining charge $C_{rem}^i$ (Eq.~5), three trading scenarios (Table~3).
+\item \textbf{BFT Consensus} (\S V): Oral Message OM($m$) from Lamport et al., requiring $n \geq 3f+1$ to tolerate $f$ traitors.
+\item \textbf{
+<truncated 8389 bytes>
+teration involves $O(n^m)$ network-wide broadcast rounds. This masks the true computational cost.
+
+% ══════════════════════════════════════════════════════════════════
+\section{Summary of Findings}
+% ══════════════════════════════════════════════════════════════════
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of Literature Gaps and Vulnerabilities}
+\begin{tabular}{@{}clp{7cm}@{}}
+\toprule
+\textbf{\#} & \textbf{Type} & \textbf{Description} \\
+\midrule
+G1 & Gap & $O(n^m)$ message complexity --- infeasible at $n{=}51$, $m{=}16$ \\
+G2 & Gap & No latency analysis (43.35s consensus unquantified) \\
+G3 & Gap & No TPS metrics (only 1.1 TPS) \\
+G4 & Gap & No network sensitivity analysis \\
+G5 & Gap & Sensor--validator architectural confusion \\
+G6 & Gap & No alternative consensus comparison \\
+G7 & Gap & No empirical validation (purely analytical) \\
+\midrule
+V1 & Vuln & 43.35s window of vulnerability for DoS/injection \\
+V2 & Vuln & Recursive message amplification attack \\
+V3 & Vuln & Network fragility from recursive message dependency \\
+V4 & Vuln & Misleading iteration semantics \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Conclusion:} These 7~gaps and 4~vulnerabilities motivate our Week~2 work:
+implementing actual OM($m$) and Tower~BFT consensus simulators, validating them
+with Monte Carlo trials, and comparing both algorithms across all three energy
+trading scenarios using the \emph{exact same} parameters from Sheikh et al.
+Our empirical approach addresses Gap~G7 directly.
+
+\end{document}
+
+The above content shows the entire, complete file contents of the requested file.
