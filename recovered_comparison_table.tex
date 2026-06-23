@@ -1,24 +1,27 @@
- \begin{table*}[htbp]
- \caption{Comprehensive Four-Group BFT Comparison at $f=16$, $x=0.95$, $n_{sen}=3854$}
- \centering
- \scriptsize
- \begin{tabular}{@{}llrrrrrrr@{}}
- \toprule
- \textbf{Algorithm} & \textbf{Group} & \textbf{Latency} & \textbf{TPS} & \textbf{$N_{att}$} & \textbf{$P_{temporal}$} & \textbf{$P_{secure}$} & \textbf{Messages} & \textbf{Speedup} \\
- \midrule
- Lamport OM(m) & G1 & 43,350\,ms & 1.2 & 867 & 0.9870 & 0.0130 & $1.00e+18$ & 1$\times$ \\
- Classic PBFT & G1 & 15,300\,ms & 3.3 & 306 & 0.7843 & 0.2157 & $7,803$ & 3$\times$ \\
- \midrule
- IBFT 2.0 & G2 & 2,500\,ms & 20.0 & 50 & 0.2217 & 0.7783 & $1,323$ & 17$\times$ \\
- QBFT & G2 & 1,500\,ms & 33.3 & 30 & 0.1396 & 0.8604 & $675$ & 29$\times$ \\
- \midrule
- CE-PBFT & G3 & 800.0\,ms & 62.5 & 16 & 0.0771 & 0.9229 & $1,875$ & 54$\times$ \\
- G-PBFT & G3 & 650.0\,ms & 76.9 & 13 & 0.0631 & 0.9369 & $2,700$ & 67$\times$ \\
- SV-PBFT & G3 & 500.0\,ms & 100.0 & 10 & 0.0489 & 0.9511 & $1,200$ & 87$\times$ \\
- \midrule
- Tower BFT & G4 & 242.9\,ms & 205.8 & 4 & 0.0199 & 0.9801 & $1,275$ & 178$\times$ \\
- RVR Consensus & G4 & 200.0\,ms & 250.0 & 4 & 0.0101 & 0.9899 & $1,020$ & 217$\times$ \\
- \bottomrule
- \end{tabular}
- \end{table*}
-The above content shows the entire, complete file contents of the requested file.
+\begin{table*}[t]
+\caption{Static-Temporal Security Framework (STSF) Comparison of Byzantine Consensus Protocols ($x=0.95, m=10, P_{other}=0.05, \rho=0.3$)}
+\label{tab:stsf_comparison}
+\centering
+\scriptsize
+\begin{tabular}{@{}llrrcccccc@{}}
+\toprule
+\multirow{2}{*}{\textbf{Group}} & \multirow{2}{*}{\textbf{Protocol}} & \multirow{2}{*}{\textbf{Latency}} & \multirow{2}{*}{\textbf{Throughput}} & \textbf{Message} & \multicolumn{4}{c}{\textbf{Security Probability $P_{secure}$ by Threat Profile}} \\
+\cmidrule(lr){6-9}
+ & & \textbf{(ms)} & \textbf{(TPS)} & \textbf{Complexity} & \textbf{Key Theft} & \textbf{MitM Hijack} & \textbf{FDI Sensor} & \textbf{Replay Flood} \\
+ & & & & & ($\lambda=0.001$) & ($\lambda=1.0$) & ($\lambda=20.0$) & ($\lambda=50.0$) \\
+\midrule
+\textbf{G1} & OM(m) & 43350.0 & 1.1 & $\mathcal{O}(n^f)$ & 0.8756 & 0.0000 & 0.0000 & 0.0000 \\
+ & Classic PBFT & 7650.0 & 6.5 & $\mathcal{O}(n^2)$ & 0.8800 & 0.1795 & 0.0000 & 0.0000 \\
+\cmidrule(lr){1-9}
+\textbf{G2} & IBFT 2.0 & 2500.0 & 20.0 & $\mathcal{O}(n^2)$ & 0.8806 & 0.5475 & 0.0000 & 0.0000 \\
+ & QBFT & 1500.0 & 33.3 & $\mathcal{O}(n^2)$ & 0.8808 & 0.6697 & 0.0000 & 0.0000 \\
+\cmidrule(lr){1-9}
+\textbf{G3} & CE-PBFT & 800.0 & 62.5 & $\mathcal{O}(n^2)$ & 0.8808 & 0.7699 & 0.0000 & 0.0000 \\
+ & G-PBFT & 650.0 & 76.9 & $\mathcal{O}(n_c^2)$ & 0.8809 & 0.7931 & 0.0356 & 0.0000 \\
+ & SV-PBFT & 500.0 & 100.0 & $\mathcal{O}(n^2)$ & 0.8809 & 0.8170 & 0.0986 & 0.0000 \\
+\cmidrule(lr){1-9}
+\textbf{G4} & Tower BFT & 242.9 & 205.8 & $\mathcal{O}(n)$ & 0.8809 & \textbf{0.8515} & \textbf{0.3354} & \textbf{0.0502} \\
+ & RVR & 200.0 & 250.0 & $\mathcal{O}(n)$ & 0.8809 & \textbf{0.8570} & \textbf{0.4073} & \textbf{0.1030} \\
+\bottomrule
+\end{tabular}
+\end{table*}

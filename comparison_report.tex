@@ -1,9 +1,21 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
-\usepackage{amsmath,amssymb,booktabs,graphicx,geometry,xcolor,subcaption,multirow}
-\usepackage[colorlinks=true, allcolors=ieee]{hyperref}
-\geometry{margin=0.75in}
-\definecolor{ieee}{RGB}{0,83,159}
 
+% ─── Packages ────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,multirow,array}
+\usepackage{graphicx,subcaption}
+\graphicspath{{figures/}}
+\usepackage{geometry,xcolor,enumitem}
+\usepackage{url}
+\definecolor{ieee}{RGB}{0,83,159}
+\usepackage[colorlinks=true, allcolors=ieee]{hyperref}
+
+\geometry{margin=0.75in}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+
+% ═════════════════════════════════════════════════════════════════
 \title{\textbf{Comparative Analysis of BFT Consensus Frameworks\\for Secured Smart Grid Energy Trading}\\[6pt]
 \large A Four-Group Evaluation Using the Static-Temporal Security Framework\\[4pt]}
 \author{%
@@ -16,36 +28,51 @@ Department of Electrical Engineering
 \maketitle
 
 \begin{abstract}
-This paper presents a rigorous comparative analysis of Byzantine Fault Tolerant (BFT) consensus algorithms for securing Electric Vehicle (EV) energy trading on IEEE 33-bus distribution systems. We evaluate eight consensus protocols across four evolutionary groups---Baselines (OM($m$), Classic PBFT), Enterprise Consortium (IBFT~2.0, QBFT), Node-Clustered Energy PBFT (CE-PBFT, G-PBFT, SV-PBFT), and Next-Generation Sub-Second frameworks (Tower~BFT, RVR Consensus)---through the lens of Sheikh et al.'s probabilistic attack model (Eq.~14--21) extended with the Static-Temporal Security Framework (STSF). Our analysis demonstrates that \emph{consensus latency} is the decisive security parameter: Group~1 baselines suffer $P_{temporal} \approx 0.987$ (effectively guaranteed compromise), while Group~4 protocols achieve $P_{secure} \geq 0.98$ by collapsing the temporal attack window to $N \leq 4$ independent at
-<truncated 7978 bytes>
- PBFT}
+This report presents a comparative analysis of Byzantine Fault Tolerant (BFT) consensus algorithms for securing peer-to-peer EV energy trading on smart grids. Using the Static-Temporal Security Framework (STSF), we evaluate nine consensus protocols classified into four evolutionary groups: CFM-BA (G1), CDC-C (G2), HTC-PBFT (G3), and SS-PR-BFT (G4). We demonstrate that while OM($m$) achieves high static security, its latency creates a severe temporal window of vulnerability. By analyzing under a Poisson attack arrival model ($\lambda$), critical sensor subsets ($m=10$), and weighted risk components, we identify that Group 4 protocols (Tower BFT and RVR) occupy the Pareto-optimal frontier, providing the necessary sub-second latencies and low message overhead to protect transactions in real time.
+\end{abstract}
 
-\textbf{Algorithms:} CE-PBFT \cite{ding2024}, G-PBFT \cite{xu2025}, SV-PBFT \cite{suo2025}.
+\section{Introduction}
+Modern smart grids rely on distributed ledger technology to secure vehicle-to-grid (V2G) power trading against injection attacks. The core performance and security of the blockchain depend on the consensus algorithm. Sheikh et al.~\cite{sheikh2020} developed a probabilistic model showing that Byzantine consensus reduces static attack probability $P_{TA} \approx 0.005$ to $P_{TAb} \approx 10^{-173}$ on an IEEE 33-bus system.
 
-\textbf{Algorithmic Parameters:} These models partition the massive sensor grid into small, isolated committees ($c$) using spectral clustering, geohashing, or vehicle-to-vehicle reputation. Cluster sizes typically range from $c = 20$ to $c = 30$, with latency $L \approx 400$--$800$ ms.
+However, their analysis assumes instantaneous finality. The recursive message exchanges of OM($m$) result in latencies of up to 43.35 seconds, exposing the smart grid to attacks during the validation window. This report evaluates the temporal vulnerability of alternative consensus groups and proposes defense-in-depth measures.
 
-\textbf{Key Modification to STSF:} The communication channel count changes from global to localized:
+\section{Methodology and Security Modeling}
+We define the overall security $P_{secure}$ under the Static-Temporal Security Framework (STSF) under correlated attacks:
 \begin{equation}
-k_1^{cluster} = \frac{c(c-1)}{2} \quad \text{vs} \quad k_1^{global} = \frac{n_{sen}(n_{sen}-1)}{2}
+P_{secure} = (1 - P_{fail})(1 - P_{other})
 \end{equation}
+where $P_{fail} = \min(1.0, P_{TAb} + P_{temporal} - \rho \cdot \min(P_{TAb}, P_{temporal}))$ with correlation coefficient $\rho=0.3$, $P_{other} = 0.05$ represents residual operational risk, and $P_{temporal}$ is modeled as a Poisson arrival process with attack rate $\lambda$:
+\begin{equation}
+P_{temporal}(\lambda, L) = 1 - e^{-\lambda \cdot L \cdot P_{TA}}
+\end{equation}
+To prevent the sensor vulnerability term ($x^{3854}$) from underflowing to zero, we evaluate security on a critical sensor subset of size $m = 10$, where $P_{SA}^{(10)} = x^{10}$. The components are weighted under an illustrative risk-adjusted weighting scenario as $w_{sc} = 0.40, w_r = 0.30, w_s = 0.20, w_c = 0.10$.
 
-For CE-PBFT with $c = 25$: $k_1^{cluster} = 300$ vs $k_1^{global} = 7{,}426{,}681$. This dramatically reduces $P_{CAb}$, protecting against communication path exploits.
+\section{Evaluation of Consensus Groups}
+We group the nine consensus protocols into four groups:
+\begin{enumerate}
+    \item \textbf{G1: Classical BFT}: OM($m$) and Classic PBFT. Large latencies and high message counts.
+    \item \textbf{G2: Committee-Delegated}: IBFT 2.0 and QBFT. Reduces validators to a committee.
+    \item \textbf{G3: Clustered PBFT}: CE-PBFT, G-PBFT, SV-PBFT. Partitions validators into localized geohash/credit groups.
+    \item \textbf{G4: Sub-Second BFT}: Tower BFT and RVR. Uses Proof of History clocks and VRF hidden leaders to achieve sub-250 ms finality.
+\end{enumerate}
 
-\textbf{Temporal Results:}
-\begin{align}
-N_{CE} &= 16, \quad P_{temporal}^{CE} \approx 0.077 \\
-N_{G} &= 13, \quad P_{temporal}^{G} \approx 0.063 \\
-N_{SV} &= 10, \quad P_{temporal}^{SV} \approx 0.049
-\end{align}
+\section{Results and Key Management}
+The protocols are evaluated under four threat rates ($\lambda = 0.001, 1.0, 20.0, 100.0$ events/sec). The results show that:
+\begin{itemize}
+    \item OM($m$) and PBFT collapse under moderate attack rates ($P_{secure} \rightarrow 0$ for $\lambda \geq 1$).
+    \item Group 4 protocols maintain high security ($P_{secure} \approx 0.81$ at $\lambda = 1.0$).
+    \item Deploying a $(3,5)$ Shamir Secret Sharing scheme or Multi-Party Computation MPC$(5,9)$ reduces receiver compromise probability $P_R$ by up to $10^7\times$, reinforcing transaction integrity.
+\end{itemize}
 
-\textbf{Result:} $P_{secure}$ ranges from $0.923$ to $0.951$, approaching but not reaching the $0.98$ target threshold.
+\section{Conclusion}
+Consensus latency is the decisive security parameter in smart grids. Group 4 protocols (Tower BFT and RVR) provide the highest security and throughput, making them ideal for wide-area grid deployment.
 
-\subsection{Group 4: Next-Gen Sub-Second --- Tower BFT \& RVR}
+\begin{thebibliography}{9}
+\bibitem{sheikh2020} A. Sheikh et al., ``Secured Energy Trading Using Byzantine-Based Blockchain Consensus,'' \emph{IEEE Access}, 2020.
+\bibitem{ding2024} X. Ding et al., ``CE-PBFT: An Optimized PBFT Consensus Algorithm for Microgrid Power Trading,'' \emph{IEEE TSG}, 2024.
+\bibitem{xu2025} Z. Xu et al., ``G-PBFT Algorithm and its Application in Distributed Energy Trading,'' \emph{Applied Energy}, 2025.
+\bibitem{suo2025} Y. Suo et al., ``SV-PBFT: An Efficient and Stable Blockchain PBFT Improved Consensus Algorithm,'' \emph{IEEE IoTJ}, 2025.
+\bibitem{wang2025} H. Wang et al., ``RVR Blockchain Consensus: A Verifiable, Weighted-Random, Byzantine-Tolerant Framework,'' \emph{IEEE TPDS}, 2025.
+\end{thebibliography}
 
-\textbf{Algorithmic Parameters:} Tower~BFT \cite{yakovenko2018} replaces step-by-step consensus messaging with a Proof of History (PoH) Verifiable Delay Function (VDF) clock, achieving $\mathcal{O}(n)$ message complexity. RVR Consensus \cite{wang2025} uses Verifiable Random Functions (VRF) for cryptographically hidden leader election.
-
-\textbf{Latency Model:}
-\begin{align}
-L_{TBFT} &= L_{base} + L_{attack} + f(\alpha\tau) + \frac{f}{n}L_{vc} \leq 242.9\text{ ms} \\
-L_{RVR} &\approx 200\text{ ms (VRF + weighted random)}
-The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+\end{document}

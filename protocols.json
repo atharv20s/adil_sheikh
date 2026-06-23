@@ -1,0 +1,92 @@
+{
+  "OM(m)": {
+    "group": "G1: Classical BFT",
+    "group_id": "G1",
+    "latency_ms": 43350.0,
+    "tps": 1.15,
+    "msg_complexity": "n^f",
+    "msg_count": 1.0e18,
+    "color": "#C0392B",
+    "source": "Lamport 1982"
+  },
+  "Classic PBFT": {
+    "group": "G1: Classical BFT",
+    "group_id": "G1",
+    "latency_ms": 7650.0,
+    "tps": 6.54,
+    "msg_complexity": "n^2",
+    "msg_count": 7803.0,
+    "color": "#E67E22",
+    "source": "Castro 1999"
+  },
+  "IBFT 2.0": {
+    "group": "G2: Committee-Delegated",
+    "group_id": "G2",
+    "latency_ms": 2500.0,
+    "tps": 20.0,
+    "msg_complexity": "n^2",
+    "msg_count": 1323.0,
+    "color": "#8E44AD",
+    "source": "Hyperledger Besu"
+  },
+  "QBFT": {
+    "group": "G2: Committee-Delegated",
+    "group_id": "G2",
+    "latency_ms": 1500.0,
+    "tps": 33.3,
+    "msg_complexity": "n^2",
+    "msg_count": 675.0,
+    "color": "#2980B9",
+    "source": "ConsenSys 2020"
+  },
+  "CE-PBFT": {
+    "group": "G3: Hierarchical PBFT",
+    "group_id": "G3",
+    "latency_ms": 800.0,
+    "tps": 62.5,
+    "msg_complexity": "n^2",
+    "msg_count": 1875.0,
+    "color": "#27AE60",
+    "source": "Ding 2024"
+  },
+  "G-PBFT": {
+    "group": "G3: Hierarchical PBFT",
+    "group_id": "G3",
+    "latency_ms": 650.0,
+    "tps": 76.9,
+    "msg_complexity": "n_c^2",
+    "msg_count": 2700.0,
+    "color": "#16A085",
+    "source": "Xu 2025"
+  },
+  "SV-PBFT": {
+    "group": "G3: Hierarchical PBFT",
+    "group_id": "G3",
+    "latency_ms": 500.0,
+    "tps": 100.0,
+    "msg_complexity": "n^2",
+    "msg_count": 1200.0,
+    "color": "#2ECC71",
+    "source": "Suo 2025"
+  },
+  "Tower BFT": {
+    "group": "G4: Sub-Second BFT",
+    "group_id": "G4",
+    "latency_ms": 242.9,
+    "tps": 205.8,
+    "msg_complexity": "n",
+    "msg_count": 1275.0,
+    "color": "#2C3E50",
+    "source": "Yakovenko 2018"
+  },
+  "RVR": {
+    "group": "G4: Sub-Second BFT",
+    "group_id": "G4",
+    "latency_ms": 200.0,
+    "tps": 250.0,
+    "msg_complexity": "n",
+    "msg_count": 1020.0,
+    "color": "#1ABC9C",
+    "source": "Wang 2025"
+  }
+}
