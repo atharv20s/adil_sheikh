@@ -15,6 +15,7 @@
 \usepackage{cite}
 \usepackage{url}
 \usepackage{tikz}
+\usepackage{flushend}
 \usetikzlibrary{shapes.geometric, arrows, positioning, fit, backgrounds, calc}
 
 \geometry{margin=0.75in}
@@ -1093,6 +1094,73 @@ The following protocol comparison assumes blockchain has already been selected. 
 
 \section{Protocol Comparisons}
 
+\begin{table*}[htbp]
+\caption{Table A: Security Efficacy Ranking ($\lambda=20, x=0.95, f=16$)}
+\label{tab:security}
+\centering
+\scriptsize
+\begin{tabular}{@{}clrrr@{}}
+\toprule
+\textbf{Rank} & \textbf{Protocol} & \textbf{$P_{secure}$} & \textbf{$P_{temporal}$} & \textbf{$L$ (ms)} \\
+\midrule
+1 & RVR & 0.940 & 0.010 & 200 \\
+2 & Tower BFT & 0.927 & 0.024 & 243 \\
+3 & SV-PBFT & 0.904 & 0.049 & 500 \\
+4 & G-PBFT & 0.890 & 0.063 & 650 \\
+5 & CE-PBFT & 0.877 & 0.077 & 800 \\
+6 & QBFT & 0.818 & 0.139 & 1,500 \\
+7 & IBFT 2.0 & 0.740 & 0.221 & 2,500 \\
+8 & Classic PBFT & 0.442 & 0.535 & 7,650 \\
+9 & OM($m$) & 0.012 & 0.987 & 43,350 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[htbp]
+\caption{Table B: Operational Performance and Environment Benchmarking ($n=51$). Values for G2--G4 are obtained from published literature (see Section~\ref{sec:introduction} and references therein), G1 values are analytically derived, and all $P_{secure}$ values are simulated. Absolute latency and throughput values should therefore not be interpreted as directly comparable across implementations; instead, they are used to illustrate relative protocol characteristics.}
+\label{tab:performance}
+\centering
+\scriptsize
+\begin{tabular}{@{}llrrrl@{}}
+\toprule
+\textbf{Protocol} & \textbf{Group} & \textbf{Latency (ms)} & \textbf{Throughput (TPS)} & \textbf{Comm. Overhead (msgs/tx)} & \textbf{Scalability (Nodes)} \\
+\midrule
+OM($m$) & G1: CFM-BA & 43,350 & 1.15 & $4.3 \times 10^{25}$ & Inelastic ($<$10 nodes) \\
+Classic PBFT & G1: CFM-BA & 7,650 & 6.54 & 154.0 & Inelastic ($<$30 nodes) \\
+IBFT 2.0 & G2: CDC-C & 2,500 & 20.00 & 25.9 & Moderately elastic (30--50 nodes) \\
+QBFT & G2: CDC-C & 1,500 & 33.30 & 11.6 & Moderately elastic (30--50 nodes) \\
+CE-PBFT & G3: HTC-PBFT & 800 & 62.50 & 37.2 & Highly elastic (7--50 nodes) \\
+G-PBFT & G3: HTC-PBFT & 650 & 76.90 & 52.9 & Highly elastic (40--220 nodes) \\
+SV-PBFT & G3: HTC-PBFT & 500 & 100.00 & 23.5 & Highly elastic (10--70 nodes) \\
+Tower BFT & G4: SS-PR-BFT & 243 & 205.80 & 25.0 & Highly elastic (50--1000 nodes) \\
+RVR & G4: SS-PR-BFT & 200 & 250.00 & 20.0 & Highly elastic (10--100 nodes) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[htbp]
+\caption{Table C: Message Complexity Formulations ($n=51, f=16, c=25$)}
+\label{tab:complexity}
+\centering
+\scriptsize
+\begin{tabular}{@{}llr@{}}
+\toprule
+\textbf{Protocol} & \textbf{Complexity Formula} & \textbf{Message Count} \\
+\midrule
+OM($m$) & $\sum_{k=0}^{f} n^k = \frac{n^{f+1}-1}{n-1}$ & $\approx 2.14 \times 10^{27}$ \\
+Classic PBFT & $3n^2 + n$ & 7,854 \\
+IBFT 2.0 & $3n_{val}^2$ ($n_{val}=21$) & 1,323 \\
+QBFT & $2n_{val}^2 + n_{val}$ ($n_{val}=17$) & 595 \\
+CE-PBFT & $3c^2 + c$ ($c=25$) & 1,900 \\
+G-PBFT & $3M^2 + M$ ($M=30$) & 2,730 \\
+SV-PBFT & $3c^2$ ($c=20$) & 1,200 \\
+Tower BFT & $n \times S$ ($S=25$ votes) & 1,275 \\
+RVR & $n \times S$ ($S=20$ votes) & 1,020 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
 To operationalize these temporal findings, we evaluate the protocols across distinct architectural families.
 
 \subsection{Classical BFT (OM($m$) and PBFT)}
@@ -1134,71 +1202,7 @@ CO = \frac{M_{total}}{N_{tx}} \quad \text{[messages/transaction]}
 \end{equation}
 This parameter isolates network overhead from raw node limits.
 
-\begin{table*}[t]
-\caption{Table A: Security Efficacy Ranking ($\lambda=20, x=0.95, f=16$)}
-\label{tab:security}
-\centering
-\scriptsize
-\begin{tabular}{@{}clrrr@{}}
-\toprule
-\textbf{Rank} & \textbf{Protocol} & \textbf{$P_{secure}$} & \textbf{$P_{temporal}$} & \textbf{$L$ (ms)} \\
-\midrule
-1 & RVR & 0.940 & 0.010 & 200 \\
-2 & Tower BFT & 0.927 & 0.024 & 243 \\
-3 & SV-PBFT & 0.904 & 0.049 & 500 \\
-4 & G-PBFT & 0.890 & 0.063 & 650 \\
-5 & CE-PBFT & 0.877 & 0.077 & 800 \\
-6 & QBFT & 0.818 & 0.139 & 1,500 \\
-7 & IBFT 2.0 & 0.740 & 0.221 & 2,500 \\
-8 & Classic PBFT & 0.442 & 0.535 & 7,650 \\
-9 & OM($m$) & 0.012 & 0.987 & 43,350 \\
-\bottomrule
-\end{tabular}
-\end{table*}
 
-\begin{table*}[t]
-\caption{Table B: Operational Performance and Environment Benchmarking ($n=51$). Values for G2--G4 are obtained from published literature (see Section~\ref{sec:introduction} and references therein), G1 values are analytically derived, and all $P_{secure}$ values are simulated. Absolute latency and throughput values should therefore not be interpreted as directly comparable across implementations; instead, they are used to illustrate relative protocol characteristics.}
-\label{tab:performance}
-\centering
-\scriptsize
-\begin{tabular}{@{}llrrrl@{}}
-\toprule
-\textbf{Protocol} & \textbf{Group} & \textbf{Latency (ms)} & \textbf{Throughput (TPS)} & \textbf{Comm. Overhead (msgs/tx)} & \textbf{Scalability (Nodes)} \\
-\midrule
-OM($m$) & G1: CFM-BA & 43,350 & 1.15 & $4.3 \times 10^{25}$ & Inelastic ($<$10 nodes) \\
-Classic PBFT & G1: CFM-BA & 7,650 & 6.54 & 154.0 & Inelastic ($<$30 nodes) \\
-IBFT 2.0 & G2: CDC-C & 2,500 & 20.00 & 25.9 & Moderately elastic (30--50 nodes) \\
-QBFT & G2: CDC-C & 1,500 & 33.30 & 11.6 & Moderately elastic (30--50 nodes) \\
-CE-PBFT & G3: HTC-PBFT & 800 & 62.50 & 37.2 & Highly elastic (7--50 nodes) \\
-G-PBFT & G3: HTC-PBFT & 650 & 76.90 & 52.9 & Highly elastic (40--220 nodes) \\
-SV-PBFT & G3: HTC-PBFT & 500 & 100.00 & 23.5 & Highly elastic (10--70 nodes) \\
-Tower BFT & G4: SS-PR-BFT & 243 & 205.80 & 25.0 & Highly elastic (50--1000 nodes) \\
-RVR & G4: SS-PR-BFT & 200 & 250.00 & 20.0 & Highly elastic (10--100 nodes) \\
-\bottomrule
-\end{tabular}
-\end{table*}
-
-\begin{table*}[t]
-\caption{Table C: Message Complexity Formulations ($n=51, f=16, c=25$)}
-\label{tab:complexity}
-\centering
-\scriptsize
-\begin{tabular}{@{}llr@{}}
-\toprule
-\textbf{Protocol} & \textbf{Complexity Formula} & \textbf{Message Count} \\
-\midrule
-OM($m$) & $\sum_{k=0}^{f} n^k = \frac{n^{f+1}-1}{n-1}$ & $\approx 2.14 \times 10^{27}$ \\
-Classic PBFT & $3n^2 + n$ & 7,854 \\
-IBFT 2.0 & $3n_{val}^2$ ($n_{val}=21$) & 1,323 \\
-QBFT & $2n_{val}^2 + n_{val}$ ($n_{val}=17$) & 595 \\
-CE-PBFT & $3c^2 + c$ ($c=25$) & 1,900 \\
-G-PBFT & $3M^2 + M$ ($M=30$) & 2,730 \\
-SV-PBFT & $3c^2$ ($c=20$) & 1,200 \\
-Tower BFT & $n \times S$ ($S=25$ votes) & 1,275 \\
-RVR & $n \times S$ ($S=20$ votes) & 1,020 \\
-\bottomrule
-\end{tabular}
-\end{table*}
 
 \subsection{Shortlisted Architectural Security and Performance Features}
 
