@@ -21,6 +21,7 @@
 \usepackage{algorithm}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows, positioning}
+\usepackage{flushend}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
@@ -506,22 +507,24 @@ Our conclusions rely on three core foundational assumptions: (1) independent nod
 \subsection{Summary of Research Questions & Hypothesis Outcomes}
 Table \ref{tab:rq_summary} provides a concise summary mapping our four Research Questions to the evaluated evidence and hypothesis outcomes.
 
-\begin{table*}[t]
+\begin{table}[htbp]
 \caption{Summary of Research Questions, Evaluated Evidence, and Hypothesis Outcomes}
 \label{tab:rq_summary}
 \centering
 \scriptsize
-\begin{tabularx}{\textwidth}{@{}lXXc@{}}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lXc@{}}
 \toprule
 \textbf{Research Question} & \textbf{Primary Evaluated Evidence} & \textbf{Hypothesis Outcome} \\
 \midrule
-\textbf{RQ1 (BFT-IDS Integration)} & 12-Attack composite analysis \& cumulative Binomial SPOF derivation ($n=51, f=16$). & Supported under proposed model assumptions \\
-\textbf{RQ2 (Temporal Vulnerability)} & Poisson arrival decay modeling ($W(\tau)$) \& Hyperledger Fabric latency traces ($\tau$). & Supported under proposed model assumptions \\
-\textbf{RQ3 (Threat Model Robustness)} & Sensitivity parameter sweeps across physical parameters ($x, y, z, p_c, \lambda$). & Supported under evaluated parameter ranges \\
-\textbf{RQ4 (Feature Ablation)} & Cryptographic ablation experiments (VRF rotation, Shamir secret sharing, credit weights). & Supported under evaluated test scenarios \\
+\textbf{RQ1 (BFT-IDS Integration)} & 12-Attack composite analysis \& cumulative Binomial SPOF derivation ($n=51, f=16$). & Supported \\
+\textbf{RQ2 (Temporal Vulnerability)} & Poisson arrival decay modeling ($W(\tau)$) \& Hyperledger Fabric latency traces ($\tau$). & Supported \\
+\textbf{RQ3 (Threat Model Robustness)} & Sensitivity parameter sweeps across physical parameters ($x, y, z, p_c, \lambda$). & Supported \\
+\textbf{RQ4 (Feature Ablation)} & Cryptographic ablation experiments (VRF rotation, Shamir secret sharing, credit weights). & Supported \\
 \bottomrule
-\end{tabularx}
-\end{table*}
+\end{tabular}%
+}
+\end{table}
 
 \subsection{Threats to Validity}
 \begin{enumerate}[leftmargin=*]
