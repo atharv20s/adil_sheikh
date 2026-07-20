@@ -68,7 +68,7 @@ To mitigate these threats, power utilities traditionally deploy Intrusion Detect
 
 Furthermore, centralized IDS architectures inherently rely on a central coordinator host (e.g., the utility MDMS). If an Advanced Persistent Threat (APT) actor or malicious insider breaches this central node, the entire security perimeter collapses ($P_{\text{SPOF}} = 1.0$). Centralized detection tools are structurally incapable of mitigating Byzantine validator failures or identity impersonation (Sybil attacks) where the central node itself acts maliciously.
 
-To eliminate these vulnerabilities, this paper presents an architectural paradigm shift: **applying Distributed Byzantine Consensus to Secure Reactive Intrusion Detection in Smart Meter Networks**. Rather than viewing Byzantine Fault Tolerance (BFT) and Machine-Learning IDS as competing, mutually exclusive alternatives, we trace the theoretical evolution of Byzantine agreement from Lamport's classical Oral Message $OM(m)$ protocol (1982) to modern sub-second pipelined engines (2026), demonstrating how distributed BFT consensus serves as a fault-tolerant validation layer that fortifies traditional IDS pipelines. In the proposed \emph{BFT-IDS} architecture, local ML classifiers perform low-latency anomaly detection at endpoints, while a peer-to-peer network of BFT validators verifies telemetry transactions pre-commitment.
+To eliminate these vulnerabilities, this paper presents an architectural paradigm shift: \textbf{applying Distributed Byzantine Consensus to Secure Reactive Intrusion Detection in Smart Meter Networks}. Rather than viewing Byzantine Fault Tolerance (BFT) and Machine-Learning IDS as competing, mutually exclusive alternatives, we trace the theoretical evolution of Byzantine agreement from Lamport's classical Oral Message $OM(m)$ protocol (1982) to modern sub-second pipelined engines (2026), demonstrating how distributed BFT consensus serves as a fault-tolerant validation layer that fortifies traditional IDS pipelines. In the proposed \emph{BFT-IDS} architecture, local ML classifiers perform low-latency anomaly detection at endpoints, while a peer-to-peer network of BFT validators verifies telemetry transactions pre-commitment.
 
 Calibrated on an IEEE 33-bus distribution system with 50 Electric Vehicle (EV) prosumers and 3,854 physical sensors, our framework quantifies how applying BFT consensus onto traditional IDS mitigates single-point-of-failure risks and temporal vulnerability decay under stochastic Poisson attack traffic.
 
@@ -92,13 +92,13 @@ Fig. \ref{fig:architectural_progression} illustrates the complete architectural 
 \begin{figure}[htbp]
 \centering
 \resizebox{\columnwidth}{!}{%
-\begin{tikzpicture}[node distance=1.1cm, auto, >=latex]
-    \node [draw, rectangle, fill=blue!10, text width=6.5cm, text centered, rounded corners] (ids) {\textbf{Reactive Centralized ML-IDS} \\ Behavioral Classification (SPOF $P_{\text{SPOF}}=1.0$, Reactive)};
-    \node [draw, rectangle, fill=red!10, text width=6.5cm, text centered, rounded corners, below=0.4cm of ids] (om) {\textbf{Classical Byzantine Agreement (1982)} \\ Lamport $OM(m)$ Protocol ($\mathcal{O}(n^f)$ Complexity, Theoretical Origin)};
-    \node [draw, rectangle, fill=orange!15, text width=6.5cm, text centered, rounded corners, below=0.4cm of om] (pbft) {\textbf{Practical BFT & Domain Extensions (1999--2025)} \\ PBFT, IBFT, QBFT, G-PBFT ($\mathcal{O}(n^2)$ Polynomial Complexity)};
-    \node [draw, rectangle, fill=green!15, text width=6.5cm, text centered, rounded corners, below=0.4cm of pbft] (g4) {\textbf{Modern Sub-Second Pipelined Consensus (2024--2026)} \\ Tower BFT, RVR ($\mathcal{O}(n)$ Linear Complexity, PoH/VRF)};
-    \node [draw, rectangle, fill=green!25, text width=6.5cm, text centered, rounded corners, below=0.4cm of g4] (bftids) {\textbf{Proposed BFT-IDS Integration Architecture} \\ Distributed Proactive Validation Layer Fortifying ML-IDS};
-    \node [draw, rectangle, fill=yellow!20, text width=6.5cm, text centered, rounded corners, below=0.4cm of bftids] (stsf) {\textbf{Static-Temporal Security Framework (STSF)} \\ Closed-Form $\tau=f(M,n)$ Derivation \& Monte Carlo Verification};
+\begin{tikzpicture}[node distance=0.8cm, auto, >=latex]
+    \node [draw, rectangle, fill=blue!10, text width=6.2cm, text centered, rounded corners] (ids) {\textbf{1. Reactive Centralized ML-IDS} \\ Behavioral Classification ($P_{\text{SPOF}}=1.0$)};
+    \node [draw, rectangle, fill=red!10, text width=6.2cm, text centered, rounded corners, below=0.35cm of ids] (om) {\textbf{2. Classical Byzantine Agreement (1982)} \\ Lamport $OM(m)$ ($\mathcal{O}(n^{f+1})$ Theoretical Origin)};
+    \node [draw, rectangle, fill=orange!15, text width=6.2cm, text centered, rounded corners, below=0.35cm of om] (pbft) {\textbf{3. Practical BFT & Domain Extensions} \\ PBFT, IBFT, QBFT, G-PBFT ($\mathcal{O}(n^2)$ Polynomial)};
+    \node [draw, rectangle, fill=green!15, text width=6.2cm, text centered, rounded corners, below=0.35cm of pbft] (g4) {\textbf{4. Modern Sub-Second Pipelined BFT} \\ Tower BFT, RVR ($\mathcal{O}(n)$ Linear PoH/VRF)};
+    \node [draw, rectangle, fill=green!25, text width=6.2cm, text centered, rounded corners, below=0.35cm of g4] (bftids) {\textbf{5. Proposed BFT-IDS Integration} \\ Proactive Validation Layer Fortifying ML-IDS};
+    \node [draw, rectangle, fill=yellow!20, text width=6.2cm, text centered, rounded corners, below=0.35cm of bftids] (stsf) {\textbf{6. Static-Temporal Framework (STSF)} \\ Closed-Form $\tau=f(M,n)$ \& Monte Carlo};
 
     \draw [->, thick] (ids) -- (om);
     \draw [->, thick] (om) -- (pbft);
@@ -145,29 +145,29 @@ Fig. \ref{fig:consensus_timeline} presents the evolutionary lineage of Byzantine
 
 \begin{figure*}[t]
 \centering
-\resizebox{0.95\textwidth}{!}{%
-\begin{tikzpicture}[node distance=1.8cm, auto, >=latex]
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.5cm, auto, >=latex]
     % Timeline nodes
-    \node [draw, rectangle, fill=blue!15, text width=3.8cm, text centered, rounded corners, minimum height=1.6cm] (om) {\textbf{1982: Classical BFT} \\ Lamport $OM(m)$ \\ $\mathcal{O}(n^{f+1})$ Exponential \\ Theoretical Backbone};
-    \node [draw, rectangle, fill=blue!25, text width=3.8cm, text centered, rounded corners, minimum height=1.6cm, right=1.2cm of om] (pbft) {\textbf{1999: Practical BFT} \\ Castro \& Liskov PBFT \\ $\mathcal{O}(n^2)$ 3-Phase Quorum \\ Polynomial Baseline};
-    \node [draw, rectangle, fill=orange!20, text width=3.8cm, text centered, rounded corners, minimum height=1.6cm, right=1.2cm of pbft] (g2) {\textbf{2017--2019: Enterprise BFT} \\ IBFT 2.0 / QBFT \\ $\mathcal{O}(n^2)$ Committee Rotation \\ Reduced View-Change Overhead};
-    \node [draw, rectangle, fill=green!20, text width=3.8cm, text centered, rounded corners, minimum height=1.6cm, right=1.2cm of g2] (g3) {\textbf{2024--2025: Domain BFT} \\ CE-PBFT / G-PBFT / SV-PBFT \\ $\mathcal{O}(n_c^2)$ Sub-Clustered Grid \\ Topology-Aware Routing};
-    \node [draw, rectangle, fill=green!35, text width=3.8cm, text centered, rounded corners, minimum height=1.6cm, right=1.2cm of g3] (g4) {\textbf{2024--2026: Sub-Second BFT} \\ Tower BFT / RVR \\ $\mathcal{O}(n)$ Linear Pipelined PoH/VRF \\ Sub-Second Finality ($\tau < 250\text{ms}$)};
+    \node [draw, rectangle, fill=blue!15, text width=3.0cm, text centered, rounded corners, minimum height=1.5cm] (om) {\textbf{1982: Classical BFT} \\ Lamport $OM(m)$ \\ $\mathcal{O}(n^{f+1})$ Exponential \\ Theoretical Origin};
+    \node [draw, rectangle, fill=blue!25, text width=3.0cm, text centered, rounded corners, minimum height=1.5cm, right=0.5cm of om] (pbft) {\textbf{1999: Practical BFT} \\ Castro \& Liskov PBFT \\ $\mathcal{O}(n^2)$ 3-Phase Quorum \\ Polynomial Baseline};
+    \node [draw, rectangle, fill=orange!20, text width=3.0cm, text centered, rounded corners, minimum height=1.5cm, right=0.5cm of pbft] (g2) {\textbf{2017--19: Enterprise} \\ IBFT 2.0 / QBFT \\ $\mathcal{O}(n^2)$ Committee Rot. \\ Reduced View-Change};
+    \node [draw, rectangle, fill=green!20, text width=3.0cm, text centered, rounded corners, minimum height=1.5cm, right=0.5cm of g2] (g3) {\textbf{2024--25: Domain BFT} \\ CE-PBFT / G-PBFT / SV-PBFT \\ $\mathcal{O}(n_c^2)$ Sub-Clustered Grid \\ Topology-Aware Routing};
+    \node [draw, rectangle, fill=green!35, text width=3.0cm, text centered, rounded corners, minimum height=1.5cm, right=0.5cm of g3] (g4) {\textbf{2024--26: Sub-Second} \\ Tower BFT / RVR \\ $\mathcal{O}(n)$ Pipelined PoH/VRF \\ Sub-Second Finality ($\tau<250\text{ms}$)};
 
     % Connections
-    \draw [->, ultra thick, ieee] (om) -- (pbft) node[midway, above, font=\scriptsize\bfseries] {Polynomial Reduction};
-    \draw [->, ultra thick, ieee] (pbft) -- (g2) node[midway, above, font=\scriptsize\bfseries] {Committee Delegation};
-    \draw [->, ultra thick, ieee] (g2) -- (g3) node[midway, above, font=\scriptsize\bfseries] {Grid Clustering};
-    \draw [->, ultra thick, ieee] (g3) -- (g4) node[midway, above, font=\scriptsize\bfseries] {PoH Pipelining};
+    \draw [->, thick, ieee] (om) -- (pbft);
+    \draw [->, thick, ieee] (pbft) -- (g2);
+    \draw [->, thick, ieee] (g2) -- (g3);
+    \draw [->, thick, ieee] (g3) -- (g4);
 
     % Bottom integration box
-    \node [draw, rectangle, fill=yellow!25, text width=22cm, text centered, rounded corners, minimum height=1.0cm, below=0.8cm of g2] (bftids) {\textbf{This Work (2026): BFT-IDS Framework} --- Applying Sub-Second Generation-4 BFT Consensus (Tower BFT / RVR) Directly Onto Reactive Smart Meter Intrusion Detection Pipelines};
-    \draw [->, ultra thick, dashed, red!80!black] (g4.south) |- (bftids.east);
+    \node [draw, rectangle, fill=yellow!25, text width=17.5cm, text centered, rounded corners, minimum height=0.9cm, below=0.6cm of g2] (bftids) {\textbf{This Work (2026): BFT-IDS Framework} --- Applying Sub-Second Generation-4 BFT Consensus (Tower BFT / RVR) Directly Onto Reactive Smart Meter Intrusion Detection Pipelines};
+    \draw [->, thick, dashed, red!80!black] (g4.south) |- (bftids.east);
 \end{tikzpicture}%
 }
 \caption{Evolutionary Lineage of Byzantine Consensus Protocols (1982--2026), tracing protocol optimization from Lamport's exponential $OM(m)$ to sub-second BFT-IDS intrusion validation.}
 \label{fig:consensus_timeline}
-\end{figure}
+\end{figure*}
 
 \begin{enumerate}[leftmargin=*]
     \item \textbf{Generation 1 (Classical BFT, 1982--1999):} Initiated by Lamport's $OM(m)$ (1982) and practicalized by Castro \& Liskov's PBFT (1999). PBFT replaced exponential message relays with a deterministic three-phase protocol (Pre-Prepare, Prepare, Commit), reducing message complexity to quadratic $\mathcal{O}(n^2)$ ($7,854$ messages for $n=51$).
