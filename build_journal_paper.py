@@ -37,9 +37,11 @@ def build_journal_paper():
 
 \title{\Huge\bfseries BFT-IDS: A Byzantine Fault Tolerant Blockchain Framework for Securing Intrusion Detection Systems in Advanced Metering Infrastructure}
 
-\author{Atharv~Manojkumar~Shukla, Uday~Suryavanshi, and~Sunny~Kumar%
+\author{\textbf{Atharv~Manojkumar~Shukla}\\
+\vspace{0.15cm}
+\small \emph{Co-Authors / Project Guides:} \textbf{Prof.~Uday~Suryavanshi} and \textbf{Dr.~Sunny~Kumar}%
 \thanks{A. M. Shukla is a 3rd year B.Tech Undergraduate Student with the Department of Computer Science and Engineering, Indian Institute of Information Technology (IIIT), Nagpur 441108, India (e-mail: atharv@iiitn.ac.in).}%
-\thanks{U. Suryavanshi and S. Kumar are Project Guides with the E-MC$^2$ Laboratory, Department of Electrical Engineering, Veermata Jijabai Technological Institute (VJTI), Mumbai 400019, India (e-mail: usuryavanshi@ee.vjti.ac.in, skumar@ee.vjti.ac.in).}}
+\thanks{Prof. Uday Suryavanshi and Dr. Sunny Kumar are Co-Authors \& Project Guides with the E-MC$^2$ Laboratory, Department of Electrical Engineering, Veermata Jijabai Technological Institute (VJTI), Mumbai 400019, India (e-mail: usuryavanshi@ee.vjti.ac.in, skumar@ee.vjti.ac.in).}}
 
 \markboth{Research Project Report --- E-MC$^2$ Laboratory, VJTI Mumbai}%
 {Shukla \MakeLowercase{\textit{et al.}}: BFT-IDS: Byzantine Consensus for Securing Intrusion Detection in Smart Meters}
@@ -70,7 +72,7 @@ To mitigate these threats, power utilities traditionally deploy Intrusion Detect
 
 Furthermore, centralized IDS architectures inherently rely on a central coordinator host (e.g., the utility MDMS). If an Advanced Persistent Threat (APT) actor or malicious insider breaches this central node, the entire security perimeter collapses ($P_{\text{SPOF}} = 1.0$). Centralized detection tools are structurally incapable of mitigating Byzantine validator failures or identity impersonation (Sybil attacks) where the central node itself acts maliciously.
 
-To eliminate these vulnerabilities, this paper proposes applying **Byzantine Fault Tolerant (BFT) blockchain consensus onto traditional Intrusion Detection Systems**. Rather than treating BFT consensus and machine-learning IDS as mutually exclusive alternatives, we integrate permissioned BFT consensus as a distributed, fault-tolerant validation layer that fortifies IDS pipelines. In the proposed \emph{BFT-IDS} architecture, local ML classifiers detect telemetry anomalies at endpoints, while a distributed network of peer-to-peer BFT validators verifies intrusion alerts and telemetry transactions pre-commitment.
+To eliminate these vulnerabilities, this paper proposes applying \textbf{Byzantine Fault Tolerant (BFT) blockchain consensus onto traditional Intrusion Detection Systems}. Rather than treating BFT consensus and machine-learning IDS as mutually exclusive alternatives, we integrate permissioned BFT consensus as a distributed, fault-tolerant validation layer that fortifies IDS pipelines. In the proposed \emph{BFT-IDS} architecture, local ML classifiers detect telemetry anomalies at endpoints, while a distributed network of peer-to-peer BFT validators verifies intrusion alerts and telemetry transactions pre-commitment.
 
 Calibrated on an IEEE 33-bus distribution system with 50 Electric Vehicle (EV) prosumers and 3,854 physical sensors, our framework quantifies how applying BFT consensus onto traditional IDS mitigates single-point-of-failure risks and temporal vulnerability decay under stochastic Poisson attack traffic.
 
