@@ -121,11 +121,21 @@ Fig. \ref{fig:fig2_workflow_no_cyber} illustrates the operational data flow of t
     \node [draw, rectangle, dashed, red!80!black, fill=red!5, text width=8.0cm, text centered, below=0.4cm of scada] (vun) {\textbf{Critical Engineering Vulnerabilities (Without Cybersecurity):} \\ (1) Absolute SPOF ($P_{\text{SPOF}}=1.0$), (2) Zero Byzantine Tolerance ($f=0$), \\ (3) Unverified Data Injection, (4) Central Key File Leakage Risk};
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 2 --- Engineering Workflow (Without Cybersecurity):} Operational data flow in centralized energy trading highlighting single points of failure and coordinator vulnerabilities.}
+\caption{\textbf{Figure 2 --- Baseline Centralized EV Trading Workflow (Without Cybersecurity):} Operational data flow from EV smart meters through cellular networks to the central coordinator MDMS, illustrating single-point-of-failure vulnerabilities ($P_{\text{SPOF}}=1.0$) and unverified state estimation ingestion.}
 \label{fig:fig2_workflow_no_cyber}
 \end{figure}
 
 The overarching research gap addressed in this paper is the lack of a unified framework that quantifies how introducing permissioned Byzantine Fault Tolerant (BFT) consensus transforms centralized engineering characteristics and how consensus validation latency creates dynamic vulnerability exposure windows.
+
+
+\textbf{Key Scientific Novelty \& Contributions:} The distinct contributions of this work lie in:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Unified Static-Temporal Security Coupling:} Coupling static cryptosystem gains with Poisson latency exposure into a single analytical framework (STSF).
+    \item \textbf{4-Component Model Extension:} Extending Sheikh et al.'s foundational model to resolve sensor scaling underflow anomalies ($x^{3854} \to x^{10}$).
+    \item \textbf{Comprehensive 12-Attack Surface Integration:} Unifying physical, communication, application, and consensus-layer attacks under a single series reliability model.
+    \item \textbf{Cross-Generational Consensus Benchmarking:} Evaluating 9 BFT consensus protocols under identical threat traffic to map the Pareto frontier.
+\end{enumerate}
+
 
 \subsection{Research Questions (RQs)}
 To bridge this research gap, we formulate three central research questions:
@@ -165,7 +175,7 @@ Fig. \ref{fig:fig0_paper_roadmap} details the overarching structural organizatio
     \draw [->, thick] (r5) -- (r6);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 0 --- Paper Roadmap:} Methodological flow chart guiding reviewers through the paper's overarching engineering narrative and structural organization.}
+\caption{\textbf{Figure 0 --- Paper Roadmap \& Research Methodology:} Methodological progression detailing the transition from EV-to-grid power flow modeling and centralized vulnerabilities to STSF probability extensions, BFT protocol evaluations, and utility deployment roadmaps.}
 \label{fig:fig0_paper_roadmap}
 \end{figure}
 
@@ -230,9 +240,15 @@ Fig. \ref{fig:fig0_paper_roadmap} details the overarching structural organizatio
     \node [draw, rectangle, dashed, red!80!black, fill=red!5, text width=8.0cm, text centered, below=0.4cm of scada] (vun) {\textbf{Critical Engineering Vulnerabilities (Without Cybersecurity):} \\ (1) Absolute SPOF ($P_{\text{SPOF}}=1.0$), (2) Zero Byzantine Tolerance ($f=0$), \\ (3) Unverified Data Injection, (4) Central Key File Leakage Risk};
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 2 --- Engineering Workflow (Without Cybersecurity):} Operational data flow in centralized energy trading highlighting single points of failure and coordinator vulnerabilities.}
+\caption{\textbf{Figure 2 --- Baseline Centralized EV Trading Workflow (Without Cybersecurity):} Operational data flow from EV smart meters through cellular networks to the central coordinator MDMS, illustrating single-point-of-failure vulnerabilities ($P_{\text{SPOF}}=1.0$) and unverified state estimation ingestion.}
 \label{fig:fig2_workflow_no_cyber}
 \end{figure}
+
+
+\begin{quote}
+\small \textbf{Analytical Parameter Disclaimer:} The numerical security parameters ($x=0.95, y=0.05, z=0.15, p_c=0.10$) evaluated throughout this study represent calibrated engineering approximations derived from smart grid security literature to enable comparative baseline analysis. They are intended as relative evaluation benchmarks rather than universally fixed deployment constants for all physical utility feeders.
+\end{quote}
+
 
 \subsection{System Model}
 
@@ -269,7 +285,7 @@ P_{SA}^{(10)} = P_{CA}^{(10)} = x^{10} = 0.95^{10} \approx 0.599
     \draw [->, thick] (app) -- (cons);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 3 --- Cyber Attack Surface Taxonomy:} Structuring 12 cyber-physical attack vectors across Physical, Communication, Application, and Consensus layers.}
+\caption{\textbf{Figure 3 --- Cyber-Physical Attack Surface Taxonomy:} Categorization of 12 distinct attack vectors across Physical, Communication, Application, and Consensus layers, establishing the series reliability failure model for smart grid security.}
 \label{fig:fig3_attack_surface}
 \end{figure}
 
@@ -283,7 +299,7 @@ Without blockchain, the system relies on centralized coordinators or weak client
     P_{SA} = x^m
     \end{equation}
     *Causal mechanism:* The attacker gains physical access to $m$ local smart meters, altering voltage/current sensing calibrations. Under a client-server architecture, these values are accepted without cross-verification.
-    *Baseline parameter justification:* We use a baseline sensor security value $x = 0.95$ representing standard hardware reliability levels without tamper-resistant modules. To evaluate the robustness of this parameter, we perform a sensitivity analysis across $x \in [0.90, 0.999]$ in Section~\ref{sec:verification}.
+    *Baseline parameter justification:* We use a baseline sensor security value $x = 0.95$ representing standard hardware reliability levels without tamper-resistant modules. To evaluate the robustness of this parameter, we perform a sensitivity analysis across $x \in [0.90, 0.999]$ in Section~\ref{sec:results_discussion}.
 
     \item \textbf{False Data Injection ($P_{FDI}$):} Successful modification of meter readings submitted to state estimation:
     \begin{equation}
@@ -415,7 +431,7 @@ P_{secure, limited}^{no\_BC} &= (1-0.599)^3(1-0.05)(1-0.15)\\
 \end{equation}
 This baseline shows the extreme vulnerability of centralized EV networks under the modeled threat parameters. Mathematically, a series reliability model dictates that the system is only secure if \emph{every single} vulnerability is defended simultaneously. Because probabilities are multiplicative (e.g., $(1 - 0.599)^3 \times (1 - 0.20)$ etc.), the cumulative chance of surviving all 12 attack vectors decays exponentially. 
 
-As calculated above, a value of $0.026$ indicates that \textbf{the system is only 2.6\% safe without blockchain}. Conversely, this means there is a massive \textbf{97.4\% probability that the centralized baseline will be successfully compromised} by at least one of these vectors. This establishes a highly vulnerable baseline. To validate these assumptions against arbitrary changes in baseline parameters, we perform sensitivity sweeps in Section~\ref{sec:verification}.
+As calculated above, a value of $0.026$ indicates that \textbf{the system is only 2.6\% safe without blockchain}. Conversely, this means there is a massive \textbf{97.4\% probability that the centralized baseline will be successfully compromised} by at least one of these vectors. This establishes a highly vulnerable baseline. To validate these assumptions against arbitrary changes in baseline parameters, we perform sensitivity sweeps in Section~\ref{sec:results_discussion}.
 
 
 
@@ -436,7 +452,7 @@ As calculated above, a value of $0.026$ indicates that \textbf{the system is onl
     \draw [->, thick] (e4) -- (e5);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 4 --- Engineering vs. Cybersecurity:} Architectural transformation showing how integrating a BFT validation layer resolves centralized engineering limitations.}
+\caption{\textbf{Figure 4 --- Architectural Transformation (Engineering vs. Cybersecurity):} Structural paradigm shift showing how embedding a distributed BFT consensus layer neutralizes centralized coordinator SPOF risk ($P_{\text{SPOF}}: 1.0 \to 10^{-10}$) and enforces threshold verification.}
 \label{fig:fig4_eng_vs_cyber}
 \end{figure}
 
@@ -607,7 +623,7 @@ With blockchain consensus applied (Eq.~17--21 of~\cite{sheikh2020}), the blockch
 \begin{equation}
 P_{TAb} \approx 4.91 \times 10^{-173}
 \end{equation}
-This represents a \textbf{static security gain of substantial static vulnerability suppression under STSF assumptions}. We adopt this four-component model as the primary quantitative metric throughout the temporal analysis in Section~\ref{sec:temporal_benchmarking}, as it provides a well-calibrated, closed-form expression suitable for continuous security evaluation.
+This represents a \textbf{static security gain of substantial static vulnerability suppression under STSF assumptions}. We adopt this four-component model as the primary quantitative metric throughout the temporal analysis in Section~\ref{sec:stsf}, as it provides a well-calibrated, closed-form expression suitable for continuous security evaluation.
 
 % ═══════════════════════════════════════════════════════════════
 
@@ -1334,6 +1350,17 @@ To present a balanced and mature scientific evaluation, we identify the followin
 
 \section*{Data and Code Availability Statement}
 All analytical formulations, closed-form security evaluation scripts, Monte Carlo simulation models ($10^6$ trials), Python diagram generators, and master LaTeX sources developed under the Static-Temporal Security Framework (STSF) are open-sourced and publicly accessible to researchers and utility practitioners at the following GitHub repository: \url{https://github.com/atharv20s/adil_sheikh}.
+
+
+\subsection{Methodological Limitations and Scope}
+To ensure scientific rigor, we explicitly define the analytical boundaries of this study:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Independent Attack Assumption:} Attack vectors are modeled as independent Bernoulli trials to establish closed-form probability expressions, without modeling multi-stage correlated APT chains.
+    \item \textbf{Permissioned BFT Focus:} The analysis strictly evaluates permissioned BFT consensus variants ($n=51, f=16$) suited for utility microgrids, excluding unpermissioned Proof-of-Work (PoW) mechanisms.
+    \item \textbf{Exclusion of Economic Bidding Exploits:} The framework models cyber-physical sensor, communication, and protocol failure, rather than market-layer game-theoretic bidding collusion.
+    \item \textbf{Analytical vs. Field Deployment Scope:} Evaluation is based on mathematical formulations and $10^6$ Monte Carlo simulation trials rather than physical hardware-in-the-loop (HIL) microgrid testbeds.
+\end{enumerate}
+
 
 \section{Conclusion}
 \label{sec:conclusion}
