@@ -462,15 +462,22 @@ $P_{\text{Comp}}$ (10-Vector Composite) & 0.9737 & 0.9738 & 0.010\% \\
 \label{sec:discussion}
 % ═══════════════════════════════════════════════════════════════
 
-\subsection{Deep Interpretation: Why Tower BFT & RVR Outperform Classic PBFT}
-A key question emerging from our temporal evaluation is \emph{why Generation-4 protocols achieve superior security preservation over Classic PBFT}. 
+\subsection{General Architectural Design Principles for AMI Consensus}
+Beyond specific protocol benchmarks, our findings reveal three foundational architectural design principles for deploying distributed consensus in smart grid environments:
 
-Classic PBFT requires a three-phase explicit synchronization (Pre-Prepare, Prepare, Commit) involving $\mathcal{O}(n^2)$ message exchanges per block. Under network saturation, leader view-changes induce multi-second delays ($\tau > 7.65\text{s}$). 
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Pipelining Over Explicit Phase Synchronization:} Protocols that pipeline voting rounds using cryptographic time constraints (e.g., Tower BFT's PoH clock) consistently outperform multi-round phase-synchronized protocols. Pipelining eliminates view-change round delays, preventing queue congestion under high-frequency telemetry load.
+    \item \textbf{Dynamic VRF Leader Rotation vs. Static Committees:} Verifiable Random Functions (VRF) provide unpredictable, non-interactive leader election. This design principle neutralizes targeted leader Denial of Service attacks ($4.2\times$ security gain over static leader election) without introducing network messaging overhead.
+    \item \textbf{Threshold Cryptography at Meter Endpoints:} Threshold secret sharing (e.g., Shamir $(k, n)$ splits) decouples endpoint device compromise from network authorization. Decoupling key integrity from single device boundaries provides a $1,015\times$ security gain against key extraction vectors.
+\end{enumerate}
+
+\subsection{Deep Interpretation: Why Tower BFT & RVR Outperform Classic PBFT}
+Classic PBFT requires a three-phase explicit synchronization (Pre-Prepare, Prepare, Commit) involving $\mathcal{O}(n^2)$ message exchanges per block. Under network saturation, leader view-changes induce multi-second delays ($\tau > 7.65\text{s}$).
 
 Conversely, Tower BFT leverages Proof-of-History (PoH) as a cryptographic clock to establish verifiably sequential timestamps without multi-round message exchanges. This allows validator nodes to pipeline vote commitments, achieving sub-second finality ($\tau = 242.9\text{ms}$) with linear message complexity $\mathcal{O}(n)$. RVR further enhances resilience by dynamically selecting leaders via Verifiable Random Functions (VRF), neutralizing targeted DoS and Sybil attacks.
 
-\subsection{Why Latency Dominates Message Complexity in Temporal Security}
-In our Static-Temporal Security Framework, \emph{consensus validation latency ($\tau$) exerts a significantly stronger influence on temporal survival ($P_{\text{secure}}$) than message complexity alone}. Equation (\ref{eq:p_secure_2}) shows that the temporal vulnerability decay term $W(\tau) = 1 - e^{-\lambda \tau P_{\text{TA}}}$ scales exponentially with latency $\tau$. Even if a consensus protocol achieves efficient message packaging, any queue-induced delay expands the vulnerability window $W(\tau)$, permitting stochastic attack arrivals to breach system state before transaction commitment.
+\subsection{Influence of Latency versus Message Complexity}
+Within the proposed temporal analytical framework, consensus validation latency ($\tau$) exerts a stronger influence on temporal survival ($P_{\text{secure}}$) than asymptotic message complexity alone. Equation (\ref{eq:p_secure_2}) shows that the temporal vulnerability decay term $W(\tau) = 1 - e^{-\lambda \tau P_{\text{TA}}}$ scales exponentially with latency $\tau$. Even if a consensus protocol achieves efficient message packaging, any queue-induced delay expands the vulnerability window $W(\tau)$, permitting stochastic attack arrivals to breach system state before transaction commitment.
 
 \subsection{Comparison with Prior Studies}
 Our results extend the landmark works of Faquir \textit{et al.} (SEGAN 2022) and Sheikh \textit{et al.} (IEEE Access 2020):
@@ -494,6 +501,26 @@ Our conclusions rely on three core foundational assumptions: (1) independent nod
 \section{Threats to Validity & Conclusion}
 \label{sec:conclusion}
 % ═══════════════════════════════════════════════════════════════
+
+\subsection{Summary of Research Questions & Hypothesis Outcomes}
+Table \ref{tab:rq_summary} provides a concise summary mapping our four Research Questions to the evaluated evidence and hypothesis outcomes.
+
+\begin{table*}[t]
+\caption{Summary of Research Questions, Evaluated Evidence, and Hypothesis Outcomes}
+\label{tab:rq_summary}
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}lXXc@{}}
+\toprule
+\textbf{Research Question} & \textbf{Primary Evaluated Evidence} & \textbf{Hypothesis Outcome} \\
+\midrule
+\textbf{RQ1 (Paradigm Comparison)} & 12-Attack composite analysis \& cumulative Binomial SPOF derivation ($n=51, f=16$). & Supported under proposed model assumptions \\
+\textbf{RQ2 (Temporal Vulnerability)} & Poisson arrival decay modeling ($W(\tau)$) \& Hyperledger Fabric latency traces ($\tau$). & Supported under proposed model assumptions \\
+\textbf{RQ3 (Threat Model Robustness)} & Sensitivity parameter sweeps across physical parameters ($x, y, z, p_c, \lambda$). & Supported under evaluated parameter ranges \\
+\textbf{RQ4 (Feature Ablation)} & Cryptographic ablation experiments (VRF rotation, Shamir secret sharing, credit weights). & Supported under evaluated test scenarios \\
+\bottomrule
+\end{tabularx}
+\end{table*}
 
 \subsection{Threats to Validity}
 \begin{enumerate}[leftmargin=*]
