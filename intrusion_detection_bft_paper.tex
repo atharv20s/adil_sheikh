@@ -97,7 +97,7 @@ While Sheikh et al.\ introduced a basic 4-component probabilistic security model
     \item \emph{Sensor Count Dominance Anomaly:} Evaluating global sensor counts ($n_{\text{sen}}=3,854$) under power models ($x^{3854}$) causes underflow errors ($\approx 10^{-86}$), masking local sensor vulnerabilities.
 \end{enumerate}
 
-\subsection{Cybersecurity Challenges & Research Gap}
+\subsection{Cybersecurity Challenges \& Research Gap}
 Fig. \ref{fig:fig2_workflow_no_cyber} illustrates the operational data flow of the baseline centralized energy trading system without dedicated cybersecurity protection, highlighting these critical coordinator vulnerabilities.
 
 \begin{figure}[htbp]
@@ -156,7 +156,7 @@ Fig. \ref{fig:fig0_paper_roadmap} details the overarching structural organizatio
     \node [draw, rectangle, fill=orange!15, text width=8.0cm, text centered, rounded corners, below=0.3cm of r2] (r3) {\textbf{3. 12-Attack Cyber-Physical Threat Taxonomy} \\ Physical, Communication, Application \& Consensus Layer Attack Vectors};
     \node [draw, rectangle, fill=yellow!20, text width=8.0cm, text centered, rounded corners, below=0.3cm of r3] (r4) {\textbf{4. Static-Temporal Security Framework (STSF)} \\ Analytical Formulation: Static Cryptosystem Gain ($10^{170}$) + Poisson Latency Exposure};
     \node [draw, rectangle, fill=green!15, text width=8.0cm, text centered, rounded corners, below=0.3cm of r4] (r5) {\textbf{5. Consensus Mechanism Performance Comparison} \\ Evaluating 9 Protocols across Throughput, Latency, Overhead \& $P_{\text{secure}}$};
-    \node [draw, rectangle, fill=green!35, text width=8.0cm, text centered, rounded corners, below=0.3cm of r5] (r6) {\textbf{6. Practitioner Deployment Roadmap & Engineering Insights} \\ Operational Selection Decision Tree \& 5-Step Smart Grid Implementation};
+    \node [draw, rectangle, fill=green!35, text width=8.0cm, text centered, rounded corners, below=0.3cm of r5] (r6) {\textbf{6. Practitioner Deployment Roadmap \& Engineering Insights} \\ Operational Selection Decision Tree \& 5-Step Smart Grid Implementation};
 
     \draw [->, thick] (r1) -- (r2);
     \draw [->, thick] (r2) -- (r3);
@@ -182,12 +182,12 @@ Fig. \ref{fig:fig0_paper_roadmap} details the overarching structural organizatio
 \toprule
 \textbf{Category / Component} & \textbf{Security Metric / Variable} & \textbf{Analytical Closed-Form Equation} & \textbf{Baseline Parameters / Values} \\
 \midrule
-\textbf{Physical & Sensor Layer} & Sensor / FDI Compromise ($P_{\text{SA}}, P_{\text{FDI}}$) & $P_{\text{SA}} = P_{\text{FDI}} = x^m$ & $m=10, x=0.95 \implies P=0.599$ \\
+\textbf{Physical \& Sensor Layer} & Sensor / FDI Compromise ($P_{\text{SA}}, P_{\text{FDI}}$) & $P_{\text{SA}} = P_{\text{FDI}} = x^m$ & $m=10, x=0.95 \implies P=0.599$ \\
 \textbf{Communication Layer} & Comm. Hijack ($P_{\text{CA}}$) & $P_{\text{CA}} = x^m$ & $x=0.95, m=10 \implies P=0.599$ \\
 & Man-in-the-Middle ($P_{\text{MitM}}$) & $P_{\text{MitM}} = y$ & $y=0.05$ (Modbus/DNP3 baseline) \\
 & Replay Attack ($P_{\text{Replay}}$) & $P_{\text{Replay}} = z$ (Without Nonce) $\to 10^{-10}$ (With PoH) & $z=0.15$ \\
 & Port DoS / Botnet DDoS & $P_{\text{DoS}} = p_{dos}, P_{\text{DDoS}} = p_{ddos}$ & $p_{dos}=0.20, p_{ddos}=0.35$ \\
-\textbf{Consensus & Identity} & Sybil Identity Spoofing & $P_{\text{Sybil}} = 1.0$ (Unpermissioned) $\to 10^{-10}$ (BFT Admission) & $P_{\text{Sybil}}=1.0 \to 10^{-10}$ \\
+\textbf{Consensus \& Identity} & Sybil Identity Spoofing & $P_{\text{Sybil}} = 1.0$ (Unpermissioned) $\to 10^{-10}$ (BFT Admission) & $P_{\text{Sybil}}=1.0 \to 10^{-10}$ \\
 & Byzantine Quorum Failure & $P_{\text{Byz, b}} = \sum_{k=f+1}^{n} \binom{n}{k} p_c^k (1-p_c)^{n-k}$ & $n=51, f=16, p_c=0.10 \implies 1.83 \times 10^{-10}$ \\
 \textbf{Sheikh et al. Baseline} & Target Attack Model ($P_{\text{TA}}$) & $P_{\text{TA}} = \frac{1}{4}\left(2x^m + P_{\text{SCADA}} + P_R\right)$ & $P_{\text{TA}} \approx 0.0050$ (Centralized Baseline) \\
 & Blockchain Protected ($P_{\text{TAb}}$) & $P_{\text{TAb}} = \frac{1}{4}\left(2P_{\text{SAb}} + P_{\text{SCADAb}} + P_{\text{Rb}}\right)$ & $P_{\text{TAb}} \approx 4.91 \times 10^{-173}$ (170 Orders Gain) \\
@@ -261,8 +261,8 @@ P_{SA}^{(10)} = P_{CA}^{(10)} = x^{10} = 0.95^{10} \approx 0.599
 \begin{tikzpicture}[node distance=0.5cm, auto, >=latex]
     \node [draw, rectangle, fill=red!15, text width=8.2cm, rounded corners] (phys) {\textbf{1. Physical Layer Attacks} \\ $\bullet$ Sensor Compromise ($P_{\text{SA}}$) \quad $\bullet$ Receiver/Actuator Override ($P_{\text{R}}$)};
     \node [draw, rectangle, fill=orange!15, text width=8.2cm, rounded corners, below=0.3cm of phys] (comm) {\textbf{2. Communication Layer Attacks} \\ $\bullet$ Comm. Hijack ($P_{\text{CA}}$) \quad $\bullet$ Man-in-the-Middle ($P_{\text{MitM}}$) \quad $\bullet$ Replay Vector ($P_{\text{Replay}}$) \\ $\bullet$ Port DoS ($P_{\text{DoS}}$) \quad $\bullet$ Botnet DDoS ($P_{\text{DDoS}}$)};
-    \node [draw, rectangle, fill=yellow!20, text width=8.2cm, rounded corners, below=0.3cm of comm] (app) {\textbf{3. Application & Control Layer Attacks} \\ $\bullet$ SCADA Breach ($P_{\text{SCADA}}$) \quad $\bullet$ Private Key Compromise ($P_{\text{Key}}$) \quad $\bullet$ False Data Injection ($P_{\text{FDI}}$)};
-    \node [draw, rectangle, fill=green!20, text width=8.2cm, rounded corners, below=0.3cm of app] (cons) {\textbf{4. Consensus & Identity Layer Attacks} \\ $\bullet$ Sybil Identity Spoofing ($P_{\text{Sybil}}$) \quad $\bullet$ Byzantine Node Collusion ($P_{\text{Byz}}$)};
+    \node [draw, rectangle, fill=yellow!20, text width=8.2cm, rounded corners, below=0.3cm of comm] (app) {\textbf{3. Application \& Control Layer Attacks} \\ $\bullet$ SCADA Breach ($P_{\text{SCADA}}$) \quad $\bullet$ Private Key Compromise ($P_{\text{Key}}$) \quad $\bullet$ False Data Injection ($P_{\text{FDI}}$)};
+    \node [draw, rectangle, fill=green!20, text width=8.2cm, rounded corners, below=0.3cm of app] (cons) {\textbf{4. Consensus \& Identity Layer Attacks} \\ $\bullet$ Sybil Identity Spoofing ($P_{\text{Sybil}}$) \quad $\bullet$ Byzantine Node Collusion ($P_{\text{Byz}}$)};
 
     \draw [->, thick] (phys) -- (comm);
     \draw [->, thick] (comm) -- (app);
@@ -428,7 +428,7 @@ As calculated above, a value of $0.026$ indicates that \textbf{the system is onl
     \node [draw, rectangle, fill=red!10, text width=6.5cm, text centered, rounded corners, below=0.3cm of e1] (e2) {\textbf{Engineering Limitations} \\ Single Point of Failure ($P_{\text{SPOF}}=1.0$), Zero Byzantine Tolerance};
     \node [draw, rectangle, fill=yellow!20, text width=6.5cm, text centered, rounded corners, below=0.3cm of e2] (e3) {\textbf{Cybersecurity Layer (STSF)} \\ Proactive Validation \& Threshold Cryptography};
     \node [draw, rectangle, fill=green!15, text width=6.5cm, text centered, rounded corners, below=0.3cm of e3] (e4) {\textbf{Blockchain Consensus Engine} \\ Distributed Validator Quorums ($n=51, f=16$)};
-    \node [draw, rectangle, fill=green!30, text width=6.5cm, text centered, rounded corners, below=0.3cm of e4] (e5) {\textbf{Improved Trust & Grid Reliability} \\ 170 Orders-of-Magnitude Gain, $P_{\text{SPOF}} \to 10^{-10}$};
+    \node [draw, rectangle, fill=green!30, text width=6.5cm, text centered, rounded corners, below=0.3cm of e4] (e5) {\textbf{Improved Trust \& Grid Reliability} \\ 170 Orders-of-Magnitude Gain, $P_{\text{SPOF}} \to 10^{-10}$};
 
     \draw [->, thick] (e1) -- (e2);
     \draw [->, thick] (e2) -- (e3);
@@ -515,11 +515,11 @@ Physical-layer attacks cannot be completely eliminated by consensus algorithms b
 \centering
 \resizebox{\columnwidth}{!}{%
 \begin{tikzpicture}[node distance=0.5cm, auto, >=latex]
-    \node [draw, rectangle, fill=blue!10, text width=8.0cm, rounded corners] (m1) {\textbf{1. Engineering & Threat Assumptions} ($x=0.95, m=10, p_c=0.05$)};
+    \node [draw, rectangle, fill=blue!10, text width=8.0cm, rounded corners] (m1) {\textbf{1. Engineering \& Threat Assumptions} ($x=0.95, m=10, p_c=0.05$)};
     \node [draw, rectangle, fill=orange!15, text width=8.0cm, rounded corners, below=0.3cm of m1] (m2) {\textbf{2. Closed-Form Probability Derivation} (Binomial Quorums \& $M/M/1$)};
     \node [draw, rectangle, fill=yellow!20, text width=8.0cm, rounded corners, below=0.3cm of m2] (m3) {\textbf{3. Parameter Sensitivity Sweeps} ($x \in [0.90, 0.999], \lambda \in [1, 100]$)};
     \node [draw, rectangle, fill=green!20, text width=8.0cm, rounded corners, below=0.3cm of m3] (m4) {\textbf{4. Statistically Rigorous Monte Carlo Verification} ($10^6$ Trials)};
-    \node [draw, rectangle, fill=green!35, text width=8.0cm, rounded corners, below=0.3cm of m4] (m5) {\textbf{5. Scholarly Synthesis & Engineering Principles}};
+    \node [draw, rectangle, fill=green!35, text width=8.0cm, rounded corners, below=0.3cm of m4] (m5) {\textbf{5. Scholarly Synthesis \& Engineering Principles}};
 
     \draw [->, thick] (m1) -- (m2);
     \draw [->, thick] (m2) -- (m3);
@@ -548,9 +548,6 @@ P_{Compromise} = 1 - \prod_{j=1}^{12} (1 - P_{atk}^j) \approx 0.974
 
 The original paper is mathematically correct for its defined scope (expected value of a random target attack). Our extension demonstrates that when evaluated as a parallel system compromise, the baseline centralized vulnerability is significantly higher (0.974 vs 0.005). We use Sheikh's $P_{TA}$ for temporal benchmarking to maintain comparative validity with the original work, while using $P_{Compromise}$ to illustrate the broader structural vulnerability of centralized grids.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.9\columnwidth]{fig_model_comparison.png}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_model_comparison.png}
@@ -1313,11 +1310,11 @@ To present a balanced and mature scientific evaluation, we identify the followin
 \centering
 \resizebox{\columnwidth}{!}{%
 \begin{tikzpicture}[node distance=0.5cm, auto, >=latex]
-    \node [draw, rectangle, fill=blue!15, text width=8.0cm, rounded corners] (r1) {\textbf{Step 1: Engineering Assessment} (Map DCUs & Substation Gateways)};
+    \node [draw, rectangle, fill=blue!15, text width=8.0cm, rounded corners] (r1) {\textbf{Step 1: Engineering Assessment} (Map DCUs \& Substation Gateways)};
     \node [draw, rectangle, fill=orange!15, text width=8.0cm, rounded corners, below=0.3cm of r1] (r2) {\textbf{Step 2: Threat Matrix Calibration} (Parameterize $x, y, z, p_c$)};
     \node [draw, rectangle, fill=yellow!20, text width=8.0cm, rounded corners, below=0.3cm of r2] (r3) {\textbf{Step 3: Select Consensus Engine} (Choose Tower BFT / RVR for $\mathcal{O}(n)$)};
     \node [draw, rectangle, fill=green!20, text width=8.0cm, rounded corners, below=0.3cm of r3] (r4) {\textbf{Step 4: Configure Validator Quorums} (Set $n=51, f=16$, HSM Keys)};
-    \node [draw, rectangle, fill=green!35, text width=8.0cm, rounded corners, below=0.3cm of r4] (r5) {\textbf{Step 5: Production Deployment & Monitoring} (HIL 5G Testbed Verification)};
+    \node [draw, rectangle, fill=green!35, text width=8.0cm, rounded corners, below=0.3cm of r4] (r5) {\textbf{Step 5: Production Deployment \& Monitoring} (HIL 5G Testbed Verification)};
 
     \draw [->, thick] (r1) -- (r2);
     \draw [->, thick] (r2) -- (r3);
