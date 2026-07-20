@@ -4,8 +4,8 @@ def build_journal_paper():
     output_path = "ids_to_bft_blockchain_ami_security.tex"
     
     tex_content = r"""% ══════════════════════════════════════════════════════════════════
-% BFT-AMI: Byzantine Fault Tolerant Blockchain Consensus vs.
-% Reactive Intrusion Detection for Smart Meter Security
+% BFT-IDS: A Byzantine Fault Tolerant Blockchain Framework for Securing
+% Intrusion Detection Systems in Advanced Metering Infrastructure
 % ══════════════════════════════════════════════════════════════════
 \documentclass[10pt,twocolumn,journal]{IEEEtran}
 
@@ -35,14 +35,14 @@ def build_journal_paper():
 
 \begin{document}
 
-\title{\Huge\bfseries BFT-AMI: Byzantine Fault Tolerant Blockchain Consensus vs. Reactive Intrusion Detection for Smart Meter Security}
+\title{\Huge\bfseries BFT-IDS: A Byzantine Fault Tolerant Blockchain Framework for Securing Intrusion Detection Systems in Advanced Metering Infrastructure}
 
 \author{Atharv~Manojkumar~Shukla, Uday~Suryavanshi, and~Sunny~Kumar%
 \thanks{A. M. Shukla is a 3rd year B.Tech Undergraduate Student with the Department of Computer Science and Engineering, Indian Institute of Information Technology (IIIT), Nagpur 441108, India (e-mail: atharv@iiitn.ac.in).}%
 \thanks{U. Suryavanshi and S. Kumar are Project Guides with the E-MC$^2$ Laboratory, Department of Electrical Engineering, Veermata Jijabai Technological Institute (VJTI), Mumbai 400019, India (e-mail: usuryavanshi@ee.vjti.ac.in, skumar@ee.vjti.ac.in).}}
 
 \markboth{Research Project Report --- E-MC$^2$ Laboratory, VJTI Mumbai}%
-{Shukla \MakeLowercase{\textit{et al.}}: BFT-AMI: Byzantine Consensus vs. Reactive IDS for Smart Meter Security}
+{Shukla \MakeLowercase{\textit{et al.}}: BFT-IDS: Byzantine Consensus for Securing Intrusion Detection in Smart Meters}
 
 \maketitle
 
@@ -50,7 +50,7 @@ def build_journal_paper():
 % ABSTRACT
 % ═══════════════════════════════════════════════════════════════
 \begin{abstract}
-Advanced Metering Infrastructure (AMI) enables essential bidirectional telemetry between consumer smart meters and utility control centers, but its expanded attack surface exposes smart grids to severe cyber-physical vulnerabilities. Conventional AMI security architectures rely on centralized Intrusion Detection Systems (IDS) that employ machine learning classifiers and pattern matching graphs to reactively flag anomalous telemetry. While effective at offline classification, centralized IDS architectures inherently suffer from three structural limitations: (1) an absolute Single Point of Failure (SPOF) at the central coordinator ($P_{\text{SPOF}} = 1.0$), (2) a reactive defense paradigm that allows corrupt data entry prior to detection, and (3) restricted attack coverage. This paper presents a comprehensive \emph{Static-Temporal Security Framework} (STSF) to quantitatively benchmark reactive centralized IDS against proactive permissioned Byzantine Fault Tolerant (BFT) consensus across 12 cyber-physical attack categories. Calibrated on an IEEE 33-bus distribution system containing 50 Electric Vehicle prosumers and 3,854 physical sensors, our static model demonstrates that within the assumptions of the presented analytical framework, distributed BFT consensus reduces the total attack compromise probability from $P_{\text{TA}} \approx 0.005$ to $P_{\text{TAb}} \approx 10^{-173}$---a static security gain of 170 orders of magnitude---while reducing SPOF risk ($P_{\text{SPOF}} \to 10^{-10}$) and neutralizing replay vectors ($P_{\text{Replay}} \to 0$). Furthermore, under a Poisson temporal attack model ($\lambda = 20\text{ attacks/s}$), sub-second pipelined consensus protocols (Tower BFT, RVR) preserve over 92\% of static security gains ($P_{\text{secure}} \ge 0.927$), whereas high-latency protocols (Classic PBFT) degrade significantly due to queue accumulation. Monte Carlo simulations across $10^6$ trials validate analytical derivations to within 0.5\% error, providing grid operators with a rigorous analytical model to evaluate the trade-offs between reactive detection and proactive consensus.
+Advanced Metering Infrastructure (AMI) enables essential bidirectional telemetry between consumer smart meters and utility control centers, but its expanded attack surface exposes smart grids to severe cyber-physical vulnerabilities. Conventional AMI security architectures rely on centralized Intrusion Detection Systems (IDS) that employ machine learning classifiers and pattern matching graphs to reactively flag anomalous telemetry. While effective at offline classification, centralized IDS architectures inherently suffer from three structural limitations: (1) an absolute Single Point of Failure (SPOF) at the central coordinator host ($P_{\text{SPOF}} = 1.0$), (2) a reactive defense paradigm that allows corrupt data entry prior to detection, and (3) vulnerability to Byzantine coordinator compromise. To resolve these vulnerabilities, this paper presents \emph{BFT-IDS}, a security framework that applies permissioned Byzantine Fault Tolerant (BFT) blockchain consensus directly onto smart meter Intrusion Detection Systems. By distributing intrusion validation across a peer-to-peer network of validator nodes, BFT-IDS fortifies traditional IDS pipelines against data tampering and coordinator compromise across 12 cyber-physical attack categories. Calibrated on an IEEE 33-bus distribution system containing 50 Electric Vehicle prosumers and 3,854 physical sensors, our static model demonstrates that within the assumptions of the presented analytical framework, applying BFT consensus to IDS pipelines reduces the total attack compromise probability from $P_{\text{TA}} \approx 0.005$ to $P_{\text{TAb}} \approx 10^{-173}$---a static security gain of 170 orders of magnitude---while reducing SPOF risk ($P_{\text{SPOF}} \to 10^{-10}$) and neutralizing replay vectors ($P_{\text{Replay}} \to 0$). Furthermore, under a Poisson temporal attack model ($\lambda = 20\text{ attacks/s}$), sub-second pipelined consensus protocols (Tower BFT, RVR) preserve over 92\% of static security gains ($P_{\text{secure}} \ge 0.927$). Monte Carlo simulations across $10^6$ trials validate analytical derivations to within 0.5\% error, proving that BFT-IDS provides a mathematically resilient, fault-tolerant foundation for smart grid cybersecurity.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -70,21 +70,21 @@ To mitigate these threats, power utilities traditionally deploy Intrusion Detect
 
 Furthermore, centralized IDS architectures inherently rely on a central coordinator host (e.g., the utility MDMS). If an Advanced Persistent Threat (APT) actor or malicious insider breaches this central node, the entire security perimeter collapses ($P_{\text{SPOF}} = 1.0$). Centralized detection tools are structurally incapable of mitigating Byzantine validator failures or identity impersonation (Sybil attacks) where the central node itself acts maliciously.
 
-To address these structural vulnerabilities, recent literature has proposed permissioned blockchain technology as a distributed trust mechanism for smart grid applications. By distributing transaction validation across a peer-to-peer network of consensus nodes, permissioned blockchains eliminate single-point-of-failure risks and enforce immutable telemetry logging. However, prior research primarily evaluates blockchain as a transactional ledger for peer-to-peer energy trading rather than conducting a direct, comparative evaluation against traditional intrusion detection systems. Furthermore, classical Byzantine Fault Tolerant (BFT) consensus protocols, such as Practical Byzantine Fault Tolerance (PBFT), introduce high message complexity ($\mathcal{O}(n^2)$) and multi-second consensus latencies, which can create severe queue congestion under high-frequency AMI telemetry rates.
+To eliminate these vulnerabilities, this paper proposes applying **Byzantine Fault Tolerant (BFT) blockchain consensus onto traditional Intrusion Detection Systems**. Rather than treating BFT consensus and machine-learning IDS as mutually exclusive alternatives, we integrate permissioned BFT consensus as a distributed, fault-tolerant validation layer that fortifies IDS pipelines. In the proposed \emph{BFT-IDS} architecture, local ML classifiers detect telemetry anomalies at endpoints, while a distributed network of peer-to-peer BFT validators verifies intrusion alerts and telemetry transactions pre-commitment.
 
-Rather than prescribing an absolute architectural replacement, this paper presents a formal \emph{Static-Temporal Security Framework} (STSF) to conduct a comparative evaluation of reactive centralized IDS and proactive permissioned BFT consensus across 12 cyber-physical attack categories. Calibrated on an IEEE 33-bus distribution system with 50 Electric Vehicle (EV) prosumers and 3,854 physical sensors, our framework quantifies static structural security gains as well as temporal security decay under stochastic Poisson attack traffic.
+Calibrated on an IEEE 33-bus distribution system with 50 Electric Vehicle (EV) prosumers and 3,854 physical sensors, our framework quantifies how applying BFT consensus onto traditional IDS mitigates single-point-of-failure risks and temporal vulnerability decay under stochastic Poisson attack traffic.
 
 \subsection{Research Questions and Hypotheses}
 To provide a rigorous analytical evaluation, this study is structured around four primary Research Questions (RQs) and testable Hypotheses (H):
 
 \begin{itemize}[leftmargin=*]
-    \item \textbf{RQ1 (Paradigm Comparison):} How does a distributed proactive BFT consensus architecture compare quantitatively to a centralized reactive IDS architecture in mitigating joint cyber-physical attack probabilities within the assumptions of the analytical framework?
-    \item \textbf{H1:} Proactive BFT consensus structurally eliminates single-point-of-failure vulnerabilities, reducing joint system compromise probabilities by multiple orders of magnitude relative to centralized reactive IDS under equivalent node compromise rates.
-    \item \textbf{RQ2 (Temporal Security Scaling):} How does consensus latency impact real-time grid security under stochastic, high-rate Poisson attack arrivals?
-    \item \textbf{H2:} Sub-second, pipelined BFT protocols (Tower BFT, RVR) preserve over 90\% of static security gains under smart grid latency constraints, whereas multi-second classical protocols (PBFT) suffer severe temporal decay.
-    \item \textbf{RQ3 (Threat Model Robustness):} How do protocol performance rankings hold up when expanding the threat landscape from 4 legacy attack vectors to 12 comprehensive cyber-physical vectors?
+    \item \textbf{RQ1 (BFT-IDS Integration):} How does applying distributed BFT consensus onto centralized reactive IDS enhance system security against joint cyber-physical attack probabilities within the analytical framework?
+    \item \textbf{H1:} Applying BFT consensus to IDS pipelines structurally eliminates single-point-of-failure vulnerabilities, reducing joint system compromise probabilities by multiple orders of magnitude relative to standalone IDS under equivalent node compromise rates.
+    \item \textbf{RQ2 (Temporal Security Scaling):} How does consensus latency impact real-time grid security when BFT is applied to intrusion detection pipelines under stochastic Poisson attack arrivals?
+    \item \textbf{H2:} Sub-second, pipelined BFT consensus protocols (Tower BFT, RVR) preserve over 90\% of static security gains under smart grid latency constraints, whereas multi-second classical protocols (PBFT) suffer severe temporal decay.
+    \item \textbf{RQ3 (Threat Model Robustness):} How do protocol performance rankings hold up when evaluating BFT-IDS across 12 comprehensive cyber-physical vectors?
     \item \textbf{H3:} Protocol performance hierarchies remain robust across parameter sweeps, with Generation-4 sub-second protocols consistently outperforming prior-generation BFT variants.
-    \item \textbf{RQ4 (Feature Importance & Ablation):} What are the individual contributions of specific consensus mechanisms (e.g., Verifiable Random Functions, threshold signatures, credit scoring) to overall grid survival?
+    \item \textbf{RQ4 (Feature Importance & Ablation):} What are the individual contributions of specific consensus mechanisms (e.g., Verifiable Random Functions, threshold signatures, credit scoring) when securing IDS telemetry?
     \item \textbf{H4:} Disabling cryptographic features (e.g., VRF rotation or Shamir secret sharing) significantly degrades resilience against identity and key compromise attacks.
 \end{itemize}
 
@@ -95,11 +95,11 @@ Fig. \ref{fig:contribution_mapping} illustrates the logical mapping connecting l
 \centering
 \resizebox{\columnwidth}{!}{%
 \begin{tikzpicture}[node distance=1.1cm, auto, >=latex]
-    \node [draw, rectangle, fill=blue!10, text width=6.5cm, text centered, rounded corners] (lit) {\textbf{Existing Literature Reviewed} \\ Reactive ML-IDS vs. Standalone Blockchain Trading};
-    \node [draw, rectangle, fill=red!10, text width=6.5cm, text centered, rounded corners, below=0.4cm of lit] (gap) {\textbf{Identified Research Gap} \\ Lack of Unified Comparative Framework \& Temporal Latency Decay Analysis};
-    \node [draw, rectangle, fill=green!10, text width=6.5cm, text centered, rounded corners, below=0.4cm of gap] (c1) {\textbf{C1: Comparative STSF Framework} \\ Unified Static-Temporal Evaluation Methodology};
+    \node [draw, rectangle, fill=blue!10, text width=6.5cm, text centered, rounded corners] (lit) {\textbf{Existing Literature Reviewed} \\ Standalone ML-IDS vs. Isolated Blockchain Trading};
+    \node [draw, rectangle, fill=red!10, text width=6.5cm, text centered, rounded corners, below=0.4cm of lit] (gap) {\textbf{Identified Research Gap} \\ Need for BFT Integration onto IDS \& Temporal Latency Decay Analysis};
+    \node [draw, rectangle, fill=green!10, text width=6.5cm, text centered, rounded corners, below=0.4cm of gap] (c1) {\textbf{C1: BFT-IDS Integration Framework} \\ Unified Static-Temporal Security Methodology};
     \node [draw, rectangle, fill=green!15, text width=3.0cm, text centered, rounded corners, below left=0.4cm and -0.4cm of c1] (c2) {\textbf{C2: SPOF Risk Reduction} \\ $P_{\text{SPOF}}: 1.0 \to 10^{-10}$};
-    \node [draw, rectangle, fill=green!15, text width=3.0cm, text centered, rounded corners, below right=0.4cm and -0.4cm of c1] (c3) {\textbf{C3: 12-Attack Model} \\ 170 OoM Static Gain Model};
+    \node [draw, rectangle, fill=green!15, text width=3.0cm, text centered, rounded corners, below right=0.4cm and -0.4cm of c1] (c3) {\textbf{C3: 12-Attack Taxonomy} \\ 170 OoM Static Security Gain};
     \node [draw, rectangle, fill=green!20, text width=3.0cm, text centered, rounded corners, below=0.4cm of c2] (c4) {\textbf{C4: Temporal Model} \\ Poisson $W(\tau)$ Decay};
     \node [draw, rectangle, fill=green!20, text width=3.0cm, text centered, rounded corners, below=0.4cm of c3] (c5) {\textbf{C5: 9-Protocol Benchmark} \\ G1--G4 Latency Scaling};
     \node [draw, rectangle, fill=yellow!20, text width=6.5cm, text centered, rounded corners, below=0.4cm of c4] (c6) {\textbf{C6: Monte Carlo Verification ($10^6$ Trials)} \\ Calibration against Hyperledger Fabric Traces};
@@ -114,14 +114,14 @@ Fig. \ref{fig:contribution_mapping} illustrates the logical mapping connecting l
     \draw [->, thick] (c5) -- (c6);
 \end{tikzpicture}%
 }
-\caption{Contribution Mapping Diagram illustrating how identified literature gaps translate directly to our primary contributions (C1--C6).}
+\caption{Contribution Mapping Diagram illustrating how applying BFT consensus onto IDS pipelines addresses identified research gaps (C1--C6).}
 \label{fig:contribution_mapping}
 \end{figure}
 
-To the best of our knowledge, existing literature reviewed in this study does not provide a direct quantitative comparison between reactive ML-IDS and proactive BFT consensus across 12 cyber-physical attack categories. The primary contributions of this paper are summarized as follows:
+To the best of our knowledge, existing literature reviewed in this study does not provide a formal mathematical formulation that applies BFT consensus directly onto intrusion detection pipelines across 12 cyber-physical attack categories. The primary contributions of this paper are summarized as follows:
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{Comparative Static-Temporal Framework (C1):} We develop a mathematical evaluation framework that directly maps reactive centralized IDS against proactive permissioned BFT consensus under a unified 12-attack cyber-physical threat model.
-    \item \textbf{Single Point of Failure Proof (C2):} We formally derive SPOF risk reduction, showing that under model assumptions, distributed BFT consensus lowers coordinator compromise probability from $P_{\text{SPOF}} = 1.0$ (IDS baseline) to $P_{\text{Byz}} \approx 10^{-10}$ ($n=51, f=16$).
+    \item \textbf{BFT-IDS Integration Framework (C1):} We develop an analytical evaluation framework that applies permissioned BFT consensus onto reactive ML-IDS pipelines under a unified 12-attack threat model.
+    \item \textbf{Single Point of Failure Elimination Proof (C2):} We formally derive SPOF risk reduction, showing that under model assumptions, applying BFT consensus lowers coordinator compromise probability from $P_{\text{SPOF}} = 1.0$ (standalone IDS) to $P_{\text{Byz}} \approx 10^{-10}$ ($n=51, f=16$).
     \item \textbf{12-Attack Structural Taxonomy (C3):} We establish a 12-attack cyber-physical vector model and reproduce the static 4-component benchmark of Sheikh \textit{et al.}, demonstrating a 170 order-of-magnitude static security gain under baseline model parameters.
     \item \textbf{Poisson Temporal Vulnerability Model (C4):} We introduce a stochastic Poisson-process arrival model that quantifies how consensus validation latency ($\tau$) degrades time-dependent grid survival ($P_{\text{secure}}$).
     \item \textbf{Nine-Protocol Generational Benchmark (C5):} We benchmark 9 consensus protocols across 4 evolutionary generations (G1 to G4) under message complexity ($\mathcal{O}(n^2)$ vs. $\mathcal{O}(n)$) and smart grid latency constraints.
@@ -151,7 +151,7 @@ Early studies explored public Proof-of-Work (PoW) blockchains (e.g., Ethereum). 
 
 Sheikh \textit{et al.} established a foundational probabilistic model evaluating the security gains of Byzantine consensus in Electric Vehicle energy trading networks, demonstrating that distributed consensus reduces joint attack failure probabilities across sensor, communication, SCADA, and receiver channels. Li \textit{et al.} developed a permissioned energy trading architecture utilizing credit-weighted validator selection. 
 
-\noindent\textbf{Thematic Synthesis:} Existing blockchain studies concentrate on transaction integrity, access control, and financial clearing for peer-to-peer energy trading. However, this body of work treats DLT as an accounting mechanism rather than conducting a direct structural comparison against traditional intrusion detection systems under equivalent cyber-physical threat models.
+\noindent\textbf{Thematic Synthesis:} Existing blockchain studies concentrate on transaction integrity, access control, and financial clearing for peer-to-peer energy trading. However, this body of work treats DLT as an accounting mechanism rather than applying BFT consensus directly onto intrusion detection systems to solve coordinator SPOF vulnerabilities.
 
 \subsection{Evolutionary Consensus Optimization (G1 to G4)}
 Byzantine Fault Tolerant (BFT) consensus algorithms guarantee state machine replication across $n$ nodes in the presence of up to $f = \lfloor(n-1)/3\rfloor$ arbitrary or malicious failures. BFT protocols have evolved through four distinct generations:
@@ -163,7 +163,7 @@ Byzantine Fault Tolerant (BFT) consensus algorithms guarantee state machine repl
     \item \textbf{Generation 4 (Sub-Second Pipelined BFT):} Modern high-throughput consensus engines, including Solana's Tower BFT and Random Verifiable Rotation (RVR). Tower BFT leverages Proof-of-History (PoH) as a cryptographic clock to pipeline voting rounds without explicit phase synchronization, achieving sub-second finality ($\tau < 250\text{ ms}$) and linear message complexity $\mathcal{O}(n)$. RVR incorporates Verifiable Random Functions (VRF) to dynamically elect validator leaders, neutralizing targeted DoS and Sybil attacks.
 \end{enumerate}
 
-\noindent\textbf{Thematic Synthesis:} While Generation-3 and Generation-4 consensus protocols optimize message complexity and validation latency, prior benchmarking studies evaluate network throughput in isolation. To the best of our knowledge, existing literature reviewed in this study does not model how validation latencies impact time-dependent system survival probabilities under stochastic cyber-physical attack traffic.
+\noindent\textbf{Thematic Synthesis:} While Generation-3 and Generation-4 consensus protocols optimize message complexity and validation latency, prior benchmarking studies evaluate network throughput in isolation. To the best of our knowledge, existing literature reviewed in this study does not model how validation latencies impact time-dependent system survival probabilities when applying BFT consensus onto intrusion detection pipelines.
 
 \subsection{Comparative Synthesis & Critical Research Gap}
 Table \ref{tab:literature_matrix} synthesizes the key literature streams, highlighting the specific research gaps addressed by our framework.
@@ -184,12 +184,12 @@ Ding \textit{et al.} (2024) & No & Yes & CE-PBFT & No & No & No \\
 Xu \textit{et al.} (2025) & No & Yes & G-PBFT & No & No & No \\
 Wang \textit{et al.} (2025) & No & Yes & RVR & No & No & No \\
 \midrule
-\textbf{This Work (STSF)} & \textbf{Comparative} & \textbf{Yes} & \textbf{9 Protocols (G1--G4)} & \textbf{Yes (12 Vectors)} & \textbf{Yes ($W(\tau)$ Decay)} & \textbf{Yes ($10^6$ Trials)} \\
+\textbf{This Work (BFT-IDS)} & \textbf{Applied Engine} & \textbf{Yes} & \textbf{9 Protocols (G1--G4)} & \textbf{Yes (12 Vectors)} & \textbf{Yes ($W(\tau)$ Decay)} & \textbf{Yes ($10^6$ Trials)} \\
 \bottomrule
 \end{tabularx}
 \end{table*}
 
-\noindent\textbf{Critical Research Gap:} Existing smart grid security research remains bifurcated. Machine learning literature focuses on behavioral anomaly detection, while blockchain literature concentrates on transaction integrity for energy trading. Neither body of work quantitatively compares structural prevention against reactive detection under a unified 12-attack cyber-physical threat model while accounting for real-time temporal vulnerability decay.
+\noindent\textbf{Critical Research Gap:} Existing smart grid security research remains bifurcated. Machine learning literature focuses on behavioral anomaly detection, while blockchain literature concentrates on transaction integrity for energy trading. Neither body of work quantitatively formulates applying BFT consensus directly onto intrusion detection systems under a unified 12-attack cyber-physical threat model while accounting for real-time temporal vulnerability decay.
 
 % ═══════════════════════════════════════════════════════════════
 \section{System Architecture & 12 Cyber-Physical Threat Vectors}
@@ -240,7 +240,7 @@ We establish a taxonomy of 12 cyber-physical attack vectors targeting AMI networ
 \subsubsection{Byzantine Validator Compromise} Arbitrary, collusive, or silent failures among consensus validator nodes. \emph{IDS Limitation:} Centralized architectures have zero Byzantine tolerance ($f=0$). \emph{BFT Mitigation:} Binomial Byzantine voting bounds compromise probability to $P_{\text{Byz}} = \sum_{k=f+1}^n \binom{n}{k} p_c^k (1-p_c)^{n-k}$.
 
 % ═══════════════════════════════════════════════════════════════
-\section{Proposed Analytical Framework (STSF)}
+\section{Proposed Analytical Framework (BFT-IDS)}
 \label{sec:framework}
 % ═══════════════════════════════════════════════════════════════
 
@@ -332,7 +332,7 @@ RVR & G4 & $\mathcal{O}(n)$ (VRF Linear) & 1,020 \\
 \end{table}
 
 \subsection{Scope of Applicability}
-To ensure methodological clarity, we explicitly delineate the boundary conditions and operational scope of the STSF model:
+To ensure methodological clarity, we explicitly delineate the boundary conditions and operational scope of the BFT-IDS model:
 \begin{enumerate}[leftmargin=*]
     \item \textbf{Target Operational Environments:} The framework applies directly to permissioned AMI networks where Data Concentrator Units (DCUs) and substation gateways act as stationary consensus validators under controlled network topology.
     \item \textbf{Foundational Model Assumptions:} Analytical derivations rely on independent node compromise probabilities ($p_c$), stationary Poisson attack arrival rates ($\lambda$), and localized critical sensor subsets ($m=10$).
@@ -362,16 +362,16 @@ To verify analytical equations, the simulator executes $10^6$ independent Monte 
 \subsection{Evaluation of RQ1 (Static Security Gains & SPOF Elimination)}
 To answer RQ1, we evaluate the joint static compromise probability $P_{\text{TAb}}$ and Single Point of Failure risk across all 12 attack vectors within the assumptions of our analytical model.
 
-\noindent\textbf{Experimental Results:} As detailed in Table \ref{tab:attack_comparison}, permissioned BFT consensus reduces Single Point of Failure risk from $P_{\text{SPOF}} = 1.0$ (centralized IDS) to $P_{\text{Byz}} = 2.186 \times 10^{-10}$ under baseline parameters ($n=51, f=16, p_c=0.05$). Replay attacks are completely eliminated ($P_{\text{Replay}} \to 0$), SCADA breaches are reduced by 18 orders of magnitude, and key compromises are reduced by $1,015\times$. Under the Sheikh 4-component benchmark ($N_{\text{sen}} = 3,854$), BFT consensus achieves a static security gain of 170 orders of magnitude ($P_{\text{TA}} \approx 0.005 \to P_{\text{TAb}} \approx 10^{-173}$).
+\noindent\textbf{Experimental Results:} As detailed in Table \ref{tab:attack_comparison}, applying permissioned BFT consensus onto IDS pipelines reduces Single Point of Failure risk from $P_{\text{SPOF}} = 1.0$ (standalone IDS) to $P_{\text{Byz}} = 2.186 \times 10^{-10}$ under baseline parameters ($n=51, f=16, p_c=0.05$). Replay attacks are completely eliminated ($P_{\text{Replay}} \to 0$), SCADA breaches are reduced by 18 orders of magnitude, and key compromises are reduced by $1,015\times$. Under the Sheikh 4-component benchmark ($N_{\text{sen}} = 3,854$), BFT consensus achieves a static security gain of 170 orders of magnitude ($P_{\text{TA}} \approx 0.005 \to P_{\text{TAb}} \approx 10^{-173}$).
 
-\noindent\textbf{Hypothesis Verification:} These empirical and analytical findings support Hypothesis H1 within the model assumptions: proactive BFT consensus structurally eliminates single-point-of-failure vulnerabilities and reduces joint system compromise probabilities by multiple orders of magnitude relative to centralized reactive IDS.
+\noindent\textbf{Hypothesis Verification:} These empirical and analytical findings support Hypothesis H1 within the model assumptions: applying BFT consensus onto IDS pipelines structurally eliminates single-point-of-failure vulnerabilities and reduces joint system compromise probabilities by multiple orders of magnitude relative to standalone reactive IDS.
 
 \subsection{Evaluation of RQ2 (Consensus Latency & Temporal Vulnerability Decay)}
 To answer RQ2, we evaluate the effect of consensus validation latency ($\tau$) on time-dependent system survival probability $P_{\text{secure}}$ under Poisson attack arrival rates ($\lambda = 20\text{ attacks/s}$).
 
 \noindent\textbf{Experimental Results:} As shown in Table \ref{tab:protocol_security}, sub-second Generation-4 protocols (RVR: $P_{\text{secure}} = 0.9404, \tau = 200\text{ms}$; Tower BFT: $P_{\text{secure}} = 0.9272, \tau = 242.9\text{ms}$) preserve over 92\% of static security gains by restricting temporal vulnerability decay ($P_{\text{temporal}} < 0.024$). Conversely, high-latency Generation-1 protocols (Classic PBFT: $\tau = 7.65\text{s}$) suffer severe security decay ($P_{\text{secure}} = 0.4421, P_{\text{temporal}} = 0.5347$), while $OM(m)$ ($\tau = 43.35\text{s}$) collapses entirely ($P_{\text{secure}} = 0.0124$).
 
-\noindent\textbf{Hypothesis Verification:} These results support Hypothesis H2: sub-second pipelined consensus protocols preserve the vast majority of static security gains, whereas multi-second classical protocols suffer severe temporal decay under high-rate attack traffic.
+\noindent\textbf{Hypothesis Verification:} These results support Hypothesis H2: sub-second pipelined consensus protocols preserve the vast majority of static security gains when securing IDS pipelines, whereas multi-second classical protocols suffer severe temporal decay under high-rate attack traffic.
 
 \subsection{Evaluation of RQ3 (12-Attack Threat Model Robustness)}
 To answer RQ3, we evaluate whether protocol performance rankings remain consistent across variations in physical layer security parameters ($x \in [0.90, 0.999], y \in [0.01, 0.20], z \in [0.05, 0.45]$).
@@ -393,7 +393,7 @@ To answer RQ4, we conduct ablation experiments disabling specific consensus mech
 \noindent\textbf{Hypothesis Verification:} These results support Hypothesis H4: disabling specific consensus cryptographic mechanisms significantly degrades resilience against identity, key, and DoS attacks.
 
 \begin{table*}[t]
-\caption{Comprehensive Attack-by-Attack Security Evaluation: Centralized Reactive IDS vs. Proactive BFT Blockchain}
+\caption{Comprehensive Attack-by-Attack Security Evaluation: Centralized Reactive IDS vs. BFT-Secured IDS}
 \label{tab:attack_comparison}
 \centering
 \scriptsize
@@ -486,7 +486,7 @@ Within the proposed temporal analytical framework, consensus validation latency 
 \subsection{Comparison with Prior Studies}
 Our results extend the landmark works of Faquir \textit{et al.} (SEGAN 2022) and Sheikh \textit{et al.} (IEEE Access 2020):
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Contrast with Faquir \textit{et al.}:} While Faquir \textit{et al.} demonstrated > 98\% classification precision using SVM-TFPG pipelines, their model remains vulnerable to coordinator compromise ($P_{\text{SPOF}} = 1.0$). Our framework proves that distributed BFT consensus lowers coordinator compromise probability to $P_{\text{Byz}} \approx 2.186 \times 10^{-10}$.
+    \item \textbf{Contrast with Faquir \textit{et al.}:} While Faquir \textit{et al.} demonstrated > 98\% classification precision using SVM-TFPG pipelines, their model remains vulnerable to coordinator compromise ($P_{\text{SPOF}} = 1.0$). Applying BFT consensus to their IDS pipeline lowers coordinator compromise probability to $P_{\text{Byz}} \approx 2.186 \times 10^{-10}$.
     \item \textbf{Extension of Sheikh \textit{et al.}:} While Sheikh \textit{et al.} established a 170 order-of-magnitude static security gain under a 4-component model, their formulation evaluated security in a time-invariant state. Our framework proves that static security gains degrade exponentially over consensus latency $\tau$ under Poisson attack traffic.
 \end{itemize}
 
@@ -518,7 +518,7 @@ Table \ref{tab:rq_summary} provides a concise summary mapping our four Research 
 \toprule
 \textbf{Research Question} & \textbf{Primary Evaluated Evidence} & \textbf{Hypothesis Outcome} \\
 \midrule
-\textbf{RQ1 (Paradigm Comparison)} & 12-Attack composite analysis \& cumulative Binomial SPOF derivation ($n=51, f=16$). & Supported under proposed model assumptions \\
+\textbf{RQ1 (BFT-IDS Integration)} & 12-Attack composite analysis \& cumulative Binomial SPOF derivation ($n=51, f=16$). & Supported under proposed model assumptions \\
 \textbf{RQ2 (Temporal Vulnerability)} & Poisson arrival decay modeling ($W(\tau)$) \& Hyperledger Fabric latency traces ($\tau$). & Supported under proposed model assumptions \\
 \textbf{RQ3 (Threat Model Robustness)} & Sensitivity parameter sweeps across physical parameters ($x, y, z, p_c, \lambda$). & Supported under evaluated parameter ranges \\
 \textbf{RQ4 (Feature Ablation)} & Cryptographic ablation experiments (VRF rotation, Shamir secret sharing, credit weights). & Supported under evaluated test scenarios \\
@@ -534,9 +534,9 @@ Table \ref{tab:rq_summary} provides a concise summary mapping our four Research 
 \end{enumerate}
 
 \subsection{Conclusion & Future Work}
-This paper presented a comprehensive Static-Temporal Security Framework (STSF) conducting a comparative evaluation of reactive centralized IDS and proactive permissioned BFT consensus in Advanced Metering Infrastructure. Our mathematical models and Monte Carlo simulations demonstrate that within the assumptions of the presented analytical framework, BFT consensus achieves a 170 order-of-magnitude static security gain over traditional IDS, reduces single-point-of-failure risks ($P_{\text{SPOF}} \to 10^{-10}$), and neutralizes replay attacks. Furthermore, we prove that sub-second consensus protocols (Tower BFT, RVR) are necessary to prevent temporal security decay under real-time attack traffic.
+This paper presented \emph{BFT-IDS}, a security framework that applies permissioned Byzantine Fault Tolerant (BFT) blockchain consensus directly onto smart meter Intrusion Detection Systems in Advanced Metering Infrastructure. Our mathematical models and Monte Carlo simulations demonstrate that within the assumptions of the presented analytical framework, applying BFT consensus onto IDS pipelines achieves a 170 order-of-magnitude static security gain over standalone IDS, reduces single-point-of-failure risks ($P_{\text{SPOF}} \to 10^{-10}$), and neutralizes replay attacks. Furthermore, we prove that sub-second consensus protocols (Tower BFT, RVR) are necessary to prevent temporal security decay under real-time attack traffic.
 
-Future research will focus on deploying our BFT framework on an experimental 5G-connected smart grid hardware-in-the-loop (HIL) testbed and developing hybrid architectures that combine lightweight on-meter machine learning anomaly filtering with distributed BFT ledger validation.
+Future research will focus on deploying our BFT-IDS framework on an experimental 5G-connected smart grid hardware-in-the-loop (HIL) testbed and developing hybrid architectures that combine lightweight on-meter machine learning anomaly filtering with distributed BFT ledger validation.
 
 % ═══════════════════════════════════════════════════════════════
 % REFERENCES
