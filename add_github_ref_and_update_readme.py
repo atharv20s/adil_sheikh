@@ -1,4 +1,34 @@
-# Byzantine-Based Blockchain Consensus for EV-to-Grid Energy Trading: A Static-Temporal Security Evaluation Framework (STSF)
+import os
+
+def update_paper_and_readme():
+    paper_path = "intrusion_detection_bft_paper.tex"
+    restructured_path = "intrusion_detection_bft_paper_restructured.tex"
+    readme_path = "README.md"
+
+    # 1. Update Paper (.tex files)
+    with open(paper_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    code_avail_sec = r"""
+\section*{Data and Code Availability}
+To facilitate open-science reproducibility and future research extensions in Byzantine-tolerant smart grid security, all analytical models, Python figure generation scripts, LaTeX manuscript source files, and simulation artifacts evaluated in this study are publicly available on GitHub at: \url{https://github.com/atharv20s/adil_sheikh}.
+"""
+
+    if "\\section*{Data and Code Availability}" not in content:
+        pos = content.find("\\begin{thebibliography}")
+        if pos != -1:
+            content = content[:pos] + code_avail_sec + "\n\n" + content[pos:]
+
+    with open(paper_path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+    with open(restructured_path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+    print("Added Data & Code Availability section to both tex files!")
+
+    # 2. Update README.md
+    readme_content = """# Byzantine-Based Blockchain Consensus for EV-to-Grid Energy Trading: A Static-Temporal Security Evaluation Framework (STSF)
 
 [![IEEE Transactions Standards](https://img.shields.io/badge/IEEE-Transactions_Standard-00539F?style=for-the-badge&logo=ieee&logoColor=white)](https://github.com/atharv20s/adil_sheikh)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
@@ -17,16 +47,16 @@ This repository contains the complete analytical framework, Python figure genera
 ---
 
 ## 🎯 Key Scientific Contributions
-1. **Without Blockchain Baseline Evaluation ($P_{	ext{secure}}^{	ext{no\_BC}} = 0.0$):**
+1. **Without Blockchain Baseline Evaluation ($P_{\text{secure}}^{\text{no\_BC}} = 0.0$):**
    * Formulates an IEEE 33-bus distribution grid with 50 EVs ($n=51$) and 3,854 physical sensors.
-   * Proves that under a series reliability model across 12 cyber-physical attack vectors, centralized systems suffer **97.4% structural compromise** ($P_{	ext{secure, limited}}^{	ext{no\_BC}} pprox 0.026$) due to single-points-of-failure ($P_{	ext{SPOF}}=1.0$).
+   * Proves that under a series reliability model across 12 cyber-physical attack vectors, centralized systems suffer **97.4% structural compromise** ($P_{\text{secure, limited}}^{\text{no\_BC}} \approx 0.026$) due to single-points-of-failure ($P_{\text{SPOF}}=1.0$).
 
-2. **Quantified Static Security Gain ($pprox 170$ Orders of Magnitude):**
-   * Extends Sheikh et al.'s 4-component probabilistic model, demonstrating that BFT consensus reduces attack probability from $P_{	ext{TA}} pprox 0.005$ to $P_{	ext{TAb}} pprox 10^{-173}$.
+2. **Quantified Static Security Gain ($\approx 170$ Orders of Magnitude):**
+   * Extends Sheikh et al.'s 4-component probabilistic model, demonstrating that BFT consensus reduces attack probability from $P_{\text{TA}} \approx 0.005$ to $P_{\text{TAb}} \approx 10^{-173}$.
 
-3. **Poisson Latency Exposure Framework ($P_{	ext{temporal}}$):**
+3. **Poisson Latency Exposure Framework ($P_{\text{temporal}}$):**
    * Models the temporal decay of static security as a Poisson arrival process governed by validation latency $L$.
-   * Pipelined sub-second protocols (e.g., **Tower BFT**, **RVR**) preserve over 92% of security benefits ($P_{	ext{secure}} \ge 0.927$), whereas classical protocols (e.g., $OM(m)$) lose up to 99% ($P_{	ext{secure}} = 0.012$).
+   * Pipelined sub-second protocols (e.g., **Tower BFT**, **RVR**) preserve over 92% of security benefits ($P_{\text{secure}} \ge 0.927$), whereas classical protocols (e.g., $OM(m)$) lose up to 99% ($P_{\text{secure}} = 0.012$).
 
 ---
 
@@ -78,3 +108,12 @@ For research inquiries, dataset requests, or future collaborations:
 
 ---
 *Developed at E-MC² Laboratory, Department of Electrical Engineering, VJTI Mumbai & IIIT Nagpur.*
+"""
+
+    with open(readme_path, "w", encoding="utf-8") as f:
+        f.write(readme_content)
+
+    print("Updated README.md with comprehensive documentation and WhatsApp contact info!")
+
+if __name__ == "__main__":
+    update_paper_and_readme()
