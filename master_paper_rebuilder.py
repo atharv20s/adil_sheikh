@@ -1,4 +1,10 @@
-% ══════════════════════════════════════════════════════════════════
+import os
+
+def rebuild_master_paper():
+    file_path = "intrusion_detection_bft_paper.tex"
+    restructured_path = "intrusion_detection_bft_paper_restructured.tex"
+
+    tex_content = r"""% ══════════════════════════════════════════════════════════════════
 % Byzantine-Based Blockchain Consensus for EV-to-Grid Energy Trading:
 % A Static-Temporal Security Evaluation Framework
 % ══════════════════════════════════════════════════════════════════
@@ -600,3 +606,15 @@ X.~Ding \emph{et al.}, ``CE-PBFT: An efficient cluster-based PBFT consensus algo
 \end{thebibliography}
 
 \end{document}
+"""
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(tex_content)
+
+    with open(restructured_path, "w", encoding="utf-8") as f:
+        f.write(tex_content)
+
+    print("Master paper successfully rebuilt with complete IEEE narrative funnel, correct figure order, and explicit figure inclusions!")
+
+if __name__ == "__main__":
+    rebuild_master_paper()
