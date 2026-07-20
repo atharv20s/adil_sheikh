@@ -203,55 +203,515 @@ Figure~\ref{fig:architecture_comparison} illustrates the fundamental architectur
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.9\columnwidth]{fig_architecture_comparison.png}
+\includegraphics[width=\columnwidth]{fig_1_architecture.pdf}
 \caption{\textbf{Comparative Architecture:} The transition from centralized IDS-based security (left) to distributed BFT blockchain consensus (right). The centralized architecture has a single point of failure at the MDMS coordinator, while the distributed architecture distributes trust across the validator network.}
 \label{fig:architecture_comparison}
 \end{figure}
 
-\subsection{Threat Model: 12 Cyber-Physical Attack Vectors}
+\paragraph{Expanded Threat Model: 12 Cyber-Physical Attack Vectors}
+\label{ch:threat_model}
 
-We define 12 cyber-physical attack vectors that comprehensively cover the AMI threat landscape. This represents a significant extension over the four attack types (DoS, FDI, RAM Exhaustion, and CPU Overloading) addressed by the two-stage IDS~\cite{ids_smart_meter}. The defined attacks, sourced and categorized from smart grid security literature, include:
-\begin{enumerate}[leftmargin=*]
-    \item \textbf{Sensor Compromise:} Physical or logical tampering with localized sensor nodes to inject faulty electrical readings~\cite{sridhar2012, sheikh2020}.
-    \item \textbf{False Data Injection (FDI):} The injection of malicious data packets to deceive state estimation or utility billing systems~\cite{wang2013, yan2012}.
-    \item \textbf{Communication Hijack:} Eavesdropping or hijacking transmission links on unencrypted grid channels~\cite{sridhar2012}.
-    \item \textbf{Man-in-the-Middle (MitM):} Altering data packets in transit between endpoint smart meters and concentrators~\cite{yan2012}.
-    \item \textbf{Replay Attack:} Replaying intercepted valid messages to execute unauthorized commands or duplicate meter records~\cite{wang2013}.
-    \item \textbf{Denial of Service (DoS):} Flooding device communication ports to block packet transmission~\cite{yan2012, ids_smart_meter}.
-    \item \textbf{Distributed DoS (DDoS):} Leveraging botnets of compromised smart grid devices to flood concentrators or the MDMS coordinator~\cite{yan2012}.
-    \item \textbf{Key Compromise:} Unauthorized retrieval of private cryptographic keys to sign rogue data blocks~\cite{sheikh2020}.
-    \item \textbf{SCADA Breach:} Unauthorized root access to central control and data acquisition hosts to broadcast rogue command sets~\cite{sridhar2012}.
-    \item \textbf{Receiver Override:} Direct compromise of receiving actuators (e.g., EV charging units) to override safety limits~\cite{sheikh2020}.
-    \item \textbf{Sybil Attack:} Creating multiple fraudulent node identities to subvert voting and consensus integrity~\cite{castro1999}.
-    \item \textbf{Byzantine Validator Compromise:} Arbitrary, collusive, or silent failures among validator nodes to disrupt blockchain replication~\cite{lamport1982}.
+This chapter details the cyber-physical threat landscape of Advanced Metering Infrastructure (AMI). We systematically evaluate twelve distinct cyber-physical attack vectors. Every attack vector is presented under a uniform architectural template:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Architecture:} Physical and network configuration of the attack target.
+  \item \textbf{Attack Steps:} Procedural sequence of the intrusion.
+  \item \textbf{Impact:} Resulting damage to grid operations or market settlement.
+  \item \textbf{Existing Mitigation:} How reactive IDS systems detect the intrusion.
+  \item \textbf{IDS Failure Mode:} Why reactive IDS fails to provide complete prevention.
+  \item \textbf{Blockchain Mitigation:} How distributed proactive BFT consensus blocks the attack.
+  \item \textbf{Mathematical Probability Model:} Corresponding variables and probability terms.
+  \item \textbf{Simulation Parameters:} Baseline parameters mapped in our evaluation model.
 \end{enumerate}
 
-The baseline parameters and their sweep ranges are summarized in Table~\ref{tab:baseline_params}.
+All details in this chapter represent analytical threat analysis and literature-derived security mappings \analytical.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Sensor Compromise}
+\label{sec:tm:sensor_compromise}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+The sensor compromise attack targets the physical sensor endpoints located on household meters, charging stations, and grid buses (transformers).
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary acquires physical access to the device or exploits firmware vulnerabilities via regional network sweeps.
+  \item The firmware is replaced with compromised binaries, or debug interfaces (JTAG) are accessed.
+  \item The attacker modifies measurement data before it undergoes local encryption or signing.
+\end{enumerate}
+
+\paragraph{Impact}
+Compromised sensors send inaccurate voltage, current, and energy consumption values, leading to incorrect state estimation at the control center.
+
+\paragraph{Existing Mitigation}
+Reactive IDS systems analyze historical load shapes and log-likelihood ratios to identify statistical anomalies in reading patterns.
+
+\paragraph{IDS Failure Mode}
+If the attacker introduces a slow drift in readings rather than abrupt spikes, the anomaly remains within the standard variance limits, evading detection.
+
+\paragraph{Blockchain Mitigation}
+By storing sensor measurements on a distributed ledger with signature verification, the data is secured against modification once written. Coordinated validator checks ensure that forged data is rejected during consensus before it can be appended to the state.
+
+\paragraph{Mathematical Probability Model}
+The pairwise sensor compromise probability $\Psa(x)$ is:
+\begin{equation}
+\Psa(x) = x^2 (1 - x)^{N_{\mathrm{sen}} - 2}
+\end{equation}
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_1 = \Psa(0.5) \approx 1.6 \times 10^{-3}$, with sensor count $N_{\mathrm{sen}} = 3{,}854$.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{False Data Injection (FDI)}
+\label{sec:tm:fdi}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+FDI targets the state estimation algorithms at the control center, manipulating telemetry measurements transmitted from Remote Terminal Units (RTUs) and smart meters.
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary analyzes the system topology matrix $H$ through leakage or public documents.
+  \item An attack vector $a$ is constructed such that $a = H c$, where $c$ represents the target injection state.
+  \item Telemetry vector $z$ is modified to $z' = z + a$ during communication transit.
+\end{enumerate}
+
+\paragraph{Impact}
+State estimators calculate clean measurement residuals:
+\begin{equation}
+r = \| z' - H \hat{x}' \| = \| z + H c - H(\hat{x} + c) \| = \| z - H \hat{x} \|
+\end{equation}
+The residual checks pass, allowing bad data to alter control center actions.
+
+\paragraph{Existing Mitigation}
+Bad Data Detection (BDD) filters check the L2 norm of the measurement residuals against threshold limits.
+
+\paragraph{IDS Failure Mode}
+Because the injection vector $a$ lies within the column space of the topology matrix $H$, the residual remains unchanged, allowing the attack to bypass bad data detection algorithms.
+
+\paragraph{Blockchain Mitigation}
+Distributed state verification requires multiple validator nodes to sign state transitions. The topology is stored on-chain, and threshold consensus rejects transactions that violate physical law constraints.
+
+\paragraph{Mathematical Probability Model}
+The probability of a successful injection is $P_{\mathrm{FDI}} = p_2$. RVR consensus mitigates this to:
+\begin{equation}
+P_{\mathrm{FDI,mitigated}} = (1 - \beta) P_{\mathrm{FDI}}
+\end{equation}
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_2 = 0.15$, with BFT mitigation factor $\beta = 0.5$.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Communication Hijack}
+\label{sec:tm:comm_hijack}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+This attack targets the network communication channel connecting smart meters to collectors (NAN) and utility backhauls (WAN).
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary intercepts cellular or power line communication (PLC) links.
+  \item The network interface cards are compromised, or encryption keys are leaked.
+  \item Transmitted packets are modified or redirected.
+\end{enumerate}
+
+\paragraph{Impact}
+Interception leads to data loss, leakage of customer billing details, and loss of real-time monitoring capabilities.
+
+\paragraph{Existing Mitigation}
+Transport layer security protocols (TLS/IPsec) are used to encrypt and sign communication packets.
+
+\paragraph{IDS Failure Mode}
+If intermediate network hops are compromised (e.g., cell tower gateways), encryption keys can be bypassed or certificates forged, rendering TLS protections ineffective.
+
+\paragraph{Blockchain Mitigation}
+Data packet verification is decoupled from transport security. The ledger verifies the data origin and signature at the application layer, ensuring that manipulated packets are discarded.
+
+\paragraph{Mathematical Probability Model}
+The communication hijack probability $\Pca(x)$ is:
+\begin{equation}
+\Pca(x) = 1 - (1 - x)^{K_2}
+\end{equation}
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_3 = \Pca(0.5) \approx 0.9998$, with segment count $K_2 = 1{,}271$.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Man-in-the-Middle (MitM)}
+\label{sec:tm:mitm}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+MitM attacks target WAN links connecting MDMS instances to utility operators, placing an interception node in the path.
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary spoofs DNS records or routes IP traffic through an intermediary node.
+  \item The intermediary establishes independent connections with both endpoints.
+  \item The attacker intercepts, alters, and forwards data packets.
+\end{enumerate}
+
+\paragraph{Impact}
+Both endpoints believe they are communicating securely, but the attacker has complete read and write access to the data stream.
+
+\paragraph{Existing Mitigation}
+Public Key Infrastructure (PKI) and certificate pinning are used to verify endpoints.
+
+\paragraph{IDS Failure Mode}
+If a certificate authority is compromised or root certificates are modified on client nodes, the MitM node can issue valid certificates, bypassing checks.
+
+\paragraph{Blockchain Mitigation}
+Multi-signature verification requires signatures from several independent validators. A single forged certificate is insufficient to modify the ledger state.
+
+\paragraph{Mathematical Probability Model}
+The probability of a successful attack is $P_4 = p_4$.
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_4 = 0.05$.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Replay Attack}
+\label{sec:tm:replay}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+Replay attacks target local communication links (ZigBee/PLC) between smart meters and data concentrators.
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary records valid meter transmission packets containing high-demand readings.
+  \item The recorded packets are retransmitted at a later time (e.g., during low-rate intervals).
+  \item The concentrator processes the replayed packet as a fresh transmission.
+\end{enumerate}
+
+\paragraph{Impact}
+Replayed messages can trigger incorrect pricing decisions or cause billing discrepancies.
+
+\paragraph{Existing Mitigation}
+Sequence numbers and time-stamp verification are checked at the receiver.
+
+\paragraph{IDS Failure Mode}
+If the receiver system lacks strict clock synchronization or sequence validation limits, the replayed packet is accepted.
+
+\paragraph{Blockchain Mitigation}
+The blockchain state machine prevents double-spending and replayed transactions. Each transaction is signed with a unique nonce and PoH tick height. Replayed transactions fail nonce checks and are rejected by validators.
+
+\paragraph{Mathematical Probability Model}
+The probability of a successful replay is $P_5 = p_5$.
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_5 = 0.15$.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Denial of Service (DoS)}
+\label{sec:tm:dos}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+DoS attacks target concentrators and utility collectors in NAN/WAN regions.
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary floods network interfaces with malformed packets.
+  \item The processing buffers on target devices are exhausted.
+  \item The target device drops incoming connection requests.
+\end{enumerate}
+
+\paragraph{Impact}
+Utility operators lose real-time visibility into grid metrics and control commands are delayed.
+
+\paragraph{Existing Mitigation}
+Firewalls and rate-limiting limits are applied at the network edge.
+
+\paragraph{IDS Failure Mode}
+Static rate limits can block legitimate meter traffic during peak events, and fail to prevent distributed resource exhaustion.
+
+\paragraph{Blockchain Mitigation}
+Distributed ledger systems eliminate single-point-of-failure endpoints. If a validator node is targeted by a DoS attack, the consensus group continues to operate with the remaining nodes.
+
+\paragraph{Mathematical Probability Model}
+The probability of a successful DoS attack is $P_6 = p_6$.
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_6 = 0.20$.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Distributed Denial of Service (DDoS)}
+\label{sec:tm:ddos}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+DDoS attacks target centralized servers, such as the utility MDMS, using distributed botnets.
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary compromises a large number of IoT endpoints.
+  \item The compromised nodes send coordinated traffic to the central target.
+  \item The central network link is overwhelmed by the high volume of incoming data.
+\end{enumerate}
+
+\paragraph{Impact}
+Centralized databases become unavailable, disrupting billing operations, load balancing, and market clearing.
+
+\paragraph{Existing Mitigation}
+DDoS scrubbing centers and traffic filtering are used to clean incoming data.
+
+\paragraph{IDS Failure Mode}
+High-volume attacks can overwhelm scrubbing centers, and centralized systems remain vulnerable to complete resource exhaustion.
+
+\paragraph{Blockchain Mitigation}
+Ledger state replication distributes the communication load across multiple consensus nodes. High-throughput protocols (e.g., Tower BFT) use network topology trees to handle transaction routing, reducing the impact of distributed flooding.
+
+\paragraph{Mathematical Probability Model}
+The probability of a successful DDoS attack is $P_7 = p_7$.
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_7 = 0.35$.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Key Compromise}
+\label{sec:tm:key_compromise}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+This attack targets the private cryptographic keys stored on smart meters and validator nodes.
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary exploits memory disclosure vulnerabilities or uses physical side-channel attacks.
+  \item The private key material is extracted from the device memory.
+  \item The attacker uses the key to sign forged transactions.
+\end{enumerate}
+
+\paragraph{Impact}
+The attacker gains full control over the compromised node's identity, allowing them to inject validly signed false data.
+
+\paragraph{Existing Mitigation}
+Hardware security modules (HSM) and secure enclaves are used to protect key material.
+
+\paragraph{IDS Failure Mode}
+Once a private key is compromised, any data signed with that key appears legitimate to the IDS, bypassing signature checks.
+
+\paragraph{Blockchain Mitigation}
+Threshold cryptography (e.g., Shamir Secret Sharing) is used to divide the key material. Compromising a single validator share does not expose the master signing key, which requires a threshold number of shares to reconstruct.
+
+\paragraph{Mathematical Probability Model}
+The key compromise probability is:
+\begin{equation}
+P_{\mathrm{KC,mitigated}} = \eta \cdot P_8
+\end{equation}
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_8 = 0.01$, with threshold mitigation factor $\eta = 0.01$ (RVR) or $\eta = 1.0$ (PBFT).
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{SCADA Breach}
+\label{sec:tm:scada_breach}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+This attack targets the database servers inside the utility control center.
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary penetrates the corporate network using stolen credentials.
+  \item The attacker moves laterally into the SCADA network zone.
+  \item Direct SQL injection or database command execution is used to modify grid configuration files.
+\end{enumerate}
+
+\paragraph{Impact}
+The utility database is corrupted, potentially leading to incorrect control commands being sent to field actuators.
+
+\paragraph{Existing Mitigation}
+Firewalls and database access control lists (ACL) are used to restrict access.
+
+\paragraph{IDS Failure Mode}
+If administrative credentials are compromised, the security logs and historical records can be modified by the attacker to cover their tracks.
+
+\paragraph{Blockchain Mitigation}
+The immutable design of the blockchain ledger prevents history modification. Since the data is cryptographically chained, any retrospective modification changes the hash history, which is detected and rejected by other validators.
+
+\paragraph{Mathematical Probability Model}
+The probability of a SCADA breach is $P_9 = p_9$.
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_9 = 0.01$.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Receiver Override}
+\label{sec:tm:receiver_override}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+This attack targets client software interfaces and automated billing systems.
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary gains unauthorized access to utility billing consoles.
+  \item Compromised instructions are sent to smart meters to execute shut-off commands.
+  \item System logs are cleared to delay response.
+\end{enumerate}
+
+\paragraph{Impact}
+Widespread power shutdowns can be triggered remotely, disrupting customer service.
+
+\paragraph{Existing Mitigation}
+Role-Based Access Control (RBAC) is used to manage system permissions.
+
+\paragraph{IDS Failure Mode}
+If the administrator account is compromised, the attacker has full authorization to issue override commands, bypassing standard security filters.
+
+\paragraph{Blockchain Mitigation}
+Critical control commands require multi-signature verification from multiple utility operators. An override command will not be processed unless it receives the threshold number of signatures.
+
+\paragraph{Mathematical Probability Model}
+The probability of a receiver override is $P_{10} = p_{10}$.
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_{10} = 0.01$.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Sybil Attack}
+\label{sec:tm:sybil}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+Sybil attacks target peer-to-peer communication layers and validator election systems in distributed networks.
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary creates multiple virtual nodes on a single physical host.
+  \item The virtual nodes register with the network using fabricated identities.
+  \item The Sybil nodes act in coordination to influence validator elections or transaction routing.
+\end{enumerate}
+
+\paragraph{Impact}
+The adversary can gain a majority in consensus quorums, allowing them to control block generation and double-spend transactions.
+
+\paragraph{Existing Mitigation}
+IP address filtering and identity registration are checked.
+
+\paragraph{IDS Failure Mode}
+In large AMI deployments, IP filtering can block legitimate devices using dynamic addresses, and fail to prevent distributed virtual nodes from registering.
+
+\paragraph{Blockchain Mitigation}
+Permissioned validator registries verify node identities before admission. In RVR consensus, leader selection is weighted by credit scoring, which makes it harder for newly created Sybil nodes without transaction history to influence the network.
+
+\paragraph{Mathematical Probability Model}
+The probability of a successful Sybil attack is:
+\begin{equation}
+P_{\mathrm{Sybil,mitigated}} = \omega_{\mathrm{credit}} \cdot P_{11}
+\end{equation}
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_{11} = 0.08$, with credit weight factor $\omega_{\mathrm{credit}} = 0.001$ (RVR) or $\omega_{\mathrm{credit}} = 1.0$ (PBFT).
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Byzantine Validator Compromise}
+\label{sec:tm:byz_compromise}
+% ─────────────────────────────────────────────────────────────────
+
+\paragraph{Architecture}
+This attack targets the active consensus validators in a distributed ledger network.
+
+\paragraph{Attack Steps}
+\begin{enumerate}
+  \item The adversary compromises a subset of validator nodes.
+  \item The compromised nodes send conflicting messages (double-voting) during consensus rounds.
+  \item The attacker attempts to stall the consensus process or commit invalid blocks.
+\end{enumerate}
+
+\paragraph{Impact}
+If the number of compromised nodes exceeds the threshold limit, the ledger safety is breached, potentially leading to double-spending or network forks.
+
+\paragraph{Existing Mitigation}
+Centralized node monitoring and log verification are used to detect anomalies.
+
+\paragraph{IDS Failure Mode}
+Centralized monitors cannot prevent a quorum of compromised nodes from committing a block once consensus is reached.
+
+\paragraph{Blockchain Mitigation}
+Consensus protocols are designed to tolerate up to $f = \lfloor (n-1)/3 \rfloor$ faulty nodes. By using validator rotation and VRF selection, the probability that the adversary compromises a consensus quorum is minimized.
+
+\paragraph{Mathematical Probability Model}
+The probability of consensus failure is modeled by the binomial tail:
+\begin{equation}
+\Pbyz(n, f, p_c) = \sum_{k=f+1}^{n} \binom{n}{k} p_c^k (1 - p_c)^{n - k}
+\end{equation}
+
+\paragraph{Simulation Parameters}
+The baseline probability is $P_{12} = 0.05$, with node count $n = 51$ and threshold limit $f = 16$.
+
+\bigskip
+
+% ─────────────────────────────────────────────────────────────────
+\subsubsection{Chapter Summary}
+\label{sec:tm:summary}
+% ─────────────────────────────────────────────────────────────────
+
+We summarize the key details of the twelve attack vectors in Table~\ref{tab:attack_comparison_matrix}.
 
 \begin{table}[htbp]
-\caption{Baseline Probability Parameters}
-\label{tab:baseline_params}
 \centering
-\scriptsize
-\begin{tabular}{@{}lllc@{}}
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{lXll}
 \toprule
-\textbf{Parameter} & \textbf{Symbol} & \textbf{Baseline Value} & \textbf{Sweep Range} \\
+\textbf{Attack Vector} & \textbf{Core Target} & \textbf{IDS Failure Mode} & \textbf{Blockchain Mitigation} \\
 \midrule
-Sensor Security & $x$ & 0.95 & $[0.90, 0.999]$ \\
-Critical Sensors & $m$ & 10 & Fixed \\
-MitM Success & $y$ & 0.05 & $[0.01, 0.20]$ \\
-Replay Success & $z$ & 0.15 & $[0.05, 0.45]$ \\
-DoS Probability & $p_{dos}$ & 0.20 & $[0.05, 0.50]$ \\
-DDoS Probability & $p_{ddos}$ & 0.35 & $[0.10, 0.60]$ \\
-Key Compromise & $p_{key}$ & 0.01 & $[0.001, 0.05]$ \\
-SCADA Compromise & $P_{SCADA}$ & 0.01 & $[0.01, 0.05]$ \\
-Receiver Override & $P_R$ & 0.01 & $[0.01, 0.05]$ \\
-Validator Compromise& $p_c$ & 0.05 & $[0.01, 0.20]$ \\
-Validators & $n$ & 51 & Fixed \\
-Fault Limit & $f$ & 16 & Fixed \\
+Sensor Compromise & Meter firmware & Slow reading drift & Immutable record signing \\
+FDI & State estimator & Topology bypass & Consensus rule checks \\
+Comm Hijack & Network segments & Key decryption & Origin authentication \\
+MitM & WAN links & Certificate forgery & Multi-signature approvals \\
+Replay & Local message links & Lacks sequence checks & Nonce & time-stamp limits \\
+DoS & Network interfaces & Central resource exhaust & Node redundancy \\
+DDoS & Utility MDMS & scrubbing overload & Distributed replicas \\
+Key Compromise & Device memory & Signed fake data is accepted & Shamir Secret Sharing \\
+SCADA Breach & centralized database & Administrative override & Cryptographic chaining \\
+Receiver Override & utility billing console & Master account takeover & Multi-operator approval \\
+Sybil & P2P registry & IP verification limit & Credit-weighted selection \\
+Byz Validator & consensus nodes & Cannot stop commit quorum & Byzantine threshold ($f < n/3$) \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
+\caption{Twelve-attack comparative threat evaluation matrix detailing targets, IDS limits, and BFT mitigations.}
+\label{tab:attack_comparison_matrix}
 \end{table}
+
+% --- END INPUT: chapters/ch03_threat_model ---
+
+\cleardoublepage
+
+
+% --- BEGIN INPUT: chapters/ch04_security_framework ---
+﻿% â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+% CHAPTER 7: SECURITY MATHEMATICS
+% â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
 
 \subsection{Sensor Count Dominance Critique}
 
@@ -595,6 +1055,14 @@ To validate the external consistency of our model, we compare our reproduced bas
 The static comparative security results (summarized in Table~\ref{tab:attack_comparison}) show that under baseline calibrations, BFT blockchain consensus is modeled to reduce the overall system compromise probability from $P_{TA} = 0.9737$ to $P_{TAb} = 0.6649$. This represents a significant improvement under the model's static assumptions, indicating that blockchain consensus can mitigate multi-vector cyber-physical risks (e.g., SCADA compromises are reduced by 18 orders of magnitude, and receiver overrides are reduced by 4 orders of magnitude under the proposed model).
 
 \subsection{Temporal Security Results}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{fig_7_latency_comparison.pdf}
+\caption{Consensus latency comparison highlighting sub-second finality of Tower BFT.}
+\label{fig:latency_comparison}
+\end{figure}
+
 The temporal evaluation rankings under Poisson attack traffic ($\lambda = 20$) are detailed in Table~\ref{tab:protocol_security}. The model indicates that consensus latency is the primary driver of temporal security. Pipelined, sub-second protocols (RVR: $P_{secure}=0.9404$, Tower BFT: $P_{secure}=0.9272$) are modeled to preserve the static security gains by minimizing the vulnerability window. In contrast, high-latency protocols (such as Classic PBFT at $L = 7.65$\,s) degrade temporal security ($P_{secure}=0.4421$), while non-pipelined, highly complex protocols like $OM(m)$ ($L = 43.35$\,s) collapse to $P_{secure}=0.0124$ due to queue-induced processing lags.
 
 \subsection{Sensitivity Analysis}
@@ -663,6 +1131,14 @@ RVR & 0.2199 & 0.2199 & 0.2199 & 0.0000 \\
 % ═══════════════════════════════════════════════════════════════
 
 The comparative evaluation of the reactive two-stage IDS and the proactive BFT blockchain consensus yields several critical insights regarding smart grid security architectures. Here, we interpret our findings in direct relation to our formulated Research Questions (RQ1--RQ4).
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{fig_4_radar_comparison.pdf}
+\caption{Multi-dimensional radar evaluation of IDS vs. BFT approaches.}
+\label{fig:radar_comparison}
+\end{figure}
 
 \subsection{Architectural Paradigm Shift (RQ1)}
 
