@@ -49,6 +49,10 @@
 This paper quantifies the cybersecurity improvement that Byzantine Fault Tolerant (BFT) blockchain consensus mechanisms introduce to Electric Vehicle (EV) energy trading networks under the \emph{Static–Temporal Security Framework (STSF)}. Moving beyond simple protocol benchmarking, we focus on the central question: \emph{How much does blockchain improve the security of an EV Energy Trading System compared to the same system without blockchain?} Using the IEEE 33-bus distribution system with 50 EVs and 3,854 physical sensors as our reference, we evaluate security improvements using Sheikh et al.'s foundational four-component probabilistic attack model, demonstrating that under baseline probabilistic model assumptions, blockchain reduces total attack probability from $P_{\text{TA}} \approx 0.005$ to $P_{\text{TAb}} \approx 10^{-173}$---a static security gain of approximately 170 orders of magnitude under the Sheikh formulation. We complement this with a probabilistic evaluation across 12 distinct cyber-physical attack vectors (including Sybil, Byzantine node, and DDoS attacks) to illustrate the breadth of defensive coverage. We then prove that consensus validation latency creates a temporal vulnerability window ($P_{\text{temporal}}$) governed by a Poisson arrival process. Pipelined sub-second protocols (e.g., Tower BFT, RVR) preserve over 92\% of static security gains ($P_{\text{secure}} \ge 0.927$), whereas classical consensus protocols (e.g., $OM(m)$) lose up to 99\% of security benefits due to latency exposure ($P_{\text{secure}} = 0.012$). Finally, we corroborate our analytical formulations across $10^6$ Monte Carlo simulation trials to within 0.5\% error with 95\% confidence intervals.
 \end{abstract}
 
+\begin{IEEEkeywords}
+Advanced Metering Infrastructure (AMI), Electric Vehicle (EV) Energy Trading, Byzantine Fault Tolerance (BFT), Static–Temporal Security Framework (STSF), Cyber-Physical Systems, Poisson Vulnerability Decay.
+\end{IEEEkeywords}
+
 % ═══════════════════════════════════════════════════════════════
 \section{Introduction}
 \label{sec:introduction}
