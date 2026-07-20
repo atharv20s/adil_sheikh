@@ -59,7 +59,7 @@ Advanced Metering Infrastructure (AMI), Electric Vehicle (EV) Energy Trading, By
 \label{sec:introduction}
 \IEEEPARstart{T}{he} global imperative for grid decarbonization, accelerated electrification of transportation, and the rapid deployment of distributed energy resources (DERs) are driving a fundamental transformation in modern power distribution systems. Electrical networks are evolving from traditional top-down, unidirectional generation architectures into dynamic, highly interconnected cyber-physical microgrids.
 
-\subsection{Evolution of EV-to-Grid Energy Trading}
+\subsection{V2G Energy Trading Paradigm}
 In modern smart distribution grids, Electric Vehicles (EVs) no longer act as passive electrical loads. Operating as mobile energy storage systems (ESS) under Vehicle-to-Grid (V2G) paradigms, EVs provide critical grid ancillary services, including peak shaving, frequency regulation, and local voltage stabilization. Peer-to-Peer (P2P) energy trading allows EV prosumers to directly monetize excess battery capacity by trading energy credits with neighboring grid consumers, relieving thermal stress on substation transformers during peak demand hours. Fig. \ref{fig:fig1_evolution} illustrates the operational progression from traditional power networks to cyber-physical P2P markets.
 
 \begin{figure}[htbp]
@@ -84,10 +84,10 @@ In modern smart distribution grids, Electric Vehicles (EVs) no longer act as pas
 \label{fig:fig1_evolution}
 \end{figure}
 
-\subsection{Advanced Metering Infrastructure (AMI) Integration}
+\subsection{AMI Telemetry Infrastructure}
 The digital backbone enabling P2P energy trading is Advanced Metering Infrastructure (AMI). AMI integrates smart meters, data concentrator units (DCUs), bidirectional cellular/mesh communication networks, and Meter Data Management Systems (MDMS). High-frequency meter telemetry feeds directly into SCADA state estimation algorithms to ensure feeder voltage limits remain within safe limits ($0.95 \le V \le 1.05\text{ p.u.}$).
 
-\subsection{Engineering Foundations: Detailed Review of Sheikh et al.'s Framework}
+\subsection{Foundational EV Trading Benchmark}
 To establish a concrete operational benchmark, this work builds upon the foundational engineering framework proposed by Sheikh et al.~\cite{sheikh2020}. Sheikh et al.\ formulated a P2P EV energy trading model mapped onto an IEEE 33-bus distribution system (33 buses, 32 lateral branches, peak demand of $3,715\text{ kW}$) populated by 50 EV prosumers. Their framework detailed the physical power flow equations, transaction bidding workflows, and hardware telemetry requirements across $3,854$ physical sensors. 
 
 While Sheikh et al.\ introduced a basic 4-component probabilistic security model ($P_{\text{TA}}$) to evaluate target attack probabilities, their analysis treated system security primarily as a static property. The original engineering framework assumed trusted coordinator execution, leaving several critical cyber-physical questions unaddressed:
@@ -97,7 +97,7 @@ While Sheikh et al.\ introduced a basic 4-component probabilistic security model
     \item \emph{Sensor Count Dominance Anomaly:} Evaluating global sensor counts ($n_{\text{sen}}=3,854$) under power models ($x^{3854}$) causes underflow errors ($\approx 10^{-86}$), masking local sensor vulnerabilities.
 \end{enumerate}
 
-\subsection{Cybersecurity Challenges \& Research Gap}
+\subsection{Cybersecurity Gaps in Centralized Control}
 Fig. \ref{fig:fig2_workflow_no_cyber} illustrates the operational data flow of the baseline centralized energy trading system without dedicated cybersecurity protection, highlighting these critical coordinator vulnerabilities.
 
 \begin{figure}[htbp]
@@ -241,7 +241,7 @@ We model an EV-integrated IEEE 33-bus distribution system (33 buses, 32 branches
 n_{sen} = n_{sen}^{DN} (129) + n_{sen}^{EV} (3725) = 3854
 \end{equation}
 
-\subsection{Sensor Count Dominance Critique}
+\subsection{Sensor Scaling Vulnerability Analysis}
 
 Prior models of smart meter security express sensor compromise probability ($P_{SA}$) and communication link compromise probability ($P_{CA}$) as:
 \begin{equation}
@@ -273,7 +273,7 @@ P_{SA}^{(10)} = P_{CA}^{(10)} = x^{10} = 0.95^{10} \approx 0.599
 \label{fig:fig3_attack_surface}
 \end{figure}
 
-\subsection{Justification and Causal Analysis of the 12 Cyber-Physical Attacks}
+\subsection{Cyber-Physical Threat Taxonomy}
 
 Without blockchain, the system relies on centralized coordinators or weak client-server protocols. The baseline success probabilities ($P_{atk}^j$) for 12 cyber-attacks are justified below:
 
@@ -428,7 +428,7 @@ As calculated above, a value of $0.026$ indicates that \textbf{the system is onl
     \node [draw, rectangle, fill=red!10, text width=6.5cm, text centered, rounded corners, below=0.3cm of e1] (e2) {\textbf{Engineering Limitations} \\ Single Point of Failure ($P_{\text{SPOF}}=1.0$), Zero Byzantine Tolerance};
     \node [draw, rectangle, fill=yellow!20, text width=6.5cm, text centered, rounded corners, below=0.3cm of e2] (e3) {\textbf{Cybersecurity Layer (STSF)} \\ Proactive Validation \& Threshold Cryptography};
     \node [draw, rectangle, fill=green!15, text width=6.5cm, text centered, rounded corners, below=0.3cm of e3] (e4) {\textbf{Blockchain Consensus Engine} \\ Distributed Validator Quorums ($n=51, f=16$)};
-    \node [draw, rectangle, fill=green!30, text width=6.5cm, text centered, rounded corners, below=0.3cm of e4] (e5) {\textbf{Improved Trust \& Grid Reliability} \\ 170 Orders-of-Magnitude Gain, $P_{\text{SPOF}} \to 10^{-10}$};
+    \node [draw, rectangle, fill=green!30, text width=6.5cm, text centered, rounded corners, below=0.3cm of e4] (e5) {\textbf{Improved Trust \& Grid Reliability} \\ a static security improvement of ~170 orders of magnitude under the baseline formulation Gain, $P_{\text{SPOF}} \to 10^{-10}$};
 
     \draw [->, thick] (e1) -- (e2);
     \draw [->, thick] (e2) -- (e3);
@@ -590,8 +590,13 @@ The original paper is mathematically correct for its defined scope (expected val
 \label{fig:fig_spof_risk_enhanced}
 \end{figure}
 
+
+\subsection{Transition to Decentralized Security Framework}
+While the analytical formulations in this section establish the baseline vulnerability of centralized grid architectures ($P_{\text{secure}}^{\text{no\_BC}} \le 0.026$), the following section investigates how introducing permissioned Byzantine Fault Tolerant (BFT) consensus modifies these probabilistic boundaries and mitigates coordinator-centric single points of failure.
+
+
 \section{With Blockchain Security Evaluation (Decentralized BFT Architecture)}
-\subsection{Quantitative Security Comparison Using Sheikh's Four-Component Model}
+\subsection{Static Security Evaluation}
 \label{sec:sheikh_comparison}
 
 To provide a rigorous quantitative comparison, we additionally evaluate the foundational four-component probabilistic model of Sheikh et al.~\cite{sheikh2020} (Eq.~14--16, 17--21), which isolates the sensor, communication, SCADA, and receiver attack vectors under a unified uncertainty parameter $x$:
@@ -602,7 +607,7 @@ With blockchain consensus applied (Eq.~17--21 of~\cite{sheikh2020}), the blockch
 \begin{equation}
 P_{TAb} \approx 4.91 \times 10^{-173}
 \end{equation}
-This represents a \textbf{static security gain of approximately 170 orders of magnitude}. We adopt this four-component model as the primary quantitative metric throughout the temporal analysis in Section~\ref{sec:temporal_benchmarking}, as it provides a well-calibrated, closed-form expression suitable for continuous security evaluation.
+This represents a \textbf{static security gain of substantial static vulnerability suppression under STSF assumptions}. We adopt this four-component model as the primary quantitative metric throughout the temporal analysis in Section~\ref{sec:temporal_benchmarking}, as it provides a well-calibrated, closed-form expression suitable for continuous security evaluation.
 
 % ═══════════════════════════════════════════════════════════════
 
@@ -814,7 +819,7 @@ For the primary quantitative comparison, we use the Sheikh et al.\ four-componen
 \begin{equation}
 \text{Static Security Gain} = \frac{P_{TA}}{P_{TAb}} \approx \frac{0.005}{4.91 \times 10^{-173}} \approx 10^{170}
 \end{equation}
-Deploying blockchain consensus reduces the modeled static attack probability by approximately \textbf{170 orders of magnitude} under the Sheikh four-component probabilistic formulation. This confirms the central thesis of Sheikh et al.~\cite{sheikh2020}: blockchain fundamentally improves application security.
+Deploying blockchain consensus reduces the modeled static attack probability by approximately \textbf{orders-of-magnitude security gain under the analytical cryptosystem model} under the Sheikh four-component probabilistic formulation. This confirms the central thesis of Sheikh et al.~\cite{sheikh2020}: blockchain fundamentally improves application security.
 
 \begin{figure}[htbp]
 \centering
@@ -1094,7 +1099,7 @@ We acknowledge that the joint compromise probability $P_{\mathrm{Compromise}} = 
 \section{Temporal Vulnerability}
 \label{sec:temporal_benchmarking}
 
-\emph{Having established that blockchain improves static security by $\sim$170 orders of magnitude (Part~I), we now evaluate how the temporal exposure window of different consensus algorithms affects the realized security gains.}
+\emph{Having established that blockchain improves static security by $\sim$significant static security gain (Part~I), we now evaluate how the temporal exposure window of different consensus algorithms affects the realized security gains.}
 
 \subsection{Temporal Exposure Window}
 
@@ -1332,17 +1337,18 @@ All analytical formulations, closed-form security evaluation scripts, Monte Carl
 
 \section{Conclusion}
 \label{sec:conclusion}
-% ═══════════════════════════════════════════════════════════════
 
-\subsection{Conclusion A: Security Gain of Blockchain Deployment}
+\subsection{Conclusion A: Architectural Insights and Security Gains}
+This study has demonstrated that transitioning from centralized EV-to-grid energy trading architectures to permissioned BFT blockchain consensus resolves critical coordinator single-points-of-failure ($P_{\text{SPOF}}: 1.0 \to 10^{-10}$) and neutralizes unverified data injection. Under static model assumptions, consensus verification introduces substantial security gains, suppressing baseline compromise probabilities from $P_{\text{TA}} \approx 0.005$ to $P_{\text{TAb}} \approx 10^{-173}$.
 
-Deploying BFT blockchain consensus on V2G energy trading systems resolves central coordinator vulnerabilities and mitigates Sybil and replay exploits. Using the foundational four-component attack model of Sheikh et al.~\cite{sheikh2020}, the static attack probability drops from $P_{TA} \approx 0.005$ to $P_{TAb} \approx 10^{-173}$---a static security improvement of approximately \textbf{170 orders of magnitude} under the Sheikh four-component probabilistic formulation. The complementary proposed probabilistic extension confirms that blockchain eliminates the single-points-of-failure ($P_{Sybil}, P_{Byz}$: $1.0 \to 10^{-10}$) and neutralizes replay attacks.
+\subsection{Conclusion B: Operational Principles for Future Smart Grids}
+Our findings yield three fundamental principles for next-generation cyber-physical distribution grids:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Latency Controls Realized Security:} Consensus speed is a security parameter. Pipelined sub-second consensus engines (e.g., Tower BFT, RVR) preserve over 92\% of static cryptosystem gains ($P_{\text{secure}} \ge 0.927$), whereas high-latency classical protocols lose up to 99\% under active attack traffic.
+    \item \textbf{Hardware Key Protection is Critical:} Threshold signature schemes (Shamir, MPC) are essential to prevent validator key theft from undermining consensus integrity.
+    \item \textbf{Future Research Horizons:} Future research should extend the STSF framework by modeling multi-stage correlated attack sequences using dynamic Copula processes and validating performance on hardware-in-the-loop (HIL) 5G smart grid testbeds.
+\end{enumerate}
 
-\subsection{Conclusion B: Protocol Selection Recommendations}
-
-While blockchain significantly improves static security, the consensus latency window introduces temporal vulnerability. Under an FDI threat profile of $\lambda=20$\,s$^{-1}$, protocols with higher latency (e.g., OM($m$)) can lose up to 99\% of the static security gain ($P_{secure} = 0.012$). Pipelined sub-second protocols (e.g., RVR, Tower BFT) preserve over 92\% of the security benefits ($P_{secure} \geq 0.927$), making them the recommended choice for real-time smart grid applications.
-
-% ═══════════════════════════════════════════════════════════════
 
 \section*{Data and Code Availability}
 To facilitate open-science reproducibility and future research extensions in Byzantine-tolerant smart grid security, all analytical models, Python figure generation scripts, LaTeX manuscript source files, and simulation artifacts evaluated in this study are publicly available on GitHub at: \url{https://github.com/atharv20s/adil_sheikh}.
