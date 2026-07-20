@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #ffffff;
+  margin: 0;
+  padding: 40px;
+  width: 1100px;
+  box-sizing: border-box;
+  color: #0f172a;
+}
+
+.title-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+.comp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.comp-card {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.card-header {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.tag-blue { background: #e0f2fe; color: #0369a1; }
+.tag-purple { background: #f3e8ff; color: #6b21a8; }
+
+.metric-row {
+  margin-bottom: 20px;
+}
+
+.metric-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bar-bg {
+  background: #e2e8f0;
+  height: 14px;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.bar-fill-red { background: linear-gradient(90deg, #ef4444, #dc2626); height: 100%; border-radius: 7px; }
+.bar-fill-green { background: linear-gradient(90deg, #22c55e, #16a34a); height: 100%; border-radius: 7px; }
+
+.val-box {
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 13px;
+  color: #334155;
+  margin-top: 14px;
+  line-height: 1.4;
+}
+</style>
+</head>
+<body>
+<div class="title-container">
+  <div class="title">Security Model Comparison: Single-Target vs. Parallel Failure</div>
+  <div class="subtitle">Contrasting Sheikh et al.'s Target Attack Model ($P_{\text{TA}}$) against Parallel System Compromise ($P_{\text{Compromise}}$)</div>
+</div>
+
+<div class="comp-grid">
+  <!-- Card 1 -->
+  <div class="comp-card">
+    <div class="card-header">
+      <span>Sheikh Target Attack Model</span>
+      <span class="tag tag-blue">Single Target ($P_{\text{TA}}$)</span>
+    </div>
+    
+    <div class="metric-row">
+      <div class="metric-label"><span>Without Blockchain (Baseline)</span><b>P = 0.0050 (0.5%)</b></div>
+      <div class="bar-bg"><div class="bar-fill-red" style="width: 5%;"></div></div>
+    </div>
+
+    <div class="metric-row">
+      <div class="metric-label"><span>With BFT Blockchain</span><b>P = 10⁻¹⁷³ (Static)</b></div>
+      <div class="bar-bg"><div class="bar-fill-green" style="width: 0.1%;"></div></div>
+    </div>
+
+    <div class="val-box">
+      <b>Assumes:</b> Arithmetic mean across 4 subsystem targets under uniform probability ($1/4$). Valid for single-target expected value calculation.
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="comp-card">
+    <div class="card-header">
+      <span>Parallel System Compromise</span>
+      <span class="tag tag-purple">Worst-Case ($P_{\text{Compromise}}$)</span>
+    </div>
+    
+    <div class="metric-row">
+      <div class="metric-label"><span>Without Blockchain (Baseline)</span><b>P = 0.9740 (97.4%)</b></div>
+      <div class="bar-bg"><div class="bar-fill-red" style="width: 97.4%;"></div></div>
+    </div>
+
+    <div class="metric-row">
+      <div class="metric-label"><span>With BFT Blockchain</span><b>P = 5.99 × 10⁻⁷</b></div>
+      <div class="bar-bg"><div class="bar-fill-green" style="width: 0.1%;"></div></div>
+    </div>
+
+    <div class="val-box">
+      <b>Assumes:</b> Parallel exposure across 12 cyber-physical attack vectors. Reveals that centralized systems are <b>97.4% compromised</b> without BFT consensus.
+    </div>
+  </div>
+</div>
+</body>
+</html>

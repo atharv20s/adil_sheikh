@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  margin: 0;
+  padding: 40px;
+  width: 1100px;
+  box-sizing: border-box;
+  color: #0f172a;
+}
+
+.title-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.workflow-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.step-card {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 18px 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.step-1 .step-number { background: #fee2e2; color: #991b1b; }
+.step-2 .step-number { background: #ffedd5; color: #c2410c; }
+.step-3 .step-number { background: #fef3c7; color: #b45309; }
+.step-4 .step-number { background: #dcfce7; color: #15803d; }
+.step-5 .step-number { background: #e0f2fe; color: #0369a1; }
+.step-6 .step-number { background: #f0fdf4; color: #166534; border: 2px solid #22c55e; }
+
+.step-content {
+  flex-grow: 1;
+}
+
+.step-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.step-desc {
+  font-size: 13.5px;
+  color: #475569;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.arrow-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12px;
+  color: #94a3b8;
+}
+
+.arrow-divider svg {
+  width: 20px;
+  height: 20px;
+  fill: #94a3b8;
+}
+
+.metric-pill {
+  background: #166534;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-left: 16px;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+<div class="title-container">
+  <div class="title">Comparative Application Security Workflow</div>
+  <div class="subtitle">Causal Validation Pipeline: Converting Attack Ingress to Quantified Security Gains under STSF</div>
+</div>
+
+<div class="workflow-grid">
+  <div class="step-card step-1">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <div class="step-title">Cyber-Physical Attack Vector Ingress</div>
+      <div class="step-desc">False Data Injection (FDI), MitM, Replay, DoS/DDoS, Sybil, and Byzantine Node Infiltration</div>
+    </div>
+  </div>
+
+  <div class="arrow-divider"><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h12z"/></svg></div>
+
+  <div class="step-card step-2">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <div class="step-title">Proactive Cryptographic Hash Verification</div>
+      <div class="step-desc">SHA-256 Payload Integrity Check & Nonce Timestamping (Neutralizes Replay Vectors)</div>
+    </div>
+  </div>
+
+  <div class="arrow-divider"><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h12z"/></svg></div>
+
+  <div class="step-card step-3">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <div class="step-title">Distributed BFT Consensus Engine</div>
+      <div class="step-desc">Multi-Validator Binomial Voting Quorums ($n=51, f=16$, $P_{\text{SPOF}} \to 10^{-10}$)</div>
+    </div>
+  </div>
+
+  <div class="arrow-divider"><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h12z"/></svg></div>
+
+  <div class="step-card step-4">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <div class="step-title">Multi-Signature Quorum Validation</div>
+      <div class="step-desc">Threshold Signature Verification & Shamir Secret Key Share Recovery</div>
+    </div>
+  </div>
+
+  <div class="arrow-divider"><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h12z"/></svg></div>
+
+  <div class="step-card step-5">
+    <div class="step-number">5</div>
+    <div class="step-content">
+      <div class="step-title">Sub-Second Exposure Window Reduction</div>
+      <div class="step-desc">Pipelined Finality ($L=200\text{ms}$), suppressing Poisson Exposure Window ($W(\tau) < 0.024$)</div>
+    </div>
+  </div>
+
+  <div class="arrow-divider"><svg viewBox="0 0 24 24"><path d="M12 16l-6-6h12z"/></svg></div>
+
+  <div class="step-card step-6">
+    <div class="step-number">6</div>
+    <div class="step-content">
+      <div class="step-title">Quantified Security Improvement (STSF Framework)</div>
+      <div class="step-desc">Static BFT Gain ($10^{170}$ Orders), Realized Security ($P_{\text{secure}} \ge 0.927$), Coordinator SPOF Eliminated</div>
+    </div>
+    <div class="metric-pill">+170 Orders Gain</div>
+  </div>
+</div>
+</body>
+</html>
