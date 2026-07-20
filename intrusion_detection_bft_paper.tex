@@ -516,6 +516,13 @@ The original paper is mathematically correct for its defined scope (expected val
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\columnwidth]{fig_model_comparison.png}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{fig_model_comparison.png}
+\caption{\textbf{Model Comparison:} Single-target attack probability ($P_{\text{TA}}$) vs. parallel failure system compromise ($P_{\text{Compromise}}$).}
+\label{fig:model_comparison}
+\end{figure}
+
 \caption{\textbf{Model Comparison:} Demonstrating the difference between Sheikh's target attack probability ($P_{TA}$) and the parallel failure system compromise probability ($P_{Compromise}$). The parallel failure model reveals a much higher structural vulnerability in systems without blockchain, reinforcing the necessity of BFT consensus.}
 \label{fig:model_comparison}
 \end{figure}
@@ -543,6 +550,13 @@ The original paper is mathematically correct for its defined scope (expected val
 \caption{\textbf{Figure 7 --- Without Blockchain vs. With Blockchain Architecture:} Comparative architectural representation contrasting centralized coordinator failure with distributed BFT voting quorums.}
 \label{fig:fig7_without_vs_with}
 \end{figure*}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{fig_spof_risk_enhanced.png}
+\caption{\textbf{Figure 16 --- Single Point of Failure (SPOF) Risk Comparison:} Binomial quorum failure probability as a function of per-node compromise rate $p_c$, highlighting the Recommended Utility Deployment Region ($P_{\text{Byz}} \le 10^{-5}$).}
+\label{fig:fig_spof_risk_enhanced}
+\end{figure}
 
 \section{With Blockchain}
 \subsection{Quantitative Security Comparison Using Sheikh's Four-Component Model}
@@ -1065,6 +1079,13 @@ where $P_{other} = 0.05$ represents residual risks.
 
 
 The following protocol comparison assumes blockchain has already been selected. The objective is no longer to determine whether blockchain should be deployed, but rather which consensus protocol provides the best operational trade-off.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{fig_temporal_enhanced.png}
+\caption{\textbf{Figure 17 --- Temporal Exposure Decay Across Attack Intensities ($\lambda$):} Restored 3-curve exposure plot showing Safe ($P_{\text{secure}} \ge 0.90$), Warning ($0.50 \le P < 0.90$), and Unsafe Exposure regions.}
+\label{fig:fig_temporal_enhanced}
+\end{figure}
 
 \section{Protocol Comparisons}
 
