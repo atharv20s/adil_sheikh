@@ -1,4 +1,9 @@
-% ══════════════════════════════════════════════════════════════════
+import os
+
+def build_journal_paper():
+    output_path = "ids_to_bft_blockchain_ami_security.tex"
+    
+    tex_content = r"""% ══════════════════════════════════════════════════════════════════
 % A Comparative Static-Temporal Security Evaluation Framework:
 % Reactive IDS vs. Proactive BFT Consensus for Advanced Metering Infrastructure
 % ══════════════════════════════════════════════════════════════════
@@ -465,3 +470,12 @@ Y.~Yan, Y.~Qian, H.~Sharif, and D.~Tipper, ``A survey on cyber security for smar
 \end{thebibliography}
 
 \end{document}
+"""
+    
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(tex_content)
+        
+    print(f"Masterclass journal paper successfully built and written to {output_path}.")
+
+if __name__ == "__main__":
+    build_journal_paper()
