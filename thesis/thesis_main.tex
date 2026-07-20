@@ -4,7 +4,7 @@
 % for Advanced Metering Infrastructure
 %
 % VJTI Mumbai — Department of Electrical Engineering
-% Under the guidance of Prof. Adil Sheikh
+% Under the guidance of Prof. Uday Suryavanshi \& Dr. Sunny Kumar
 % 16-Chapter Revised Structure
 % ══════════════════════════════════════════════════════════════════
 
@@ -14,6 +14,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage[labelfont=bf, font=small, labelsep=period]{caption}
 
 % ─── Mathematics ─────────────────────────────────────────────────────
 \usepackage{amsmath, amssymb, amsthm, mathtools}
@@ -47,9 +50,11 @@
 % ─── Chapter and Section Formatting ──────────────────────────────────
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
-  {\normalfont\Huge\bfseries}
-  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
-\titlespacing*{\chapter}{0pt}{-10pt}{40pt}
+  {\normalfont\Huge\bfseries\sffamily\raggedleft}
+  {\MakeUppercase{\chaptertitlename}%
+    \rlap{ \resizebox{!}{1.5cm}{\thechapter} \rule{5cm}{1.5cm}}}
+  {10pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{30pt}{40pt}
 
 % ─── Tables ──────────────────────────────────────────────────────────
 \usepackage{booktabs, multirow, array, longtable, tabularx, colortbl}
@@ -99,7 +104,7 @@
   citecolor=ieee,
   urlcolor=ieee,
   bookmarks=true,
-  pdfauthor={Athar Nakhuda, VJTI Mumbai},
+  pdfauthor={Atharv Manojkumar Shukla, VJTI Mumbai},
   pdftitle={From Reactive Detection to Proactive Consensus},
   pdfsubject={BFT Blockchain Security for Advanced Metering Infrastructure}
 ]{hyperref}
@@ -109,6 +114,18 @@
 
 % ─── Bibliography ────────────────────────────────────────────────────
 \usepackage[square, numbers, sort&compress]{natbib}
+
+
+% ─── Custom Environments ─────────────────────────────────────────────
+\newtcolorbox{premiumbox}[1][]{
+  enhanced,
+  boxrule=0.5pt,
+  colback=blue!5!white,
+  colframe=ieee,
+  arc=4pt,
+  drop fuzzy shadow,
+  #1
+}
 
 % ─── Utilities ───────────────────────────────────────────────────────
 \usepackage{enumitem}
@@ -301,7 +318,7 @@ This thesis is the product of sustained guidance, encouragement, and intellectua
 
 \medskip
 
-First and foremost, I extend my deepest thanks to my project guide, \textbf{Professor Adil Sheikh}, Department of Electrical Engineering, Veermata Jijabai Technological Institute, Mumbai. His exacting standards for analytical rigour, his insistence that every claim be traceable to a derivation, and his ability to distinguish between genuine contribution and academic fluff have fundamentally shaped both this thesis and my understanding of what research means. The framework in this work grew directly from hours of discussion, critique, and iterative revision under his direction.
+First and foremost, I extend my deepest thanks to my project guide, \textbf{Prof. Uday Suryavanshi \& Dr. Sunny Kumar}, Department of Electrical Engineering, Veermata Jijabai Technological Institute, Mumbai. His exacting standards for analytical rigour, his insistence that every claim be traceable to a derivation, and his ability to distinguish between genuine contribution and academic fluff have fundamentally shaped both this thesis and my understanding of what research means. The framework in this work grew directly from hours of discussion, critique, and iterative revision under his direction.
 
 \medskip
 
@@ -326,7 +343,7 @@ Finally, I acknowledge that all shortcomings in this work remain entirely my own
 \bigskip
 
 \begin{flushright}
-  \textit{Athar Nakhuda}\\
+  \textit{Atharv Manojkumar Shukla}\\
   \textit{VJTI Mumbai, July 2026}
 \end{flushright}
 
