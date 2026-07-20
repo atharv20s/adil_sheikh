@@ -1,4 +1,9 @@
-% ══════════════════════════════════════════════════════════════════
+import os
+
+def generate_restructured_paper():
+    output_path = "intrusion_detection_bft_paper_restructured.tex"
+    
+    tex_content = r"""% ══════════════════════════════════════════════════════════════════
 % Byzantine-Based Blockchain Consensus for EV-to-Grid Energy Trading:
 % A Static-Temporal Security Evaluation Framework
 % ══════════════════════════════════════════════════════════════════
@@ -471,3 +476,12 @@ X.~Ding \emph{et al.}, ``CE-PBFT: An efficient cluster-based PBFT consensus algo
 \end{thebibliography}
 
 \end{document}
+"""
+    
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(tex_content)
+        
+    print(f"Masterclass restructured paper successfully written to {output_path}.")
+
+if __name__ == "__main__":
+    generate_restructured_paper()
