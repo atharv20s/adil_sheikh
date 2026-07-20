@@ -165,7 +165,7 @@
 \vspace*{1.5cm}
 
 % Institution Logo Placeholder
-% \includegraphics[width=3.5cm]{vjti_logo.png}\\[0.8cm]
+% \includegraphics[width=3.5cm]{../figures/vjti_logo.png}\\[0.8cm]
 
 {\large \textbf{Veermata Jijabai Technological Institute}}\\[0.2cm]
 {\large Department of Electrical Engineering}\\[0.2cm]
@@ -238,7 +238,7 @@ I further declare that the probabilistic models, simulation frameworks, and expe
 \begin{tabular}{ll}
   \textbf{Signature:} & \underline{\hspace{5cm}} \\[1.0cm]
   \textbf{Name:}      & Atharv Manojkumar Shukla \\[0.4cm]
-  \textbf{Affiliation:}& 3rd year B.Tech Undergrad at IIIT Nagpur \\[0.4cm]
+  \textbf{Affiliation:}& 3rd year B.Tech Undergraduate at IIIT Nagpur \\[0.4cm]
   \textbf{Date:}      & \today \\[0.4cm]
   \textbf{Place:}     & Mumbai, India \\
 \end{tabular}
@@ -272,10 +272,17 @@ I further declare that the probabilistic models, simulation frameworks, and expe
   \itshape
   \large
 
-  \emph{Dedicated to my project guides,}\\
-  \emph{Prof.\ Uday Suryavanshi and Dr.\ Sunny Kumar,}\\
-  \emph{for their mentorship and professional support}\\
-  \emph{during the course of this internship at VJTI Mumbai.}
+  \emph{To my parents, whose sacrifice made this possible.}
+
+  \vspace{0.5cm}
+
+  \emph{To Prof.\ Uday Suryavanshi and Dr.\ Sunny Kumar,}\\
+  \emph{whose guidance transformed a project into a discipline.}
+
+  \vspace{0.5cm}
+
+  \emph{And to the engineers of VJTI who built before me,}\\
+  \emph{so that I may build further.}
 \end{center}
 
 % --- END INPUT: frontmatter/dedication ---
@@ -294,7 +301,7 @@ This thesis is the product of sustained guidance, encouragement, and intellectua
 
 \medskip
 
-First and foremost, I extend my deepest thanks to my project guides, \textbf{Prof. Uday Suryavanshi \& Dr. Sunny Kumar}, E-MC$^2$ Laboratory, Veermata Jijabai Technological Institute, Mumbai. Their exacting standards for analytical rigour, their insistence that every claim be traceable to a derivation, and their ability to distinguish between genuine contribution and academic fluff have fundamentally shaped both this thesis and my understanding of what research means. The framework in this work grew directly from hours of discussion, critique, and iterative revision under their direction.
+First and foremost, I extend my deepest thanks to my project guide, \textbf{Professor Adil Sheikh}, Department of Electrical Engineering, Veermata Jijabai Technological Institute, Mumbai. His exacting standards for analytical rigour, his insistence that every claim be traceable to a derivation, and his ability to distinguish between genuine contribution and academic fluff have fundamentally shaped both this thesis and my understanding of what research means. The framework in this work grew directly from hours of discussion, critique, and iterative revision under his direction.
 
 \medskip
 
@@ -619,25 +626,11 @@ WAN & Wide Area Network \\
 
 \chapter{Research Framework}
 \label{ch:research_framework}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{fig_10_methodology_pipeline.png}
-    \caption{Research Methodology Pipeline detailing the four phases of thesis work.}
-    \label{fig:methodology_pipeline}
-\end{figure}
-\clearpage
+% TODO: Research Framework content
 
 \chapter{AMI Background}
 \label{ch:ami_background}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{fig_1_architecture.png}
-    \caption{Architectural comparison between a Reactive Centralized IDS and a Proactive Distributed BFT Blockchain.}
-    \label{fig:ami_architecture}
-\end{figure}
-\clearpage
+% TODO: AMI Background content
 
 \chapter{IDS Background}
 \label{ch:ids_background}
@@ -645,41 +638,10 @@ WAN & Wide Area Network \\
 
 \chapter{Blockchain Background}
 \label{ch:blockchain_background}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{fig_8_blockchain_arch.png}
-    \caption{BFT Blockchain Network Topology showing a Smart Meter submitting a transaction.}
-    \label{fig:blockchain_topology}
-\end{figure}
-\clearpage
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{fig_2_protocol_flow.png}
-    \caption{Protocol Sequence Flow showing the message exchange phases in the PBFT algorithm.}
-    \label{fig:protocol_flow}
-\end{figure}
-\clearpage
+% TODO: Blockchain Background content
 
 \chapter{Threat Model}
 \label{ch:threat_model}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{fig_9_attack_graph.png}
-    \caption{Twelve-Attack Threat Vector Graph mapping the progression of attack propagation paths.}
-    \label{fig:attack_vector_graph}
-\end{figure}
-\clearpage
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{fig_6_spof_risk.png}
-    \caption{SPOF Risk Plot demonstrating the Byzantine Failure Model versus a single point of failure.}
-    \label{fig:spof_risk}
-\end{figure}
-\clearpage
 
 This chapter details the cyber-physical threat landscape of Advanced Metering Infrastructure (AMI). We systematically evaluate twelve distinct cyber-physical attack vectors. Every attack vector is presented under a uniform architectural template:
 \begin{enumerate}[label=(\roman*)]
@@ -1183,22 +1145,6 @@ Byz Validator & consensus nodes & Cannot stop commit quorum & Byzantine threshol
 % â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 \chapter{Security Mathematics}
 \label{ch:security_mathematics}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{fig_3_probability_tree.png}
-    \caption{Probability Tree detailing the derivation of static and temporal vulnerability states.}
-    \label{fig:probability_tree}
-\end{figure}
-\clearpage
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{fig_5_poisson_timeline.png}
-    \caption{Poisson Timeline visualizing the temporal vulnerability $P_{temporal} = 1 - e^{-\lambda L P_{TA}}$.}
-    \label{fig:poisson_timeline}
-\end{figure}
-\clearpage
 
 This chapter establishes the analytical mathematical security framework that governs the comparison between reactive detection and proactive consensus systems in Advanced Metering Infrastructure (AMI). Every derivation is presented from first principles, proceeding systematically from general assumptions to theorems, formal proofs, and clear physical interpretations. All mathematical assertions are purely analytical \analytical.
 
@@ -2224,22 +2170,6 @@ This ensures that the simulation runs, configurations, and results can be reprod
 
 \chapter{Results}
 \label{ch:results}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{fig_4_radar_comparison.png}
-    \caption{Consensus Radar Comparison: Qualitative analysis between Reactive IDS, PBFT, Tower BFT, and RVR.}
-    \label{fig:radar_comparison}
-\end{figure}
-\clearpage
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{fig_7_eta_sensitivity.png}
-    \caption{Sensitivity to Spatial Validation Factor ($\eta$) demonstrating RVR's robustness.}
-    \label{fig:eta_sensitivity}
-\end{figure}
-\clearpage
 
 This chapter presents the empirical results obtained from the ten experiments (E1--E10) designed in Chapter~\ref{ch:experimental_design}. Each experiment follows a structured template: \textit{Experiment $\to$ Observation $\to$ Comparison with Literature $\to$ Interpretation $\to$ Implication}. All results are simulated or analytical \simulated\ \analytical.
 
