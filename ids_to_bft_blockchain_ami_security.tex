@@ -89,27 +89,29 @@ To provide a rigorous analytical evaluation, this study is structured around fou
 \subsection{Summary of Contributions}
 Fig. \ref{fig:contribution_mapping} illustrates the logical mapping connecting literature gaps to our primary contributions C1--C6.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[node distance=1.2cm, auto, >=latex]
-    \node [draw, rectangle, fill=blue!10, text width=7cm, text centered, rounded corners] (lit) {\textbf{Existing Literature Reviewed} \\ Reactive ML-IDS vs. Standalone Blockchain Trading};
-    \node [draw, rectangle, fill=red!10, text width=7cm, text centered, rounded corners, below=0.5cm of lit] (gap) {\textbf{Identified Research Gap} \\ Lack of Unified Comparative Framework \& Temporal Latency Decay Analysis};
-    \node [draw, rectangle, fill=green!10, text width=7cm, text centered, rounded corners, below=0.5cm of gap] (c1) {\textbf{C1: Comparative STSF Framework} \\ Unified Static-Temporal Evaluation Methodology};
-    \node [draw, rectangle, fill=green!15, text width=3.2cm, text centered, rounded corners, below left=0.5cm and -0.2cm of c1] (c2) {\textbf{C2: SPOF Risk Reduction} \\ $P_{\text{SPOF}}: 1.0 \to 10^{-10}$};
-    \node [draw, rectangle, fill=green!15, text width=3.2cm, text centered, rounded corners, below right=0.5cm and -0.2cm of c1] (c3) {\textbf{C3: 12-Attack Model} \\ 170 OoM Static Gain Model};
-    \node [draw, rectangle, fill=green!20, text width=3.2cm, text centered, rounded corners, below=0.5cm of c2] (c4) {\textbf{C4: Temporal Model} \\ Poisson $W(\tau)$ Decay};
-    \node [draw, rectangle, fill=green!20, text width=3.2cm, text centered, rounded corners, below=0.5cm of c3] (c5) {\textbf{C5: 9-Protocol Benchmark} \\ G1--G4 Latency Scaling};
-    \node [draw, rectangle, fill=yellow!20, text width=7cm, text centered, rounded corners, below=0.5cm of c4] (c6) {\textbf{C6: Monte Carlo Verification ($10^6$ Trials)} \\ Calibration against Hyperledger Fabric Traces};
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[node distance=1.1cm, auto, >=latex]
+    \node [draw, rectangle, fill=blue!10, text width=6.5cm, text centered, rounded corners] (lit) {\textbf{Existing Literature Reviewed} \\ Reactive ML-IDS vs. Standalone Blockchain Trading};
+    \node [draw, rectangle, fill=red!10, text width=6.5cm, text centered, rounded corners, below=0.4cm of lit] (gap) {\textbf{Identified Research Gap} \\ Lack of Unified Comparative Framework \& Temporal Latency Decay Analysis};
+    \node [draw, rectangle, fill=green!10, text width=6.5cm, text centered, rounded corners, below=0.4cm of gap] (c1) {\textbf{C1: Comparative STSF Framework} \\ Unified Static-Temporal Evaluation Methodology};
+    \node [draw, rectangle, fill=green!15, text width=3.0cm, text centered, rounded corners, below left=0.4cm and -0.4cm of c1] (c2) {\textbf{C2: SPOF Risk Reduction} \\ $P_{\text{SPOF}}: 1.0 \to 10^{-10}$};
+    \node [draw, rectangle, fill=green!15, text width=3.0cm, text centered, rounded corners, below right=0.4cm and -0.4cm of c1] (c3) {\textbf{C3: 12-Attack Model} \\ 170 OoM Static Gain Model};
+    \node [draw, rectangle, fill=green!20, text width=3.0cm, text centered, rounded corners, below=0.4cm of c2] (c4) {\textbf{C4: Temporal Model} \\ Poisson $W(\tau)$ Decay};
+    \node [draw, rectangle, fill=green!20, text width=3.0cm, text centered, rounded corners, below=0.4cm of c3] (c5) {\textbf{C5: 9-Protocol Benchmark} \\ G1--G4 Latency Scaling};
+    \node [draw, rectangle, fill=yellow!20, text width=6.5cm, text centered, rounded corners, below=0.4cm of c4] (c6) {\textbf{C6: Monte Carlo Verification ($10^6$ Trials)} \\ Calibration against Hyperledger Fabric Traces};
 
     \draw [->, thick] (lit) -- (gap);
     \draw [->, thick] (gap) -- (c1);
-    \draw [->, symbol] (c1) -- (c2);
-    \draw [->, symbol] (c1) -- (c3);
-    \draw [->, symbol] (c2) -- (c4);
-    \draw [->, symbol] (c3) -- (c5);
+    \draw [->, thick] (c1) -- (c2);
+    \draw [->, thick] (c1) -- (c3);
+    \draw [->, thick] (c2) -- (c4);
+    \draw [->, thick] (c3) -- (c5);
     \draw [->, thick] (c4) -- (c6);
     \draw [->, thick] (c5) -- (c6);
-\end{tikzpicture}
+\end{tikzpicture}%
+}
 \caption{Contribution Mapping Diagram illustrating how identified literature gaps translate directly to our primary contributions (C1--C6).}
 \label{fig:contribution_mapping}
 \end{figure}
