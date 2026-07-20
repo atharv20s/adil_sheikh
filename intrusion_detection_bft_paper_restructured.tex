@@ -47,7 +47,7 @@
 % ABSTRACT
 % ═══════════════════════════════════════════════════════════════
 \begin{abstract}
-This paper quantifies the cybersecurity improvement that Byzantine Fault Tolerant (BFT) blockchain consensus mechanisms introduce to Electric Vehicle (EV) energy trading networks under the \emph{Static–Temporal Security Framework (STSF)}. Moving beyond simple protocol benchmarking, we focus on the central question: \emph{How much does blockchain improve the security of an EV Energy Trading System compared to the same system without blockchain?} Using the IEEE 33-bus distribution system with 50 EVs and 3,854 physical sensors as our reference, we evaluate security improvements using Sheikh et al.'s foundational four-component probabilistic attack model, demonstrating that under baseline probabilistic model assumptions, blockchain reduces total attack probability from $P_{\text{TA}} \approx 0.005$ to $P_{\text{TAb}} \approx 10^{-173}$---a static security gain of approximately 170 orders of magnitude under the Sheikh formulation. We synthesize all underlying equations in Table~\ref{tab:all_formulas} and complement this with a probabilistic evaluation across 12 distinct cyber-physical attack vectors (including Sybil, Byzantine node, and DDoS attacks) to illustrate the breadth of defensive coverage. We then prove that consensus validation latency creates a temporal vulnerability window ($P_{\text{temporal}}$) governed by a Poisson arrival process. Pipelined sub-second protocols (e.g., Tower BFT, RVR) preserve over 92\% of static security gains ($P_{\text{secure}} \ge 0.927$), whereas classical consensus protocols (e.g., $OM(m)$) lose up to 99\% of security benefits due to latency exposure ($P_{\text{secure}} = 0.012$). Finally, we corroborate our analytical formulations across $10^6$ Monte Carlo simulation trials to within 0.5\% error with 95\% confidence intervals.
+This paper quantifies the cybersecurity improvement that Byzantine Fault Tolerant (BFT) blockchain consensus mechanisms introduce to Electric Vehicle (EV) energy trading networks under the \emph{Static–Temporal Security Framework (STSF)}. Moving beyond simple protocol benchmarking, we focus on the central question: \emph{How much does blockchain improve the security of an EV Energy Trading System compared to the same system without blockchain?} Using the IEEE 33-bus distribution system with 50 EVs and 3,854 physical sensors as our reference, we evaluate security improvements using Sheikh et al.'s foundational four-component probabilistic attack model, demonstrating that under baseline probabilistic model assumptions, blockchain reduces total attack probability from $P_{\text{TA}} \approx 0.005$ to $P_{\text{TAb}} \approx 10^{-173}$---a static security gain of approximately 170 orders of magnitude under the Sheikh formulation. We synthesize all underlying equations in Table~\ref{tab:all_formulas} and complement this with a probabilistic evaluation across 12 distinct cyber-physical attack vectors (including Sybil, Byzantine node, and DDoS attacks) to illustrate the breadth of defensive coverage. We then analytically demonstrate that consensus validation latency creates a temporal vulnerability window ($P_{\text{temporal}}$) governed by a Poisson arrival process. Pipelined sub-second protocols (e.g., Tower BFT, RVR) preserve over 92\% of static security gains ($P_{\text{secure}} \ge 0.927$), whereas classical consensus protocols (e.g., $OM(m)$) lose up to 99\% of security benefits due to latency exposure ($P_{\text{secure}} = 0.012$). Finally, we corroborate our analytical formulations across $10^6$ Monte Carlo simulation trials to within 0.5\% error with 95\% confidence intervals.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -80,7 +80,7 @@ In modern smart distribution grids, Electric Vehicles (EVs) no longer act as pas
     \draw [->, thick] (g5) -- (g6);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 1 --- Evolution of EV-to-Grid Energy Trading:} Operational transition from traditional one-way power distribution to cyber-physical BFT-secured P2P energy trading.}
+\caption{\textbf{Evolution of EV-to-Grid Energy Trading:}} Operational transition from traditional one-way power distribution to cyber-physical BFT-secured P2P energy trading.}
 \label{fig:fig1_evolution}
 \end{figure}
 
@@ -121,7 +121,7 @@ Fig. \ref{fig:fig2_workflow_no_cyber} illustrates the operational data flow of t
     \node [draw, rectangle, dashed, red!80!black, fill=red!5, text width=8.0cm, text centered, below=0.4cm of scada] (vun) {\textbf{Critical Engineering Vulnerabilities (Without Cybersecurity):} \\ (1) Absolute SPOF ($P_{\text{SPOF}}=1.0$), (2) Zero Byzantine Tolerance ($f=0$), \\ (3) Unverified Data Injection, (4) Central Key File Leakage Risk};
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 2 --- Baseline Centralized EV Trading Workflow (Without Cybersecurity):} Operational data flow from EV smart meters through cellular networks to the central coordinator MDMS, illustrating single-point-of-failure vulnerabilities ($P_{\text{SPOF}}=1.0$) and unverified state estimation ingestion.}
+\caption{\textbf{Baseline Centralized EV Trading Workflow (Without Cybersecurity):}} Operational data flow from EV smart meters through cellular networks to the central coordinator MDMS, illustrating single-point-of-failure vulnerabilities ($P_{\text{SPOF}}=1.0$) and unverified state estimation ingestion.}
 \label{fig:fig2_workflow_no_cyber}
 \end{figure}
 
@@ -175,7 +175,7 @@ Fig. \ref{fig:fig0_paper_roadmap} details the overarching structural organizatio
     \draw [->, thick] (r5) -- (r6);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 0 --- Paper Roadmap \& Research Methodology:} Methodological progression detailing the transition from EV-to-grid power flow modeling and centralized vulnerabilities to STSF probability extensions, BFT protocol evaluations, and utility deployment roadmaps.}
+\caption{\textbf{Paper Roadmap \& Research Methodology:}} Methodological progression detailing the transition from EV-to-grid power flow modeling and centralized vulnerabilities to STSF probability extensions, BFT protocol evaluations, and utility deployment roadmaps.}
 \label{fig:fig0_paper_roadmap}
 \end{figure}
 
@@ -240,7 +240,7 @@ Fig. \ref{fig:fig0_paper_roadmap} details the overarching structural organizatio
     \node [draw, rectangle, dashed, red!80!black, fill=red!5, text width=8.0cm, text centered, below=0.4cm of scada] (vun) {\textbf{Critical Engineering Vulnerabilities (Without Cybersecurity):} \\ (1) Absolute SPOF ($P_{\text{SPOF}}=1.0$), (2) Zero Byzantine Tolerance ($f=0$), \\ (3) Unverified Data Injection, (4) Central Key File Leakage Risk};
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 2 --- Baseline Centralized EV Trading Workflow (Without Cybersecurity):} Operational data flow from EV smart meters through cellular networks to the central coordinator MDMS, illustrating single-point-of-failure vulnerabilities ($P_{\text{SPOF}}=1.0$) and unverified state estimation ingestion.}
+\caption{\textbf{Baseline Centralized EV Trading Workflow (Without Cybersecurity):}} Operational data flow from EV smart meters through cellular networks to the central coordinator MDMS, illustrating single-point-of-failure vulnerabilities ($P_{\text{SPOF}}=1.0$) and unverified state estimation ingestion.}
 \label{fig:fig2_workflow_no_cyber}
 \end{figure}
 
@@ -285,7 +285,7 @@ P_{SA}^{(10)} = P_{CA}^{(10)} = x^{10} = 0.95^{10} \approx 0.599
     \draw [->, thick] (app) -- (cons);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 3 --- Cyber-Physical Attack Surface Taxonomy:} Categorization of 12 distinct attack vectors across Physical, Communication, Application, and Consensus layers, establishing the series reliability failure model for smart grid security.}
+\caption{\textbf{Cyber-Physical Attack Surface Taxonomy:}} Categorization of 12 distinct attack vectors across Physical, Communication, Application, and Consensus layers, establishing the series reliability failure model for smart grid security.}
 \label{fig:fig3_attack_surface}
 \end{figure}
 
@@ -452,7 +452,7 @@ As calculated above, a value of $0.026$ indicates that \textbf{the system is onl
     \draw [->, thick] (e4) -- (e5);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 4 --- Architectural Transformation (Engineering vs. Cybersecurity):} Structural paradigm shift showing how embedding a distributed BFT consensus layer neutralizes centralized coordinator SPOF risk ($P_{\text{SPOF}}: 1.0 \to 10^{-10}$) and enforces threshold verification.}
+\caption{\textbf{Architectural Transformation (Engineering vs. Cybersecurity):}} Structural paradigm shift showing how embedding a distributed BFT consensus layer neutralizes centralized coordinator SPOF risk ($P_{\text{SPOF}}: 1.0 \to 10^{-10}$) and enforces threshold verification.}
 \label{fig:fig4_eng_vs_cyber}
 \end{figure}
 
@@ -475,7 +475,7 @@ As calculated above, a value of $0.026$ indicates that \textbf{the system is onl
     \draw [->, thick] (w5) -- (w6);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 13 --- Comparative Application Security Workflow:} Causal validation pipeline showing how cryptographic checks, distributed consensus, and threshold quorums convert attack ingress into quantified security gains under STSF.}
+\caption{\textbf{Comparative Application Security Workflow:}} Causal validation pipeline showing how cryptographic checks, distributed consensus, and threshold quorums convert attack ingress into quantified security gains under STSF.}
 \label{fig:fig13_comparative_workflow}
 \end{figure}
 
@@ -543,7 +543,7 @@ Physical-layer attacks cannot be completely eliminated by consensus algorithms b
     \draw [->, thick] (m4) -- (m5);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 6 --- Methodology Pipeline:} Methodological progression from mathematical assumptions to Monte Carlo verification.}
+\caption{\textbf{Methodology Pipeline:}} Methodological progression from mathematical assumptions to Monte Carlo verification.}
 \label{fig:fig6_methodology}
 \end{figure}
 
@@ -595,14 +595,14 @@ The original paper is mathematically correct for its defined scope (expected val
     \draw [->, ultra thick, green!60!black] (b_nodes) -- (b_succ);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 7 --- Without Blockchain vs. With Blockchain Architecture:} Comparative architectural representation contrasting centralized coordinator failure with distributed BFT voting quorums.}
+\caption{\textbf{Without Blockchain vs. With Blockchain Architecture:}} Comparative architectural representation contrasting centralized coordinator failure with distributed BFT voting quorums.}
 \label{fig:fig7_without_vs_with}
 \end{figure*}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_spof_risk_enhanced.png}
-\caption{\textbf{Figure 16 --- Single Point of Failure (SPOF) Risk Comparison:} Binomial quorum failure probability as a function of per-node compromise rate $p_c$, highlighting the Recommended Utility Deployment Region ($P_{\text{Byz}} \le 10^{-5}$).}
+\caption{\textbf{Single Point of Failure (SPOF) Risk Comparison:}} Binomial quorum failure probability as a function of per-node compromise rate $p_c$, highlighting the Recommended Utility Deployment Region ($P_{\text{Byz}} \le 10^{-5}$).}
 \label{fig:fig_spof_risk_enhanced}
 \end{figure}
 
@@ -647,7 +647,7 @@ This represents a \textbf{static security gain of substantial static vulnerabili
     \draw [->, thick] (p4) -- (p5);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 8 --- Probability Modeling Pipeline:} Systematic progression showing how physical causes map into mathematical equations and security metrics.}
+\caption{\textbf{Probability Modeling Pipeline:}} Systematic progression showing how physical causes map into mathematical equations and security metrics.}
 \label{fig:fig8_prob_modeling}
 \end{figure}
 
@@ -1136,7 +1136,7 @@ The following protocol comparison assumes blockchain has already been selected. 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\columnwidth]{fig_temporal_enhanced.png}
-\caption{\textbf{Figure 17 --- Temporal Exposure Decay Across Attack Intensities ($\lambda$):} Restored 3-curve exposure plot showing Safe ($P_{\text{secure}} \ge 0.90$), Warning ($0.50 \le P < 0.90$), and Unsafe Exposure regions.}
+\caption{\textbf{Temporal Exposure Decay Across Attack Intensities ($\lambda$):}} Restored 3-curve exposure plot showing Safe ($P_{\text{secure}} \ge 0.90$), Warning ($0.50 \le P < 0.90$), and Unsafe Exposure regions.}
 \label{fig:fig_temporal_enhanced}
 \end{figure}
 
@@ -1343,7 +1343,7 @@ To present a balanced and mature scientific evaluation, we identify the followin
     \draw [->, thick] (r4) -- (r5);
 \end{tikzpicture}%
 }
-\caption{\textbf{Figure 12 --- Practical Deployment Roadmap:} Step-by-step guidance for utility practitioners deploying permissioned BFT consensus.}
+\caption{\textbf{Practical Deployment Roadmap:}} Step-by-step guidance for utility practitioners deploying permissioned BFT consensus.}
 \label{fig:fig12_deployment_roadmap}
 \end{figure}
 
