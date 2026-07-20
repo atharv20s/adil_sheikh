@@ -386,6 +386,29 @@ As calculated above, a value of $0.026$ indicates that \textbf{the system is onl
 \label{fig:fig4_eng_vs_cyber}
 \end{figure}
 
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[node distance=0.55cm, auto, >=latex]
+    \node [draw, rectangle, fill=red!15, text width=8.0cm, text centered, rounded corners] (w1) {\textbf{1. Cyber-Physical Attack Vector Ingress} \\ FDI, MitM, Replay, DoS, Sybil, Byzantine Node Infiltration};
+    \node [draw, rectangle, fill=orange!15, text width=8.0cm, text centered, rounded corners, below=0.3cm of w1] (w2) {\textbf{2. Proactive Cryptographic Hash Verification} \\ SHA-256 Payload Integrity Check \& Nonce Timestamping};
+    \node [draw, rectangle, fill=yellow!20, text width=8.0cm, text centered, rounded corners, below=0.3cm of w2] (w3) {\textbf{3. Distributed BFT Consensus Engine} \\ Multi-Validator Voting Quorums ($n=51, f=16$)};
+    \node [draw, rectangle, fill=green!15, text width=8.0cm, text centered, rounded corners, below=0.3cm of w3] (w4) {\textbf{4. Multi-Signature Quorum Validation} \\ Threshold Signature Verification \& Shamir Secret Recovery};
+    \node [draw, rectangle, fill=green!25, text width=8.0cm, text centered, rounded corners, below=0.3cm of w4] (w5) {\textbf{5. Residual Vulnerability Window Reduction} \\ Sub-Second Exposure Window ($W(\tau) < 0.024$)};
+    \node [draw, rectangle, fill=green!40, text width=8.0cm, text centered, rounded corners, below=0.3cm of w5] (w6) {\textbf{6. Quantified Security Improvement (STSF Framework)} \\ 170 Orders Static Gain, $P_{\text{secure}} \ge 0.927$, $P_{\text{SPOF}} \to 10^{-10}$};
+
+    \draw [->, thick] (w1) -- (w2);
+    \draw [->, thick] (w2) -- (w3);
+    \draw [->, thick] (w3) -- (w4);
+    \draw [->, thick] (w4) -- (w5);
+    \draw [->, thick] (w5) -- (w6);
+\end{tikzpicture}%
+}
+\caption{\textbf{Figure 13 --- Comparative Application Security Workflow:} Causal validation pipeline showing how cryptographic checks, distributed consensus, and threshold quorums convert attack ingress into quantified security gains under STSF.}
+\label{fig:fig13_comparative_workflow}
+\end{figure}
+
 \subsection{Comparative Analysis: Without Blockchain vs With Blockchain}
 \label{sec:comparative_analysis}
 
