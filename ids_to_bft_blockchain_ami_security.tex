@@ -141,7 +141,7 @@ For $n=51$ validator nodes and $f=16$ Byzantine faults, $OM(m)$ generates $M_{OM
 Many practical BFT protocols build upon the foundational Byzantine agreement principles established by Lamport et al., introducing system-level architectural optimizations (e.g., view-change timers, pipelined cryptographic clocks, and VRF rotations) for real-world deployment without compromising the fundamental $3f+1$ Byzantine resilience bound.
 
 \subsection{The Evolutionary Lineage of Byzantine Consensus}
-Fig. \ref{fig:consensus_timeline} presents the evolutionary lineage of Byzantine consensus protocols over the past four decades, detailing how protocol design evolved from theoretical agreement to sub-second AMI intrusion validation.
+Fig. \ref{fig:consensus_timeline} presents the evolutionary lineage of Byzantine consensus protocols over the past four decades, detailing how protocol design evolved from theoretical agreement to sub-second AMI intrusion validation. For the comparative evaluation in this study, we group protocols into four evolutionary stages:
 
 \begin{figure*}[t]
 \centering
@@ -177,7 +177,7 @@ Fig. \ref{fig:consensus_timeline} presents the evolutionary lineage of Byzantine
 \end{enumerate}
 
 \subsection{Distributed Byzantine Consensus for Intrusion Validation}
-Rather than treating distributed ledger technology purely as an accounting mechanism for energy trading, the BFT-IDS architecture weaponizes Byzantine consensus as a **distributed validation engine for intrusion detection**.
+Rather than treating distributed ledger technology purely as an accounting mechanism for energy trading, the BFT-IDS architecture leverages Byzantine consensus as a **distributed validation engine for intrusion detection**.
 
 When an endpoint smart meter or DCU detects anomalous telemetry, local ML classifiers generate a signed intrusion alert transaction $T_x = \{\text{ID}_i, \text{Telemetry}_i, \text{AlertScore}_i, \sigma_i\}$. Instead of forwarding $T_x$ to a single central MDMS coordinator (which creates an absolute SPOF $P_{\text{SPOF}} = 1.0$), $T_x$ is broadcast across the peer-to-peer BFT validator network. Validator nodes evaluate $T_x$ against spatial physical power flow constraints ($\|z - H\hat{x}\|$) and vote using BFT consensus. An intrusion alert or state update is committed to system state **only if** $2f+1$ independent validators sign the transaction block.
 
@@ -379,7 +379,7 @@ To ensure methodological clarity, we explicitly delineate the boundary condition
 The analytical engine is implemented in Python 3.11 using NumPy, SciPy, and NetworkX. Experiments were executed on a workstation with an AMD Ryzen 9 7950X 16-core processor, 64 GB DDR5 RAM, running Ubuntu 22.04 LTS.
 
 \subsection{Empirical Hyperledger Fabric Calibration Traces}
-Consensus latency ($\tau$) and throughput bounds were calibrated using physical traces from a Hyperledger Fabric v2.4 testbed running 51 validator peers deployed in Docker containers across 4 physical Linux servers (AMD EPYC 7742, 64-core) connected over an isolated 10 Gbps Ethernet network. The network was configured with a BFT/Raft ordering service. Measured empirical PBFT baseline latency yielded $\tau_{\text{PBFT}} = 7.65\text{s}$ at saturation, establishing empirical calibration parameters ($\tau_{\text{RVR}} = 200\text{ms}, \tau_{\text{Tower}} = 242.9\text{ms}, \tau_{\text{PBFT}} = 7650\text{ms}$).
+To parameterize consensus validation latency ($\tau$) and network throughput within realistic bounds, the analytical model was calibrated using representative Hyperledger Fabric deployment characteristics reported in smart grid consensus literature (e.g., Sheikh \textit{et al.}, Li \textit{et al.}). Specifically, baseline PBFT latency parameters were set to $\tau_{\text{PBFT}} = 7.65\text{s}$ at network saturation, representing a 51-validator permissioned deployment, while relative protocol latency parameters were scaled according to message complexity ($\tau_{\text{RVR}} = 200\text{ms}, \tau_{\text{Tower}} = 242.9\text{ms}$).
 
 \subsection{Statistically Rigorous Monte Carlo Verification Engine}
 To verify implementation consistency with statistical confidence, the simulator executes $N = 10^6$ independent Monte Carlo trial runs per configuration. The Monte Carlo simulation corroborates analytical predictions under the assumed stochastic model and demonstrates implementation consistency across finite-sample trials. For each metric, we compute the sample mean $\hat{\mu}$, sample standard deviation $s$, 95\% confidence interval ($\text{CI}_{95} = \hat{\mu} \pm 1.96 \frac{s}{\sqrt{N}}$), and relative error percentage relative to closed-form analytical values ($\text{Error} = \frac{|\hat{\mu} - \mu_{\text{analytical}}|}{\mu_{\text{analytical}}} \times 100\%$).
@@ -588,6 +588,40 @@ Attack Arrivals & Memoryless Poisson process ($\lambda$) & Self-exciting Hawkes 
 This paper presented \emph{BFT-IDS}, evaluated under the \emph{Static–Temporal Security Framework (STSF)}, which traces the evolution of Byzantine consensus from Lamport's $OM(m)$ (1982) to modern sub-second engines, applying permissioned BFT consensus directly onto smart meter Intrusion Detection Systems. By establishing a closed-form complexity-to-latency mathematical derivation $\tau(n) = f(M, n)$, our models demonstrate that within the assumptions of the presented analytical framework, applying sub-second BFT consensus onto IDS pipelines achieves a 170 order-of-magnitude static security gain over standalone IDS, reduces single-point-of-failure risks ($P_{\text{SPOF}} \to 10^{-10}$), and preserves over 92\% of security gains under real-time Poisson attack traffic.
 
 Future research will focus on deploying our BFT-IDS framework on an experimental 5G-connected smart grid hardware-in-the-loop (HIL) testbed and developing hybrid architectures that combine lightweight on-meter machine learning anomaly filtering with distributed BFT ledger validation.
+
+% ═══════════════════════════════════════════════════════════════
+\section{Appendix: Reproducibility & Parameter Specification}
+\label{sec:appendix}
+% ═══════════════════════════════════════════════════════════════
+
+To facilitate full experimental reproducibility, Table \ref{tab:reproducibility} provides the complete specification of baseline parameters, simulation seeds, and software dependencies used across all analytical evaluations and Monte Carlo trials in this study.
+
+\begin{table}[htbp]
+\caption{Complete Baseline Parameter Specification for Reproducibility}
+\label{tab:reproducibility}
+\centering
+\scriptsize
+\begin{tabular}{@{}llr@{}}
+\toprule
+\textbf{Parameter Name} & \textbf{Symbol} & \textbf{Baseline Value} \\
+\midrule
+Total Consensus Validator Nodes & $n$ & 51 \\
+Byzantine Fault Tolerance Bound & $f = \lfloor(n-1)/3\rfloor$ & 16 \\
+Per-Node Independent Compromise Rate & $p_c$ & 0.05 \\
+Localized Critical Sensor Subset & $m$ & 10 \\
+Physical Sensor Accuracy Base & $x$ & 0.95 \\
+Channel Transmission Noise Base & $y$ & 0.05 \\
+Gateway Vulnerability Base & $z$ & 0.20 \\
+Poisson Attack Arrival Rate & $\lambda$ & 20.0 attacks/s \\
+Spatial Cross-Validation Efficiency & $\eta$ & 0.15 \\
+Application Transport Signing Factor & $\beta$ & 0.10 \\
+Total Network Physical Sensors & $N_{\text{sen}}$ & 3,854 \\
+Monte Carlo Simulation Trial Count & $N$ & $10^6$ \\
+Random Number Generator Seed & -- & 42 \\
+Software Runtime Environment & -- & Python 3.11, NumPy 1.24 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 % ═══════════════════════════════════════════════════════════════
 % REFERENCES
