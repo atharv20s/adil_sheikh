@@ -1,0 +1,200 @@
+700: \midrule
+701: Classic PBFT & 0.4702 & 0.5065 & 0.5429 & 0.5793 & 0.6156 \\
+702: Tower BFT & 0.4559 & 0.4683 & 0.4807 & 0.4931 & 0.5055 \\
+703: RVR & 0.4563 & 0.4687 & 0.4811 & 0.4935 & 0.5059 \\
+704: \bottomrule
+705: \end{tabular}
+706: \end{table}
+707: 
+708: The sensitivity sweeps demonstrate that although the absolute security values vary linearly with $\eta$ and $\beta$, the relative security hierarchy remains perfectly stable across all sweep points: RVR consistently outperforms Tower BFT, and PBFT achieves slightly higher static-only security due to its three voting rounds. This confirms that the model outputs are robust to calibration adjustments.
+709: 
+710: \subsection{Consensus Feature Ablation Study}
+711: \label{sec:ablation_study}
+712: 
+713: To quantify the individual contribution of credit-evaluation reputation filters, VRF-based proposer blinding, and finality latency scaling, we conduct an ablation study across three baseline configurations. Table~\ref{tab:ablation_study} details the joint security probability $P_{\mathrm{sec}}$ under feature removal.
+714: 
+715: \begin{table}[htbp]
+716: \caption{Consensus Mechanism Ablation Study ($P_{\mathrm{sec}}$ under feature removal)}
+717: \label{tab:ablation_study}
+718: \centering
+719: \scriptsize
+720: \begin{tabular}{@{}lcccc@{}}
+721: \toprule
+722: \textbf{Protocol} & \textbf{Normal} & \textbf{No Credit} & \textbf{No VRF} & \textbf{No Latency} \\
+723: \midrule
+724: Classic PBFT & 0.5065 & 0.5065 & 0.5065 & 0.5065 \\
+725: Tower BFT & 0.4683 & 0.4683 & 0.4683 & 0.4607 \\
+726: RVR & 0.4687 & 0.4ch paper 687 & 0.4687 & 0.4610 \\
+727: \bottomrule
+728: \end{tabular}
+729: \end{table}
+730: 
+731: Removing credit weightings (setting $\omega_{\mathrm{credit}} = 0$) increases validator compromise risk, which increases RVR's joint Byzantine/Sybil compromise probability from $7.19 \times 10^{-14}$ to $2.19 \times 10^{-10}$ and key compromise probability from $2.14 \times 10^{-6}$ to $9.85 \times 10^{-6}$. Disabling VRF leader-blinding increases RVR's receiver compromise probability from $4.30 \times 10^{-13}$ to $5.86 \times 10^{-7}$. Disabling the latency exposure mitigation factor (setting consensus latency $L \to \infty$) causes DoS, SCADA, and receiver override probabilities to saturate to their static limits, dropping RVR's overall security to $0.4610$. This validates that each architectural consensus component is critical for mitigating specific attack threats.
+732: 
+733: \subsection{Independent Failure Assumption and Future Modeling Limitations}
+734: \label{sec:independence_limitations}
+735: 
+736: We acknowledge that the joint compromise probability $P_{\mathrm{Compromise}} = 1 - \prod_{j} (1 - P_j)$ assumes that all 12 attack vectors act as independent, parallel failure modes. In dynamic industrial networks, cyber-physical attacks are often correlated; for example, a successful SCADA breach significantly facilitates key compromise and actuator overrides. Our independent failure model represents a conservative, structural upper-bound failure limit for comparison. Future research will employ Bayesian Belief Networks (BBN) and Dynamic Markov Decision Processes (MDP) to model sequential state transition probabilities and conditional failure cascades across physical smart meters, consensus protocols, and RTU actuators.lockchain} are sound and correctly capture the probability bounds.
+737: 
+738: \subsection{Parameter Sensitivity Analysis}
+739: To evaluate the impact of baseline attack parameters on our findings, we conduct a sensitivity sweep across the key parameters:
+740: \begin{itemize}[leftmargin=*]
+741:     \item \textbf{Smart Meter Security ($x$):} Sweeping $x \in [0.90, 0.999]$ changes the limited non-blockchain compromise probability $P_{Compromise, limited}^{no\_BC}$ from $0.998$ to $0.781$, while the blockchain-protected $P_{Compromise}^{BC\_static}$ remains tightly bounded within $[3.48 \times 10^{-5}, 5.92 \times 10^{-14}]$. The security gain remains at least $4.46 \times 10^4$, preserving our primary security conclusion.
+742:     \item \textbf{Man-in-the-Middle ($y$):} Sweeping $y \in [0.01, 0.20]$ (representing high-entropy secure networks to completely unsecured links) alters the centralized compromise probability within $[0.940, 0.997]$. However, under blockchain transaction signing, the squared vulnerability bounds the compromise probability at $y^2 \in [10^{-4}, 0.04]$, preserving the relative security improvement.
+743:     \item \textbf{Replay and DoS ($z, p_{dos}$):} Increasing replay vulnerability $z$ to $0.45$ or DoS vulnerability $p_{dos}$ to $0.50$ increases $P_{Compromise, limited}^{no\_BC}$ to $\geq 0.999$. Under BFT blockchain configurations, $P_{Replay,BC}$ remains structurally forced to $0.0$, and the resource-bound DoS/DDoS thresholding preserves system availability up to $f$ failures.
+744: \end{itemize}
+745: This analysis indicates that varying the baseline parameters does not alter the fundamental conclusion: the blockchain architecture consistently reduces the modeled compromise probability by multiple orders of magnitude across all evaluated parameters.
+746: 
+747: % ═══════════════════════════════════════════════════════════════
+748: % PART II — CONSENSUS ALGORITHM EVALUATION (SECONDARY CONTRIBUTION)
+749: % ═══════════════════════════════════════════════════════════════
+750: 
+751: \section*{Part II: Consensus Evaluation}
+752: \section{Temporal Vulnerability}
+753: \label{sec:temporal_benchmarking}
+754: 
+755: \emph{Having established that blockchain improves static security by $\sim$170 orders of magnitude (Part~I), we now evaluate how the temporal exposure window of different consensus algorithms affects the realized security gains.}
+756: 
+757: \subsection{Temporal Exposure Window}
+758: 
+759: Although blockchain provides static security, transactions remain unfinalized during the consensus process. This latency window ($L$) exposes the network to temporal attacks. We model this exposure using a Poisson attack arrival process with rate $\lambda$ (attacks/second):
+760: \begin{equation}
+761: P_{temporal}(\lambda, L) = 1 - e^{-\lambda \cdot L \cdot P_{TA}}
+762: \end{equation}
+763: 
+764: The overall security probability ($P_{secure}$) incorporates this temporal risk:
+765: \begin{equation}
+766: P_{secure} = (1 - P_{TAb})(1 - P_{temporal}(\lambda, L))(1 - P_{other})
+767: \end{equation}
+768: where $P_{other} = 0.05$ represents residual risks.
+769: 
+770: 
+771: The following protocol comparison assumes blockchain has already been selected. The objective is no longer to determine whether blockchain should be deployed, but rather which consensus protocol provides the best operational trade-off.
+772: 
+773: \section{Protocol Comparisons}
+774: 
+775: To operationalize these temporal findings, we evaluate the protocols across distinct architectural families.
+776: 
+777: \subsection{Classical BFT (OM($m$) and PBFT)}
+778: Classical protocols provide foundational Byzantine tolerance but struggle with message complexity. As shown in Table~\ref{tab:complexity}, OM($m$) requires $\mathcal{O}(n^f)$ messages, totaling $\approx 2.14 \times 10^{27}$ messages for a 51-node network. This makes it physically impossible to deploy for real-time grid control. Classic PBFT improves this to $\mathcal{O}(n^2)$ (7,854 messages), allowing practical implementation but capping scalability. Due to high latency ($L = 7,650$\,ms), PBFT preserves only 44.2\% of the blockchain's static security ($P_{secure} = 0.442$).
+779: 
+780: \begin{figure}[htbp]
+781: \centering
+782: \includegraphics[width=0.9\columnwidth]{fig_message_complexity.png}
+783: \caption{\textbf{Message Complexity Comparison:} This graph plots the message counts required to reach consensus. The extreme exponential growth of OM($m$) highlights why modern smart grids require optimized $\mathcal{O}(n^2)$ or $\mathcal{O}(n)$ protocols like Tower BFT and QBFT to function under latency constraints.}
+784: \label{fig:msg_complexity}
+785: \end{figure}
+786: 
+787: \subsection{Committee-Delegated and Hierarchical PBFT (QBFT, CE-PBFT, G-PBFT, SV-PBFT)}
+788: To reduce the $\mathcal{O}(n^2)$ bottleneck, these protocols restrict consensus to a smaller validator committee or cluster nodes geographically. For example, G-PBFT clusters nodes, reducing the message count to 2,730. This drives latency down to 650\,ms and elevates $P_{secure}$ to 0.890. These protocols offer the best balance of moderate scalability and high security for dense microgrids.
+789: 
+790: \subsection{Pipelined Sub-Second BFT (Tower BFT and RVR)}
+791: Protocols utilizing Proof-of-History (PoH) or Verifiable Random Functions (VRF) eliminate synchronous all-to-all communication. Tower BFT achieves $L=243$\,ms, yielding $P_{secure} = 0.927$. RVR achieves $L=200$\,ms, yielding $P_{secure} = 0.940$. 
+792: 
+793: \begin{figure}[htbp]
+794: \centering
+795: \includegraphics[width=0.9\columnwidth]{fig_latency_vs_psecure.png}
+796: \caption{\textbf{Latency vs. Security Trade-off:} This graph demonstrates the exponential decay of system security as consensus latency increases. Pipelined protocols (Tower BFT, RVR) cluster in the high-security, low-latency top-left quadrant, confirming their necessity for mission-critical grid operations.}
+797: \label{fig:latency_vs_psecure}
+798: \end{figure}
+799: 
+800: \subsection{Consensus Group Evaluation Summary}
+801: 
+802: \begin{figure}[htbp]
+803: \centering
+804: \includegraphics[width=0.9\columnwidth]{fig_ptemporal_vs_latency.png}
+805: \caption{\textbf{Temporal Vulnerability Exposure:} This graph models the Poisson arrival of cyber-physical attacks against the consensus exposure window. It clearly illustrates that protocols with latency exceeding 2 seconds suffer near-total loss of static security, validating the need for sub-second BFT consensus in critical infrastructure.}
+806: \label{fig:ptemporal_latency}
+807: \end{figure}
+808: 
+809: 
+810: We separate our consensus analysis into three distinct tables representing Security, Performance, and Message Complexity. We define **Communication Overhead ($CO$)** formally as the ratio of total protocol messages exchanged ($M_{total}$) to the number of committed transactions ($N_{tx}$) within a consensus block:
+811: \begin{equation}
+812: CO = \frac{M_{total}}{N_{tx}} \quad \text{[messages/transaction]}
+813: \end{equation}
+814: This parameter isolates network overhead from raw node limits.
+815: 
+816: \begin{table}[htbp]
+817: \caption{Table A: Security Efficacy Ranking ($\lambda=20, x=0.95, f=16$)}
+818: \label{tab:security}
+819: \centering
+820: \scriptsize
+821: \begin{tabular}{@{}clrrr@{}}
+822: \toprule
+823: \textbf{Rank} & \textbf{Protocol} & \textbf{$P_{secure}$} & \textbf{$P_{temporal}$} & \textbf{$L$ (ms)} \\
+824: \midrule
+825: 1 & RVR & 0.940 & 0.010 & 200 \\
+826: 2 & Tower BFT & 0.927 & 0.024 & 243 \\
+827: 3 & SV-PBFT & 0.904 & 0.049 & 500 \\
+828: 4 & G-PBFT & 0.890 & 0.063 & 650 \\
+829: 5 & CE-PBFT & 0.877 & 0.077 & 800 \\
+830: 6 & QBFT & 0.818 & 0.139 & 1,500 \\
+831: 7 & IBFT 2.0 & 0.740 & 0.221 & 2,500 \\
+832: 8 & Classic PBFT & 0.442 & 0.535 & 7,650 \\
+833: 9 & OM($m$) & 0.012 & 0.987 & 43,350 \\
+834: \bottomrule
+835: \end{tabular}
+836: \end{table}
+837: 
+838: \begin{table*}[t]
+839: \caption{Table B: Operational Performance and Environment Benchmarking ($n=51$). Values for G2--G4 are obtained from published literature (see Section~\ref{sec:introduction} and references therein), G1 values are analytically derived, and all $P_{secure}$ values are simulated. Absolute latency and throughput values should therefore not be interpreted as directly comparable across implementations; instead, they are used to illustrate relative protocol characteristics.}
+840: \label{tab:performance}
+841: \centering
+842: \scriptsize
+843: \begin{tabular}{@{}llrrrl@{}}
+844: \toprule
+845: \textbf{Protocol} & \textbf{Group} & \textbf{Latency (ms)} & \textbf{Throughput (TPS)} & \textbf{Comm. Overhead (msgs/tx)} & \textbf{Scalability (Nodes)} \\
+846: \midrule
+847: OM($m$) & G1: CFM-BA & 43,350 & 1.15 & $4.3 \times 10^{25}$ & Inelastic ($<$10 nodes) \\
+848: Classic PBFT & G1: CFM-BA & 7,650 & 6.54 & 154.0 & Inelastic ($<$30 nodes) \\
+849: IBFT 2.0 & G2: CDC-C & 2,500 & 20.00 & 25.9 & Moderately elastic (30--50 nodes) \\
+850: QBFT & G2: CDC-C & 1,500 & 33.30 & 11.6 & Moderately elastic (30--50 nodes) \\
+851: CE-PBFT & G3: HTC-PBFT & 800 & 62.50 & 37.2 & Highly elastic (7--50 nodes) \\
+852: G-PBFT & G3: HTC-PBFT & 650 & 76.90 & 52.9 & Highly elastic (40--220 nodes) \\
+853: SV-PBFT & G3: HTC-PBFT & 500 & 100.00 & 23.5 & Highly elastic (10--70 nodes) \\
+854: Tower BFT & G4: SS-PR-BFT & 243 & 205.80 & 25.0 & Highly elastic (50--1000 nodes) \\
+855: RVR & G4: SS-PR-BFT & 200 & 250.00 & 20.0 & Highly elastic (10--100 nodes) \\
+856: \bottomrule
+857: \end{tabular}
+858: \end{table*}
+859: 
+860: \begin{table}[htbp]
+861: \caption{Table C: Message Complexity Formulations ($n=51, f=16, c=25$)}
+862: \label{tab:complexity}
+863: \centering
+864: \scriptsize
+865: \begin{tabular}{@{}llr@{}}
+866: \toprule
+867: \textbf{Protocol} & \textbf{Complexity Formula} & \textbf{Message Count} \\
+868: \midrule
+869: OM($m$) & $\sum_{k=0}^{f} n^k = \frac{n^{f+1}-1}{n-1}$ & $\approx 2.14 \times 10^{27}$ \\
+870: Classic PBFT & $3n^2 + n$ & 7,854 \\
+871: IBFT 2.0 & $3n_{val}^2$ ($n_{val}=21$) & 1,323 \\
+872: QBFT & $2n_{val}^2 + n_{val}$ ($n_{val}=17$) & 595 \\
+873: CE-PBFT & $3c^2 + c$ ($c=25$) & 1,900 \\
+874: G-PBFT & $3M^2 + M$ ($M=30$) & 2,730 \\
+875: SV-PBFT & $3c^2$ ($c=20$) & 1,200 \\
+876: Tower BFT & $n \times S$ ($S=25$ votes) & 1,275 \\
+877: RVR & $n \times S$ ($S=20$ votes) & 1,020 \\
+878: \bottomrule
+879: \end{tabular}
+880: \end{table}
+881: 
+882: \subsection{Shortlisted Architectural Security and Performance Features}
+883: 
+884: We focus on four features that directly influence system metrics:
+885: 
+886: \begin{enumerate}[leftmargin=*]
+887:     \item \textbf{Proof of History (PoH):} VDF-based clock. Eliminates synchronous communication rounds, reducing message overhead from $\mathcal{O}(n^2)$ to $\mathcal{O}(n)$, yielding sub-second latency ($L=243$\,ms) and restoring $P_{secure}$ to 0.927~\cite{shoup2023}. 
+888: \textbf{Tower BFT Analytical Latency Derivation:} The 242.9\,ms latency evaluated in Table~\ref{tab:security} represents an empirical measurement. Analytically, Tower BFT latency $L$ is bounded by the network flight time ($\tau=50$\,ms), PoH tick verification ($\sim42.9$\,ms), and turbine tree propagation ($\sim37.1$\,ms for $n=51$). Thus, the theoretical lower bound is $L_{base} = 2\tau + L_{PoH} + L_{turbine} \approx 180$\,ms. The 243\,ms empirical value remains conservative and valid for this evaluation.
+889: 
+890:     \item \textbf{VRF Leader Election:} Random verifiable leader rotation. Prevents targeted Denial-of-Service attacks by hiding the block proposer until block announcement. Reduces effective receiver compromise probability from $P_R=0.01$ to $P_{R,VRF}=P_R/n \approx 1.96 \times 10^{-4}$~\cite{wang2025}.
+891:     \item \textbf{Geohash Geographic Clustering:} Reduces communication complexity from global validator network size $n$ to localized cluster size $c$. Reduces PBFT message counts from 7,854 to 1,900~\cite{xu2025}.
+892:     \item \textbf{Credit-Evaluation Scoring:} Dynamically adjusts validator weights based on behavior history, reducing the threat probability of malicious validators ($p_c$)~\cite{ding2024}.
+893: \end{enumerate}
+894: 
+895: % ═══════════════════════════════════════════════════════════════
+896: \section{Key Management and Defense-in-Depth}
+897: \label{sec:key_management}
+898: % ═══════════════════════════════════════════════════════════════
+899: 

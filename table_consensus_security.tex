@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\caption{Consensus-Dependent Joint Security: Protocol-Differentiating Joint Attack Probabilities and Overall Security ($x{=}0.95, m{=}10, p_c{=}0.05, y{=}0.05$)}
+\label{tab:consensus_security}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}l|cccccccccccc|cc@{}}
+\toprule
+\textbf{Protocol} & \textbf{$P_{\mathrm{Sensor}}$} & \textbf{$P_{\mathrm{FDI}}$} & \textbf{$P_{\mathrm{Comm}}$} & \textbf{$P_{\mathrm{MitM}}$} & \textbf{$P_{\mathrm{Replay}}$} & \textbf{$P_{\mathrm{Sybil}}$} & \textbf{$P_{\mathrm{DoS}}$} & \textbf{$P_{\mathrm{DDoS}}$} & \textbf{$P_{\mathrm{Byz}}$} & \textbf{$P_{\mathrm{Key}}$} & \textbf{$P_{\mathrm{SCADA}}$} & \textbf{$P_{\mathrm{Receiver}}$} & \textbf{$P_{\mathrm{Comp.}}$} & \textbf{$P_{\mathrm{sec}}$} \\
+\midrule
+OM($m$) & $0.305$ & $0.251$ & $0.0099$ & $4.90{\times}10^{-5}$ & $\approx 0$ & $2.19{\times}10^{-10}$ & $0.067$ & $0.117$ & $2.19{\times}10^{-10}$ & $9.85{\times}10^{-6}$ & $2.99{\times}10^{-22}$ & $5.99{\times}10^{-7}$ & \textbf{$0.575$} & \textbf{$0.425$} \\
+Classic PBFT & $0.305$ & $0.251$ & $0.0014$ & $4.90{\times}10^{-5}$ & $\approx 0$ & $2.19{\times}10^{-10}$ & $0.0095$ & $0.017$ & $2.19{\times}10^{-10}$ & $9.85{\times}10^{-6}$ & $2.35{\times}10^{-22}$ & $5.86{\times}10^{-7}$ & \textbf{$0.493$} & \textbf{$0.507$} \\
+IBFT 2.0 & $0.336$ & $0.287$ & $0.0011$ & $1.19{\times}10^{-4}$ & $\approx 0$ & $4.87{\times}10^{-5}$ & $0.0070$ & $0.012$ & $4.87{\times}10^{-5}$ & $9.85{\times}10^{-6}$ & $1.18{\times}10^{-22}$ & $4.27{\times}10^{-7}$ & \textbf{$0.536$} & \textbf{$0.464$} \\
+QBFT & $0.341$ & $0.287$ & $0.0010$ & $1.47{\times}10^{-4}$ & $\approx 0$ & $1.20{\times}10^{-4}$ & $0.0056$ & $0.0097$ & $1.20{\times}10^{-4}$ & $9.85{\times}10^{-6}$ & $7.76{\times}10^{-23}$ & $3.16{\times}10^{-7}$ & \textbf{$0.538$} & \textbf{$0.462$} \\
+CE-PBFT & $0.332$ & $0.251$ & $0.0012$ & $1.00{\times}10^{-4}$ & $\approx 0$ & $2.60{\times}10^{-8}$ & $0.0048$ & $0.0083$ & $2.60{\times}10^{-8}$ & $2.14{\times}10^{-6}$ & $2.66{\times}10^{-23}$ & $1.97{\times}10^{-7}$ & \textbf{$0.507$} & \textbf{$0.493$} \\
+G-PBFT & $0.327$ & $0.251$ & $0.0012$ & $8.33{\times}10^{-5}$ & $\approx 0$ & $1.16{\times}10^{-6}$ & $0.0040$ & $0.0070$ & $1.16{\times}10^{-6}$ & $9.85{\times}10^{-6}$ & $3.65{\times}10^{-23}$ & $1.66{\times}10^{-7}$ & \textbf{$0.502$} & \textbf{$0.498$} \\
+SV-PBFT & $0.337$ & $0.251$ & $0.0011$ & $1.25{\times}10^{-4}$ & $\approx 0$ & $1.20{\times}10^{-6}$ & $0.0031$ & $0.0054$ & $1.20{\times}10^{-6}$ & $2.14{\times}10^{-6}$ & $1.71{\times}10^{-23}$ & $1.32{\times}10^{-7}$ & \textbf{$0.509$} & \textbf{$0.491$} \\
+Tower BFT & $0.305$ & $0.323$ & $0.0011$ & $4.90{\times}10^{-5}$ & $\approx 0$ & $2.19{\times}10^{-10}$ & $0.0016$ & $0.0029$ & $2.19{\times}10^{-10}$ & $9.85{\times}10^{-6}$ & $1.42{\times}10^{-23}$ & $6.85{\times}10^{-8}$ & \textbf{$0.532$} & \textbf{$0.468$} \\
+RVR & $0.305$ & $0.323$ & $0.0011$ & $4.90{\times}10^{-5}$ & $\approx 0$ & $7.19{\times}10^{-14}$ & $0.0013$ & $0.0023$ & $7.19{\times}10^{-14}$ & $2.14{\times}10^{-6}$ & $7.04{\times}10^{-24}$ & $4.30{\times}10^{-13}$$\textsuperscript{\textdagger}$ & \textbf{$0.531$} & \textbf{$0.469$} \\
+\midrule
+W/O Blockchain & $0.599$ & $0.599$ & $0.599$ & $0.050$ & $0.150$ & $1.0$ & $0.200$ & $0.350$ & $1.0$ & $0.010$ & $0.010$ & $0.010$ & \textbf{$1.0$} & \textbf{$0.0$} \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\par\noindent\scriptsize\textit{Notes:} All validator credit-evaluation weightings reduce effective validator compromise to $p_{c,eff} = 0.03$ (for CE-PBFT, SV-PBFT, and RVR) vs. $p_{c,eff} = 0.05$ baseline. \textsuperscript{\textdagger}Proposed VRF-based receiver override reduction: $p_{r,eff\_recv} = P_R \cdot (1/n_{val})$~\cite{wang2025}. All attack probabilities are joint and derived from consensus parameters (committee size $n_{val}$, voting phases, message complexity $M_c$, latency $L$, and credit weighting). W/O Blockchain represents the centralized single-point vulnerability baseline.
+\end{table*}

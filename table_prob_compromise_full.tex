@@ -1,0 +1,31 @@
+\begin{table*}[t]
+\caption{Comprehensive Probability of Compromise: 12 Attack Types $\times$ 9 BFT Consensus Algorithms ($x=0.95, m=10, n=51$)}
+\label{tab:prob_compromise_full}
+\centering
+\tiny
+\begin{tabular}{@{}lrrrrrrrrrrl@{}}
+\toprule
+\textbf{Attack Vector} & \textbf{W/O BC} & \multicolumn{2}{c}{\textbf{G1: Classical}} & \multicolumn{2}{c}{\textbf{G2: Committee}} & \multicolumn{3}{c}{\textbf{G3: Hierarchical}} & \multicolumn{2}{c}{\textbf{G4: Sub-Second}} & \textbf{Formula (W/ BC)} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6} \cmidrule(lr){7-9} \cmidrule(lr){10-11}
+& & \textbf{OM($m$)} & \textbf{Classic PBFT} & \textbf{IBFT 2.0} & \textbf{QBFT} & \textbf{CE-PBFT} & \textbf{G-PBFT} & \textbf{SV-PBFT} & \textbf{Tower BFT} & \textbf{RVR} & \\
+\midrule
+\textbf{Sensor Attack} & $0.5987$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $x^{2m}$ \\
+\textbf{FDI Injection} & $0.5987$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $0.3585$ & $x^{2m}$ \\
+\textbf{Comm. Hijack} & $0.5987$ & $0.0099$ & $0.0099$ & $0.0099$ & $0.0099$ & $0.0099$ & $0.0099$ & $0.0099$ & $0.0099$ & $0.0099$ & $x^{2k_1}$ \\
+\textbf{Man-in-the-Middle} & $0.0500$ & $0.0025$ & $0.0025$ & $0.0025$ & $0.0025$ & $0.0025$ & $0.0025$ & $0.0025$ & $0.0025$ & $0.0025$ & $y^2$ \\
+\textbf{Replay Attack} & $0.1500$ & $\approx 0$ & $\approx 0$ & $\approx 0$ & $\approx 0$ & $\approx 0$ & $\approx 0$ & $\approx 0$ & $\approx 0$ & $\approx 0$ & $\approx 0$ \\
+\textbf{Sybil Attack} & $1.0$ & $2.19 \times 10^{-10}$ & $2.19 \times 10^{-10}$ & $4.87 \times 10^{-5}$ & $1.20 \times 10^{-4}$ & $2.60 \times 10^{-8}$ & $1.16 \times 10^{-6}$ & $1.20 \times 10^{-6}$ & $2.19 \times 10^{-10}$ & $2.19 \times 10^{-10}$ & $\sum_{i>f} \binom{n}{i} p_c^i (1-p_c)^{n-i}$ \\
+\textbf{Denial of Service} & $0.2000$ & $0.0667$ & $0.0667$ & $0.0667$ & $0.0706$ & $0.0720$ & $0.0667$ & $0.0700$ & $0.0667$ & $0.0667$ & $p_{dos} \cdot \frac{f+1}{n}$ \\
+\textbf{Distributed DoS} & $0.3500$ & $0.1167$ & $0.1167$ & $0.1167$ & $0.1235$ & $0.1260$ & $0.1167$ & $0.1225$ & $0.1167$ & $0.1167$ & $p_{ddos} \cdot \frac{f+1}{n}$ \\
+\textbf{Byzantine Node} & $1.0$ & $2.19 \times 10^{-10}$ & $2.19 \times 10^{-10}$ & $4.87 \times 10^{-5}$ & $1.20 \times 10^{-4}$ & $2.60 \times 10^{-8}$ & $1.16 \times 10^{-6}$ & $1.20 \times 10^{-6}$ & $2.19 \times 10^{-10}$ & $2.19 \times 10^{-10}$ & $\sum_{i>f} \binom{n}{i} p_c^i (1-p_c)^{n-i}$ \\
+\textbf{Key Compromise} & $0.0100$ & $9.85 \times 10^{-6}$ & $9.85 \times 10^{-6}$ & $9.85 \times 10^{-6}$ & $9.85 \times 10^{-6}$ & $9.85 \times 10^{-6}$ & $9.85 \times 10^{-6}$ & $9.85 \times 10^{-6}$ & $9.85 \times 10^{-6}$ & $9.85 \times 10^{-6}$ & $P_{R,shamir}(k,d)$ \\
+\textbf{SCADA Breach} & $0.0100$ & $5.99 \times 10^{-21}$ & $5.99 \times 10^{-21}$ & $5.99 \times 10^{-21}$ & $5.99 \times 10^{-21}$ & $5.99 \times 10^{-21}$ & $5.99 \times 10^{-21}$ & $5.99 \times 10^{-21}$ & $5.99 \times 10^{-21}$ & $5.99 \times 10^{-21}$ & $(P_{SCADA} \cdot x)^m$ \\
+\textbf{Receiver Override} & $0.0100$ & $5.99 \times 10^{-7}$ & $5.99 \times 10^{-7}$ & $5.99 \times 10^{-7}$ & $5.99 \times 10^{-7}$ & $5.99 \times 10^{-7}$ & $5.99 \times 10^{-7}$ & $5.99 \times 10^{-7}$ & $5.99 \times 10^{-7}$ & $4.51 \times 10^{-12}$ & $P_R^{k_2} \cdot x^m$ \\
+\midrule
+\textbf{$P_{Compromise}$} & $1.0$ & $0.6649$ & $0.6649$ & $0.6649$ & $0.6690$ & $0.6703$ & $0.6649$ & $0.6683$ & $0.6649$ & $0.6649$ & $1 - \prod(1 - P_j)$ \\
+\textbf{Reduction} & --- & $33.5\%$ & $33.5\%$ & $33.5\%$ & $33.1\%$ & $33.0\%$ & $33.5\%$ & $33.2\%$ & $33.5\%$ & $33.5\%$ &  \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\par\noindent\scriptsize\textit{Protocol parameters:} OM($m$)/PBFT/Tower BFT/RVR: $n_{val}=51, f=16, p_c=0.05$; IBFT~2.0: $n_{val}=21, f=6$; QBFT: $n_{val}=17, f=5$; CE-PBFT: $n_{val}=25, f=8, p_c=0.03$ (credit-eval); G-PBFT: $n_{val}=30, f=9$; SV-PBFT: $n_{val}=20, f=6, p_c=0.03$ (score-weighted). RVR uses VRF leader election ($P_{R,VRF} = P_R / n$). All protocols use Shamir $(3,5)$ for key management.
+\end{table*}
