@@ -1,0 +1,32 @@
+{
+    "Logistic Regression": {
+        "accuracy": 0.9945,
+        "precision": 0.995,
+        "recall": 0.9945,
+        "f1_score": 0.9946,
+        "train_time_sec": 1.71,
+        "latency_ms_per_sample": 0.0003,
+        "zero_day_accuracy": 0.9104,
+        "zero_day_f1": 0.8973
+    },
+    "Random Forest": {
+        "accuracy": 0.9996,
+        "precision": 0.9996,
+        "recall": 0.9996,
+        "f1_score": 0.9996,
+        "train_time_sec": 3.95,
+        "latency_ms_per_sample": 0.0064,
+        "zero_day_accuracy": 0.7793,
+        "zero_day_f1": 0.7004
+    },
+    "Multi-Layer Perceptron (MLP)": {
+        "accuracy": 0.9993,
+        "precision": 0.9993,
+        "recall": 0.9993,
+        "f1_score": 0.9993,
+        "train_time_sec": 15.25,
+        "latency_ms_per_sample": 0.0011,
+        "zero_day_accuracy": 0.922,
+        "zero_day_f1": 0.9114
+    }
+}

@@ -1,0 +1,401 @@
+timestamp,meter_id,event,stage,severity
+2026-01-01T00:00:00,SM-0004,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:00:00,SM-0016,Attack Injected (Byzantine),Recon,Medium
+2026-01-01T00:00:00,SM-0018,Attack Injected (MITM),Recon,Medium
+2026-01-01T00:00:00,SM-0025,Attack Injected (DoS),Recon,Medium
+2026-01-01T00:00:00,SM-0029,Attack Injected (Data Tampering),Recon,Medium
+2026-01-01T00:00:00,SM-0031,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:00:00,SM-0062,Attack Injected (MITM),Recon,Medium
+2026-01-01T00:00:00,SM-0063,Attack Injected (DDoS),Recon,Medium
+2026-01-01T00:15:00,SM-0003,Attack Injected (Replay),Recon,Medium
+2026-01-01T00:15:00,SM-0004,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:15:00,SM-0005,Attack Injected (Key Theft),Recon,Medium
+2026-01-01T00:15:00,SM-0007,Attack Injected (Sybil),Recon,Medium
+2026-01-01T00:15:00,SM-0016,Attack Injected (Byzantine),Recon,Medium
+2026-01-01T00:15:00,SM-0018,Attack Injected (MITM),Recon,Medium
+2026-01-01T00:15:00,SM-0025,Attack Injected (DoS),Recon,Medium
+2026-01-01T00:15:00,SM-0029,Attack Injected (Data Tampering),Recon,Medium
+2026-01-01T00:15:00,SM-0030,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:15:00,SM-0031,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:15:00,SM-0062,Attack Injected (MITM),Recon,Medium
+2026-01-01T00:15:00,SM-0063,Attack Injected (DDoS),Recon,Medium
+2026-01-01T00:15:00,SM-0096,Attack Injected (Byzantine),Recon,Medium
+2026-01-01T00:30:00,SM-0001,Attack Injected (Sybil),Recon,Medium
+2026-01-01T00:30:00,SM-0002,Attack Injected (MITM),Recon,Medium
+2026-01-01T00:30:00,SM-0003,Attack Injected (Replay),Recon,Medium
+2026-01-01T00:30:00,SM-0004,Attack Injected (False Data Injection),Exploit,Medium
+2026-01-01T00:30:00,SM-0005,Attack Injected (Key Theft),Recon,Medium
+2026-01-01T00:30:00,SM-0007,Attack Injected (Sybil),Recon,Medium
+2026-01-01T00:30:00,SM-0013,Attack Injected (Data Tampering),Recon,Medium
+2026-01-01T00:30:00,SM-0015,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:30:00,SM-0016,Attack Injected (Byzantine),Exploit,Medium
+2026-01-01T00:30:00,SM-0018,Attack Injected (MITM),Recon,Medium
+2026-01-01T00:30:00,SM-0020,Attack Injected (Byzantine),Recon,Medium
+2026-01-01T00:30:00,SM-0025,Attack Injected (DoS),Recon,Medium
+2026-01-01T00:30:00,SM-0029,Attack Injected (Data Tampering),Exploit,Medium
+2026-01-01T00:30:00,SM-0030,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:30:00,SM-0031,Attack Injected (False Data Injection),Exploit,Medium
+2026-01-01T00:30:00,SM-0040,Attack Injected (Key Theft),Recon,Medium
+2026-01-01T00:30:00,SM-0041,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:30:00,SM-0062,Attack Injected (MITM),Recon,Medium
+2026-01-01T00:30:00,SM-0063,Attack Injected (DDoS),Recon,Medium
+2026-01-01T00:30:00,SM-0096,Attack Injected (Byzantine),Recon,Medium
+2026-01-01T00:30:00,SM-0098,Attack Injected (Key Theft),Recon,Medium
+2026-01-01T00:45:00,SM-0001,Attack Injected (Sybil),Recon,Medium
+2026-01-01T00:45:00,SM-0002,Attack Injected (MITM),Recon,Medium
+2026-01-01T00:45:00,SM-0003,Attack Injected (Replay),Exploit,Medium
+2026-01-01T00:45:00,SM-0004,Attack Injected (False Data Injection),Exploit,Medium
+2026-01-01T00:45:00,SM-0005,Attack Injected (Key Theft),Exploit,Medium
+2026-01-01T00:45:00,SM-0007,Attack Injected (Sybil),Recon,Medium
+2026-01-01T00:45:00,SM-0008,Attack Injected (MITM),Recon,Medium
+2026-01-01T00:45:00,SM-0010,Attack Injected (Byzantine),Recon,Medium
+2026-01-01T00:45:00,SM-0013,Attack Injected (Data Tampering),Recon,Medium
+2026-01-01T00:45:00,SM-0015,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:45:00,SM-0016,Attack Injected (Byzantine),Exploit,Medium
+2026-01-01T00:45:00,SM-0018,Attack Injected (MITM),Recon,Medium
+2026-01-01T00:45:00,SM-0020,Attack Injected (Byzantine),Recon,Medium
+2026-01-01T00:45:00,SM-0025,Attack Injected (DoS),Exploit,Medium
+2026-01-01T00:45:00,SM-0028,Attack Injected (Sybil),Recon,Medium
+2026-01-01T00:45:00,SM-0029,Attack Injected (Data Tampering),Exploit,Medium
+2026-01-01T00:45:00,SM-0030,Attack Injected (False Data Injection),Exploit,Medium
+2026-01-01T00:45:00,SM-0031,Attack Injected (False Data Injection),Exploit,Medium
+2026-01-01T00:45:00,SM-0035,Attack Injected (DoS),Recon,Medium
+2026-01-01T00:45:00,SM-0040,Attack Injected (Key Theft),Recon,Medium
+2026-01-01T00:45:00,SM-0041,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:45:00,SM-0042,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T00:45:00,SM-0055,Attack Injected (DoS),Recon,Medium
+2026-01-01T00:45:00,SM-0061,Attack Injected (Sybil),Recon,Medium
+2026-01-01T00:45:00,SM-0062,Attack Injected (MITM),Exploit,Medium
+2026-01-01T00:45:00,SM-0063,Attack Injected (DDoS),Exploit,Medium
+2026-01-01T00:45:00,SM-0094,Attack Injected (DoS),Recon,Medium
+2026-01-01T00:45:00,SM-0096,Attack Injected (Byzantine),Exploit,Medium
+2026-01-01T00:45:00,SM-0098,Attack Injected (Key Theft),Recon,Medium
+2026-01-01T01:00:00,SM-0001,Attack Injected (Sybil),Exploit,Medium
+2026-01-01T01:00:00,SM-0002,Attack Injected (MITM),Exploit,Medium
+2026-01-01T01:00:00,SM-0003,Attack Injected (Replay),Exploit,Medium
+2026-01-01T01:00:00,SM-0004,Attack Injected (False Data Injection),Exploit,Medium
+2026-01-01T01:00:00,SM-0005,Attack Injected (Key Theft),Exploit,Medium
+2026-01-01T01:00:00,SM-0007,Attack Injected (Sybil),Recon,Medium
+2026-01-01T01:00:00,SM-0008,Attack Injected (MITM),Recon,Medium
+2026-01-01T01:00:00,SM-0010,Attack Injected (Byzantine),Recon,Medium
+2026-01-01T01:00:00,SM-0013,Attack Injected (Data Tampering),Exploit,Medium
+2026-01-01T01:00:00,SM-0015,Attack Injected (False Data Injection),Exploit,Medium
+2026-01-01T01:00:00,SM-0016,Attack Injected (Byzantine),Exploit,Medium
+2026-01-01T01:00:00,SM-0017,Attack Injected (Data Tampering),Recon,Medium
+2026-01-01T01:00:00,SM-0018,Attack Injected (MITM),Exploit,Medium
+2026-01-01T01:00:00,SM-0020,Attack Injected (Byzantine),Exploit,Medium
+2026-01-01T01:00:00,SM-0025,Attack Injected (DoS),Exploit,Medium
+2026-01-01T01:00:00,SM-0028,Attack Injected (Sybil),Recon,Medium
+2026-01-01T01:00:00,SM-0029,Attack Injected (Data Tampering),Exploit,Medium
+2026-01-01T01:00:00,SM-0030,Attack Injected (False Data Injection),Exploit,Medium
+2026-01-01T01:00:00,SM-0031,Attack Injected (False Data Injection),Exploit,Medium
+2026-01-01T01:00:00,SM-0035,Attack Injected (DoS),Recon,Medium
+2026-01-01T01:00:00,SM-0040,Attack Injected (Key Theft),Exploit,Medium
+2026-01-01T01:00:00,SM-0041,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T01:00:00,SM-0042,Attack Injected (False Data Injection),Recon,Medium
+2026-01-01T01:00:00,SM-0055,Attack Injected (DoS),Recon,Medium
+2026-01-01T01:00:00,SM-0060,Attack Injected (Sybil),Recon,Medium
+2026-01-01T01:00:00,SM-0061,Attack Injected (Sybil),Recon,Medium
+2026-01-01T01:00:00,SM-0062,Attack Injected (MITM),Exploit,Medium
+2026-01-01T01:00:00,SM-0063,Attack Injected (DDoS),Exploit,Medium
+2026-01-01T01:00:00,SM-0069,Attack Injected (Replay),Recon,Medium
+2026-03-14T22:00:00,SM-0001,Attack Injected (MITM),Impact,Medium
+2026-03-14T22:00:00,SM-0009,Attack Injected (Data Tampering),Impact,Medium
+2026-03-14T22:00:00,SM-0011,Attack Injected (MITM),Recovery,Medium
+2026-03-14T22:00:00,SM-0013,Attack Injected (DoS),Impact,Medium
+2026-03-14T22:00:00,SM-0015,Attack Injected (MITM),Impact,Medium
+2026-03-14T22:00:00,SM-0019,Attack Injected (Data Tampering),Escalation,Medium
+2026-03-14T22:00:00,SM-0020,Attack Injected (False Data Injection),Escalation,Medium
+2026-03-14T22:00:00,SM-0025,Attack Injected (Data Tampering),Recovery,Medium
+2026-03-14T22:00:00,SM-0029,Attack Injected (Data Tampering),Recon,Medium
+2026-03-14T22:00:00,SM-0031,Attack Injected (Data Tampering),Recovery,Medium
+2026-03-14T22:00:00,SM-0033,Attack Injected (MITM),Escalation,Medium
+2026-03-14T22:00:00,SM-0036,Attack Injected (Replay),Exploit,Medium
+2026-03-14T22:00:00,SM-0038,Attack Injected (Key Theft),Impact,Medium
+2026-03-14T22:00:00,SM-0039,Attack Injected (DDoS),Impact,Medium
+2026-03-14T22:00:00,SM-0040,Attack Injected (Byzantine),Impact,Medium
+2026-03-14T22:00:00,SM-0041,Attack Injected (Data Tampering),Impact,Medium
+2026-03-14T22:00:00,SM-0042,Attack Injected (DDoS),Recovery,Medium
+2026-03-14T22:00:00,SM-0043,Attack Injected (DDoS),Exploit,Medium
+2026-03-14T22:00:00,SM-0044,Attack Injected (MITM),Escalation,Medium
+2026-03-14T22:00:00,SM-0045,Attack Injected (Byzantine),Recon,Medium
+2026-03-14T22:00:00,SM-0046,Attack Injected (Data Tampering),Impact,Medium
+2026-03-14T22:00:00,SM-0048,Attack Injected (DoS),Recon,Medium
+2026-03-14T22:00:00,SM-0049,Attack Injected (False Data Injection),Exploit,Medium
+2026-03-14T22:00:00,SM-0052,Attack Injected (Data Tampering),Recon,Medium
+2026-03-14T22:00:00,SM-0053,Attack Injected (Sybil),Escalation,Medium
+2026-03-14T22:00:00,SM-0055,Attack Injected (DDoS),Exploit,Medium
+2026-03-14T22:00:00,SM-0056,Attack Injected (DoS),Recovery,Medium
+2026-03-14T22:00:00,SM-0057,Attack Injected (MITM),Impact,Medium
+2026-03-14T22:00:00,SM-0060,Attack Injected (DoS),Impact,Medium
+2026-03-14T22:00:00,SM-0062,Attack Injected (DDoS),Recovery,Medium
+2026-03-14T22:00:00,SM-0063,Attack Injected (MITM),Exploit,Medium
+2026-03-14T22:00:00,SM-0064,Attack Injected (MITM),Impact,Medium
+2026-03-14T22:00:00,SM-0065,Attack Injected (Data Tampering),Escalation,Medium
+2026-03-14T22:00:00,SM-0066,Attack Injected (Byzantine),Exploit,Medium
+2026-03-14T22:00:00,SM-0067,Attack Injected (Byzantine),Recon,Medium
+2026-03-14T22:00:00,SM-0071,Attack Injected (DoS),Recon,Medium
+2026-03-14T22:00:00,SM-0072,Attack Injected (Byzantine),Impact,Medium
+2026-03-14T22:00:00,SM-0073,Attack Injected (DoS),Exploit,Medium
+2026-03-14T22:00:00,SM-0074,Attack Injected (Key Theft),Recovery,Medium
+2026-03-14T22:00:00,SM-0076,Attack Injected (DDoS),Exploit,Medium
+2026-03-14T22:00:00,SM-0077,Attack Injected (DDoS),Impact,Medium
+2026-03-14T22:00:00,SM-0078,Attack Injected (MITM),Escalation,Medium
+2026-03-14T22:00:00,SM-0079,Attack Injected (Sybil),Escalation,Medium
+2026-03-14T22:00:00,SM-0082,Attack Injected (DoS),Impact,Medium
+2026-03-14T22:00:00,SM-0083,Attack Injected (MITM),Recon,Medium
+2026-03-14T22:00:00,SM-0084,Attack Injected (DDoS),Impact,Medium
+2026-03-14T22:00:00,SM-0085,Attack Injected (DoS),Recon,Medium
+2026-03-14T22:00:00,SM-0086,Attack Injected (MITM),Impact,Medium
+2026-03-14T22:00:00,SM-0087,Attack Injected (Replay),Recon,Medium
+2026-03-14T22:00:00,SM-0088,Attack Injected (Key Theft),Impact,Medium
+2026-03-14T22:00:00,SM-0091,Attack Injected (Replay),Impact,Medium
+2026-03-14T22:00:00,SM-0093,Attack Injected (Replay),Recon,Medium
+2026-03-14T22:00:00,SM-0095,Attack Injected (Byzantine),Recovery,Medium
+2026-03-14T22:00:00,SM-0096,Attack Injected (Byzantine),Escalation,Medium
+2026-03-14T22:00:00,SM-0097,Attack Injected (Sybil),Escalation,Medium
+2026-03-14T22:00:00,SM-0098,Attack Injected (Key Theft),Recon,Medium
+2026-03-14T22:00:00,SM-0099,Attack Injected (Replay),Recovery,Medium
+2026-03-14T22:15:00,SM-0001,Attack Injected (MITM),Impact,Medium
+2026-03-14T22:15:00,SM-0004,Attack Injected (MITM),Recon,Medium
+2026-03-14T22:15:00,SM-0009,Attack Injected (Data Tampering),Impact,Medium
+2026-03-14T22:15:00,SM-0011,Attack Injected (MITM),Recovery,Medium
+2026-03-14T22:15:00,SM-0013,Attack Injected (DoS),Impact,Medium
+2026-03-14T22:15:00,SM-0015,Attack Injected (MITM),Recovery,Medium
+2026-03-14T22:15:00,SM-0019,Attack Injected (Data Tampering),Escalation,Medium
+2026-03-14T22:15:00,SM-0020,Attack Injected (False Data Injection),Impact,Medium
+2026-03-14T22:15:00,SM-0021,Attack Injected (Byzantine),Recon,Medium
+2026-03-14T22:15:00,SM-0025,Attack Injected (Data Tampering),Recovery,Medium
+2026-03-14T22:15:00,SM-0029,Attack Injected (Data Tampering),Recon,Medium
+2026-03-14T22:15:00,SM-0030,Attack Injected (Sybil),Recon,Medium
+2026-03-14T22:15:00,SM-0031,Attack Injected (Data Tampering),Recovery,Medium
+2026-03-14T22:15:00,SM-0033,Attack Injected (MITM),Impact,Medium
+2026-03-14T22:15:00,SM-0036,Attack Injected (Replay),Exploit,Medium
+2026-03-14T22:15:00,SM-0038,Attack Injected (Key Theft),Impact,Medium
+2026-03-14T22:15:00,SM-0039,Attack Injected (DDoS),Impact,Medium
+2026-03-14T22:15:00,SM-0040,Attack Injected (Byzantine),Impact,Medium
+2026-03-14T22:15:00,SM-0041,Attack Injected (Data Tampering),Impact,Medium
+2026-03-14T22:15:00,SM-0042,Attack Injected (DDoS),Recovery,Medium
+2026-03-14T22:15:00,SM-0043,Attack Injected (DDoS),Exploit,Medium
+2026-03-14T22:15:00,SM-0044,Attack Injected (MITM),Escalation,Medium
+2026-03-14T22:15:00,SM-0045,Attack Injected (Byzantine),Recon,Medium
+2026-03-14T22:15:00,SM-0046,Attack Injected (Data Tampering),Impact,Medium
+2026-03-14T22:15:00,SM-0048,Attack Injected (DoS),Exploit,Medium
+2026-03-14T22:15:00,SM-0049,Attack Injected (False Data Injection),Exploit,Medium
+2026-03-14T22:15:00,SM-0052,Attack Injected (Data Tampering),Exploit,Medium
+2026-03-14T22:15:00,SM-0053,Attack Injected (Sybil),Escalation,Medium
+2026-03-14T22:15:00,SM-0055,Attack Injected (DDoS),Exploit,Medium
+2026-03-14T22:15:00,SM-0056,Attack Injected (DoS),Recovery,Medium
+2026-03-14T22:15:00,SM-0057,Attack Injected (MITM),Impact,Medium
+2026-03-14T22:15:00,SM-0060,Attack Injected (DoS),Impact,Medium
+2026-03-14T22:15:00,SM-0063,Attack Injected (MITM),Exploit,Medium
+2026-03-14T22:15:00,SM-0064,Attack Injected (MITM),Impact,Medium
+2026-03-14T22:15:00,SM-0065,Attack Injected (Data Tampering),Escalation,Medium
+2026-03-14T22:15:00,SM-0066,Attack Injected (Byzantine),Escalation,Medium
+2026-03-14T22:15:00,SM-0067,Attack Injected (Byzantine),Exploit,Medium
+2026-03-14T22:15:00,SM-0071,Attack Injected (DoS),Exploit,Medium
+2026-03-14T22:15:00,SM-0072,Attack Injected (Byzantine),Impact,Medium
+2026-03-14T22:15:00,SM-0073,Attack Injected (DoS),Exploit,Medium
+2026-03-14T22:15:00,SM-0074,Attack Injected (Key Theft),Recovery,Medium
+2026-03-14T22:15:00,SM-0076,Attack Injected (DDoS),Exploit,Medium
+2026-03-14T22:15:00,SM-0077,Attack Injected (DDoS),Impact,Medium
+2026-03-30T13:00:00,SM-0001,Attack Injected (MITM),Exploit,Medium
+2026-03-30T13:00:00,SM-0002,Attack Injected (DDoS),Recovery,Medium
+2026-03-30T13:00:00,SM-0003,Attack Injected (Data Tampering),Recon,Medium
+2026-03-30T13:00:00,SM-0004,Attack Injected (False Data Injection),Exploit,Medium
+2026-03-30T13:00:00,SM-0007,Attack Injected (Data Tampering),Exploit,Medium
+2026-03-30T13:00:00,SM-0009,Attack Injected (Sybil),Exploit,Medium
+2026-03-30T13:00:00,SM-0010,Attack Injected (DoS),Escalation,Medium
+2026-03-30T13:00:00,SM-0011,Attack Injected (DDoS),Impact,Medium
+2026-03-30T13:00:00,SM-0012,Attack Injected (MITM),Recon,Medium
+2026-03-30T13:00:00,SM-0013,Attack Injected (Byzantine),Exploit,Medium
+2026-03-30T13:00:00,SM-0016,Attack Injected (False Data Injection),Impact,Medium
+2026-03-30T13:00:00,SM-0018,Attack Injected (DDoS),Impact,Medium
+2026-03-30T13:00:00,SM-0019,Attack Injected (Sybil),Impact,Medium
+2026-03-30T13:00:00,SM-0020,Attack Injected (False Data Injection),Exploit,Medium
+2026-03-30T13:00:00,SM-0022,Attack Injected (DDoS),Exploit,Medium
+2026-03-30T13:00:00,SM-0023,Attack Injected (Byzantine),Recon,Medium
+2026-03-30T13:00:00,SM-0025,Attack Injected (MITM),Impact,Medium
+2026-03-30T13:00:00,SM-0027,Attack Injected (Sybil),Recovery,Medium
+2026-03-30T13:00:00,SM-0029,Attack Injected (Sybil),Impact,Medium
+2026-03-30T13:00:00,SM-0032,Attack Injected (Data Tampering),Impact,Medium
+2026-03-30T13:00:00,SM-0034,Attack Injected (False Data Injection),Exploit,Medium
+2026-03-30T13:00:00,SM-0035,Attack Injected (False Data Injection),Recon,Medium
+2026-03-30T13:00:00,SM-0036,Attack Injected (False Data Injection),Exploit,Medium
+2026-03-30T13:00:00,SM-0037,Attack Injected (DoS),Impact,Medium
+2026-03-30T13:00:00,SM-0038,Attack Injected (Replay),Impact,Medium
+2026-03-30T13:00:00,SM-0039,Attack Injected (MITM),Impact,Medium
+2026-03-30T13:00:00,SM-0040,Attack Injected (Replay),Exploit,Medium
+2026-03-30T13:00:00,SM-0043,Attack Injected (Data Tampering),Impact,Medium
+2026-03-30T13:00:00,SM-0045,Attack Injected (MITM),Recovery,Medium
+2026-03-30T13:00:00,SM-0046,Attack Injected (MITM),Impact,Medium
+2026-03-30T13:00:00,SM-0047,Attack Injected (DDoS),Recovery,Medium
+2026-03-30T13:00:00,SM-0048,Attack Injected (Replay),Recovery,Medium
+2026-03-30T13:00:00,SM-0053,Attack Injected (Sybil),Impact,Medium
+2026-03-30T13:00:00,SM-0056,Attack Injected (MITM),Exploit,Medium
+2026-03-30T13:00:00,SM-0057,Attack Injected (Key Theft),Recovery,Medium
+2026-03-30T13:00:00,SM-0058,Attack Injected (Data Tampering),Impact,Medium
+2026-03-30T13:00:00,SM-0059,Attack Injected (Key Theft),Impact,Medium
+2026-03-30T13:00:00,SM-0060,Attack Injected (False Data Injection),Recovery,Medium
+2026-03-30T13:00:00,SM-0061,Attack Injected (Key Theft),Recovery,Medium
+2026-03-30T13:00:00,SM-0062,Attack Injected (Data Tampering),Escalation,Medium
+2026-03-30T13:00:00,SM-0063,Attack Injected (MITM),Impact,Medium
+2026-03-30T13:00:00,SM-0064,Attack Injected (False Data Injection),Recon,Medium
+2026-03-30T13:00:00,SM-0065,Attack Injected (Data Tampering),Recovery,Medium
+2026-03-30T13:00:00,SM-0066,Attack Injected (DDoS),Recovery,Medium
+2026-03-30T13:00:00,SM-0068,Attack Injected (Replay),Impact,Medium
+2026-03-30T13:00:00,SM-0069,Attack Injected (Byzantine),Escalation,Medium
+2026-03-30T13:00:00,SM-0070,Attack Injected (Byzantine),Impact,Medium
+2026-03-30T13:00:00,SM-0073,Attack Injected (DoS),Exploit,Medium
+2026-03-30T13:00:00,SM-0075,Attack Injected (Byzantine),Exploit,Medium
+2026-03-30T13:00:00,SM-0076,Attack Injected (Byzantine),Impact,Medium
+2026-03-30T13:00:00,SM-0077,Attack Injected (MITM),Impact,Medium
+2026-03-30T13:00:00,SM-0078,Attack Injected (MITM),Recovery,Medium
+2026-03-30T13:00:00,SM-0079,Attack Injected (MITM),Exploit,Medium
+2026-03-30T13:00:00,SM-0081,Attack Injected (MITM),Impact,Medium
+2026-03-30T13:00:00,SM-0082,Attack Injected (DoS),Recon,Medium
+2026-03-30T13:00:00,SM-0083,Attack Injected (Replay),Recon,Medium
+2026-03-30T13:00:00,SM-0085,Attack Injected (MITM),Impact,Medium
+2026-03-30T13:00:00,SM-0086,Attack Injected (Byzantine),Impact,Medium
+2026-03-30T13:00:00,SM-0088,Attack Injected (Replay),Impact,Medium
+2026-03-30T13:00:00,SM-0089,Attack Injected (DoS),Impact,Medium
+2026-03-30T13:00:00,SM-0090,Attack Injected (False Data Injection),Recovery,Medium
+2026-03-30T13:00:00,SM-0092,Attack Injected (DDoS),Exploit,Medium
+2026-03-30T13:00:00,SM-0093,Attack Injected (Replay),Recovery,Medium
+2026-03-30T13:00:00,SM-0094,Attack Injected (Byzantine),Impact,Medium
+2026-03-30T13:00:00,SM-0097,Attack Injected (Key Theft),Recon,Medium
+2026-03-30T13:00:00,SM-0098,Attack Injected (DoS),Escalation,Medium
+2026-03-30T13:00:00,SM-0099,Attack Injected (Data Tampering),Recovery,Medium
+2026-03-30T13:00:00,SM-0100,Attack Injected (Data Tampering),Exploit,Medium
+2026-03-30T13:15:00,SM-0001,Attack Injected (MITM),Exploit,Medium
+2026-03-30T13:15:00,SM-0003,Attack Injected (Data Tampering),Recon,Medium
+2026-03-30T13:15:00,SM-0004,Attack Injected (False Data Injection),Escalation,Medium
+2026-03-30T13:15:00,SM-0007,Attack Injected (Data Tampering),Exploit,Medium
+2026-03-30T13:15:00,SM-0009,Attack Injected (Sybil),Exploit,Medium
+2026-03-30T13:15:00,SM-0010,Attack Injected (DoS),Escalation,Medium
+2026-03-30T13:15:00,SM-0011,Attack Injected (DDoS),Impact,Medium
+2026-03-30T13:15:00,SM-0012,Attack Injected (MITM),Recon,Medium
+2026-03-30T13:15:00,SM-0013,Attack Injected (Byzantine),Escalation,Medium
+2026-03-30T13:15:00,SM-0016,Attack Injected (False Data Injection),Impact,Medium
+2026-03-30T13:15:00,SM-0018,Attack Injected (DDoS),Impact,Medium
+2026-03-30T13:15:00,SM-0019,Attack Injected (Sybil),Impact,Medium
+2026-03-30T13:15:00,SM-0020,Attack Injected (False Data Injection),Exploit,Medium
+2026-03-30T13:15:00,SM-0022,Attack Injected (DDoS),Exploit,Medium
+2026-03-30T13:15:00,SM-0023,Attack Injected (Byzantine),Recon,Medium
+2026-03-30T13:15:00,SM-0025,Attack Injected (MITM),Impact,Medium
+2026-03-30T13:15:00,SM-0027,Attack Injected (Sybil),Recovery,Medium
+2026-03-30T13:15:00,SM-0029,Attack Injected (Sybil),Impact,Medium
+2026-03-30T13:15:00,SM-0032,Attack Injected (Data Tampering),Impact,Medium
+2026-03-30T13:15:00,SM-0034,Attack Injected (False Data Injection),Escalation,Medium
+2026-03-30T13:15:00,SM-0035,Attack Injected (False Data Injection),Recon,Medium
+2026-03-30T13:15:00,SM-0036,Attack Injected (False Data Injection),Exploit,Medium
+2026-03-30T13:15:00,SM-0037,Attack Injected (DoS),Impact,Medium
+2026-03-30T13:15:00,SM-0038,Attack Injected (Replay),Impact,Medium
+2026-03-30T13:15:00,SM-0039,Attack Injected (MITM),Impact,Medium
+2026-03-30T13:15:00,SM-0040,Attack Injected (Replay),Escalation,Medium
+2026-03-30T13:15:00,SM-0043,Attack Injected (Data Tampering),Impact,Medium
+2026-03-30T13:15:00,SM-0045,Attack Injected (MITM),Recovery,Medium
+2026-03-30T13:15:00,SM-0046,Attack Injected (MITM),Impact,Medium
+2026-03-30T13:15:00,SM-0049,Attack Injected (Replay),Recon,Medium
+2026-03-30T13:15:00,SM-0053,Attack Injected (Sybil),Impact,Medium
+2026-03-30T13:15:00,SM-0056,Attack Injected (MITM),Exploit,Medium
+2026-04-15T04:00:00,SM-0001,Attack Injected (Sybil),Impact,Medium
+2026-04-15T04:00:00,SM-0002,Attack Injected (DoS),Exploit,Medium
+2026-04-15T04:00:00,SM-0003,Attack Injected (Sybil),Escalation,Medium
+2026-04-15T04:00:00,SM-0004,Attack Injected (Sybil),Escalation,Medium
+2026-04-15T04:00:00,SM-0006,Attack Injected (False Data Injection),Exploit,Medium
+2026-04-15T04:00:00,SM-0008,Attack Injected (Key Theft),Recovery,Medium
+2026-04-15T04:00:00,SM-0009,Attack Injected (Replay),Impact,Medium
+2026-04-15T04:00:00,SM-0010,Attack Injected (False Data Injection),Exploit,Medium
+2026-04-15T04:00:00,SM-0011,Attack Injected (DoS),Impact,Medium
+2026-04-15T04:00:00,SM-0014,Attack Injected (DoS),Impact,Medium
+2026-04-15T04:00:00,SM-0015,Attack Injected (Firmware Attack),Recon,Medium
+2026-04-15T04:00:00,SM-0016,Attack Injected (DDoS),Impact,Medium
+2026-04-15T04:00:00,SM-0018,Attack Injected (Replay),Escalation,Medium
+2026-04-15T04:00:00,SM-0022,Attack Injected (Byzantine),Recovery,Medium
+2026-04-15T04:00:00,SM-0023,Attack Injected (Data Tampering),Recovery,Medium
+2026-04-15T04:00:00,SM-0025,Attack Injected (Byzantine),Escalation,Medium
+2026-04-15T04:00:00,SM-0026,Attack Injected (DDoS),Impact,Medium
+2026-04-15T04:00:00,SM-0027,Attack Injected (False Data Injection),Recovery,Medium
+2026-04-15T04:00:00,SM-0028,Attack Injected (MITM),Impact,Medium
+2026-04-15T04:00:00,SM-0029,Attack Injected (DDoS),Impact,Medium
+2026-04-15T04:00:00,SM-0030,Attack Injected (Malware),Recon,Medium
+2026-04-15T04:00:00,SM-0031,Attack Injected (Byzantine),Impact,Medium
+2026-04-15T04:00:00,SM-0032,Attack Injected (Key Theft),Impact,Medium
+2026-04-15T04:00:00,SM-0034,Attack Injected (MITM),Recovery,Medium
+2026-04-15T04:00:00,SM-0037,Attack Injected (False Data Injection),Exploit,Medium
+2026-04-15T04:00:00,SM-0038,Attack Injected (DoS),Exploit,Medium
+2026-04-15T04:00:00,SM-0039,Attack Injected (Replay),Recon,Medium
+2026-04-15T04:00:00,SM-0040,Attack Injected (False Data Injection),Impact,Medium
+2026-04-15T04:00:00,SM-0041,Attack Injected (Byzantine),Impact,Medium
+2026-04-15T04:00:00,SM-0046,Attack Injected (Data Tampering),Exploit,Medium
+2026-04-15T04:00:00,SM-0050,Attack Injected (Sybil),Recon,Medium
+2026-04-15T04:00:00,SM-0052,Attack Injected (DDoS),Exploit,Medium
+2026-04-15T04:00:00,SM-0053,Attack Injected (Data Tampering),Exploit,Medium
+2026-04-15T04:00:00,SM-0054,Attack Injected (Byzantine),Impact,Medium
+2026-04-15T04:00:00,SM-0055,Attack Injected (Key Theft),Exploit,Medium
+2026-04-15T04:00:00,SM-0056,Attack Injected (Data Tampering),Exploit,Medium
+2026-04-15T04:00:00,SM-0057,Attack Injected (Data Tampering),Impact,Medium
+2026-04-15T04:00:00,SM-0058,Attack Injected (Firmware Attack),Recon,Medium
+2026-04-15T04:00:00,SM-0060,Attack Injected (DDoS),Impact,Medium
+2026-04-15T04:00:00,SM-0062,Attack Injected (Byzantine),Impact,Medium
+2026-04-15T04:00:00,SM-0065,Attack Injected (False Data Injection),Impact,Medium
+2026-04-15T04:00:00,SM-0066,Attack Injected (Key Theft),Impact,Medium
+2026-04-15T04:00:00,SM-0067,Attack Injected (Replay),Escalation,Medium
+2026-04-15T04:00:00,SM-0068,Attack Injected (MITM),Impact,Medium
+2026-04-15T04:00:00,SM-0070,Attack Injected (False Data Injection),Impact,Medium
+2026-04-15T04:00:00,SM-0072,Attack Injected (DDoS),Escalation,Medium
+2026-04-15T04:00:00,SM-0073,Attack Injected (MITM),Impact,Medium
+2026-04-15T04:00:00,SM-0075,Attack Injected (Byzantine),Impact,Medium
+2026-04-15T04:00:00,SM-0076,Attack Injected (Byzantine),Impact,Medium
+2026-04-15T04:00:00,SM-0077,Attack Injected (Sybil),Exploit,Medium
+2026-04-15T04:00:00,SM-0079,Attack Injected (Key Theft),Escalation,Medium
+2026-04-15T04:00:00,SM-0081,Attack Injected (False Data Injection),Recovery,Medium
+2026-04-15T04:00:00,SM-0084,Attack Injected (DoS),Recon,Medium
+2026-04-15T04:00:00,SM-0087,Attack Injected (Data Tampering),Impact,Medium
+2026-04-15T04:00:00,SM-0088,Attack Injected (Sybil),Impact,Medium
+2026-04-15T04:00:00,SM-0089,Attack Injected (Byzantine),Impact,Medium
+2026-04-15T04:00:00,SM-0090,Attack Injected (Replay),Impact,Medium
+2026-04-15T04:00:00,SM-0091,Attack Injected (False Data Injection),Impact,Medium
+2026-04-15T04:00:00,SM-0092,Attack Injected (False Data Injection),Escalation,Medium
+2026-04-15T04:00:00,SM-0095,Attack Injected (Replay),Recon,Medium
+2026-04-15T04:00:00,SM-0097,Attack Injected (DoS),Recovery,Medium
+2026-04-15T04:00:00,SM-0099,Attack Injected (Sybil),Impact,Medium
+2026-04-15T04:00:00,SM-0100,Attack Injected (DDoS),Exploit,Medium
+2026-04-15T04:15:00,SM-0001,Attack Injected (Sybil),Impact,Medium
+2026-04-15T04:15:00,SM-0002,Attack Injected (DoS),Exploit,Medium
+2026-04-15T04:15:00,SM-0003,Attack Injected (Sybil),Escalation,Medium
+2026-04-15T04:15:00,SM-0004,Attack Injected (Sybil),Escalation,Medium
+2026-04-15T04:15:00,SM-0006,Attack Injected (False Data Injection),Escalation,Medium
+2026-04-15T04:15:00,SM-0009,Attack Injected (Replay),Impact,Medium
+2026-04-15T04:15:00,SM-0010,Attack Injected (False Data Injection),Exploit,Medium
+2026-04-15T04:15:00,SM-0011,Attack Injected (DoS),Impact,Medium
+2026-04-15T04:15:00,SM-0014,Attack Injected (DoS),Impact,Medium
+2026-04-15T04:15:00,SM-0015,Attack Injected (Firmware Attack),Recon,Medium
+2026-04-15T04:15:00,SM-0016,Attack Injected (DDoS),Impact,Medium
+2026-04-15T04:15:00,SM-0018,Attack Injected (Replay),Escalation,Medium
+2026-04-15T04:15:00,SM-0022,Attack Injected (Byzantine),Recovery,Medium
+2026-04-15T04:15:00,SM-0023,Attack Injected (Data Tampering),Recovery,Medium
+2026-04-15T04:15:00,SM-0025,Attack Injected (Byzantine),Escalation,Medium
+2026-04-15T04:15:00,SM-0026,Attack Injected (DDoS),Impact,Medium
+2026-04-15T04:15:00,SM-0028,Attack Injected (MITM),Impact,Medium
+2026-04-15T04:15:00,SM-0029,Attack Injected (DDoS),Impact,Medium
+2026-04-15T04:15:00,SM-0030,Attack Injected (Malware),Recon,Medium
+2026-04-15T04:15:00,SM-0031,Attack Injected (Byzantine),Impact,Medium
+2026-04-15T04:15:00,SM-0032,Attack Injected (Key Theft),Impact,Medium
+2026-04-15T04:15:00,SM-0034,Attack Injected (MITM),Recovery,Medium
+2026-04-15T04:15:00,SM-0037,Attack Injected (False Data Injection),Exploit,Medium
+2026-04-15T04:15:00,SM-0038,Attack Injected (DoS),Escalation,Medium
+2026-04-15T04:15:00,SM-0039,Attack Injected (Replay),Recon,Medium
+2026-04-15T04:15:00,SM-0040,Attack Injected (False Data Injection),Impact,Medium
+2026-04-15T04:15:00,SM-0041,Attack Injected (Byzantine),Impact,Medium
+2026-04-15T04:15:00,SM-0046,Attack Injected (Data Tampering),Exploit,Medium
+2026-04-15T04:15:00,SM-0050,Attack Injected (Sybil),Exploit,Medium
+2026-04-15T04:15:00,SM-0052,Attack Injected (DDoS),Exploit,Medium
+2026-04-15T04:15:00,SM-0053,Attack Injected (Data Tampering),Escalation,Medium
+2026-04-15T04:15:00,SM-0054,Attack Injected (Byzantine),Recovery,Medium
+2026-04-15T04:15:00,SM-0055,Attack Injected (Key Theft),Exploit,Medium
+2026-04-15T04:15:00,SM-0056,Attack Injected (Data Tampering),Exploit,Medium
+2026-04-15T04:15:00,SM-0057,Attack Injected (Data Tampering),Impact,Medium
+2026-04-15T04:15:00,SM-0058,Attack Injected (Firmware Attack),Recon,Medium
+2026-04-15T04:15:00,SM-0060,Attack Injected (DDoS),Impact,Medium

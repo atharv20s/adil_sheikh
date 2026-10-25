@@ -1,0 +1,33 @@
+# AMI-CPSD v2.0 Small Grid Configuration (Fast Testing)
+dataset_version: "AMI-CPSD v2.0"
+profile_name: "small_grid"
+chunk_size: 5000
+
+splits:
+  train_rows: 7000
+  val_rows: 1500
+  test_rows: 1500
+  zero_day_rows: 1000
+
+seeds:
+  train_seed: 42
+  val_seed: 43
+  test_seed: 44
+  zero_day_seed: 45
+
+topology:
+  num_substations: 1
+  num_feeders: 2
+  num_transformers: 5
+  num_meters: 20
+  num_nans: 2
+  num_dcs: 2
+  num_validator_groups: 4
+
+simulation:
+  missing_data_pct: 0.015
+  nominal_voltage: 229.0
+  voltage_std: 2.0
+  nominal_frequency: 50.0
+  frequency_std: 0.05
+  physics_tolerance_kw: 0.05

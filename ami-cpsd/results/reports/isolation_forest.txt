@@ -1,0 +1,11 @@
+Anomaly Model: Isolation Forest
+Track: anomaly
+
+              precision    recall  f1-score   support
+
+           0       0.46      0.80      0.58      3429
+           1       0.83      0.50      0.63      6571
+
+    accuracy                           0.61     10000
+   macro avg       0.65      0.65      0.61     10000
+weighted avg       0.70      0.61      0.61     10000

@@ -1,0 +1,50 @@
+[
+    {
+        "config": "Full Simulator",
+        "feature_count": 52,
+        "accuracy": 1.0,
+        "f1_weighted": 1.0,
+        "zero_day_f1": 0.7832,
+        "latency_ms": 0.003465
+    },
+    {
+        "config": "Without Weather",
+        "feature_count": 47,
+        "accuracy": 1.0,
+        "f1_weighted": 1.0,
+        "zero_day_f1": 0.7832,
+        "latency_ms": 0.002952
+    },
+    {
+        "config": "Without Physics",
+        "feature_count": 46,
+        "accuracy": 1.0,
+        "f1_weighted": 1.0,
+        "zero_day_f1": 0.7832,
+        "latency_ms": 0.003293
+    },
+    {
+        "config": "Without Consensus",
+        "feature_count": 46,
+        "accuracy": 0.9164,
+        "f1_weighted": 0.9104,
+        "zero_day_f1": 0.7832,
+        "latency_ms": 0.005589
+    },
+    {
+        "config": "Without IDS Anomaly",
+        "feature_count": 45,
+        "accuracy": 1.0,
+        "f1_weighted": 1.0,
+        "zero_day_f1": 0.7832,
+        "latency_ms": 0.004752
+    },
+    {
+        "config": "Without Device Telemetry",
+        "feature_count": 45,
+        "accuracy": 1.0,
+        "f1_weighted": 1.0,
+        "zero_day_f1": 0.7832,
+        "latency_ms": 0.003705
+    }
+]

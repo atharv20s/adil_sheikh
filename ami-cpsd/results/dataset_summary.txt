@@ -1,0 +1,91 @@
+================================================================================
+AMI-CPSD v1.0: CYBER-PHYSICAL DIGITAL TWIN DATASET SUMMARY REPORT
+================================================================================
+
+Dataset Version: AMI-CPSD v1.0
+Profile:         small_grid
+Total Rows:      11,000
+Feature Count:   64 engineered features
+Total Columns:   71 columns
+Zero-Day Classes:Firmware Attack, Insider Attack, Malware
+
+------------------------------------------------------------
+SPLIT FILE: train.csv
+------------------------------------------------------------
+Rows (Sampled/Read): 50,000
+Missing Values (Total): 169,139 (4.51%)
+
+Class Distribution:
+  - Normal                  :  32,634 (65.27%)
+  - False Data Injection    :   2,557 ( 5.11%)
+  - Sybil                   :   2,012 ( 4.02%)
+  - MITM                    :   1,998 ( 4.00%)
+  - Byzantine               :   1,985 ( 3.97%)
+  - Key Theft               :   1,979 ( 3.96%)
+  - Replay                  :   1,948 ( 3.90%)
+  - DoS                     :   1,906 ( 3.81%)
+  - Data Tampering          :   1,511 ( 3.02%)
+  - DDoS                    :   1,470 ( 2.94%)
+
+------------------------------------------------------------
+SPLIT FILE: validation.csv
+------------------------------------------------------------
+Rows (Sampled/Read): 50,000
+Missing Values (Total): 168,304 (4.49%)
+
+Class Distribution:
+  - Normal                  :  32,448 (64.90%)
+  - False Data Injection    :   2,574 ( 5.15%)
+  - DoS                     :   2,064 ( 4.13%)
+  - MITM                    :   2,031 ( 4.06%)
+  - Byzantine               :   1,999 ( 4.00%)
+  - Sybil                   :   1,979 ( 3.96%)
+  - Key Theft               :   1,973 ( 3.95%)
+  - Replay                  :   1,932 ( 3.86%)
+  - DDoS                    :   1,508 ( 3.02%)
+  - Data Tampering          :   1,492 ( 2.98%)
+
+------------------------------------------------------------
+SPLIT FILE: test.csv
+------------------------------------------------------------
+Rows (Sampled/Read): 50,000
+Missing Values (Total): 168,673 (4.50%)
+
+Class Distribution:
+  - Normal                  :  32,520 (65.04%)
+  - False Data Injection    :   2,471 ( 4.94%)
+  - MITM                    :   2,034 ( 4.07%)
+  - Key Theft               :   2,004 ( 4.01%)
+  - Sybil                   :   1,993 ( 3.99%)
+  - Replay                  :   1,993 ( 3.99%)
+  - Byzantine               :   1,980 ( 3.96%)
+  - DoS                     :   1,954 ( 3.91%)
+  - Data Tampering          :   1,551 ( 3.10%)
+  - DDoS                    :   1,500 ( 3.00%)
+
+------------------------------------------------------------
+SPLIT FILE: zero_day_test.csv
+------------------------------------------------------------
+Rows (Sampled/Read): 50,000
+Missing Values (Total): 136,934 (3.65%)
+
+Class Distribution:
+  - Normal                  :  26,191 (52.38%)
+  - Insider Attack          :   3,725 ( 7.45%)
+  - Malware                 :   3,581 ( 7.16%)
+  - Firmware Attack         :   3,556 ( 7.11%)
+  - Key Theft               :   1,610 ( 3.22%)
+  - Replay                  :   1,558 ( 3.12%)
+  - False Data Injection    :   1,552 ( 3.10%)
+  - Sybil                   :   1,544 ( 3.09%)
+  - DoS                     :   1,544 ( 3.09%)
+  - MITM                    :   1,527 ( 3.05%)
+  - Byzantine               :   1,522 ( 3.04%)
+  - Data Tampering          :   1,050 ( 2.10%)
+  - DDoS                    :   1,040 ( 2.08%)
+
+================================================================================
+ZERO-DAY ISOLATION VERIFICATION
+================================================================================
+[PASSED] Zero-Day Attack Classes are strictly 0 in train.csv.
+[VERIFIED] Found 4,405 zero-day attack samples inside zero_day_test.csv.

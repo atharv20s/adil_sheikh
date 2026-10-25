@@ -1,0 +1,44 @@
+{
+    "manifest_version": "3.0.0",
+    "dataset_name": "AMI-CPSD v3.0 (Advanced Metering Infrastructure Cyber-Physical Synthetic Dataset)",
+    "publication_target": "IEEE Transactions / Conference Artifact Evaluation",
+    "reproducibility_specifications": {
+        "random_seeds": {
+            "train_seed": 42,
+            "val_seed": 101,
+            "test_seed": 2024,
+            "zero_day_seed": 777,
+            "multi_seed_evaluation_suite": [42, 101, 2024, 777, 999]
+        },
+        "dataset_rows": {
+            "train.csv": 700000,
+            "validation.csv": 150000,
+            "test.csv": 150000,
+            "zero_day_test.csv": 100000,
+            "total_rows": 1100000
+        },
+        "chunk_size": 100000,
+        "feature_count": 52,
+        "metadata_label_columns": 11
+    },
+    "environment_metadata": {
+        "os": "Windows 11 / x86_64",
+        "python_version": "3.11.x",
+        "key_dependencies": {
+            "torch": "2.x",
+            "scikit-learn": "1.3.x",
+            "xgboost": "2.0.x",
+            "lightgbm": "4.1.x",
+            "numpy": "1.26.x",
+            "pandas": "2.1.x",
+            "pyarrow": "14.x"
+        }
+    },
+    "verification_claims_summary": {
+        "physics_validation": "PASSED (P = V * I * cos(phi) / 1000 residual error < 0.05 kW for 100% normal samples)",
+        "zero_day_isolation": "PASSED (0 zero-day attack rows present in train/val/test splits)",
+        "label_leakage_exclusion": "PASSED (52 numerical features strictly isolated from label metadata)",
+        "voltage_bounds": "PASSED (180V <= V <= 280V bounds held)",
+        "energy_monotonicity": "PASSED (delta E >= 0 for normal records)"
+    }
+}

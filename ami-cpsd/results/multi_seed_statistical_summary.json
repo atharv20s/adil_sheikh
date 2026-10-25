@@ -1,0 +1,46 @@
+[
+    {
+        "model_name": "Logistic Regression",
+        "track": "classical",
+        "accuracy_mean": 0.9776,
+        "accuracy_std": 0.0,
+        "f1_mean": 0.9774,
+        "f1_std": 0.0,
+        "zero_day_f1_mean": 0.75,
+        "zero_day_f1_std": 0.0,
+        "zero_day_f1_95ci": 0.0
+    },
+    {
+        "model_name": "Random Forest",
+        "track": "classical",
+        "accuracy_mean": 1.0,
+        "accuracy_std": 0.0,
+        "f1_mean": 1.0,
+        "f1_std": 0.0,
+        "zero_day_f1_mean": 0.7263,
+        "zero_day_f1_std": 0.0,
+        "zero_day_f1_95ci": 0.0
+    },
+    {
+        "model_name": "XGBoost",
+        "track": "classical",
+        "accuracy_mean": 1.0,
+        "accuracy_std": 0.0,
+        "f1_mean": 1.0,
+        "f1_std": 0.0,
+        "zero_day_f1_mean": 0.7832,
+        "zero_day_f1_std": 0.0,
+        "zero_day_f1_95ci": 0.0
+    },
+    {
+        "model_name": "MLP",
+        "track": "deep_learning",
+        "accuracy_mean": 0.82136,
+        "accuracy_std": 0.12743013144464696,
+        "f1_mean": 0.8265399999999999,
+        "f1_std": 0.12562008756564372,
+        "zero_day_f1_mean": 0.75046,
+        "zero_day_f1_std": 0.01968579183065799,
+        "zero_day_f1_95ci": 0.027328260185086602
+    }
+]

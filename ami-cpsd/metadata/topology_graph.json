@@ -1,0 +1,2711 @@
+{
+    "version": "AMI-CPSD Topology v1.0",
+    "num_meters": 100,
+    "num_transformers": 20,
+    "num_feeders": 6,
+    "num_substations": 2,
+    "meter_assignments": {
+        "SM-0001": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-01",
+            "nan_id": "NAN-01",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 489.24,
+                "y_meters": 0.0
+            }
+        },
+        "SM-0002": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-02",
+            "nan_id": "NAN-02",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 324.41,
+                "y_meters": 20.41
+            }
+        },
+        "SM-0003": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-03",
+            "nan_id": "NAN-03",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 526.53,
+                "y_meters": 66.52
+            }
+        },
+        "SM-0004": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-04",
+            "nan_id": "NAN-04",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 443.71,
+                "y_meters": 84.64
+            }
+        },
+        "SM-0005": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-05",
+            "nan_id": "NAN-05",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 151.24,
+                "y_meters": 38.83
+            }
+        },
+        "SM-0006": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-06",
+            "nan_id": "NAN-06",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 559.27,
+                "y_meters": 181.72
+            }
+        },
+        "SM-0007": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-07",
+            "nan_id": "NAN-07",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 449.04,
+                "y_meters": 177.79
+            }
+        },
+        "SM-0008": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-08",
+            "nan_id": "NAN-08",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 448.04,
+                "y_meters": 210.83
+            }
+        },
+        "SM-0009": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-09",
+            "nan_id": "NAN-09",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 151.4,
+                "y_meters": 83.24
+            }
+        },
+        "SM-0010": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-10",
+            "nan_id": "NAN-10",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 279.21,
+                "y_meters": 177.19
+            }
+        },
+        "SM-0011": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-11",
+            "nan_id": "NAN-01",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": 235.98,
+                "y_meters": 171.45
+            }
+        },
+        "SM-0012": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-12",
+            "nan_id": "NAN-02",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": 434.66,
+                "y_meters": 359.58
+            }
+        },
+        "SM-0013": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-13",
+            "nan_id": "NAN-03",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": 310.17,
+                "y_meters": 291.27
+            }
+        },
+        "SM-0014": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-14",
+            "nan_id": "NAN-04",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": 351.28,
+                "y_meters": 374.07
+            }
+        },
+        "SM-0015": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-15",
+            "nan_id": "NAN-05",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": 208.61,
+                "y_meters": 252.17
+            }
+        },
+        "SM-0016": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-16",
+            "nan_id": "NAN-06",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 130.1,
+                "y_meters": 179.07
+            }
+        },
+        "SM-0017": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-17",
+            "nan_id": "NAN-07",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 204.55,
+                "y_meters": 322.32
+            }
+        },
+        "SM-0018": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-18",
+            "nan_id": "NAN-08",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 68.06,
+                "y_meters": 123.8
+            }
+        },
+        "SM-0019": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-19",
+            "nan_id": "NAN-09",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 219.51,
+                "y_meters": 466.47
+            }
+        },
+        "SM-0020": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-20",
+            "nan_id": "NAN-10",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 154.43,
+                "y_meters": 390.06
+            }
+        },
+        "SM-0021": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-01",
+            "nan_id": "NAN-01",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 148.78,
+                "y_meters": 457.9
+            }
+        },
+        "SM-0022": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-02",
+            "nan_id": "NAN-02",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 70.56,
+                "y_meters": 274.8
+            }
+        },
+        "SM-0023": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-03",
+            "nan_id": "NAN-03",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 109.74,
+                "y_meters": 575.27
+            }
+        },
+        "SM-0024": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-04",
+            "nan_id": "NAN-04",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 68.64,
+                "y_meters": 543.31
+            }
+        },
+        "SM-0025": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-05",
+            "nan_id": "NAN-05",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 30.86,
+                "y_meters": 490.44
+            }
+        },
+        "SM-0026": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-06",
+            "nan_id": "NAN-06",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 0.0,
+                "y_meters": 205.37
+            }
+        },
+        "SM-0027": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-07",
+            "nan_id": "NAN-07",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -21.27,
+                "y_meters": 338.02
+            }
+        },
+        "SM-0028": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-08",
+            "nan_id": "NAN-08",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -16.48,
+                "y_meters": 130.43
+            }
+        },
+        "SM-0029": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-09",
+            "nan_id": "NAN-09",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -34.78,
+                "y_meters": 182.31
+            }
+        },
+        "SM-0030": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-10",
+            "nan_id": "NAN-10",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -110.59,
+                "y_meters": 430.72
+            }
+        },
+        "SM-0031": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-11",
+            "nan_id": "NAN-01",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -146.76,
+                "y_meters": 451.69
+            }
+        },
+        "SM-0032": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-12",
+            "nan_id": "NAN-02",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -215.01,
+                "y_meters": 543.06
+            }
+        },
+        "SM-0033": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-13",
+            "nan_id": "NAN-03",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -114.81,
+                "y_meters": 243.99
+            }
+        },
+        "SM-0034": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-14",
+            "nan_id": "NAN-04",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -140.44,
+                "y_meters": 255.47
+            }
+        },
+        "SM-0035": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-15",
+            "nan_id": "NAN-05",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -182.23,
+                "y_meters": 287.14
+            }
+        },
+        "SM-0036": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-16",
+            "nan_id": "NAN-06",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -119.23,
+                "y_meters": 164.1
+            }
+        },
+        "SM-0037": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-17",
+            "nan_id": "NAN-07",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -110.7,
+                "y_meters": 133.81
+            }
+        },
+        "SM-0038": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-18",
+            "nan_id": "NAN-08",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -234.86,
+                "y_meters": 250.11
+            }
+        },
+        "SM-0039": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-19",
+            "nan_id": "NAN-09",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -161.24,
+                "y_meters": 151.41
+            }
+        },
+        "SM-0040": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-20",
+            "nan_id": "NAN-10",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -337.65,
+                "y_meters": 279.32
+            }
+        },
+        "SM-0041": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-01",
+            "nan_id": "NAN-01",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": -262.29,
+                "y_meters": 190.56
+            }
+        },
+        "SM-0042": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-02",
+            "nan_id": "NAN-02",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": -437.37,
+                "y_meters": 277.56
+            }
+        },
+        "SM-0043": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-03",
+            "nan_id": "NAN-03",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": -397.08,
+                "y_meters": 218.3
+            }
+        },
+        "SM-0044": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-04",
+            "nan_id": "NAN-04",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": -238.02,
+                "y_meters": 112.01
+            }
+        },
+        "SM-0045": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-05",
+            "nan_id": "NAN-05",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": -481.45,
+                "y_meters": 190.62
+            }
+        },
+        "SM-0046": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-06",
+            "nan_id": "NAN-06",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -479.65,
+                "y_meters": 155.85
+            }
+        },
+        "SM-0047": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-07",
+            "nan_id": "NAN-07",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -290.44,
+                "y_meters": 74.57
+            }
+        },
+        "SM-0048": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-08",
+            "nan_id": "NAN-08",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -246.83,
+                "y_meters": 47.09
+            }
+        },
+        "SM-0049": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-09",
+            "nan_id": "NAN-09",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -440.92,
+                "y_meters": 55.7
+            }
+        },
+        "SM-0050": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-10",
+            "nan_id": "NAN-10",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -178.13,
+                "y_meters": 11.21
+            }
+        },
+        "SM-0051": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-11",
+            "nan_id": "NAN-01",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -207.96,
+                "y_meters": 0.0
+            }
+        },
+        "SM-0052": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-12",
+            "nan_id": "NAN-02",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -113.38,
+                "y_meters": -7.13
+            }
+        },
+        "SM-0053": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-13",
+            "nan_id": "NAN-03",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -491.69,
+                "y_meters": -62.11
+            }
+        },
+        "SM-0054": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-14",
+            "nan_id": "NAN-04",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -428.06,
+                "y_meters": -81.66
+            }
+        },
+        "SM-0055": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-15",
+            "nan_id": "NAN-05",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -441.22,
+                "y_meters": -113.29
+            }
+        },
+        "SM-0056": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-16",
+            "nan_id": "NAN-06",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -468.45,
+                "y_meters": -152.21
+            }
+        },
+        "SM-0057": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-17",
+            "nan_id": "NAN-07",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -311.35,
+                "y_meters": -123.27
+            }
+        },
+        "SM-0058": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-18",
+            "nan_id": "NAN-08",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -351.69,
+                "y_meters": -165.49
+            }
+        },
+        "SM-0059": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-19",
+            "nan_id": "NAN-09",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -156.42,
+                "y_meters": -85.99
+            }
+        },
+        "SM-0060": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-20",
+            "nan_id": "NAN-10",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -140.26,
+                "y_meters": -89.01
+            }
+        },
+        "SM-0061": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-01",
+            "nan_id": "NAN-01",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": -353.96,
+                "y_meters": -257.17
+            }
+        },
+        "SM-0062": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-02",
+            "nan_id": "NAN-02",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": -262.62,
+                "y_meters": -217.26
+            }
+        },
+        "SM-0063": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-03",
+            "nan_id": "NAN-03",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": -282.09,
+                "y_meters": -264.9
+            }
+        },
+        "SM-0064": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-04",
+            "nan_id": "NAN-04",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": -331.9,
+                "y_meters": -353.44
+            }
+        },
+        "SM-0065": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-05",
+            "nan_id": "NAN-05",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": -268.36,
+                "y_meters": -324.4
+            }
+        },
+        "SM-0066": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-06",
+            "nan_id": "NAN-06",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -224.1,
+                "y_meters": -308.44
+            }
+        },
+        "SM-0067": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-07",
+            "nan_id": "NAN-07",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -205.76,
+                "y_meters": -324.23
+            }
+        },
+        "SM-0068": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-08",
+            "nan_id": "NAN-08",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -124.74,
+                "y_meters": -226.91
+            }
+        },
+        "SM-0069": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-09",
+            "nan_id": "NAN-09",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -53.27,
+                "y_meters": -113.19
+            }
+        },
+        "SM-0070": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-10",
+            "nan_id": "NAN-10",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": -119.27,
+                "y_meters": -301.24
+            }
+        },
+        "SM-0071": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-11",
+            "nan_id": "NAN-01",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -66.48,
+                "y_meters": -204.62
+            }
+        },
+        "SM-0072": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-12",
+            "nan_id": "NAN-02",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -77.14,
+                "y_meters": -300.43
+            }
+        },
+        "SM-0073": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-13",
+            "nan_id": "NAN-03",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -98.97,
+                "y_meters": -518.81
+            }
+        },
+        "SM-0074": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-14",
+            "nan_id": "NAN-04",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -28.15,
+                "y_meters": -222.86
+            }
+        },
+        "SM-0075": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-15",
+            "nan_id": "NAN-05",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": -8.7,
+                "y_meters": -138.29
+            }
+        },
+        "SM-0076": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-16",
+            "nan_id": "NAN-06",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": -0.0,
+                "y_meters": -247.88
+            }
+        },
+        "SM-0077": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-17",
+            "nan_id": "NAN-07",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 15.94,
+                "y_meters": -253.36
+            }
+        },
+        "SM-0078": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-18",
+            "nan_id": "NAN-08",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 54.44,
+                "y_meters": -430.91
+            }
+        },
+        "SM-0079": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-19",
+            "nan_id": "NAN-09",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 71.76,
+                "y_meters": -376.16
+            }
+        },
+        "SM-0080": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-20",
+            "nan_id": "NAN-10",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 122.88,
+                "y_meters": -478.59
+            }
+        },
+        "SM-0081": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-01",
+            "nan_id": "NAN-01",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 134.58,
+                "y_meters": -414.2
+            }
+        },
+        "SM-0082": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-02",
+            "nan_id": "NAN-02",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 113.8,
+                "y_meters": -287.42
+            }
+        },
+        "SM-0083": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-03",
+            "nan_id": "NAN-03",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 216.67,
+                "y_meters": -460.44
+            }
+        },
+        "SM-0084": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-04",
+            "nan_id": "NAN-04",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 92.41,
+                "y_meters": -168.09
+            }
+        },
+        "SM-0085": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-05",
+            "nan_id": "NAN-05",
+            "dc_id": "DC-01",
+            "coordinates": {
+                "x_meters": 64.9,
+                "y_meters": -102.27
+            }
+        },
+        "SM-0086": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-06",
+            "nan_id": "NAN-06",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 90.59,
+                "y_meters": -124.69
+            }
+        },
+        "SM-0087": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-07",
+            "nan_id": "NAN-07",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 295.74,
+                "y_meters": -357.48
+            }
+        },
+        "SM-0088": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-08",
+            "nan_id": "NAN-08",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 230.23,
+                "y_meters": -245.17
+            }
+        },
+        "SM-0089": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-09",
+            "nan_id": "NAN-09",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 137.79,
+                "y_meters": -129.4
+            }
+        },
+        "SM-0090": {
+            "substation_id": "SUB-01",
+            "feeder_id": "FDR-03",
+            "transformer_id": "XFRM-10",
+            "nan_id": "NAN-10",
+            "dc_id": "DC-02",
+            "coordinates": {
+                "x_meters": 273.93,
+                "y_meters": -226.61
+            }
+        },
+        "SM-0091": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-11",
+            "nan_id": "NAN-01",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": 149.37,
+                "y_meters": -108.52
+            }
+        },
+        "SM-0092": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-04",
+            "transformer_id": "XFRM-12",
+            "nan_id": "NAN-02",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": 380.96,
+                "y_meters": -241.76
+            }
+        },
+        "SM-0093": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-13",
+            "nan_id": "NAN-03",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": 287.97,
+                "y_meters": -158.31
+            }
+        },
+        "SM-0094": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-05",
+            "transformer_id": "XFRM-14",
+            "nan_id": "NAN-04",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": 268.46,
+                "y_meters": -126.33
+            }
+        },
+        "SM-0095": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-15",
+            "nan_id": "NAN-05",
+            "dc_id": "DC-03",
+            "coordinates": {
+                "x_meters": 239.64,
+                "y_meters": -94.88
+            }
+        },
+        "SM-0096": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-06",
+            "transformer_id": "XFRM-16",
+            "nan_id": "NAN-06",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 398.34,
+                "y_meters": -129.43
+            }
+        },
+        "SM-0097": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-17",
+            "nan_id": "NAN-07",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 278.26,
+                "y_meters": -71.45
+            }
+        },
+        "SM-0098": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-01",
+            "transformer_id": "XFRM-18",
+            "nan_id": "NAN-08",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 150.24,
+                "y_meters": -28.66
+            }
+        },
+        "SM-0099": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-19",
+            "nan_id": "NAN-09",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 166.5,
+                "y_meters": -21.03
+            }
+        },
+        "SM-0100": {
+            "substation_id": "SUB-02",
+            "feeder_id": "FDR-02",
+            "transformer_id": "XFRM-20",
+            "nan_id": "NAN-10",
+            "dc_id": "DC-04",
+            "coordinates": {
+                "x_meters": 580.18,
+                "y_meters": -36.5
+            }
+        }
+    },
+    "graph_edges": [
+        {
+            "source": "SM-0001",
+            "target": "SM-0021",
+            "transformer": "XFRM-01",
+            "distance_m": 570.6,
+            "impedance_ohm": 0.2853,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0001",
+            "target": "SM-0041",
+            "transformer": "XFRM-01",
+            "distance_m": 775.31,
+            "impedance_ohm": 0.3877,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0001",
+            "target": "SM-0061",
+            "transformer": "XFRM-01",
+            "distance_m": 881.55,
+            "impedance_ohm": 0.4408,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0001",
+            "target": "SM-0081",
+            "transformer": "XFRM-01",
+            "distance_m": 545.29,
+            "impedance_ohm": 0.2726,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0002",
+            "target": "SM-0022",
+            "transformer": "XFRM-02",
+            "distance_m": 359.38,
+            "impedance_ohm": 0.1797,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0002",
+            "target": "SM-0042",
+            "transformer": "XFRM-02",
+            "distance_m": 804.01,
+            "impedance_ohm": 0.402,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0002",
+            "target": "SM-0062",
+            "transformer": "XFRM-02",
+            "distance_m": 633.32,
+            "impedance_ohm": 0.3167,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0002",
+            "target": "SM-0082",
+            "transformer": "XFRM-02",
+            "distance_m": 372.98,
+            "impedance_ohm": 0.1865,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0003",
+            "target": "SM-0023",
+            "transformer": "XFRM-03",
+            "distance_m": 657.68,
+            "impedance_ohm": 0.3288,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0003",
+            "target": "SM-0043",
+            "transformer": "XFRM-03",
+            "distance_m": 936.0,
+            "impedance_ohm": 0.468,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0003",
+            "target": "SM-0063",
+            "transformer": "XFRM-03",
+            "distance_m": 873.9,
+            "impedance_ohm": 0.437,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0003",
+            "target": "SM-0083",
+            "transformer": "XFRM-03",
+            "distance_m": 611.31,
+            "impedance_ohm": 0.3057,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0004",
+            "target": "SM-0024",
+            "transformer": "XFRM-04",
+            "distance_m": 592.5,
+            "impedance_ohm": 0.2962,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0004",
+            "target": "SM-0044",
+            "transformer": "XFRM-04",
+            "distance_m": 682.28,
+            "impedance_ohm": 0.3411,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0004",
+            "target": "SM-0064",
+            "transformer": "XFRM-04",
+            "distance_m": 890.78,
+            "impedance_ohm": 0.4454,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0004",
+            "target": "SM-0084",
+            "transformer": "XFRM-04",
+            "distance_m": 432.76,
+            "impedance_ohm": 0.2164,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0005",
+            "target": "SM-0025",
+            "transformer": "XFRM-05",
+            "distance_m": 467.38,
+            "impedance_ohm": 0.2337,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0005",
+            "target": "SM-0045",
+            "transformer": "XFRM-05",
+            "distance_m": 650.64,
+            "impedance_ohm": 0.3253,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0005",
+            "target": "SM-0065",
+            "transformer": "XFRM-05",
+            "distance_m": 554.98,
+            "impedance_ohm": 0.2775,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0005",
+            "target": "SM-0085",
+            "transformer": "XFRM-05",
+            "distance_m": 165.42,
+            "impedance_ohm": 0.0827,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0006",
+            "target": "SM-0026",
+            "transformer": "XFRM-06",
+            "distance_m": 559.77,
+            "impedance_ohm": 0.2799,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0006",
+            "target": "SM-0046",
+            "transformer": "XFRM-06",
+            "distance_m": 1039.24,
+            "impedance_ohm": 0.5196,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0006",
+            "target": "SM-0066",
+            "transformer": "XFRM-06",
+            "distance_m": 924.08,
+            "impedance_ohm": 0.462,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0006",
+            "target": "SM-0086",
+            "transformer": "XFRM-06",
+            "distance_m": 559.95,
+            "impedance_ohm": 0.28,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0007",
+            "target": "SM-0027",
+            "transformer": "XFRM-07",
+            "distance_m": 496.86,
+            "impedance_ohm": 0.2484,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0007",
+            "target": "SM-0047",
+            "transformer": "XFRM-07",
+            "distance_m": 746.65,
+            "impedance_ohm": 0.3733,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0007",
+            "target": "SM-0067",
+            "transformer": "XFRM-07",
+            "distance_m": 825.1,
+            "impedance_ohm": 0.4125,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0007",
+            "target": "SM-0087",
+            "transformer": "XFRM-07",
+            "distance_m": 556.79,
+            "impedance_ohm": 0.2784,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0008",
+            "target": "SM-0028",
+            "transformer": "XFRM-08",
+            "distance_m": 471.43,
+            "impedance_ohm": 0.2357,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0008",
+            "target": "SM-0048",
+            "transformer": "XFRM-08",
+            "distance_m": 713.9,
+            "impedance_ohm": 0.357,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0008",
+            "target": "SM-0068",
+            "transformer": "XFRM-08",
+            "distance_m": 720.9,
+            "impedance_ohm": 0.3604,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0008",
+            "target": "SM-0088",
+            "transformer": "XFRM-08",
+            "distance_m": 505.35,
+            "impedance_ohm": 0.2527,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0009",
+            "target": "SM-0029",
+            "transformer": "XFRM-09",
+            "distance_m": 210.9,
+            "impedance_ohm": 0.1054,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0009",
+            "target": "SM-0049",
+            "transformer": "XFRM-09",
+            "distance_m": 592.96,
+            "impedance_ohm": 0.2965,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0009",
+            "target": "SM-0069",
+            "transformer": "XFRM-09",
+            "distance_m": 283.68,
+            "impedance_ohm": 0.1418,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0009",
+            "target": "SM-0089",
+            "transformer": "XFRM-09",
+            "distance_m": 213.08,
+            "impedance_ohm": 0.1065,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0010",
+            "target": "SM-0030",
+            "transformer": "XFRM-10",
+            "distance_m": 465.0,
+            "impedance_ohm": 0.2325,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0010",
+            "target": "SM-0050",
+            "transformer": "XFRM-10",
+            "distance_m": 486.53,
+            "impedance_ohm": 0.2433,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0010",
+            "target": "SM-0070",
+            "transformer": "XFRM-10",
+            "distance_m": 622.64,
+            "impedance_ohm": 0.3113,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0010",
+            "target": "SM-0090",
+            "transformer": "XFRM-10",
+            "distance_m": 403.83,
+            "impedance_ohm": 0.2019,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0011",
+            "target": "SM-0031",
+            "transformer": "XFRM-11",
+            "distance_m": 474.37,
+            "impedance_ohm": 0.2372,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0011",
+            "target": "SM-0051",
+            "transformer": "XFRM-11",
+            "distance_m": 475.9,
+            "impedance_ohm": 0.2379,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0011",
+            "target": "SM-0071",
+            "transformer": "XFRM-11",
+            "distance_m": 482.61,
+            "impedance_ohm": 0.2413,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0011",
+            "target": "SM-0091",
+            "transformer": "XFRM-11",
+            "distance_m": 293.06,
+            "impedance_ohm": 0.1465,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0012",
+            "target": "SM-0032",
+            "transformer": "XFRM-12",
+            "distance_m": 675.08,
+            "impedance_ohm": 0.3375,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0012",
+            "target": "SM-0052",
+            "transformer": "XFRM-12",
+            "distance_m": 659.41,
+            "impedance_ohm": 0.3297,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0012",
+            "target": "SM-0072",
+            "transformer": "XFRM-12",
+            "distance_m": 835.2,
+            "impedance_ohm": 0.4176,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0012",
+            "target": "SM-0092",
+            "transformer": "XFRM-12",
+            "distance_m": 603.73,
+            "impedance_ohm": 0.3019,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0013",
+            "target": "SM-0033",
+            "transformer": "XFRM-13",
+            "distance_m": 427.6,
+            "impedance_ohm": 0.2138,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0013",
+            "target": "SM-0053",
+            "transformer": "XFRM-13",
+            "distance_m": 876.27,
+            "impedance_ohm": 0.4381,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0013",
+            "target": "SM-0073",
+            "transformer": "XFRM-13",
+            "distance_m": 907.54,
+            "impedance_ohm": 0.4538,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0013",
+            "target": "SM-0093",
+            "transformer": "XFRM-13",
+            "distance_m": 450.13,
+            "impedance_ohm": 0.2251,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0014",
+            "target": "SM-0034",
+            "transformer": "XFRM-14",
+            "distance_m": 505.82,
+            "impedance_ohm": 0.2529,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0014",
+            "target": "SM-0054",
+            "transformer": "XFRM-14",
+            "distance_m": 902.81,
+            "impedance_ohm": 0.4514,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0014",
+            "target": "SM-0074",
+            "transformer": "XFRM-14",
+            "distance_m": 707.31,
+            "impedance_ohm": 0.3537,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0014",
+            "target": "SM-0094",
+            "transformer": "XFRM-14",
+            "distance_m": 507.21,
+            "impedance_ohm": 0.2536,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0015",
+            "target": "SM-0035",
+            "transformer": "XFRM-15",
+            "distance_m": 392.4,
+            "impedance_ohm": 0.1962,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0015",
+            "target": "SM-0055",
+            "transformer": "XFRM-15",
+            "distance_m": 745.55,
+            "impedance_ohm": 0.3728,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0015",
+            "target": "SM-0075",
+            "transformer": "XFRM-15",
+            "distance_m": 446.86,
+            "impedance_ohm": 0.2234,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0015",
+            "target": "SM-0095",
+            "transformer": "XFRM-15",
+            "distance_m": 348.43,
+            "impedance_ohm": 0.1742,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0016",
+            "target": "SM-0036",
+            "transformer": "XFRM-16",
+            "distance_m": 249.78,
+            "impedance_ohm": 0.1249,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0016",
+            "target": "SM-0056",
+            "transformer": "XFRM-16",
+            "distance_m": 684.11,
+            "impedance_ohm": 0.3421,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0016",
+            "target": "SM-0076",
+            "transformer": "XFRM-16",
+            "distance_m": 446.33,
+            "impedance_ohm": 0.2232,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0016",
+            "target": "SM-0096",
+            "transformer": "XFRM-16",
+            "distance_m": 408.81,
+            "impedance_ohm": 0.2044,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0017",
+            "target": "SM-0037",
+            "transformer": "XFRM-17",
+            "distance_m": 367.31,
+            "impedance_ohm": 0.1837,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0017",
+            "target": "SM-0057",
+            "transformer": "XFRM-17",
+            "distance_m": 681.69,
+            "impedance_ohm": 0.3408,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0017",
+            "target": "SM-0077",
+            "transformer": "XFRM-17",
+            "distance_m": 605.79,
+            "impedance_ohm": 0.3029,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0017",
+            "target": "SM-0097",
+            "transformer": "XFRM-17",
+            "distance_m": 400.61,
+            "impedance_ohm": 0.2003,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0018",
+            "target": "SM-0038",
+            "transformer": "XFRM-18",
+            "distance_m": 328.2,
+            "impedance_ohm": 0.1641,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0018",
+            "target": "SM-0058",
+            "transformer": "XFRM-18",
+            "distance_m": 509.78,
+            "impedance_ohm": 0.2549,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0018",
+            "target": "SM-0078",
+            "transformer": "XFRM-18",
+            "distance_m": 554.88,
+            "impedance_ohm": 0.2774,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0018",
+            "target": "SM-0098",
+            "transformer": "XFRM-18",
+            "distance_m": 173.2,
+            "impedance_ohm": 0.0866,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0019",
+            "target": "SM-0039",
+            "transformer": "XFRM-19",
+            "distance_m": 494.2,
+            "impedance_ohm": 0.2471,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0019",
+            "target": "SM-0059",
+            "transformer": "XFRM-19",
+            "distance_m": 668.23,
+            "impedance_ohm": 0.3341,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0019",
+            "target": "SM-0079",
+            "transformer": "XFRM-19",
+            "distance_m": 855.49,
+            "impedance_ohm": 0.4277,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0019",
+            "target": "SM-0099",
+            "transformer": "XFRM-19",
+            "distance_m": 490.37,
+            "impedance_ohm": 0.2452,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0020",
+            "target": "SM-0040",
+            "transformer": "XFRM-20",
+            "distance_m": 504.39,
+            "impedance_ohm": 0.2522,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0020",
+            "target": "SM-0060",
+            "transformer": "XFRM-20",
+            "distance_m": 562.45,
+            "impedance_ohm": 0.2812,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0020",
+            "target": "SM-0080",
+            "transformer": "XFRM-20",
+            "distance_m": 869.22,
+            "impedance_ohm": 0.4346,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0020",
+            "target": "SM-0100",
+            "transformer": "XFRM-20",
+            "distance_m": 602.67,
+            "impedance_ohm": 0.3013,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0021",
+            "target": "SM-0041",
+            "transformer": "XFRM-01",
+            "distance_m": 490.36,
+            "impedance_ohm": 0.2452,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0021",
+            "target": "SM-0061",
+            "transformer": "XFRM-01",
+            "distance_m": 874.11,
+            "impedance_ohm": 0.4371,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0021",
+            "target": "SM-0081",
+            "transformer": "XFRM-01",
+            "distance_m": 872.22,
+            "impedance_ohm": 0.4361,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0022",
+            "target": "SM-0042",
+            "transformer": "XFRM-02",
+            "distance_m": 507.94,
+            "impedance_ohm": 0.254,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0022",
+            "target": "SM-0062",
+            "transformer": "XFRM-02",
+            "distance_m": 594.25,
+            "impedance_ohm": 0.2971,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0022",
+            "target": "SM-0082",
+            "transformer": "XFRM-02",
+            "distance_m": 563.88,
+            "impedance_ohm": 0.2819,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0023",
+            "target": "SM-0043",
+            "transformer": "XFRM-03",
+            "distance_m": 619.91,
+            "impedance_ohm": 0.31,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0023",
+            "target": "SM-0063",
+            "transformer": "XFRM-03",
+            "distance_m": 927.05,
+            "impedance_ohm": 0.4635,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0023",
+            "target": "SM-0083",
+            "transformer": "XFRM-03",
+            "distance_m": 1041.22,
+            "impedance_ohm": 0.5206,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0024",
+            "target": "SM-0044",
+            "transformer": "XFRM-04",
+            "distance_m": 529.21,
+            "impedance_ohm": 0.2646,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0024",
+            "target": "SM-0064",
+            "transformer": "XFRM-04",
+            "distance_m": 982.14,
+            "impedance_ohm": 0.4911,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0024",
+            "target": "SM-0084",
+            "transformer": "XFRM-04",
+            "distance_m": 711.8,
+            "impedance_ohm": 0.3559,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0025",
+            "target": "SM-0045",
+            "transformer": "XFRM-05",
+            "distance_m": 593.59,
+            "impedance_ohm": 0.2968,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0025",
+            "target": "SM-0065",
+            "transformer": "XFRM-05",
+            "distance_m": 868.04,
+            "impedance_ohm": 0.434,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0025",
+            "target": "SM-0085",
+            "transformer": "XFRM-05",
+            "distance_m": 593.69,
+            "impedance_ohm": 0.2968,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0026",
+            "target": "SM-0046",
+            "transformer": "XFRM-06",
+            "distance_m": 482.2,
+            "impedance_ohm": 0.2411,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0026",
+            "target": "SM-0066",
+            "transformer": "XFRM-06",
+            "distance_m": 560.55,
+            "impedance_ohm": 0.2803,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0026",
+            "target": "SM-0086",
+            "transformer": "XFRM-06",
+            "distance_m": 342.27,
+            "impedance_ohm": 0.1711,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0027",
+            "target": "SM-0047",
+            "transformer": "XFRM-07",
+            "distance_m": 376.64,
+            "impedance_ohm": 0.1883,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0027",
+            "target": "SM-0067",
+            "transformer": "XFRM-07",
+            "distance_m": 687.47,
+            "impedance_ohm": 0.3437,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0027",
+            "target": "SM-0087",
+            "transformer": "XFRM-07",
+            "distance_m": 764.34,
+            "impedance_ohm": 0.3822,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0028",
+            "target": "SM-0048",
+            "transformer": "XFRM-08",
+            "distance_m": 244.96,
+            "impedance_ohm": 0.1225,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0028",
+            "target": "SM-0068",
+            "transformer": "XFRM-08",
+            "distance_m": 373.38,
+            "impedance_ohm": 0.1867,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0028",
+            "target": "SM-0088",
+            "transformer": "XFRM-08",
+            "distance_m": 449.38,
+            "impedance_ohm": 0.2247,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0029",
+            "target": "SM-0049",
+            "transformer": "XFRM-09",
+            "distance_m": 425.42,
+            "impedance_ohm": 0.2127,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0029",
+            "target": "SM-0069",
+            "transformer": "XFRM-09",
+            "distance_m": 296.08,
+            "impedance_ohm": 0.148,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0029",
+            "target": "SM-0089",
+            "transformer": "XFRM-09",
+            "distance_m": 356.29,
+            "impedance_ohm": 0.1781,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0030",
+            "target": "SM-0050",
+            "transformer": "XFRM-10",
+            "distance_m": 424.91,
+            "impedance_ohm": 0.2125,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0030",
+            "target": "SM-0070",
+            "transformer": "XFRM-10",
+            "distance_m": 732.01,
+            "impedance_ohm": 0.366,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0030",
+            "target": "SM-0090",
+            "transformer": "XFRM-10",
+            "distance_m": 761.54,
+            "impedance_ohm": 0.3808,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0031",
+            "target": "SM-0051",
+            "transformer": "XFRM-11",
+            "distance_m": 455.82,
+            "impedance_ohm": 0.2279,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0031",
+            "target": "SM-0071",
+            "transformer": "XFRM-11",
+            "distance_m": 661.2,
+            "impedance_ohm": 0.3306,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0031",
+            "target": "SM-0091",
+            "transformer": "XFRM-11",
+            "distance_m": 633.66,
+            "impedance_ohm": 0.3168,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0032",
+            "target": "SM-0052",
+            "transformer": "XFRM-12",
+            "distance_m": 559.5,
+            "impedance_ohm": 0.2797,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0032",
+            "target": "SM-0072",
+            "transformer": "XFRM-12",
+            "distance_m": 854.68,
+            "impedance_ohm": 0.4273,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0032",
+            "target": "SM-0092",
+            "transformer": "XFRM-12",
+            "distance_m": 985.46,
+            "impedance_ohm": 0.4927,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0033",
+            "target": "SM-0053",
+            "transformer": "XFRM-13",
+            "distance_m": 485.53,
+            "impedance_ohm": 0.2428,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0033",
+            "target": "SM-0073",
+            "transformer": "XFRM-13",
+            "distance_m": 762.96,
+            "impedance_ohm": 0.3815,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0033",
+            "target": "SM-0093",
+            "transformer": "XFRM-13",
+            "distance_m": 569.28,
+            "impedance_ohm": 0.2846,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0034",
+            "target": "SM-0054",
+            "transformer": "XFRM-14",
+            "distance_m": 443.15,
+            "impedance_ohm": 0.2216,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0034",
+            "target": "SM-0074",
+            "transformer": "XFRM-14",
+            "distance_m": 491.33,
+            "impedance_ohm": 0.2457,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0034",
+            "target": "SM-0094",
+            "transformer": "XFRM-14",
+            "distance_m": 559.44,
+            "impedance_ohm": 0.2797,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0035",
+            "target": "SM-0055",
+            "transformer": "XFRM-15",
+            "distance_m": 476.89,
+            "impedance_ohm": 0.2384,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0035",
+            "target": "SM-0075",
+            "transformer": "XFRM-15",
+            "distance_m": 459.46,
+            "impedance_ohm": 0.2297,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0035",
+            "target": "SM-0095",
+            "transformer": "XFRM-15",
+            "distance_m": 569.13,
+            "impedance_ohm": 0.2846,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0036",
+            "target": "SM-0056",
+            "transformer": "XFRM-16",
+            "distance_m": 471.18,
+            "impedance_ohm": 0.2356,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0036",
+            "target": "SM-0076",
+            "transformer": "XFRM-16",
+            "distance_m": 428.89,
+            "impedance_ohm": 0.2144,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0036",
+            "target": "SM-0096",
+            "transformer": "XFRM-16",
+            "distance_m": 595.01,
+            "impedance_ohm": 0.2975,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0037",
+            "target": "SM-0057",
+            "transformer": "XFRM-17",
+            "distance_m": 326.11,
+            "impedance_ohm": 0.1631,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0037",
+            "target": "SM-0077",
+            "transformer": "XFRM-17",
+            "distance_m": 407.36,
+            "impedance_ohm": 0.2037,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0037",
+            "target": "SM-0097",
+            "transformer": "XFRM-17",
+            "distance_m": 439.8,
+            "impedance_ohm": 0.2199,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0038",
+            "target": "SM-0058",
+            "transformer": "XFRM-18",
+            "distance_m": 431.71,
+            "impedance_ohm": 0.2159,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0038",
+            "target": "SM-0078",
+            "transformer": "XFRM-18",
+            "distance_m": 739.92,
+            "impedance_ohm": 0.37,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0038",
+            "target": "SM-0098",
+            "transformer": "XFRM-18",
+            "distance_m": 475.41,
+            "impedance_ohm": 0.2377,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0039",
+            "target": "SM-0059",
+            "transformer": "XFRM-19",
+            "distance_m": 237.45,
+            "impedance_ohm": 0.1187,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0039",
+            "target": "SM-0079",
+            "transformer": "XFRM-19",
+            "distance_m": 576.73,
+            "impedance_ohm": 0.2884,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0039",
+            "target": "SM-0099",
+            "transformer": "XFRM-19",
+            "distance_m": 370.34,
+            "impedance_ohm": 0.1852,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0040",
+            "target": "SM-0060",
+            "transformer": "XFRM-20",
+            "distance_m": 417.89,
+            "impedance_ohm": 0.2089,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0040",
+            "target": "SM-0080",
+            "transformer": "XFRM-20",
+            "distance_m": 886.86,
+            "impedance_ohm": 0.4434,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0040",
+            "target": "SM-0100",
+            "transformer": "XFRM-20",
+            "distance_m": 970.65,
+            "impedance_ohm": 0.4853,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0041",
+            "target": "SM-0061",
+            "transformer": "XFRM-01",
+            "distance_m": 457.02,
+            "impedance_ohm": 0.2285,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0041",
+            "target": "SM-0081",
+            "transformer": "XFRM-01",
+            "distance_m": 723.35,
+            "impedance_ohm": 0.3617,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0042",
+            "target": "SM-0062",
+            "transformer": "XFRM-02",
+            "distance_m": 524.77,
+            "impedance_ohm": 0.2624,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0042",
+            "target": "SM-0082",
+            "transformer": "XFRM-02",
+            "distance_m": 789.3,
+            "impedance_ohm": 0.3946,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0043",
+            "target": "SM-0063",
+            "transformer": "XFRM-03",
+            "distance_m": 496.69,
+            "impedance_ohm": 0.2483,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0043",
+            "target": "SM-0083",
+            "transformer": "XFRM-03",
+            "distance_m": 915.08,
+            "impedance_ohm": 0.4575,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0044",
+            "target": "SM-0064",
+            "transformer": "XFRM-04",
+            "distance_m": 474.82,
+            "impedance_ohm": 0.2374,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0044",
+            "target": "SM-0084",
+            "transformer": "XFRM-04",
+            "distance_m": 433.17,
+            "impedance_ohm": 0.2166,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0045",
+            "target": "SM-0065",
+            "transformer": "XFRM-05",
+            "distance_m": 557.36,
+            "impedance_ohm": 0.2787,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0045",
+            "target": "SM-0085",
+            "transformer": "XFRM-05",
+            "distance_m": 619.91,
+            "impedance_ohm": 0.31,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0046",
+            "target": "SM-0066",
+            "transformer": "XFRM-06",
+            "distance_m": 529.97,
+            "impedance_ohm": 0.265,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0046",
+            "target": "SM-0086",
+            "transformer": "XFRM-06",
+            "distance_m": 635.51,
+            "impedance_ohm": 0.3178,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0047",
+            "target": "SM-0067",
+            "transformer": "XFRM-07",
+            "distance_m": 407.69,
+            "impedance_ohm": 0.2038,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0047",
+            "target": "SM-0087",
+            "transformer": "XFRM-07",
+            "distance_m": 728.2,
+            "impedance_ohm": 0.3641,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0048",
+            "target": "SM-0068",
+            "transformer": "XFRM-08",
+            "distance_m": 299.97,
+            "impedance_ohm": 0.15,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0048",
+            "target": "SM-0088",
+            "transformer": "XFRM-08",
+            "distance_m": 559.47,
+            "impedance_ohm": 0.2797,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0049",
+            "target": "SM-0069",
+            "transformer": "XFRM-09",
+            "distance_m": 422.84,
+            "impedance_ohm": 0.2114,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0049",
+            "target": "SM-0089",
+            "transformer": "XFRM-09",
+            "distance_m": 607.59,
+            "impedance_ohm": 0.3038,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0050",
+            "target": "SM-0070",
+            "transformer": "XFRM-10",
+            "distance_m": 317.95,
+            "impedance_ohm": 0.159,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0050",
+            "target": "SM-0090",
+            "transformer": "XFRM-10",
+            "distance_m": 510.8,
+            "impedance_ohm": 0.2554,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0051",
+            "target": "SM-0071",
+            "transformer": "XFRM-11",
+            "distance_m": 248.77,
+            "impedance_ohm": 0.1244,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0051",
+            "target": "SM-0091",
+            "transformer": "XFRM-11",
+            "distance_m": 373.45,
+            "impedance_ohm": 0.1867,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0052",
+            "target": "SM-0072",
+            "transformer": "XFRM-12",
+            "distance_m": 295.53,
+            "impedance_ohm": 0.1478,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0052",
+            "target": "SM-0092",
+            "transformer": "XFRM-12",
+            "distance_m": 547.2,
+            "impedance_ohm": 0.2736,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0053",
+            "target": "SM-0073",
+            "transformer": "XFRM-13",
+            "distance_m": 602.33,
+            "impedance_ohm": 0.3012,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0053",
+            "target": "SM-0093",
+            "transformer": "XFRM-13",
+            "distance_m": 785.57,
+            "impedance_ohm": 0.3928,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0054",
+            "target": "SM-0074",
+            "transformer": "XFRM-14",
+            "distance_m": 424.11,
+            "impedance_ohm": 0.2121,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0054",
+            "target": "SM-0094",
+            "transformer": "XFRM-14",
+            "distance_m": 697.95,
+            "impedance_ohm": 0.349,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0055",
+            "target": "SM-0075",
+            "transformer": "XFRM-15",
+            "distance_m": 433.24,
+            "impedance_ohm": 0.2166,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0055",
+            "target": "SM-0095",
+            "transformer": "XFRM-15",
+            "distance_m": 681.11,
+            "impedance_ohm": 0.3406,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0056",
+            "target": "SM-0076",
+            "transformer": "XFRM-16",
+            "distance_m": 478.12,
+            "impedance_ohm": 0.2391,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0056",
+            "target": "SM-0096",
+            "transformer": "XFRM-16",
+            "distance_m": 867.09,
+            "impedance_ohm": 0.4335,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0057",
+            "target": "SM-0077",
+            "transformer": "XFRM-17",
+            "distance_m": 352.2,
+            "impedance_ohm": 0.1761,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0057",
+            "target": "SM-0097",
+            "transformer": "XFRM-17",
+            "distance_m": 591.88,
+            "impedance_ohm": 0.2959,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0058",
+            "target": "SM-0078",
+            "transformer": "XFRM-18",
+            "distance_m": 485.17,
+            "impedance_ohm": 0.2426,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0058",
+            "target": "SM-0098",
+            "transformer": "XFRM-18",
+            "distance_m": 520.25,
+            "impedance_ohm": 0.2601,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0059",
+            "target": "SM-0079",
+            "transformer": "XFRM-19",
+            "distance_m": 369.14,
+            "impedance_ohm": 0.1846,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0059",
+            "target": "SM-0099",
+            "transformer": "XFRM-19",
+            "distance_m": 329.39,
+            "impedance_ohm": 0.1647,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0060",
+            "target": "SM-0080",
+            "transformer": "XFRM-20",
+            "distance_m": 470.12,
+            "impedance_ohm": 0.2351,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0060",
+            "target": "SM-0100",
+            "transformer": "XFRM-20",
+            "distance_m": 722.35,
+            "impedance_ohm": 0.3612,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0061",
+            "target": "SM-0081",
+            "transformer": "XFRM-01",
+            "distance_m": 513.16,
+            "impedance_ohm": 0.2566,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0062",
+            "target": "SM-0082",
+            "transformer": "XFRM-02",
+            "distance_m": 382.9,
+            "impedance_ohm": 0.1915,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0063",
+            "target": "SM-0083",
+            "transformer": "XFRM-03",
+            "distance_m": 535.72,
+            "impedance_ohm": 0.2679,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0064",
+            "target": "SM-0084",
+            "transformer": "XFRM-04",
+            "distance_m": 463.03,
+            "impedance_ohm": 0.2315,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0065",
+            "target": "SM-0085",
+            "transformer": "XFRM-05",
+            "distance_m": 400.5,
+            "impedance_ohm": 0.2003,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0066",
+            "target": "SM-0086",
+            "transformer": "XFRM-06",
+            "distance_m": 364.41,
+            "impedance_ohm": 0.1822,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0067",
+            "target": "SM-0087",
+            "transformer": "XFRM-07",
+            "distance_m": 502.6,
+            "impedance_ohm": 0.2513,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0068",
+            "target": "SM-0088",
+            "transformer": "XFRM-08",
+            "distance_m": 355.44,
+            "impedance_ohm": 0.1777,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0069",
+            "target": "SM-0089",
+            "transformer": "XFRM-09",
+            "distance_m": 191.75,
+            "impedance_ohm": 0.0959,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0070",
+            "target": "SM-0090",
+            "transformer": "XFRM-10",
+            "distance_m": 400.22,
+            "impedance_ohm": 0.2001,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0071",
+            "target": "SM-0091",
+            "transformer": "XFRM-11",
+            "distance_m": 236.28,
+            "impedance_ohm": 0.1181,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0072",
+            "target": "SM-0092",
+            "transformer": "XFRM-12",
+            "distance_m": 461.84,
+            "impedance_ohm": 0.2309,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0073",
+            "target": "SM-0093",
+            "transformer": "XFRM-13",
+            "distance_m": 528.85,
+            "impedance_ohm": 0.2644,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0074",
+            "target": "SM-0094",
+            "transformer": "XFRM-14",
+            "distance_m": 311.92,
+            "impedance_ohm": 0.156,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0075",
+            "target": "SM-0095",
+            "transformer": "XFRM-15",
+            "distance_m": 252.11,
+            "impedance_ohm": 0.1261,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0076",
+            "target": "SM-0096",
+            "transformer": "XFRM-16",
+            "distance_m": 415.58,
+            "impedance_ohm": 0.2078,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0077",
+            "target": "SM-0097",
+            "transformer": "XFRM-17",
+            "distance_m": 319.22,
+            "impedance_ohm": 0.1596,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0078",
+            "target": "SM-0098",
+            "transformer": "XFRM-18",
+            "distance_m": 413.5,
+            "impedance_ohm": 0.2068,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0079",
+            "target": "SM-0099",
+            "transformer": "XFRM-19",
+            "distance_m": 367.55,
+            "impedance_ohm": 0.1838,
+            "comm_link": "802.15.4g_Mesh"
+        },
+        {
+            "source": "SM-0080",
+            "target": "SM-0100",
+            "transformer": "XFRM-20",
+            "distance_m": 636.06,
+            "impedance_ohm": 0.318,
+            "comm_link": "802.15.4g_Mesh"
+        }
+    ]
+}

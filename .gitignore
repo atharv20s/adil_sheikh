@@ -3,3 +3,10 @@ __pycache__/
 .DS_Store
 .vscode/
 .idea/
+
+# AMI-CPSD generated large datasets (regenerable via python generate_dataset.py)
+ami-cpsd/datasets/*.parquet
+ami-cpsd/datasets/train.csv
+ami-cpsd/datasets/test.csv
+ami-cpsd/datasets/validation.csv
+ami-cpsd/datasets/zero_day_test.csv

@@ -164,7 +164,7 @@ Fig. \ref{fig:fig0_paper_roadmap} details the overarching structural organizatio
     \node [draw, rectangle, fill=blue!15, text width=8.0cm, text centered, rounded corners] (r1) {\textbf{1. EV-to-Grid Energy Trading Domain} \\ Electric Vehicle Integration, AMI Telemetry \& Prosumer Market};
     \node [draw, rectangle, fill=red!15, text width=8.0cm, text centered, rounded corners, below=0.3cm of r1] (r2) {\textbf{2. Original Engineering System Limitations} \\ Centralized Coordinator SPOF ($P_{\text{SPOF}}=1.0$), Zero Byzantine Fault Tolerance};
     \node [draw, rectangle, fill=orange!15, text width=8.0cm, text centered, rounded corners, below=0.3cm of r2] (r3) {\textbf{3. 12-Attack Cyber-Physical Threat Taxonomy} \\ Physical, Communication, Application \& Consensus Layer Attack Vectors};
-    \node [draw, rectangle, fill=yellow!20, text width=8.0cm, text centered, rounded corners, below=0.3cm of r3] (r4) {\textbf{4. Static-Temporal Security Framework (STSF)} \\ Analytical Formulation: Static Cryptosystem Gain ($10^{170}$) + Poisson Latency Exposure};
+    \node [draw, rectangle, fill=yellow!20, text width=8.0cm, text centered, rounded corners, below=0.3cm of r3] (r4) {\textbf{4. Static-Temporal Security Framework (STSF)} \\ Analytical Model: Static Cryptosystem Gain ($10^{170}$ under Sheikh Formulation) + Poisson Exposure};
     \node [draw, rectangle, fill=green!15, text width=8.0cm, text centered, rounded corners, below=0.3cm of r4] (r5) {\textbf{5. Consensus Mechanism Performance Comparison} \\ Evaluating 9 Protocols across Throughput, Latency, Overhead \& $P_{\text{secure}}$};
     \node [draw, rectangle, fill=green!35, text width=8.0cm, text centered, rounded corners, below=0.3cm of r5] (r6) {\textbf{6. Practitioner Deployment Roadmap \& Engineering Insights} \\ Operational Selection Decision Tree \& 5-Step Smart Grid Implementation};
 
@@ -200,7 +200,7 @@ Fig. \ref{fig:fig0_paper_roadmap} details the overarching structural organizatio
 \textbf{Consensus \& Identity} & Sybil Identity Spoofing & $P_{\text{Sybil}} = 1.0$ (Unpermissioned) $\to 10^{-10}$ (BFT Admission) & $P_{\text{Sybil}}=1.0 \to 10^{-10}$ \\
 & Byzantine Quorum Failure & $P_{\text{Byz, b}} = \sum_{k=f+1}^{n} \binom{n}{k} p_c^k (1-p_c)^{n-k}$ & $n=51, f=16, p_c=0.10 \implies 1.83 \times 10^{-10}$ \\
 \textbf{Sheikh et al. Baseline} & Target Attack Model ($P_{\text{TA}}$) & $P_{\text{TA}} = \frac{1}{4}\left(2x^m + P_{\text{SCADA}} + P_R\right)$ & $P_{\text{TA}} \approx 0.0050$ (Centralized Baseline) \\
-& Blockchain Protected ($P_{\text{TAb}}$) & $P_{\text{TAb}} = \frac{1}{4}\left(2P_{\text{SAb}} + P_{\text{SCADAb}} + P_{\text{Rb}}\right)$ & $P_{\text{TAb}} \approx 4.91 \times 10^{-173}$ (170 Orders Gain) \\
+& Blockchain Protected ($P_{\text{TAb}}$) & $P_{\text{TAb}} = \frac{1}{4}\left(2P_{\text{SAb}} + P_{\text{SCADAb}} + P_{\text{Rb}}\right)$ & $P_{\text{TAb}} \approx 4.91 \times 10^{-173}$ ($10^{170}$ Gain under Sheikh Model) \\
 \textbf{Parallel Ingress Model} & System Compromise ($P_{\text{Compromise}}$) & $P_{\text{Compromise}} = 1 - \prod_{j=1}^{12} \left(1 - P_{\text{atk}}^j\right)$ & $P_{\text{Compromise}}^{\text{no\_BC}} = 0.9740 \to P_{\text{Compromise}}^{\text{BFT}} = 5.99 \times 10^{-7}$ \\
 \textbf{Static-Temporal Model} & Realized Security ($P_{\text{secure}}$) & $P_{\text{secure}} = P_{\text{static}} \times e^{-\lambda W(\tau)}$ & $\lambda = 20\text{ s}^{-1}, W(\tau) < 0.024\text{ s}$ \\
 & Poisson Vulnerability Window & $W(\tau) = L \cdot \left(1 - e^{-\lambda L}\right)$ & $L = 200\text{ ms (RVR)} \implies P_{\text{secure}} = 0.940$ \\
@@ -218,31 +218,6 @@ Fig. \ref{fig:fig0_paper_roadmap} details the overarching structural organizatio
 
 \label{sec:vulnerability_no_bc}
 
-
-\begin{figure}[htbp]
-\centering
-\resizebox{\columnwidth}{!}{%
-\begin{tikzpicture}[node distance=0.6cm, auto, >=latex]
-    \node [draw, rectangle, fill=blue!15, text width=1.8cm, text centered, rounded corners] (ev) {\textbf{1. EV Prosumer}};
-    \node [draw, rectangle, fill=blue!25, text width=1.8cm, text centered, rounded corners, right=0.4cm of ev] (sm) {\textbf{2. Smart Meter}};
-    \node [draw, rectangle, fill=orange!20, text width=1.8cm, text centered, rounded corners, right=0.4cm of sm] (comm) {\textbf{3. Network Comm.}};
-    \node [draw, rectangle, fill=red!20, text width=1.8cm, text centered, rounded corners, right=0.4cm of comm] (coord) {\textbf{4. Central Coordinator}};
-
-    \node [draw, rectangle, fill=red!30, text width=4.0cm, text centered, rounded corners, below=0.5cm of coord] (scada) {\textbf{5. Central SCADA / MDMS}};
-    \node [draw, rectangle, fill=green!20, text width=4.0cm, text centered, rounded corners, left=0.6cm of scada] (grid) {\textbf{6. Physical Grid Control}};
-
-    \draw [->, thick] (ev) -- (sm);
-    \draw [->, thick] (sm) -- (comm);
-    \draw [->, thick] (comm) -- (coord);
-    \draw [->, thick] (coord) -- (scada);
-    \draw [->, thick] (scada) -- (grid);
-
-    \node [draw, rectangle, dashed, red!80!black, fill=red!5, text width=8.0cm, text centered, below=0.4cm of scada] (vun) {\textbf{Critical Engineering Vulnerabilities (Without Cybersecurity):} \\ (1) Absolute SPOF ($P_{\text{SPOF}}=1.0$), (2) Zero Byzantine Tolerance ($f=0$), \\ (3) Unverified Data Injection, (4) Central Key File Leakage Risk};
-\end{tikzpicture}%
-}
-\caption{\textbf{Baseline Centralized EV Trading Workflow (Without Cybersecurity):}} Operational data flow from EV smart meters through cellular networks to the central coordinator MDMS, illustrating single-point-of-failure vulnerabilities ($P_{\text{SPOF}}=1.0$) and unverified state estimation ingestion.}
-\label{fig:fig2_workflow_no_cyber}
-\end{figure}
 
 
 \begin{quote}
@@ -436,15 +411,17 @@ As calculated above, a value of $0.026$ indicates that \textbf{the system is onl
 
 
 
-\begin{figure}[htbp]
+\begin{figure*}[t!]
 \centering
-\resizebox{\columnwidth}{!}{%
+\begin{subfigure}[b]{0.48\textwidth}
+\centering
+\resizebox{\linewidth}{!}{%
 \begin{tikzpicture}[node distance=0.6cm, auto, >=latex]
     \node [draw, rectangle, fill=blue!10, text width=6.5cm, text centered, rounded corners] (e1) {\textbf{Original Engineering System} \\ Centralized Metering \& SCADA Dispatch};
     \node [draw, rectangle, fill=red!10, text width=6.5cm, text centered, rounded corners, below=0.3cm of e1] (e2) {\textbf{Engineering Limitations} \\ Single Point of Failure ($P_{\text{SPOF}}=1.0$), Zero Byzantine Tolerance};
     \node [draw, rectangle, fill=yellow!20, text width=6.5cm, text centered, rounded corners, below=0.3cm of e2] (e3) {\textbf{Cybersecurity Layer (STSF)} \\ Proactive Validation \& Threshold Cryptography};
     \node [draw, rectangle, fill=green!15, text width=6.5cm, text centered, rounded corners, below=0.3cm of e3] (e4) {\textbf{Blockchain Consensus Engine} \\ Distributed Validator Quorums ($n=51, f=16$)};
-    \node [draw, rectangle, fill=green!30, text width=6.5cm, text centered, rounded corners, below=0.3cm of e4] (e5) {\textbf{Improved Trust \& Grid Reliability} \\ a static security improvement of ~170 orders of magnitude under the baseline formulation Gain, $P_{\text{SPOF}} \to 10^{-10}$};
+    \node [draw, rectangle, fill=green!30, text width=6.5cm, text centered, rounded corners, below=0.3cm of e4] (e5) {\textbf{Improved Trust \& Grid Reliability} \\ Static security gain of $\sim 10^{170}$ under Sheikh baseline formulation, $P_{\text{SPOF}} \to 10^{-10}$};
 
     \draw [->, thick] (e1) -- (e2);
     \draw [->, thick] (e2) -- (e3);
@@ -452,21 +429,20 @@ As calculated above, a value of $0.026$ indicates that \textbf{the system is onl
     \draw [->, thick] (e4) -- (e5);
 \end{tikzpicture}%
 }
-\caption{\textbf{Architectural Transformation (Engineering vs. Cybersecurity):}} Structural paradigm shift showing how embedding a distributed BFT consensus layer neutralizes centralized coordinator SPOF risk ($P_{\text{SPOF}}: 1.0 \to 10^{-10}$) and enforces threshold verification.}
+\caption{\textbf{Architectural Transformation}}
 \label{fig:fig4_eng_vs_cyber}
-\end{figure}
-
-
-\begin{figure}[htbp]
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
 \centering
-\resizebox{\columnwidth}{!}{%
+\resizebox{\linewidth}{!}{%
 \begin{tikzpicture}[node distance=0.55cm, auto, >=latex]
     \node [draw, rectangle, fill=red!15, text width=8.0cm, text centered, rounded corners] (w1) {\textbf{1. Cyber-Physical Attack Vector Ingress} \\ FDI, MitM, Replay, DoS, Sybil, Byzantine Node Infiltration};
     \node [draw, rectangle, fill=orange!15, text width=8.0cm, text centered, rounded corners, below=0.3cm of w1] (w2) {\textbf{2. Proactive Cryptographic Hash Verification} \\ SHA-256 Payload Integrity Check \& Nonce Timestamping};
     \node [draw, rectangle, fill=yellow!20, text width=8.0cm, text centered, rounded corners, below=0.3cm of w2] (w3) {\textbf{3. Distributed BFT Consensus Engine} \\ Multi-Validator Voting Quorums ($n=51, f=16$)};
     \node [draw, rectangle, fill=green!15, text width=8.0cm, text centered, rounded corners, below=0.3cm of w3] (w4) {\textbf{4. Multi-Signature Quorum Validation} \\ Threshold Signature Verification \& Shamir Secret Recovery};
     \node [draw, rectangle, fill=green!25, text width=8.0cm, text centered, rounded corners, below=0.3cm of w4] (w5) {\textbf{5. Residual Vulnerability Window Reduction} \\ Sub-Second Exposure Window ($W(\tau) < 0.024$)};
-    \node [draw, rectangle, fill=green!40, text width=8.0cm, text centered, rounded corners, below=0.3cm of w5] (w6) {\textbf{6. Quantified Security Improvement (STSF Framework)} \\ 170 Orders Static Gain, $P_{\text{secure}} \ge 0.927$, $P_{\text{SPOF}} \to 10^{-10}$};
+    \node [draw, rectangle, fill=green!40, text width=8.0cm, text centered, rounded corners, below=0.3cm of w5] (w6) {\textbf{6. Quantified Security Improvement (STSF Framework)} \\ $\sim 10^{170}$ Static Gain (Sheikh Model), $P_{\text{secure}} \ge 0.927$, $P_{\text{SPOF}} \to 10^{-10}$};
 
     \draw [->, thick] (w1) -- (w2);
     \draw [->, thick] (w2) -- (w3);
@@ -475,9 +451,12 @@ As calculated above, a value of $0.026$ indicates that \textbf{the system is onl
     \draw [->, thick] (w5) -- (w6);
 \end{tikzpicture}%
 }
-\caption{\textbf{Comparative Application Security Workflow:}} Causal validation pipeline showing how cryptographic checks, distributed consensus, and threshold quorums convert attack ingress into quantified security gains under STSF.}
+\caption{\textbf{Application Security Workflow}}
 \label{fig:fig13_comparative_workflow}
-\end{figure}
+\end{subfigure}
+\caption{\textbf{System Transformation and Security Workflow under STSF:} (a) Structural paradigm shift showing how embedding a BFT consensus layer neutralizes centralized coordinator SPOF risk. (b) Causal validation pipeline showing how cryptographic checks and threshold consensus convert attack ingress into quantified security gains under Sheikh model assumptions.}
+\label{fig:architecture_and_workflow}
+\end{figure*}
 
 \subsection{Comparative Analysis: Without Blockchain vs With Blockchain}
 \label{sec:comparative_analysis}
@@ -591,7 +570,7 @@ The original paper is mathematically correct for its defined scope (expected val
     \node [draw, rectangle, fill=green!10, text width=9.0cm, minimum height=4.5cm, rounded corners, right=1.0cm of panelA] (panelB) {};
     \node [font=\bfseries, color=green!60!black, anchor=north west] at (panelB.north west) {\quad Panel B: Distributed BFT Architecture (With Blockchain)};
     \node [draw, rectangle, fill=green!25, text width=8.0cm, text centered, rounded corners, yshift=0.5cm] at (panelB.center) (b_nodes) {\textbf{Distributed Validator Network ($n=51, f=16$)} \\ $2f+1$ Multi-Signature Voting Quorums \\ Threshold Secret Sharing \& PoH Timestamps};
-    \node [draw, rectangle, fill=green!40, text width=8.0cm, text centered, rounded corners, below=0.5cm of b_nodes] (b_succ) {\textbf{Proactive Attack Rejection} \\ $P_{\text{TAb}} \approx 10^{-173}$ (170 Orders Gain), $P_{\text{SPOF}} \to 10^{-10}$};
+    \node [draw, rectangle, fill=green!40, text width=8.0cm, text centered, rounded corners, below=0.5cm of b_nodes] (b_succ) {\textbf{Proactive Attack Rejection} \\ $P_{\text{TAb}} \approx 10^{-173}$ ($10^{170}$ Gain under Sheikh Model), $P_{\text{SPOF}} \to 10^{-10}$};
     \draw [->, ultra thick, green!60!black] (b_nodes) -- (b_succ);
 \end{tikzpicture}%
 }
@@ -623,7 +602,7 @@ With blockchain consensus applied (Eq.~17--21 of~\cite{sheikh2020}), the blockch
 \begin{equation}
 P_{TAb} \approx 4.91 \times 10^{-173}
 \end{equation}
-This represents a \textbf{static security gain of substantial static vulnerability suppression under STSF assumptions}. We adopt this four-component model as the primary quantitative metric throughout the temporal analysis in Section~\ref{sec:stsf}, as it provides a well-calibrated, closed-form expression suitable for continuous security evaluation.
+This represents a static security gain of approximately 170 orders of magnitude under the Sheikh four-component probabilistic formulation. We adopt this four-component model as the primary quantitative metric throughout the temporal analysis in Section~\ref{sec:temporal_benchmarking}, as it provides a well-calibrated, closed-form expression suitable for continuous security evaluation.
 
 % ═══════════════════════════════════════════════════════════════
 
@@ -653,7 +632,7 @@ This represents a \textbf{static security gain of substantial static vulnerabili
 
 \subsection{Blockchain Security Extensions \& Application Causal Chain}
 
-Introducing a decentralized BFT blockchain ledger addresses these vulnerabilities. To evaluate this change, we propose a set of first-order probabilistic success models representing the impact of blockchain consensus features on each attack vector. Table~\ref{tab:probability_models} summarizes these formulations, denoting whether each model is \emph{proposed} (first-order formulations introduced in this work to represent cyber-physical bounds), \emph{modified} (adapted from smart grid and database security models), or \emph{adopted} (direct mathematical relations from consensus literature).
+Introducing a decentralized BFT blockchain ledger addresses these vulnerabilities. To evaluate this change, we propose a set of first-order probabilistic success models representing the impact of blockchain consensus features on each attack vector. Table~\ref{tab:probability_models} summarizes these formulations, denoting whether each model is \emph{proposed} (first-order analytical formulations introduced in this work to capture structural scaling behaviors), \emph{modified} (adapted from smart grid and database security models), or \emph{adopted} (direct mathematical relations from consensus literature). All proposed equations (e.g., $P_{\mathrm{Sensor}} = x^{2m}$ and $P_{\mathrm{Comm}} = x^{2k_1}$) represent first-order analytical models designed for theoretical sensitivity analysis rather than empirically measured physical laws or hardware failure distributions.
 
 \begin{table*}[t]
 \caption{Probability Models Used: Centralized (Without Blockchain) vs. Blockchain-Enabled (With Blockchain) Static Attack Formulations}
@@ -683,7 +662,7 @@ Receiver ($P_{\mathrm{Receiver}}$) & $0.01$ & $P_R^{k_2} \cdot x^m$ & Proposed &
 \subsection{Parameter Selection and Calibration}
 \label{sec:parameter_selection}
 
-To map the qualitative mechanisms of BFT consensus to a quantitative security model, we introduce calibration parameters ($\eta$, $\beta$, $\omega_{\mathrm{credit}}$, $\tau_{\mathrm{dos}}$, $\tau_{\mathrm{recv}}$, $\tau_{\mathrm{scada}}$). Table~\ref{tab:parameter_selection} summarizes these values and their operational justifications. While these constants represent baseline engineering assumptions, their values are calibrated to reflect the physical and network dynamics of smart grids.
+To map the qualitative mechanisms of BFT consensus to a quantitative security model, we introduce calibration parameters ($\eta$, $\beta$, $\omega_{\mathrm{credit}}$, $\tau_{\mathrm{dos}}$, $\tau_{\mathrm{recv}}$, $\tau_{\mathrm{scada}}$). Table~\ref{tab:parameter_selection} summarizes these values and their operational justifications. As emphasized throughout this study, these parameters and proposed scaling exponents represent calibrated first-order analytical approximations rather than universal physical constants or field-validated hardware parameters.
 
 \begin{table*}[t]
 \caption{Model Calibration Parameters and Selection Rationale}
@@ -744,6 +723,8 @@ Receiver ($P_{\mathrm{Receiver}}$) & \checkmark & & & \checkmark & & \checkmark 
 \label{sec:twelve_attacks}
 
 We now list the detailed formulations for each of the 12 attack vectors.
+
+\paragraph{Framing of Proposed Mathematical Formulations.} It is important to emphasize that all novel equations proposed below (e.g., $P_{\mathrm{Sensor}} = x^{2m}$ and $P_{\mathrm{Comm}} = x^{2k_1}$) are formulated as first-order analytical models rather than experimentally validated physical laws or empirical failure distributions. These mathematical equations serve as calibrated structural scaling abstractions to quantify security bounds under defined cryptographic and consensus assumptions.
 
 \begin{enumerate}[leftmargin=*]
     \item \textbf{Sensor ($P_{\mathrm{Sensor}}$) \& FDI ($P_{\mathrm{FDI}}$):} \emph{[Proposed]} Nodes cross-verify block data with cryptographic hashes. Compromising these requires compromising both the sensor physical layer and private key storage:
@@ -829,18 +810,18 @@ We now list the detailed formulations for each of the 12 attack vectors.
 
 The proposed probabilistic extension demonstrates that blockchain consensus eliminates the two most critical single-points-of-failure ($P_{\mathrm{Sybil}}$ and $P_{\mathrm{Byz}}$ reduced from 1.0 to $\approx 10^{-10}$), disables replay attacks ($P_{\mathrm{Replay}} \approx 0$), and significantly reduces DoS/DDoS, MitM, and key compromise probabilities. 
 
-\emph{Bridging the Models:} The dominant residual blockchain attack vector is the sensor compromise $P_{\mathrm{Sensor}} = x^{2m} \approx 0.358$, reflecting that physical sensor tampering remains a challenge even with blockchain. Readers must note the distinction between the two evaluation models applied here: the four-component model is used for the static benchmark ($10^{170}$ improvement) because it isolates cyber-layer vulnerabilities. Conversely, the twelve-attack model is used to analyze comprehensive attack coverage, demonstrating that while blockchain eliminates cyber-layer failures (like Sybil and Key Compromise), physical-layer compromises (like localized sensor attacks) mathematically dominate the residual risk.
+\emph{Bridging the Models:} The dominant residual blockchain attack vector is the sensor compromise $P_{\mathrm{Sensor}} = x^{2m} \approx 0.358$, reflecting that physical sensor tampering remains a challenge even with blockchain. Readers must note the distinction between the two evaluation models applied here: the four-component model is used for the static benchmark ($10^{170}$ improvement under the Sheikh four-component probabilistic formulation) because it isolates cyber-layer vulnerabilities. Conversely, the twelve-attack model is used to analyze comprehensive attack coverage, demonstrating that while blockchain eliminates cyber-layer failures (like Sybil and Key Compromise), physical-layer compromises (like localized sensor attacks) mathematically dominate the residual risk.
 
 For the primary quantitative comparison, we use the Sheikh et al.\ four-component model (Section~\ref{sec:sheikh_comparison}), which yields:
 \begin{equation}
 \text{Static Security Gain} = \frac{P_{TA}}{P_{TAb}} \approx \frac{0.005}{4.91 \times 10^{-173}} \approx 10^{170}
 \end{equation}
-Deploying blockchain consensus reduces the modeled static attack probability by approximately \textbf{orders-of-magnitude security gain under the analytical cryptosystem model} under the Sheikh four-component probabilistic formulation. This confirms the central thesis of Sheikh et al.~\cite{sheikh2020}: blockchain fundamentally improves application security.
+Deploying blockchain consensus reduces the modeled static attack probability by approximately 170 orders of magnitude under the Sheikh four-component probabilistic formulation. This confirms the central thesis of Sheikh et al.~\cite{sheikh2020}: blockchain fundamentally improves application security.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\columnwidth]{fig_security_gain_clean.png}
-\caption{\textbf{Static Security Gain:} This visualization highlights the massive $\sim$170 order of magnitude security improvement introduced by BFT blockchain consensus. The extreme scale underscores that while centralized systems are vulnerable to single-point tampering, decentralized ledgers require computationally infeasible parallel compromises.}
+\caption{\textbf{Static Security Gain:} This visualization highlights the $\sim$170 order of magnitude static security improvement evaluated under the Sheikh four-component probabilistic formulation. The extreme scale underscores that while centralized systems are vulnerable to single-point tampering, decentralized ledgers require computationally infeasible parallel compromises under these baseline assumptions.}
 \label{fig:security_gain}
 \end{figure}
 
@@ -1112,8 +1093,9 @@ We acknowledge that the joint compromise probability $P_{\mathrm{Compromise}} = 
 % ═══════════════════════════════════════════════════════════════
 
 \section*{Part II: Consensus Evaluation}
-\section{Temporal Vulnerability}
+\section{Temporal Benchmarking and Security Efficacy Analysis}
 \label{sec:temporal_benchmarking}
+\label{sec:stsf}
 
 \emph{Having established that blockchain improves static security by $\sim$significant static security gain (Part~I), we now evaluate how the temporal exposure window of different consensus algorithms affects the realized security gains.}
 
